@@ -3,13 +3,13 @@
   "sourceRepository": "https://github.com/hypler-dev/rangoon",
   "baseCommit": "d23b2b73e7d0436325a03264144ac87c0056c10b",
   "status": "experimental-draft",
-  "note": "sourcePath/sourceSha256 identify exact files at the immutable Rangoon baseCommit. Destination Markdown includes the owner-directed VUSL editorial rename and extraction/link changes; it is not byte-identical to that source. Vector bytes are unchanged. Destination hashes identify this initial extraction snapshot, not a freeze on future editorial revisions.",
+  "note": "sourcePath/sourceSha256 identify exact files at the immutable Rangoon baseCommit. Destination Markdown includes the VUSL editorial rename and subsequent reviewed edits; it is not byte-identical to that source. Vector bytes are unchanged. Destination sha256 values identify the expected current file bytes. The original extraction manifest remains available at VUSL commit b55e01955e9c59cd6ab652afe9a54c43589b09b8.",
   "files": [
     {
       "sourcePath": "docs/rusl.md",
       "path": "README.md",
       "sourceSha256": "2ec505e5d9552530ab52b848082bd5d772aa68dbef6b049f191d2406d82d1093",
-      "sha256": "8a7bb7a7203f9c1c0a67e11e98a9d9381d868f3bae2c3f61d2b9f7f92af85420",
+      "sha256": "49b26326d9d50c4712c89501c8ee3cda849f8599fb992b08b8530e2fa63bb4db",
       "bytePreserved": false
     },
     {

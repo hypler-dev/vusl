@@ -1,5 +1,11 @@
 # Change history
 
+## Unreleased — Repository coordination
+
+- Add repository ownership, isolated worktree and cross-repository handoff rules.
+- Link contributor rules from the README; update its expected destination hash while preserving immutable extraction provenance.
+- No specification, profile, vector, parser or authority behavior changes.
+
 ## 2026-10-18 — Initial specification extraction
 
 - Establish VUSL as the current name for the experimental design previously called RUSL.

@@ -132,3 +132,7 @@ Consumers pin an immutable VUSL commit and vector hashes, replay their own confo
 See [governance](GOVERNANCE.md), [contributing](CONTRIBUTING.md), [security boundaries](SECURITY.md), [extraction provenance](PROVENANCE.md), and [change history](CHANGELOG.md). Run `python3 scripts/validate.py` to check the extracted artifact inventory, vector hashes and local document links. It does not execute the Rangoon parser or establish provider compatibility.
 
 Licensed under [Apache-2.0](LICENSE). No trademark rights, certification or standards-body endorsement are implied.
+
+## Repository coordination
+
+VUSL specifications, LNSAT engine behavior and Rangoon application work are maintained in their respective repositories. Follow the [repository ownership and parallel-work rules](AGENTS.md#repository-ownership-and-parallel-work) for isolated worktrees, version-pinned consumer updates and reviewed cross-repository handoffs. Each project retains its own validation and release gates.
