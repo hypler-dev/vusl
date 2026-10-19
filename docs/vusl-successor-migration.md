@@ -1,12 +1,21 @@
 # Proposed VUSL successor identity migration
 
-Status: migration preparation only, October 19, 2026. Jeff requested preparing a separately versioned VUSL successor after clarifying that VUSL is usable by other platforms. The [current work record](implementation-plan.md#repository-integrity-and-candidate-construction--october-19-2026) owns this preparation scope. These are proposed tokens and gates, not an accepted profile, parser implementation, alias, release or consumer dependency change.
+Status: migration preparation only, October 19, 2026. Jeff requested preparing a separately versioned VUSL successor after clarifying that VUSL is usable by other platforms. The [current work record](implementation-plan.md#post-merge-sync-naming-and-next-packet-review--october-19-2026) owns the present naming cleanup and next-packet review. These are proposed tokens and gates, not an accepted profile, parser implementation, alias, release or consumer dependency change.
 
 ## Outcome and unchanged legacy contract
 
 Give the next separately qualified observation profile platform-neutral identity while retaining exact legacy interpretation and provenance. VUSL is independently implementable; Rangoon is the first consumer and current parser home. Another platform does not need Rangoon application records or LNSAT to implement a VUSL profile.
 
 The original D0a profile, extraction manifest, three frozen vector files, 398-case candidate plan and their source hashes remain unchanged. Existing implementations continue to recognize only `rangoon.rusl.v0.1`, `rangoon.rusl.observe.v0.1` and the legacy translation token. The current checker constructs only that legacy candidate corpus. This plan adds no accepted spelling to either parser and makes no successor conformance claim.
+
+The [post-merge naming packet](implementation-plan.md#post-merge-sync-naming-and-next-packet-review--october-19-2026) starts removing RUSL from forward-facing material: the proposed adapter argument is now `native_or_vusl`, broad pre-profile JSON sketches are retired, and proposed new replay harness filenames use VUSL. The [next packet review](next-implementation-packet.md) keeps the actual legacy source baseline separate from later successor implementation.
+
+| Naming surface | Current treatment |
+| --- | --- |
+| New design labels and proposed new harness files | Use VUSL terminology now; this does not change which profile those tests exercise. |
+| Proposed successor wire identity | `vusl.v0.1`, `vusl.observe.v0.1`, `native_to_vusl`; unsupported until accepted and qualified. |
+| Existing `rangoon.rusl.*`, `native_to_rusl`, `RUSL-*` research IDs | Retain only where identifying the legacy contract, historical evidence or a migration source. |
+| Existing `rusl-d0a-*.json`, original source paths and manifest | Preserve exact names/bytes/hashes for legacy replay and extraction provenance. A successor gets separately identified files. |
 
 ## Proposed identity table
 

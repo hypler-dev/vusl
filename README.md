@@ -2,13 +2,13 @@
 
 # VUSL: protocol design and implementation guide
 
-**Public draft v0.1 · editorial revision October 18, 2026 · maintained by Hypler.**
+**Public draft v0.1 · editorial revision October 19, 2026 · maintained by Hypler.**
 
 VUSL is a provider-neutral semantic interoperability specification. It describes systems, capabilities and observations in a consistent vocabulary while retaining the meaning and provenance of each provider's native contract. Its first implemented subset is an experimental, offline JSON inspection library. Publishing this draft opens the design for review; it does not announce a stable network protocol, community standard or qualified live integration.
 
 The VUSL name does not add a wire alias. Existing `rangoon.rusl.*` identifiers remain the exact D0a tokens; a future `vusl` wire token would require a separately versioned migration and is unsupported today. MCP, A2A, OpenTelemetry and other native standards remain complementary. VUSL maps to them where a named adapter proves a bounded relationship; it does not replace their native contracts.
 
-The [successor migration plan](docs/vusl-successor-migration.md) proposes platform-neutral VUSL identity, explicit conversion and independent consumer rollout. Those proposed identifiers remain unsupported pending a separately accepted profile and conformance evidence; existing D0a bytes and identities stay intact.
+The [successor migration plan](docs/vusl-successor-migration.md) proposes platform-neutral VUSL identity, explicit conversion and independent consumer rollout. Forward-facing design labels now use VUSL, including `native_or_vusl`; older broad JSON sketches with legacy identifiers have been retired from the current architecture. Proposed `vusl.v0.1`, `vusl.observe.v0.1` and `native_to_vusl` remain unsupported pending a separately accepted profile and conformance evidence. Existing D0a bytes and identities stay intact.
 
 Interoperability is qualified per operation and direction. A mapping records versioned native references, exact field relationships and translation loss. If a critical constraint cannot be preserved or understood, the operation refuses instead of producing a broader or apparently successful result. Independently sourced evidence stays separate, including unknown and conflicting state. Observed deployment revision, effective configuration, authorization, and actual outcome are distinct facts; one cannot be inferred from another.
 
@@ -50,6 +50,7 @@ VUSL is not a second content database, an executable workflow language or a repl
 | [D0a coverage inventory](docs/d0a-conformance-coverage.md) | Existing test cases, field and boundary gaps, and required evidence for the standalone core contract |
 | [Origin/reference test-case specification](docs/d0a-origin-reference-test-cases.md) | Candidate supplemental case recipes, exact input identities and parser-verification ownership |
 | [Implementation roadmap](docs/implementation-plan.md) | Selected VUSL core ownership, safe parser extraction plan and later Rangoon module sequence; SDK and CLI deferred |
+| [Next implementation packet review](docs/next-implementation-packet.md) | Rangoon E0/E1 readiness, proposed replay-harness scope and VUSL successor naming boundaries |
 | [Offline core design assessment](docs/offline-core-design-assessment.md) | Pinned parser evidence, design risks and minimal standalone library boundaries |
 | [Capability audit](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/docs/universal-systems-audit.md) | Native support, translation, proxy, observation-only, unsupported and unassessed targets |
 | [OpenShell connector](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/docs/openshell-observation-connector.md) / [LNSAT connector](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/docs/lnsat-evidence-connector.md) | Independent provider-specific semantics and qualification boundaries |
@@ -145,4 +146,4 @@ Licensed under [Apache-2.0](LICENSE). No trademark rights, certification or stan
 
 ## Repository coordination
 
-Follow the [repository ownership and parallel-work rules](AGENTS.md#repository-ownership-and-parallel-work) for isolated worktrees, immutable consumer pins and owner handoffs. VUSL owns the selected standalone core; each consumer owns its application and adapters. The [Rangoon](docs/handoffs/rangoon-core-baseline.md) and [LNSAT](docs/handoffs/lnsat-evidence-status.md) handoffs are prepared owner-review packets. The [PR #1 reconciliation](PROVENANCE.md) keeps the original extraction manifest unchanged. The [publication continuation](docs/implementation-plan.md#pr-1-publication-continuation--october-19-2026) records the separately authorized branch update; merge, deployment and release remain closed.
+Follow the [repository ownership and parallel-work rules](AGENTS.md#repository-ownership-and-parallel-work) for isolated worktrees, immutable consumer pins and owner handoffs. VUSL owns the selected standalone core; each consumer owns its application and adapters. The [Rangoon](docs/handoffs/rangoon-core-baseline.md) and [LNSAT](docs/handoffs/lnsat-evidence-status.md) handoffs are prepared owner-review packets. The [PR #1 reconciliation](PROVENANCE.md) merged at `9de40cc466bfb503816109cad1ef6c3f24409ea9` with the original extraction manifest unchanged. The [post-merge record](docs/implementation-plan.md#post-merge-sync-naming-and-next-packet-review--october-19-2026) owns local sync, naming cleanup and next-packet review; deployment and release remain closed.
