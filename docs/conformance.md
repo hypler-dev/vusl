@@ -33,6 +33,23 @@ The [Python reference](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d043
 
 For the closed no-number subset, D1 and the reference implement the pinned canonical-byte rules derived from [RFC 8785](https://www.rfc-editor.org/info/rfc8785/). They are not general-purpose JCS implementations. The broader action/context commitment design remains a separate unimplemented profile.
 
+## Validate this specification repository
+
+Run these offline checks from the VUSL repository root:
+
+```sh
+python3 -B scripts/validate.py
+python3 -B scripts/test_validate.py
+python3 -B scripts/test_case_plan.py
+git diff --check
+```
+
+The validator verifies the unchanged extraction manifest and seven destination hashes against the local VUSL extraction commit `b55e01955e9c59cd6ab652afe9a54c43589b09b8`, with Git replacement objects disabled. It checks the three current vector files against their preserved hashes, current inventory paths, local Markdown links and anchors, Markdown whitespace, and PNG identity. It also validates the [candidate origin/reference plan](d0a-origin-reference-test-cases.md#reproduce-construction-checks), including its fixed input identities, metadata, mutation grammar, family/outcome inventory and all 398 input constructions. Editorial Markdown may change without overwriting extraction hashes; the candidate's pinned normative input must still match its own hash. The focused regression tests exercise these boundaries in isolated fixtures; they do not change this working tree.
+
+Candidate construction is a separate evidence class from parser replay. A pass verifies 398 stated input lengths/hashes with 69 expected accepts and 329 expected refusals; it does not establish that either implementation produces those semantic outcomes. The [current work record](implementation-plan.md#repository-integrity-and-candidate-construction--october-19-2026) records the manifest reconciliation and prepared owner handoffs. The historical conformance-guide input hash in the coverage inventory identifies an earlier snapshot; it is not a current-file hash.
+
+Git and the pinned extraction commit must be available locally. Missing history is a failed check, not permission to skip provenance verification. Git transport access is disabled so a partial clone cannot retrieve missing objects from a remote. These checks do not verify the upstream Rangoon source hashes, execute its parser, establish semantic equivalence of editorial changes, or accept a stable profile. The [extraction provenance](../PROVENANCE.md) explains the historical and current identities. Consumers still pin their reviewed VUSL revision and relevant file hashes separately.
+
 ## Reproduce existing evidence
 
 The parser remains in Rangoon. From a Rangoon checkout pinned to `d23b2b73e7d0436325a03264144ac87c0056c10b`, with its declared Rust toolchain and cached locked dependencies:

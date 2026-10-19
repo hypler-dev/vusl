@@ -32,13 +32,41 @@ UTF-8 JSON object, exactly nine required top-level keys: `languageVersion`, `kin
 | --- | --- |
 | `id` | Rangoon-local record token, 1–128 ASCII bytes from `[A-Za-z0-9_.:-]`; meaningful only inside its host-owned snapshot namespace. It is not a provider ID or cross-document join key. |
 | `createdAt` | UTC timestamp with exact `YYYY-MM-DDTHH:mm:ss.SSSZ` spelling, Gregorian years `0001`–`9999`, valid month/day (including leap years), hour `00`–`23`, minute/second `00`–`59`; leap seconds and offsets are unsupported. Preserve the supplied spelling; do not infer causal order or freshness from it. `origin.observedAt` and `origin.receivedAt` use the same grammar, with no required ordering between them. |
-| `origin` | Closed object with exactly `systemId`, `environmentId`, `engineId`, `product`, `productVersion`, `protocol`, `protocolVersion`, `adapterId`, `adapterVersion`, `adapterDigest`, `sourceRef`, `observedAt`, `receivedAt`, `authenticity`, `qualificationRef`. `product` and `protocol` are nonempty bounded display strings. `authenticity` is `unverified`; `qualificationRef` is null. A research descriptor sets every other field null. An observation requires non-null scope/product version/protocol version/adapter identity and version, lowercase 64-hex `adapterDigest`, sourceRef, observedAt and receivedAt. Times follow `createdAt` format. No field may be provider-supplied executable content. |
+| `origin` | Closed object with 15 required keys. See [Origin field types](#origin-field-types) for exact per-kind JSON types, nullability and bounds. No field may be provider-supplied executable content. |
 | `sourceRef` and `operationRef` | Closed object with exactly `{systemId, environmentId, engineId, contractVersion, nativeId}`; all five non-null opaque tokens. The first three components of `origin.sourceRef` must equal `origin.systemId`, `origin.environmentId`, `origin.engineId` byte-for-byte. An observation's `operationRef` must match its `origin.sourceRef` in **all four scope/version components**; `nativeId` may differ. This is only a same-source reported association, not a verified relationship. Any cross-system edge belongs to a later closed relation profile with separately qualified endpoints, basis and evidence. Map existing O1 `ExternalRef.externalId` to `nativeId` only with matching O1 `FlowContext` system/environment/engine; never replace O1's stored reference. |
 | `native` | Closed object with exactly `{state, mediaType, byteLength, sha256, hostRef, redaction, retention, availableForRoundTrip}`. D0a requires `state="omitted"`, all media/length/digest/ref fields null, `redaction="omitted"`, `retention="none"`, and `availableForRoundTrip=false`. Raw payload, filesystem path, URL, credential and secret value are forbidden. `host_ref` and native round-trip are later profiles, not alternative D0a states. |
 | `extensions` | Exactly the empty array. Typed critical/optional extensions belong to later negotiated profiles; D0a rejects all nonempty extension arrays rather than guessing retention or meaning. |
 | `translation` | Closed object with exactly `{profileId, direction, status, authority, fieldMap, loss, prerequisites}`. `profileId` is `rangoon.rusl.observe.v0.1`; `direction` is `native_to_rusl`; `authority` is `none`; `fieldMap` is exactly empty. Descriptor `status` is `unassessed`; observation `status` is `observation_only`. Nonempty `loss` makes incompleteness visible without inventing a new support label. `loss` and `prerequisites` each contain 0–16 sorted, unique, nonempty local reason tokens (1–128 ASCII bytes from `[A-Za-z0-9_.:-]`), never provider text or input excerpts. |
 
 Opaque tokens above are 1–128 ASCII bytes from `[A-Za-z0-9_.:-]`; descriptive text is 1–4,096 UTF-8 bytes of Unicode scalar values, excluding C0/C1 controls (`U+0000`–`U+001F`, `U+007F`–`U+009F`). Count UTF-8 bytes after JSON escape decoding. Preserve each scalar sequence exactly; do not apply NFC/NFKC, case folding, whitespace trimming or replacement characters. Display code escapes text and isolates bidirectional text; neither display transformation nor Unicode similarity creates an identity match. External `nativeId` is preserved byte-for-byte only if it fits this profile. Otherwise reject D0a projection; any separately consented host retention stays outside VUSL and cannot be represented by D0a `native.hostRef`. Do not normalize case, path, Unicode, or provider IDs to make a join succeed.
+
+### Origin field types
+
+All 15 `origin` keys are required. `null` means literal JSON null; it never means omitted, the string `"null"`, or a default. The matrix gives the only accepted JSON type and nullability for each kind.
+
+| `origin` key | `capability_descriptor` | `observation` |
+| --- | --- | --- |
+| `systemId` | Literal JSON null. | Required JSON string opaque token. |
+| `environmentId` | Literal JSON null. | Required JSON string opaque token. |
+| `engineId` | Literal JSON null. | Required JSON string opaque token. |
+| `product` | Required JSON string display value. | Required JSON string display value. |
+| `productVersion` | Literal JSON null. | Required JSON string opaque token. |
+| `protocol` | Required JSON string display value. | Required JSON string display value. |
+| `protocolVersion` | Literal JSON null. | Required JSON string opaque token. |
+| `adapterId` | Literal JSON null. | Required JSON string opaque token. |
+| `adapterVersion` | Literal JSON null. | Required JSON string opaque token. |
+| `adapterDigest` | Literal JSON null. | Required JSON string of exactly 64 lowercase hexadecimal characters. |
+| `sourceRef` | Literal JSON null. | Required closed five-token object per existing `sourceRef` rules; its `systemId`, `environmentId` and `engineId` match `origin` byte-for-byte. |
+| `observedAt` | Literal JSON null. | Required JSON timestamp string using the exact `createdAt` millisecond UTC grammar. |
+| `receivedAt` | Literal JSON null. | Required JSON timestamp string using the exact `createdAt` millisecond UTC grammar. |
+| `authenticity` | Exact JSON string `unverified`. | Exact JSON string `unverified`. |
+| `qualificationRef` | Literal JSON null. | Literal JSON null. |
+
+Opaque-token strings decode to 1–128 ASCII bytes from `[A-Za-z0-9_.:-]`. Display strings decode to 1–4,096 UTF-8 bytes containing Unicode scalar values except `U+0000`–`U+001F` and `U+007F`–`U+009F`; count bytes after JSON escape decoding. Product and protocol display values may contain Unicode. Versions are opaque exact pins: do not parse or order them as SemVer, normalize Unicode or case, trim whitespace, or rewrite values to fit. No other JSON type, default, coercion, or omission is accepted.
+
+Illustrative scalar values only: opaque token `fixture.v1` and `1.2.3-rc.1` fit; empty string, `1.2.3+build`, `path/name`, non-ASCII text, and a 129-ASCII-byte value do not. These examples are not canonical vectors.
+
+This is an editorial clarification of the pinned existing offline rules, with no new acceptance, SDK, or profile behavior. The rules are supported by the pinned [Rangoon Rust `validate_origin`](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/crates/rangoon-language/src/lib.rs#L140-L217) and [Python `validate_origin`](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/crates/rangoon-language/tests/reference_d0a.py#L469-L505); token helpers are also visible in [Rust](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/crates/rangoon-language/src/lib.rs#L469-L494) and [Python](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/crates/rangoon-language/tests/reference_d0a.py#L428-L467). This packet does not establish current runtime conformance. Parser and boundary-test work belongs to the Rangoon owning chat.
 
 ### Closed semantic variants
 
