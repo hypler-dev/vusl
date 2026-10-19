@@ -1,0 +1,58 @@
+{
+  "schema": "vusl.extraction-manifest.v1",
+  "sourceRepository": "https://github.com/hypler-dev/rangoon",
+  "baseCommit": "d23b2b73e7d0436325a03264144ac87c0056c10b",
+  "status": "experimental-draft",
+  "note": "sourcePath/sourceSha256 identify exact files at the immutable Rangoon baseCommit. Destination Markdown includes the owner-directed VUSL editorial rename and extraction/link changes; it is not byte-identical to that source. Vector bytes are unchanged. Destination hashes identify this initial extraction snapshot, not a freeze on future editorial revisions.",
+  "files": [
+    {
+      "sourcePath": "docs/rusl.md",
+      "path": "README.md",
+      "sourceSha256": "2ec505e5d9552530ab52b848082bd5d772aa68dbef6b049f191d2406d82d1093",
+      "sha256": "8a7bb7a7203f9c1c0a67e11e98a9d9381d868f3bae2c3f61d2b9f7f92af85420",
+      "bytePreserved": false
+    },
+    {
+      "sourcePath": "docs/rusl-conformance.md",
+      "path": "docs/conformance.md",
+      "sourceSha256": "96e17182a22afed32f0f19c3f1fe60918e393390f5f662305abc881b9e7bed08",
+      "sha256": "d6c390d4a4580e812b92dc6f2e5213f5c2f5074ee36c4756fe0203534c870e85",
+      "bytePreserved": false
+    },
+    {
+      "sourcePath": "docs/universal-systems-language.md",
+      "path": "docs/architecture.md",
+      "sourceSha256": "efc798ff005399fe386d8dcd7b502da21bc01ce2ac8b677a53a1d375f0c06549",
+      "sha256": "0dc04accf8e4e8e431b128a7221c270b0a6c37825005ea188b3d8c8ddec79933",
+      "bytePreserved": false
+    },
+    {
+      "sourcePath": "docs/universal-systems-observation-profile.md",
+      "path": "docs/observation-profile.md",
+      "sourceSha256": "bd1c2000e997eea668d8331c961d8c8c211dc9c00cd96e0d9c0a0d1ecf9e6613",
+      "sha256": "7c958bfa7b7322ecd4eb0b1acc31d4f868fcf2da0bcaa0e47c87282a149cc123",
+      "bytePreserved": false
+    },
+    {
+      "sourcePath": "docs/rusl-d0a-canonical-vectors.json",
+      "path": "conformance/rusl-d0a-canonical-vectors.json",
+      "sourceSha256": "06368f59db6f69758be16fd1f0aebaeb0d300cf1d2869a03b420e973160d124e",
+      "sha256": "06368f59db6f69758be16fd1f0aebaeb0d300cf1d2869a03b420e973160d124e",
+      "bytePreserved": true
+    },
+    {
+      "sourcePath": "docs/rusl-d0a-negative-vectors.json",
+      "path": "conformance/rusl-d0a-negative-vectors.json",
+      "sourceSha256": "aa668067b1786a61fe10aee67d4982c64b2647e3153eba6aa50a02e5da229491",
+      "sha256": "aa668067b1786a61fe10aee67d4982c64b2647e3153eba6aa50a02e5da229491",
+      "bytePreserved": true
+    },
+    {
+      "sourcePath": "docs/rusl-d0a-host-mapping-vectors.json",
+      "path": "conformance/rusl-d0a-host-mapping-vectors.json",
+      "sourceSha256": "5ce7aad827165c5d062bd6b0ce45b28b3e8455b0aa9ed2691ceec6526cd6ca9f",
+      "sha256": "5ce7aad827165c5d062bd6b0ce45b28b3e8455b0aa9ed2691ceec6526cd6ca9f",
+      "bytePreserved": true
+    }
+  ]
+}
