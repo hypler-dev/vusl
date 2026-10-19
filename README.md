@@ -8,16 +8,20 @@ VUSL is a provider-neutral semantic interoperability specification. It describes
 
 The VUSL name does not add a wire alias. Existing `rangoon.rusl.*` identifiers remain the exact D0a tokens; a future `vusl` wire token would require a separately versioned migration and is unsupported today. MCP, A2A, OpenTelemetry and other native standards remain complementary. VUSL maps to them where a named adapter proves a bounded relationship; it does not replace their native contracts.
 
+The [successor migration plan](docs/vusl-successor-migration.md) proposes platform-neutral VUSL identity, explicit conversion and independent consumer rollout. Those proposed identifiers remain unsupported pending a separately accepted profile and conformance evidence; existing D0a bytes and identities stay intact.
+
 Interoperability is qualified per operation and direction. A mapping records versioned native references, exact field relationships and translation loss. If a critical constraint cannot be preserved or understood, the operation refuses instead of producing a broader or apparently successful result. Independently sourced evidence stays separate, including unknown and conflicting state. Observed deployment revision, effective configuration, authorization, and actual outcome are distinct facts; one cannot be inferred from another.
 
 Future qualified profiles may retain native bytes with provenance under separately reviewed storage and privacy controls. Current D0a omits native bytes and cannot claim lossless translation. The experimental offline parser and vectors remain unchanged by this name update.
 
 ## Architecture
 
-Rangoon owns capability authoring, source lineage, decomposition, composition, revisions, instruction compilation, export and inspection. These local workflows work without LNSAT, OpenShell or another provider. Each external system retains its native identity, authorization, enforcement and operational responsibilities.
+VUSL can be implemented by other platforms without installing Rangoon, LNSAT or a hosted VUSL service. Each consumer qualifies the profiles and adapters it uses. The planned standalone core library has no dependency on Rangoon application crates or LNSAT; Rangoon is its first named consumer. Today, the experimental parser remains in Rangoon and the standalone library has not been extracted. Legacy `rangoon.rusl.*` profile identifiers select that experimental format; they do not require a Rangoon runtime.
+
+A consuming workbench owns its capability authoring, source lineage, decomposition, composition, revisions, compilation, export and inspection. Rangoon provides the initial implementation of those application workflows. Each external system retains its native identity, authorization, enforcement and operational responsibilities.
 
 ```text
-Rangoon workbench / future authenticated management service
+Consumer workbench / optional authenticated management service
                   |
        existing application/domain contracts
                   |
@@ -32,7 +36,7 @@ Separate execution path:
 workload -> selected native enforcement boundary -> target resource
 ```
 
-Rangoon adapts to an engine. An engine does not need to implement VUSL or depend on another engine. An optional future provider-side VUSL exporter could simplify readback, but native validation and authorization still belong to that provider. Sharing a diagram or a trace identifier does not establish an authorization relationship between engines.
+A consumer adapts to an engine. An engine does not need to implement VUSL or depend on another engine. An optional future provider-side VUSL exporter could simplify readback, but native validation and authorization still belong to that provider. Sharing a diagram or a trace identifier does not establish an authorization relationship between engines.
 
 VUSL is not a second content database, an executable workflow language or a replacement for existing I1/A1/W1/O1 contracts. The [architecture specification](docs/architecture.md) defines the broader semantic design; the [D0a profile](docs/observation-profile.md) defines the exact first document subset. Where conceptual examples differ from D0a, the closed D0a rules govern D1 inspection. A discrepancy between the specification and an implementation is a conformance defect to resolve, not permission to silently accept whichever interpretation is convenient.
 
@@ -43,6 +47,10 @@ VUSL is not a second content database, an executable workflow language or a repl
 | [Language architecture](docs/architecture.md) | Semantic families, native provenance, stage separation, future extensions and negotiation |
 | [D0a observation profile](docs/observation-profile.md) | Exact JSON shape, nullability, types, bounds and refusal behavior for the offline subset |
 | [Conformance and evolution](docs/conformance.md) | Reproducible checks, implementation limits, compatibility claims and change process |
+| [D0a coverage inventory](docs/d0a-conformance-coverage.md) | Existing test cases, field and boundary gaps, and required evidence for the standalone core contract |
+| [Origin/reference test-case specification](docs/d0a-origin-reference-test-cases.md) | Candidate supplemental case recipes, exact input identities and parser-verification ownership |
+| [Implementation roadmap](docs/implementation-plan.md) | Selected VUSL core ownership, safe parser extraction plan and later Rangoon module sequence; SDK and CLI deferred |
+| [Offline core design assessment](docs/offline-core-design-assessment.md) | Pinned parser evidence, design risks and minimal standalone library boundaries |
 | [Capability audit](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/docs/universal-systems-audit.md) | Native support, translation, proxy, observation-only, unsupported and unassessed targets |
 | [OpenShell connector](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/docs/openshell-observation-connector.md) / [LNSAT connector](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/docs/lnsat-evidence-connector.md) | Independent provider-specific semantics and qualification boundaries |
 
@@ -96,7 +104,7 @@ Native protocol negotiation remains independent. Selecting a common VUSL profile
 
 VUSL does not currently define an HTTP endpoint, WebSocket service, broker topic, media-type registration or network handshake. Existing adapters use their native transport contracts. Any future VUSL transport binding must specify authentication, tenant isolation, framing, maximum message/batch size, cancellation, deadlines, duplicate handling, ordering scope, cursor recovery and redaction before it is supported.
 
-Keep the desktop out of mandatory high-volume execution paths. Workloads and enforcement engines run near their resources; Rangoon observes and manages through separately qualified interfaces. A future shared service can reuse application contracts without copying authorization semantics into a second engine.
+Keep the desktop out of mandatory high-volume execution paths. Workloads and enforcement engines run near their resources; consumers observe and manage through separately qualified interfaces. A future shared service can reuse application contracts without copying authorization semantics into a second engine.
 
 The 128 KiB D0a limit bounds one minimized report, not a company's event volume. Scaling requires bounded queues, backpressure, explicit overflow/gap records, source-scoped partitions, cursor retention and measured capacity. No global event order or exactly-once effect may be inferred from delivery. Large media stays outside the observation envelope under separately qualified storage controls. Do not truncate an oversized report into a misleading success. Millions of requests, distributed collectors and load balancing remain design targets pending service implementation and benchmarks.
 
@@ -125,14 +133,16 @@ Contributions should identify a native contract, a user workflow and an explicit
 
 ## Repository ownership
 
-This repository owns the VUSL specification, compatibility rules and canonical conformance vectors. [Rangoon](https://github.com/hypler-dev/rangoon) owns its workbench, offline parser and provider adapters. [LNSAT](https://github.com/hypler-dev/LNSAT) remains an independent authorization-and-evidence engine. Neither engine installation nor a runtime dependency on this repository is required for Rangoon's local workflows.
+This repository owns the platform-neutral VUSL specification, compatibility rules and canonical conformance vectors. The selected target is a VUSL-owned standalone core library consumed by [Rangoon](https://github.com/hypler-dev/rangoon); SDK and CLI work are deferred. The existing Rust D0a parser and Python test oracle physically remain in Rangoon until the [safe extraction plan](docs/implementation-plan.md#safe-d0a-parser-extraction) is qualified. No parser implementation has moved; the current repository-integrity packet adds candidate-construction validation only. Rangoon continues to own its workbench, application records and provider adapters.
+
+[LNSAT](https://github.com/hypler-dev/LNSAT) remains an independent authorization-and-evidence engine. The planned dependency is Rangoon to VUSL core, with no core dependency on Rangoon application crates or LNSAT and no LNSAT dependency on VUSL. Local workflows remain offline and require no provider installation or hosted VUSL service.
 
 Consumers pin an immutable VUSL commit and vector hashes, replay their own conformance tests, and review changes before updating. Rangoon retains pinned fixture copies for offline testing; those copies do not become a second normative specification. Existing `rangoon.rusl.*` identifiers remain unchanged. No `vusl` wire alias is accepted by the current parser.
 
-See [governance](GOVERNANCE.md), [contributing](CONTRIBUTING.md), [security boundaries](SECURITY.md), [extraction provenance](PROVENANCE.md), and [change history](CHANGELOG.md). Run `python3 scripts/validate.py` to check the extracted artifact inventory, vector hashes and local document links. It does not execute the Rangoon parser or establish provider compatibility.
+See [governance](GOVERNANCE.md), [contributing](CONTRIBUTING.md), [security boundaries](SECURITY.md), [extraction provenance](PROVENANCE.md), and [change history](CHANGELOG.md). Run `python3 -B scripts/validate.py` to check extraction provenance, preserved vectors, local document links and all 398 candidate input constructions. Run `python3 -B scripts/test_validate.py` and `python3 -B scripts/test_case_plan.py` for regression checks. These checks do not execute a D0a parser or establish provider compatibility. The [current work record](docs/implementation-plan.md#repository-integrity-and-candidate-construction--october-19-2026) records scope, review and owner handoffs.
 
 Licensed under [Apache-2.0](LICENSE). No trademark rights, certification or standards-body endorsement are implied.
 
 ## Repository coordination
 
-VUSL specifications, LNSAT engine behavior and Rangoon application work are maintained in their respective repositories. Follow the [repository ownership and parallel-work rules](AGENTS.md#repository-ownership-and-parallel-work) for isolated worktrees, version-pinned consumer updates and reviewed cross-repository handoffs. Each project retains its own validation and release gates.
+Follow the [repository ownership and parallel-work rules](AGENTS.md#repository-ownership-and-parallel-work) for isolated worktrees, immutable consumer pins and owner handoffs. VUSL owns the selected standalone core; each consumer owns its application and adapters. The [Rangoon](docs/handoffs/rangoon-core-baseline.md) and [LNSAT](docs/handoffs/lnsat-evidence-status.md) handoffs are prepared owner-review packets. The [PR #1 reconciliation](PROVENANCE.md) keeps the original extraction manifest unchanged. The [publication continuation](docs/implementation-plan.md#pr-1-publication-continuation--october-19-2026) records the separately authorized branch update; merge, deployment and release remain closed.

@@ -19,6 +19,8 @@ Independent review is required for meaningful schema, vector, compatibility, sec
 
 Future standalone profiles may define their own acceptance rules. A proposed profile remains experimental until its exact scope, implementation evidence, and acceptance state are recorded. Listing a native standard or provider does not claim an adapter or interoperability.
 
+VUSL is independently implementable by other platforms. Rangoon is the first named consumer and current parser home, not a required runtime. Each consumer qualifies its own profile/API use and adapters. Contributor coordination follows [AGENTS.md](AGENTS.md#repository-ownership-and-parallel-work). The extraction manifest remains an immutable historical record; editorial changes use their own commit/evidence identities as described in [provenance](PROVENANCE.md).
+
 ## Ownership and status
 
-Hypler maintains this draft and owns repository decisions. Rangoon remains the implementation and product repository for the current parser and related local work. This separation does not change native provider authority or imply that VUSL replaces native contracts.
+Hypler maintains this draft and owns repository decisions. Jeff selected a VUSL-owned standalone core library consumed by Rangoon; SDK and CLI work are deferred. The [implementation roadmap](docs/implementation-plan.md#safe-d0a-parser-extraction) owns the extraction sequence and required evidence. The current parser and Python oracle physically remain in Rangoon; selecting the target does not claim that migration or consumer cutover has occurred. Rangoon retains its product, application records and provider adapters. LNSAT remains an independent native engine. This separation does not change provider authority or imply that VUSL replaces native contracts.
