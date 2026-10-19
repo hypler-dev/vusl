@@ -51,7 +51,7 @@ One adapter package targets one pinned product/protocol profile and declares exa
 | --- | --- |
 | `describe_profile()` | Return static product/protocol/adapter identity, supported semantic families/extensions and qualified operation matrix; never probe or infer an installed engine. |
 | `validate_configuration(input)` | Validate bounded local shape and show planned egress/secret scopes. No apply, install or activation. |
-| `preview_translation(native_or_rusl)` | Return bounded semantic projection, field-level loss, required extensions and native provenance. No mutation. |
+| `preview_translation(native_or_vusl)` | Return bounded semantic projection, field-level loss, required extensions and native provenance. No mutation. |
 | `check_connection(consent)` | Optional explicit bounded endpoint/identity check with a single named credential reference; returns state, not authorization. |
 | `read_evidence(exact_ref, consent)` | Optional read of one exact provider object; preserve native bytes/ID and authenticated transport evidence. No list-all or ambient discovery default. |
 | `plan_consequence(exact_operation)` | Future separately accepted path only: expose prerequisites and coverage gaps; it never dispatches. Any actual submit/consume/execute port stays provider-specific and independently qualified. |
@@ -86,7 +86,7 @@ API descriptions remain descriptions; OpenAPI authentication schemes are not pro
 
 ### Extensions and version negotiation
 
-Core identifiers are explicit strings, e.g. `rangoon.rusl.v0.1`; extension identifiers are immutable URIs or namespaced tokens plus exact schema version and content digest. An extension declares `critical` or `optional`, data class, semantic owner, encoder/decoder, and whether it affects authorization, identity, effect, ordering or privacy. Critical extensions must be recognized, validated and preserved byte-for-byte or semantically round-tripped under a documented canonicalization profile; otherwise refuse the operation. Unknown optional extensions remain opaque, source-linked and non-authoritative, with a visible loss/retention report. No unregistered extension may become a top-level grant or override a core field.
+Core identifiers are explicit strings. The [successor naming proposal](vusl-successor-migration.md) uses `vusl.v0.1` and `vusl.observe.v0.1`; these remain unsupported until their separately accepted contract and conformance evidence exist. The [legacy D0a profile](observation-profile.md) retains its exact historical identifiers. Extension identifiers are immutable URIs or namespaced tokens plus exact schema version and content digest. An extension declares `critical` or `optional`, data class, semantic owner, encoder/decoder, and whether it affects authorization, identity, effect, ordering or privacy. Critical extensions must be recognized, validated and preserved byte-for-byte or semantically round-tripped under a documented canonicalization profile; otherwise refuse the operation. Unknown optional extensions remain opaque, source-linked and non-authoritative, with a visible loss/retention report. No unregistered extension may become a top-level grant or override a core field.
 
 Negotiation is explicit: compare advertised language versions, required semantic families/extensions, adapter and provider protocol/product pins, then record one selected exact version/profile and schema digest. An overlapping numeric range or a product `latest` tag alone is insufficient. Major/core incompatibility rejects. Minor/additive changes can be accepted only if all critical fields and extension semantics are recognized or safely opaque for observation; a patch does not silently change semantics. Provider protocol negotiation happens independently using its own rules, such as A2A Agent Interfaces or MCP protocol versions. Cached descriptors are invalidated on product, adapter, protocol, policy, identity, configuration, or profile-digest drift. There is no silent downgrade to an older, broader, or less restrictive profile.
 
@@ -107,35 +107,16 @@ Negotiation is explicit: compare advertised language versions, required semantic
 
 ### Inert examples
 
-The examples below are older conceptual sketches for the **full future model**, not D0a-shaped documents, executable manifests, compatible adapter fixtures, or provider responses. The [D0a profile](observation-profile.md#inert-examples) has nine-key observational examples. IDs here are local example values, timestamps are illustrative, and no digest or authorization material is supplied.
+Forward-facing architecture uses VUSL terminology. Full future-model examples do not yet have a qualified wire profile. The earlier JSON sketches mixed broader conceptual fields with legacy observation identifiers and have been retired from this current design view. Exact, executable legacy examples remain in the [closed D0a profile](observation-profile.md#inert-examples) and its preserved conformance files. Historical source bytes remain available through the extraction commit.
 
-```json
-{
-  "languageVersion": "rangoon.rusl.v0.1",
-  "kind": "capability_descriptor",
-  "id": "example:openshell-network-observation",
-  "createdAt": "2026-10-16T00:00:00Z",
-  "origin": {"systemId": null, "product": "OpenShell", "productVersion": null, "protocol": "native", "protocolVersion": null, "adapterId": null, "adapterVersion": null, "adapterDigest": null, "sourceRef": null, "observedAt": null, "receivedAt": null, "authenticity": "unverified", "qualificationRef": null},
-  "native": {"retained": false, "mediaType": null, "length": null, "digestAlgorithm": null, "digest": null, "redaction": "omitted", "retention": "none", "availableForRoundTrip": false},
-  "semantic": {"family": "os_sandbox", "operation": "network_egress", "scope": "selected sandbox only"},
-  "translation": {"direction": "native_to_rusl", "status": "observation_only", "fieldMap": [], "loss": ["no authenticated gateway read", "direct paths unassessed"], "prerequisites": ["version pin", "native read adapter"]},
-  "extensions": []
-}
-```
+These conceptual views describe requirements only; they are not serialized successor documents, fixtures or provider responses:
 
-```json
-{
-  "languageVersion": "rangoon.rusl.v0.1",
-  "kind": "observation",
-  "id": "example:provider-policy-report",
-  "createdAt": "2026-10-16T00:00:00Z",
-  "origin": {"systemId": "fixture:system", "product": "synthetic-policy-engine", "productVersion": "fixture", "protocol": "fixture", "protocolVersion": "1", "adapterId": "fixture:adapter", "adapterVersion": "1", "adapterDigest": null, "sourceRef": {"systemId": "fixture:system", "contractVersion": "fixture.v1", "nativeId": "7"}, "observedAt": null, "receivedAt": null, "authenticity": "unverified", "qualificationRef": null},
-  "semantic": {"family": "policy", "stage": "provider_policy_evaluation", "reportedDecision": "allow", "operationRef": {"systemId": "fixture:system", "contractVersion": "fixture.v1", "nativeId": "request-7"}},
-  "native": {"retained": false, "mediaType": null, "length": null, "digestAlgorithm": null, "digest": null, "redaction": "omitted", "retention": "none", "availableForRoundTrip": false},
-  "translation": {"direction": "native_to_rusl", "status": "observation_only", "fieldMap": ["reportedDecision"], "loss": ["no verified approval", "no authorization", "no execution outcome"], "prerequisites": ["provider identity", "signed decision evidence"]},
-  "extensions": []
-}
-```
+| Conceptual view | Information to preserve | Interpretation limit |
+| --- | --- | --- |
+| Target capability | Exact authored revision, target/version, exported bytes and per-field constraints/loss | Export does not establish installation or effective load. |
+| Policy observation | Source-qualified native policy revision, reported decision and adapter identity | A reported allow is not approval, authorization or permission. |
+| Runtime observation | Source identity, reported state, ordering/gaps and independently supplied relation evidence | A completed report does not establish an external effect. |
+| VUSL successor migration | Exact source/destination profile pins, changed identity fields, original bytes and qualified conversion receipt | Proposed `vusl.*` names do not become aliases for legacy D0a. |
 
 A hypothetical `urn:example:vusl:extension:vector-search:1` with `critical=true` and a pinned schema digest would fail negotiation if the receiving adapter cannot preserve its index, metric, dimension, namespace and query filter semantics. Marking it optional could permit **display only** of the opaque native record; it could not silently turn a filtered vector query into an unrestricted search.
 
@@ -175,7 +156,7 @@ The first implementation is the experimental offline D1 library and conformance 
 | Security | Fuzz/property bounds, untrusted URI/Markdown handling, no hidden egress/credential use, direct-path coverage tests for any managed proxy |
 | Review | Fresh independent architecture/security review of exact spec and fixtures before source implementation; provider-specific review before live adapter |
 
-Proposed **staged** conformance vectors (IDs define expected behavior, not tests executed here). D1 implements only the accepted D0a observational subset. Consequential, protocol-specific and target-loader vectors require their own later profile and packet; their presence here does not expand D1:
+Proposed **staged** conformance vectors (historical `RUSL-*` research IDs remain stable for traceability; they define expected behavior, not tests executed here). D1 implements only the accepted D0a observational subset. Consequential, protocol-specific and target-loader vectors require their own later profile and packet; their presence here does not expand D1:
 
 | ID | Input mutation or condition | Expected result |
 | --- | --- | --- |

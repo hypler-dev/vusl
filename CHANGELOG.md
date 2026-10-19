@@ -1,5 +1,10 @@
 # Change history
 
+## Unreleased — Post-merge naming and packet review
+
+- Start replacing forward-facing RUSL labels with VUSL and retire broad legacy-identified JSON sketches from the current architecture; preserve frozen protocol and evidence identities.
+- Pin the Rangoon E0/E1 handoff to merged VUSL main and review the proposed replay-harness and standalone-core intake sequence.
+
 ## Unreleased — Repository integrity and candidate construction
 
 - Reconcile repository-coordination guidance with an immutable extraction manifest; later editorial changes do not rewrite extraction hashes.
