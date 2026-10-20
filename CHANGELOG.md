@@ -1,5 +1,13 @@
 # Change history
 
+## Unreleased — Native VUSL architectural direction
+
+- Select a fresh experimental VUSL v0.1 contract with VUSL as sole specification authority; evaluate the schema against current requirements instead of renaming the prototype.
+- Withdraw active RUSL support, successor migration, dual-profile/converter work and mandatory behavior-preserving extraction/replay gates. Prior entries below describe historical plans and do not override this decision.
+- Audit actual VUSL, Rangoon and public/local LNSAT dependencies before any deletion; prepare a superseding Rangoon owner handoff without modifying another repository.
+- Reuse justified parser/canonicalization/refusal assets with provenance. Keep historical evidence attributable without making it new-contract conformance or a release obligation.
+- No new specification/core implementation, legacy artifact deletion, consumer change, badge claim or deployment is included.
+
 ## Unreleased — Post-merge naming and packet review
 
 - Start replacing forward-facing RUSL labels with VUSL and retire broad legacy-identified JSON sketches from the current architecture; preserve frozen protocol and evidence identities.

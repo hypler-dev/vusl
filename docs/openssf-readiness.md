@@ -7,6 +7,8 @@ submission, badge, score, registration, compliance claim, or second roadmap.
 assessments only. `N/A candidate` requires later owner confirmation against
 the exact project result and release scope.
 
+Architectural scope update, October 19, 2026: the [native-contract decision](vusl-native-direction.md) withdraws the old D0a profile/corpus as active VUSL requirements. This ledger retains its dated repository/tooling observations. Existing 398-case construction checks are historical integrity evidence, not native VUSL conformance; reassess interface, testing and release evidence against the new contract when accepted. No badge or compliance claim follows.
+
 ## Scope and sources
 
 The 67 Passing criteria and their requirement strengths were captured from the
