@@ -1,0 +1,107 @@
+name: VUSL native v0.1
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  native-linux:
+    name: Native source conformance (Linux x86_64)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CARGO_INCREMENTAL: '0'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Select temporary build directories
+        shell: bash
+        run: |
+          printf '%s\n' "CARGO_HOME=$RUNNER_TEMP/vusl-cargo" "CARGO_TARGET_DIR=$RUNNER_TEMP/vusl-target" >> "$GITHUB_ENV"
+
+      - name: Check out full repository history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Select exact Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11.17'
+          check-latest: false
+
+      - name: Select exact Rust components
+        run: |
+          rustup toolchain install 1.99.1 --profile minimal --component rustfmt --component clippy
+          rustc +1.99.1 --version --verbose
+          cargo +1.99.1 --version
+          python3 --version
+
+      - name: Provision locked build inputs
+        run: cargo +1.99.1 fetch --locked
+
+      - name: Verify dated dependency advisory baseline
+        # This immutable database is a reproducible dated baseline, not a
+        # continuously current advisory assessment or release security clearance.
+        shell: bash
+        run: |
+          set -euo pipefail
+          audit_root="$RUNNER_TEMP/vusl-audit"
+          mkdir -p "$audit_root"
+          curl --fail --location --silent --show-error --max-time 120 \
+            https://github.com/rustsec/rustsec/releases/download/cargo-audit/v0.22.2/cargo-audit-x86_64-unknown-linux-gnu-v0.22.2.tgz \
+            -o "$audit_root/audit.tgz"
+          echo "ab28a1bdb54db4d5d8ad5981cf1f959410370b3d28250dbd35f6a44248620e39  $audit_root/audit.tgz" | sha256sum --check
+          tar -xzf "$audit_root/audit.tgz" -C "$audit_root"
+          git init "$audit_root/db"
+          git -C "$audit_root/db" remote add origin https://github.com/RustSec/advisory-db.git
+          git -C "$audit_root/db" fetch --depth=1 origin 999ec89d5d3f10f20be14750ec8c2d8b44e0ac9b
+          git -C "$audit_root/db" checkout --detach FETCH_HEAD
+          test "$(git -C "$audit_root/db" rev-parse HEAD)" = 999ec89d5d3f10f20be14750ec8c2d8b44e0ac9b
+          "$audit_root/cargo-audit-x86_64-unknown-linux-gnu-v0.22.2/cargo-audit" audit \
+            --no-fetch --no-yanked --stale --deny warnings --db "$audit_root/db" --file Cargo.lock
+
+      - name: Format, warnings and library/API tests (offline)
+        env:
+          CARGO_NET_OFFLINE: 'true'
+        run: |
+          cargo +1.99.1 fmt --all -- --check
+          cargo +1.99.1 clippy --locked --workspace --all-targets -- -D warnings
+          cargo +1.99.1 test --locked --workspace
+
+      - name: Native corpus, independent oracle and resource budgets (offline)
+        env:
+          CARGO_NET_OFFLINE: 'true'
+        run: |
+          python3 -B scripts/test_native_v01.py --self-test
+          python3 -B scripts/test_native_v01.py \
+            --manifest conformance/native-v0.1/manifest.json \
+            --require-python 3.11.17 --output "$RUNNER_TEMP/vusl-native-run.json"
+
+      - name: Historical repository integrity
+        run: |
+          python3 -B scripts/validate.py
+          python3 -B scripts/test_validate.py
+          python3 -B scripts/test_case_plan.py
+          git diff --check
+
+      - name: Verify clean checkout, including ignored files
+        run: |
+          python3 -B - <<'PY'
+          import subprocess
+          state = subprocess.check_output([
+              "git", "status", "--porcelain=v1", "--untracked-files=all", "--ignored=matching"
+          ], text=True)
+          if state:
+              raise SystemExit("Native checks changed the checkout")
+          PY

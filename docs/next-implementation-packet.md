@@ -1,38 +1,67 @@
-# Next VUSL packet: standalone native v0.1 Rust core
+# Current VUSL packet: native v0.1 Rust core and conformance
 
-Status: Rust-core packet preparation authorized by Jeff, October 19, 2026. Contract review and execution design are proposed for owner acceptance; no native schema/API, implementation, corpus or target qualification is accepted by this document. The [roadmap](implementation-plan.md#native-v01-contract-review-and-rust-core-packet--october-19-2026) owns current execution and acceptance status.
+Jeff accepted the reviewed experimental native v0.1 specification/API and
+explicitly authorized this implementation on October 19, 2026. The
+[implementation roadmap](implementation-plan.md#native-rust-core-implementation-acceptance--october-19-2026)
+is the canonical acceptance/evidence record. Earlier preparation records do not
+reopen acceptance questions or grant publication authority.
 
-## Review and proposed outcome
+## Current implementation
 
-The [native v0.1 specification](vusl-v0.1-specification.md) and [conformance plan](vusl-v0.1-conformance-plan.md) merged as proposals in PR #6. Reviewing or merging them did not accept their wire contract. The [Rust core packet](native-v0.1-rust-core-packet.md) reviews their suitability for a narrow source-to-target mapping-review workflow and specifies the proposed API, exact future file ownership, parser-feasibility canaries, dependency/toolchain choices, corpus/result protocol and independent validation gates.
+The reviewed packet contains an unpublished standalone supplied-byte Rust library,
+private immutable checked model, canonical bytes/native document identity,
+fixed refusal categories, fidelity/loss and relationship checks, declared-scope
+meaning guard, independently authored synthetic expectations and Python oracle,
+API/hostile/resource tests and a dedicated Linux source CI workflow.
 
-After separate owner acceptance and implementation authorization, deliver a standalone supplied-byte Rust library, newly authored native cases, independently authored Python oracle and native CI lane. A checked declaration remains distinct from authenticated evidence, complete required-term coverage, semantic truth, native authority and verified effect. Valid blocked/unresolved audit records remain inspectable; their positive declared-meaning guard refuses.
+Accepted specification and conformance-plan bytes remain unchanged at revision
+`d05dca770ff756826255aad7e62fcdfdb6ad952f`, with the exact SHA-256 pair in the
+[execution packet](native-v0.1-rust-core-packet.md#1-reviewed-contract-and-acceptance-boundary).
+This is native VUSL, not a legacy reader, alias, converter, source extraction or
+parity migration. Keep historical artifacts and their existing integrity tools
+unchanged during this implementation.
 
-Current preparation owns exactly new `docs/native-v0.1-rust-core-packet.md`, this next-packet record and `docs/implementation-plan.md`. The specification/conformance-plan bytes, existing source/artifacts/scripts/CI, README, handoffs, assets and licenses remain unchanged. No Rust package, executable corpus, dependency installation, source copy, foreign repository access or consumer integration is authorized now.
+A checked review validates producer declarations. It cannot establish semantic
+truth, authenticate evidence, discover omitted required terms, grant native
+authority or verify an effect. Blocked/unresolved audits remain valid documents;
+their positive declared-meaning guard refuses. Optional loss and residual
+uncertainty remain visible even when that guard succeeds.
 
-## Development priority and OpenSSF cadence
+## Completion gates
 
-Feature and mechanics development is the active priority. The next development slice remains the standalone native Rust core: supplied-byte inspection, native identity/canonicalization, fidelity/loss and relationship checks, meaning guard, independent conformance and adversarial tests. The contract/API acceptance and implementation gates below remain explicit.
+1. Keep corpus expectations independently reviewed and frozen before comparisons.
+   Correct an expectation only through a written specification justification and
+   independent review; never regenerate goldens from either implementation.
+2. Run exact pinned Rust/Python checks from the README, including strict corpus
+   metadata/protocol corruption tests, each implementation against expectations,
+   differential checks, immutable API tests, hostile inputs and measured resource
+   budgets. Record failures and allowed multi-fault diagnostic differences.
+3. Bind current source, lockfile, corpus, specification, tools, platform and review
+   evidence. Local uncommitted content uses a tree digest; it is not an immutable
+   released or consumer-qualified revision. Resolve all actionable review findings.
+4. Preserve the safety stash, unrelated work, historical manifest/vector bytes,
+   existing scripts/workflow and all foreign repositories. Jeff separately
+   authorized committing/pushing the reviewed packet and opening a PR; the
+   roadmap records that publication continuation. Merge, extraction, badge
+   claims, deployment and release remain closed.
+5. After a separately authorized reviewed commit, rerun unchanged inputs against
+   that immutable revision and qualify actual hosted Linux CI before describing
+   that tuple as durable source qualification. Consumer integration is later
+   work in its owning repository, using an exact upstream revision and tests.
 
-Carry relevant OpenSSF practices inside that feature packet: tests, CI, warning/static checks, dependency/security review, documentation and evidence updates. Preserve existing baseline checks. Do not schedule completion of the entire Passing ledger as a prerequisite for unrelated mechanics work; concrete defects and requirements affecting the feature still need resolution. The [readiness ledger](openssf-readiness.md#development-cadence-and-v10-closeout) tracks accumulated evidence.
+Only completed results in the roadmap count as passing. Native macOS arm64,
+Windows, WASM, `no_std`, older toolchains, SDK/CLI/package distribution and
+Rangoon/LNSAT end-to-end support remain unqualified by this packet.
 
-At the v1.0 release-candidate milestone, perform the full criterion-level evidence/applicability review and resolve release-relevant gaps before owner release approval. No badge achievement, submission, stable release or deployment is promised or authorized by this priority decision.
+## Development cadence
 
-## Decisions and gates before coding
+Features and mechanics remain the priority. Tests, warnings/static checks,
+dependency/security review, documentation and evidence accompany each feature.
+Preserve the existing OpenSSF baseline; concrete defects affecting the packet
+must be resolved. Completing the entire Passing ledger is not a blanket gate
+before unrelated mechanics work.
 
-1. **Owner contract acceptance:** accept or revise the exact specification/plan commit and SHA-256 pair recorded in the Rust packet. Accept the narrow one-to-one selected-term workflow, declared required-scope guard, producer/host evidence obligations, native identifiers/domain, limits and explicit unknown/loss behavior. Do not infer acceptance from this preparation request.
-2. **Owner implementation authorization:** accept the packet's exact future ownership/API and newly authored implementation scope. No legacy parser extraction, reader, alias, converter, replay parity or physical artifact retirement belongs to the core packet.
-3. **Tool/dependency closure:** provision and verify exact proposed Rust `1.99.1` and Python `3.11.17` through trusted distribution checks; resolve/review pinned dependencies and lockfile checksums, features, advisories, licenses and target compatibility. Current local tool versions are inventory only; do not claim native arm64 support from an x86_64 compiler running on arm64 hardware.
-4. **Parser feasibility:** prove duplicate handling, Unicode/category distinctions, giant numeric tokens, missing/null rules and bounded raw-span decoding without changing the contract or matching dependency error prose. Stop for an unsuitable parser strategy rather than weaken refusals.
-5. **Independent native proof:** freeze reviewed native expectations; implement Rust and Python independently; validate each against those expectations, then compare outcomes under allowed multi-fault categories. No target case count/ratio or old diagnostic precedence.
-6. **Qualification and review:** complete named API/corpus/hostile-input/resource/dependency checks and fresh independent review; record exact spec/core/corpus/lockfile/tool/platform tuple. No native conformance claim exists before this evidence.
-
-The Rust packet is concrete enough to review; dependency closure and parser feasibility are explicit execution gates, not completed proofs. If owner revises wire rules or a prerequisite fails, return to the canonical record before coding a different interpretation. Commit/push/merge, consumer changes, artifact retirement and release keep separate authorization gates.
-
-## Subsequent ownership and closed work
-
-Historical files and current integrity/construction checks remain intact until a separate reviewed retirement packet accounts for their actual references. The old 398 cases and 69/329 results are research history, not active native conformance or release obligations. No legacy migration program is revived.
-
-Rangoon later qualifies an immutable tested VUSL spec/core/corpus revision in its own accepted packet; VUSL does not edit or message its owning chat here. LNSAT remains independent with no justified change in this packet. No adapter, provider call, source resolution, authorization or effect qualification follows from parsing.
-
-No commit, push, merge, source extraction, badge claim, deployment or release is authorized by this preparation. Preserve the safety stash and unrelated work; current rollback restores only the two existing-document preimages and removes the new packet.
+The full criterion/applicability/evidence refresh belongs to v1.0
+release-candidate closeout before owner approval of a stable release. The
+[readiness ledger](openssf-readiness.md#development-cadence-and-v10-closeout)
+retains that cadence. No badge, compliance claim or release is authorized.

@@ -10,26 +10,38 @@ relationships with explicit evidence and uncertainty. It is intended to be
 independently useful without Rangoon, LNSAT or a hosted service.
 
 The [accepted architectural direction](docs/vusl-native-direction.md) starts
-VUSL with its own normative specification, native identifiers, canonicalization
-rules, conformance suite and standalone Rust core. The exact new contract and
-core are **not yet accepted or implemented**. The [next packet](docs/next-implementation-packet.md)
-records the remaining contract acceptance gates and proposed Rust core work.
+VUSL with its own specification, identifiers, canonicalization rules,
+conformance suite and standalone Rust core. Jeff accepted the exact experimental
+native v0.1 contract/API and authorized implementation on October 19, 2026.
+The [roadmap](docs/implementation-plan.md#native-rust-core-implementation-acceptance--october-19-2026)
+records that decision, validation/review state and source-publication receipts.
+The native implementation is an experimental source candidate. The Cargo
+package remains unpublished; no stable support commitment is created.
 
-The [proposed native v0.1 specification](docs/vusl-v0.1-specification.md)
-now describes one source-to-target mapping-review workflow: scoped native
-snapshot references, per-term fidelity and typed loss, qualified relationship
-evidence, and a guard for the review's declared required meaning. Its
-[conformance plan](docs/vusl-v0.1-conformance-plan.md) derives new test
-obligations from that contract rather than preserving prototype outcomes.
-Both documents await owner acceptance. Their example byte/digest calculations
-are design evidence; no native core, executable corpus or native conformance
-result is delivered by this proposal.
+The [native v0.1 specification](docs/vusl-v0.1-specification.md) defines one
+source-to-target mapping-review workflow: scoped native snapshot references,
+per-term fidelity and typed loss, qualified relationship evidence, and a guard
+for the review's declared required meaning. Its accepted bytes and
+[conformance plan](docs/vusl-v0.1-conformance-plan.md) remain pinned unchanged.
+Their historical proposal-status paragraphs describe their preparation date;
+current acceptance and implementation status belong to the roadmap.
 
-The [proposed Rust core packet](docs/native-v0.1-rust-core-packet.md) specifies
-an immutable supplied-byte API, bounded parsing canaries, independent test
-protocols, tool/dependency qualification and exact future implementation scope.
-It is an execution proposal, not implemented Rust code or an approved package.
-Contract acceptance and implementation authorization remain separate gates.
+The new unpublished [`vusl-core`](crates/vusl-core/Cargo.toml) library exposes
+`inspect(&[u8]) -> Result<CheckedReview, Refusal>`. Successful results own
+immutable typed views, canonical bytes, a domain-separated SHA-256 document ID,
+and `declared_preserved`, `blocked` or `unresolved` assessment. The meaning guard
+returns unit or a fixed refusal, never an authorization capability. The core
+performs no I/O or native-reference resolution. It does not authenticate
+producer evidence, prove semantic truth, or establish complete required scope.
+
+The [execution packet](docs/native-v0.1-rust-core-packet.md) defines API and
+qualification gates. The [new synthetic corpus](conformance/native-v0.1/manifest.json),
+independent standard-library Python oracle, hostile-input checks and dedicated
+[native CI workflow](.github/workflows/vusl-native.yml) implement that packet.
+Qualification is limited to actually completed source/toolchain/platform
+results in the roadmap; a workflow file alone is not a hosted CI pass.
+The native CI lane initializes build directories from `RUNNER_TEMP` inside a
+runner step; hosted validation remains a separate PR check.
 
 Development prioritizes native core features and mechanics. Relevant tests,
 CI, security checks and evidence updates accompany each feature packet. The
@@ -64,11 +76,11 @@ contracts; it does not replace their authority or imply an implemented adapter.
 
 ## Current implementation and historical assets
 
-This repository has Python tooling for repository integrity and historical
-input-construction evidence. The bounded experimental parser and Python oracle
-remain in Rangoon. They are reusable research assets, not the native VUSL core.
-No stable SDK, CLI, hosted service, public network protocol, active native
-conformance suite or connected-provider qualification exists here.
+This repository now contains a native Rust library and independent conformance
+test instruments alongside historical integrity tooling. The Python oracle and
+Rust corpus/resource driver are test tools, not product SDKs or installed CLIs.
+No stable SDK, hosted service, public network service, connected-provider
+qualification or consumer integration is delivered by this packet.
 
 The earlier RUSL/D0a schema, identifiers, vectors and completed 398-case replay
 are historical evidence. VUSL requires no legacy reader, dual-profile mode,
@@ -91,21 +103,43 @@ prepares future owner instructions; it has not been sent to another chat.
 
 ## Validation and OpenSSF evidence
 
-Use a full Git checkout with the original extraction commit available locally,
-Git, and Python 3.9 or newer. Current tooling uses the Python standard library;
-no project packages are required. From the repository root:
+Use a full Git checkout with the original extraction commit available locally.
+Native checks use Rust **1.99.1** (Rust 2021 edition) with rustfmt/Clippy and
+Python **3.11.17**. Provision these tools explicitly; repository scripts do not
+install them. Cargo.lock pins build inputs; `dhat` is test-only heap instrumentation.
+Use an external build directory to keep the checkout unchanged:
 
 ```bash
+export CARGO_TARGET_DIR="$(mktemp -d /tmp/vusl-target.XXXXXX)"
+cargo fetch --locked
+export CARGO_NET_OFFLINE=true
+cargo fmt --all -- --check
+cargo clippy --locked --workspace --all-targets -- -D warnings
+cargo test --locked --workspace
+python3 -B scripts/test_native_v01.py --self-test
+python3 -B scripts/test_native_v01.py \
+  --manifest conformance/native-v0.1/manifest.json \
+  --require-python 3.11.17 --output /tmp/vusl-native-v01-results.json
 python3 -B scripts/validate.py
 python3 -B scripts/test_validate.py
 python3 -B scripts/test_case_plan.py
 git diff --check
 ```
 
+Native validation checks each implementation against reviewed expectations,
+then compares canonical bytes, identities, assessments and guards. Allowed
+multi-fault diagnostic differences are recorded. Release-mode resource checks
+measure peak heap, warmed inspection time and a deterministic hostile batch.
+Reports bind the actual Git revision, source-state label and content digest.
+Dirty source is labeled local/uncommitted; a clean committed rerun identifies
+its immutable source revision. Linux hosted checks remain unqualified until
+this workflow actually runs; Windows, native macOS arm64, WASM and
+consumer integrations are outside the current tested matrix.
+
 These commands protect historical provenance, retained artifacts, construction
 metadata and repository links/whitespace. The 398 constructions are historical
 inputs, not native VUSL test cases or a required migration replay. Passing
-these checks establishes neither new-contract behavior nor semantic fidelity.
+the historical checks establishes neither new-contract behavior nor semantic fidelity.
 Their artifact coupling must be retired or replaced explicitly with native
 specification/corpus work rather than mistaken for permanent compatibility.
 

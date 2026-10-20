@@ -1,0 +1,19 @@
+[package]
+name = "vusl-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+
+[dev-dependencies]
+dhat = "=0.3.3"
+
+[[test]]
+name = "native_driver"
+harness = false

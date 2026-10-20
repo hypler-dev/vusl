@@ -1,0 +1,5 @@
+# Exact raw-size boundary inputs intentionally retain JSON trailing spaces.
+# Disable only end-of-line-space diagnostics for these three hashed fixtures.
+conformance/native-v0.1/inputs/NV-RESOURCE-0003.json whitespace=-blank-at-eol
+conformance/native-v0.1/inputs/NV-RESOURCE-0004.json whitespace=-blank-at-eol
+conformance/native-v0.1/inputs/NV-RESOURCE-0005.json whitespace=-blank-at-eol

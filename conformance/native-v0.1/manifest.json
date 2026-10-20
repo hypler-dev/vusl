@@ -1,0 +1,25 @@
+{
+  "format": "vusl.native-corpus.v0.1",
+  "profile": {
+    "token": "vusl.mapping-review.v0.1",
+    "revision": "d05dca770ff756826255aad7e62fcdfdb6ad952f",
+    "path": "docs/vusl-v0.1-specification.md",
+    "sha256": "a03814d6afcdaacbe5d1c4b3ae01227f1174711866ee38d7f92db390603d8717"
+  },
+  "spec": {
+    "revision": "d05dca770ff756826255aad7e62fcdfdb6ad952f",
+    "path": "docs/vusl-v0.1-specification.md",
+    "sha256": "a03814d6afcdaacbe5d1c4b3ae01227f1174711866ee38d7f92db390603d8717"
+  },
+  "conformance_plan": {
+    "revision": "d05dca770ff756826255aad7e62fcdfdb6ad952f",
+    "path": "docs/vusl-v0.1-conformance-plan.md",
+    "sha256": "ff03e1b9976b8b7e9c273c16f937a94e885bb019bb5681df88b414e82c6b7c65"
+  },
+  "cases": {
+    "path": "conformance/native-v0.1/cases.json",
+    "sha256": "b7eff0ed533857cc40a6ceba3bab15ed8fab83d8a6c7918ef9c126b55317279e"
+  },
+  "case_count": 4911,
+  "driver_protocol": "vusl.native-driver.v0.1"
+}

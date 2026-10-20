@@ -1,6 +1,6 @@
 # VUSL Contributor Instructions
 
-Read README.md, GOVERNANCE.md and the relevant specification/profile before editing. Run `python3 scripts/validate.py` for repository integrity and obtain fresh independent review for meaningful changes. VUSL owns conformance of its native core to its accepted specification; consumers separately qualify their integrations. The current VUSL direction is a fresh experimental v0.1 contract; it has no accepted new wire/schema/core implementation yet.
+Read README.md, GOVERNANCE.md and the relevant specification/profile before editing. Run `python3 scripts/validate.py` for repository integrity and obtain fresh independent review for meaningful changes. VUSL owns conformance of its native core to its accepted specification; consumers separately qualify their integrations. Jeff accepted the exact experimental native v0.1 specification/API and authorized its local Rust-core implementation on October 19, 2026. The implementation roadmap owns current validation and review state; stable support, consumer qualification, publication and release remain separate gates.
 
 ## Repository ownership and parallel work
 
