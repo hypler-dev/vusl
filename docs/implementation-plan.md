@@ -940,3 +940,237 @@ Publication evidence lives at
 inputs. The publication PR is the canonical remote receipt for exact head/base,
 four-file scope, dependency and actual hosted results. Preparation checks and
 prior native CI are not new schema/coverage/PROV/SKOS implementation proof.
+
+
+## Native v0.1 schema coverage implementation acceptance — October 20, 2026
+
+Authority: Jeff accepted and authorized local implementation of the
+[schema/coverage/PROV-SKOS packet](native-v0.1-schema-coverage-alignment-packet.md#8-accepted-local-implementation-continuation--october-20-2026).
+This section is the canonical current work record. It supersedes that packet's
+earlier proposal-only execution state without rewriting preparation history.
+No wire changes, foreign-repository changes, commit, push, merge or deployment
+are authorized. Written alignment is in scope; executable RDF adapters are not.
+
+### Synchronized baseline and implementation choices
+
+Verified public PR #12 merged as `64dbe7d070e948f2f4af4bef565123a9cf043e4e`.
+Local main advanced from `3d6d1434d56cee1021ea2053b14b97fd3160e507` by verified
+fast-forward ref update; no merge commit was created. Implementation uses
+`codex/native-v01-schema-coverage-impl-20261020` at the merged baseline. Existing
+packet/source branches, all 5,449 tracked starting bytes, empty index, stash
+`26dbabb5d59843ed42178fe518c078076b9b3446` and four ignored Python cache files
+with their mtimes were captured before synchronization. Rangoon/LNSAT have not
+been accessed. No Graphify index exists.
+
+The packet's section 8 freezes constructor/borrow ergonomics before code:
+validated privately owned full-content policies, reports borrowing exact
+immutable checked reviews and policies, deterministic bounded findings, and a
+combined guard that retains the core meaning refusal. Core exports/source,
+wire/specification/conformance-plan, corpus and downstream fixtures remain
+frozen; root Cargo metadata may add only the local unpublished helper.
+
+Python schema tooling is the exact six-package binary-wheel closure recorded
+in packet section 8 and the tooling lock. Official checksums, bundled MIT/
+PSF-2.0 notices and a dated six-version OSV query pass review. Disposable
+Python 3.11.17/macOS ARM64 offline canary passes before schema implementation.
+The nine bundled 2020-12 schema resources will be hash checked. Linux x86_64
+wheels are pinned for existing CI; a local workflow edit is not a hosted pass.
+
+Root Sol owns architecture, policy/API/dependency decisions, workspace/CI,
+integration and validation. Native Luna read-only inventory confirmed existing
+core views suffice without core changes. Bounded native Terra implementation
+and Luna documentation lanes receive exact disjoint file ownership; fresh
+independent Terra review follows final evidence. Native lanes fit this packet;
+GLM/Spark are not contacted. Delegation grants no external write authority.
+
+### Execution and acceptance gates
+
+Implement the non-normative schema and a strict 4,911-member applicability
+ledger without changing expected native outcomes. Implement separate bounded
+source-term coverage, identity/ownership/redaction and meaning-guard tests.
+Write field-by-field PROV/SKOS applicability/absence and counterexamples. Add
+explicit hash-locked provisioning and offline tests to existing native CI,
+retaining every prior root/consumer/resource/advisory gate.
+
+Required local proof: repository integrity and both regressions; schema canary,
+authoring/offline regressions and complete applicability ledger; workspace
+format/Clippy/tests/doctests; unchanged native corpus/oracle/resource suite;
+both independent 4,911-case consumer graphs and all lock audits; exact wire/
+spec/corpus/core/consumer-fixture preservation; fresh independent implementation
+and standards/evidence review; all-file scope/stash/ignored-state comparison.
+Root Cargo.lock changes may add the local helper only. Record measured counts,
+identities, commands, limitations and review findings here after execution.
+
+Startup, sync, tooling metadata/checksums/licenses, OSV and canary evidence is
+at `/private/tmp/vusl-schema-coverage-impl-rsvhmqmh`, outside build inputs.
+Implementation and final qualification are in progress; no new feature or
+hosted CI pass is claimed by this opening checkpoint.
+
+### Implemented local result and exact scope
+
+The accepted packet is implemented locally and remains uncommitted. The
+authoring companion enforces closed structures, conditional fidelity and
+relationship combinations, collection bounds, all-plane scalar exclusions and
+necessary character bounds. Its raw decoder preserves duplicate-key/encoding
+failures and treats arbitrary valid numeric tokens as inert wrong-slot values,
+without CPython integer limits or float coercion. It never substitutes schema
+acceptance for native conformance.
+
+The static applicability metadata binds frozen manifest/cases identities and
+named exceptions by ID and raw-input hash. All other frozen refusals must fail
+structurally; constraint weakening cannot relabel them as core-only limitations.
+Every member reports expected and actual applicability. The separate helper
+implements validated immutable full-content policy identity, exact endpoint
+binding, ordered bounded coverage findings and a report-only combined guard.
+The written standards ledger covers every native field and missing standard
+fact, plus scope/loss/uncertainty/asymmetry/composition counterexamples. No RDF
+adapter, native wire change, core API change or actual consumer adoption occurs.
+
+Exactly 17 owned paths:
+
+- `Cargo.toml`, `Cargo.lock`, `.github/workflows/vusl-native.yml`;
+- `crates/vusl-coverage/Cargo.toml`, `crates/vusl-coverage/src/lib.rs`,
+  `crates/vusl-coverage/tests/coverage.rs`;
+- `schemas/vusl.mapping-review.v0.1.schema.json`,
+  `scripts/test_schema_companion.py`,
+  `scripts/test_schema_companion.requirements.txt`;
+- `tests/schema-companion/README.md`,
+  `tests/schema-companion/tooling-lock.json`,
+  `tests/schema-companion/applicability.json`;
+- `README.md`, `docs/next-implementation-packet.md`,
+  `docs/native-v0.1-schema-coverage-alignment-packet.md`,
+  `docs/native-v0.1-standards-alignment.md`, and this roadmap.
+
+Root lock SHA-256 is
+`915c6aa6e605e0f9af35cab75220f1afddd138fda6f12155fc627e15b4695e61`.
+All 41 prior package entries remain identical; only the local unpublished
+`vusl-coverage` package depending on `vusl-core` is added. Both downstream lock
+files and all core source/exports, wire/specification/conformance-plan/native
+corpus bytes remain identical to the synchronized baseline.
+
+### Final qualification and review evidence
+
+All required local gates pass:
+
+| Gate | Measured result |
+| --- | --- |
+| Repository integrity | Seven extraction hashes, three retained JSON vectors, 398 historical input constructions and current Markdown/link/PNG integrity pass; historical construction is not parser conformance. |
+| Validator and case-plan regressions | 20 plus seven tests pass. |
+| Workspace | Format, Clippy with warnings denied, library/API tests and core/helper doctests pass. |
+| Final helper | Nine integration tests plus six ownership/construction/rebinding compile-fail tests pass; final helper Clippy and workspace format checks pass. |
+| Companion | Self-tests and every frozen applicability entry pass against nine pinned offline resources; expected/actual classes match for all 4,911 members. |
+| Companion outcomes | 475 native accepts schema-pass; 34 documented core-only refusals schema-pass; 4,306 structural refusals schema-fail; 96 strict raw inputs are not applicable. Total schema passes are 509, not 509 native accepts. |
+| Native core | All 4,911 unchanged Rust/oracle expectations pass: 475 accepts, 4,436 refusals; canonical bytes/IDs, assessments and meaning guards agree. |
+| Hostile/resource checks | 10,000 deterministic hostile inputs per implementation pass; calibrated heap and warmed timing checks pass across all 4,911 native members. Local maximum heap is 71,840 bytes and warmed maximum is 821,917 ns; these are dated synthetic measurements, not cross-platform guarantees. |
+| Independent consumers | Both independently locked 4,911-case graphs pass, including loss/uncertainty/guards; all three dated lock audits pass before builds. |
+| Workflow and regex | Actionlint passes; Node 24.21.0 regex canary passes in Unicode and legacy modes for all 17 noncharacter planes, neighboring valid scalars, supplementary text, U+2028/U+2029 and LF/CRLF. This is not another JSON Schema engine qualification. |
+
+The local tuple is Rust/Cargo 1.99.1 targeting `x86_64-apple-darwin` on the
+ARM64 macOS host, with Python 3.11.17 ARM64. Native ARM Rust, new hosted Linux
+companion execution, other Python/wheel tuples, package installation as a
+consumer and actual Rangoon integration remain unqualified. The changed CI
+definition explicitly provisions hash-locked binary wheels and then runs the
+companion offline while retaining every earlier gate; it has not been pushed
+or executed on GitHub. Dated RustSec/OSV results do not grant release clearance.
+
+| Artifact | SHA-256 |
+| --- | --- |
+| Companion schema | `c2ea3cd25f80c01b1d4a2c7ee9904a4b5a97f893f081b2f992564f6a3dae4f93` |
+| Applicability exceptions/totals | `72c44d88c869b2c2e8b657e6ddc93d6daf8ad6403dffaa24c9daf793681ccf7e` |
+| Consumer source evidence (20 required paths) | `bd89ee20a79356676d62f71c07a49603b6038a9abbd588a5b023df4d86589cab` |
+| Native runner source evidence (13 required paths) | `a4e52186144efc69919c17feab6b5adebd0c9cdc57f74ad48774347b5e19e301` |
+
+Fresh OpenAI Terra-xhigh read-only coverage review found three P3 test gaps:
+catalog identifier/revision equality, retained residual uncertainty after a
+positive combined result, and multiple ordered findings. Targeted tests now
+cover all three; re-review passes with no actionable P1/P2/P3. Separate fresh
+OpenAI Terra-xhigh schema/tooling/standards review found four P2 issues: huge
+JSON integers misclassified by Python's digit limit, astral noncharacters,
+missing lock keys combined with extras, and unpinned applicability classes.
+All are repaired, including terminal-LF regressions and explicit exception
+identity/totals checks. Final root schema/helper validation and re-review pass.
+Earlier schema totals 565/4,249/90/97 are superseded, not final qualification.
+Root Sol integrated and validated Terra helper/schema production and Luna
+field-ledger documentation. No GLM/Spark lane was contacted.
+
+Final preservation checks caught review imports regenerating two ignored Python
+caches and creating one new cache. Original bytes were reconstructed only
+outside the repository from unchanged/historical source and recorded edits,
+then matched to the exact startup SHA-256 values before restoring. Both original
+nanosecond mtimes were restored; only the task-created new cache was removed.
+All four starting cache hashes/mtimes now match. This recovery did not modify
+source or stash; its checksum proof is retained with the local evidence.
+
+Evidence is `/private/tmp/vusl-schema-coverage-impl-rsvhmqmh`: initial and final
+validators, exact per-file review hashes/patches, final schema ledger, native
+and consumer reports, dependency/tool/resource identities, review receipts,
+cache recovery and final preservation proof. These artifacts are not build
+inputs. All 5,442 non-owned tracked files, safety stash, earlier source branches
+and unrelated bytes are preserved. Local main is synchronized at `64dbe7d`;
+implementation HEAD remains that commit on its isolated branch, with an empty
+index and only the 17 owned paths modified/untracked. No foreign repository
+access/change, wire change, extraction, badge claim, commit, push, merge,
+package publication, provider operation, deployment or release occurred.
+
+
+## Schema coverage implementation publication continuation — October 20, 2026
+
+Authority: Jeff separately authorized committing and pushing the reviewed
+schema, coverage and written PROV/SKOS implementation and opening a PR. This
+continuation opens only publication of the exact 17-path packet listed in the
+implementation section above. Earlier uncommitted/closed-publication statements
+record that implementation checkpoint. Existing implementation/API acceptance
+is unchanged; no wire change, foreign-repository change, merge, deployment,
+package publication or release is authorized.
+
+Startup on `codex/native-v01-schema-coverage-impl-20261020` verifies HEAD,
+local main and origin/main at `64dbe7d070e948f2f4af4bef565123a9cf043e4e`.
+All 17 file hashes match the final reviewed local implementation receipt at
+`/private/tmp/vusl-schema-coverage-impl-rsvhmqmh/final-proof.json`, including
+the resolved schema and coverage review findings. Fetch/push URLs are both
+`https://github.com/hypler-dev/vusl.git`. Public main matches that baseline;
+the implementation branch has no remote head or existing PR at startup.
+No active non-sample Git hook is installed and no hook configuration changes.
+
+Publication changes only status/authorization wording in README, the packet,
+the next-checkpoint summary and this roadmap. Every implementation, schema,
+fixture, dependency and workflow byte remains identical to the reviewed
+17-path packet. Root Sol owns exact staging, commit, immutable-source
+qualification, verified branch push, PR metadata and preservation proof. Fresh
+independent read-only publication review checks that narrow continuation and
+the retained implementation evidence before commit. Native GPT fits this work;
+no GLM/Spark contact or foreign-repository handoff is needed.
+
+Before committing, run repository integrity, full owned-path whitespace and
+exact scope/hash/frozen-contract/lock/preservation checks. Stage only the named
+17 files; never use broad staging. After committing, qualify that exact clean
+revision in a task-owned detached worktree: format, Clippy with warnings
+denied, workspace/API/doctests, schema self-test and all 4,911 applicability
+entries, unchanged native/oracle/hostile/resource gates, both independent
+4,911-case consumer graphs and all dated lock audits, repository integrity,
+both regression suites, event whitespace and workflow lint. Provisioned tools
+and external Cargo/Python directories keep both checkouts unchanged.
+
+Push only the exact qualified commit to the verified VUSL branch without
+force or remote changes, then open the PR against main with auto-merge off.
+The two unchanged event triggers run actual main-targeted hosted checks; their
+workflow content includes the already reviewed companion additions. Record
+actual outcomes without treating a workflow definition or prior local pass
+as hosted proof. The PR is the canonical remote receipt for exact commit,
+base, source-tree identities, publication review and actual hosted results;
+avoid a self-referential follow-up source commit merely to name its own hash.
+
+Preserve stash `26dbabb5d59843ed42178fe518c078076b9b3446`, every non-owned
+tracked byte, prior branches/main and all four pre-existing ignored cache
+files with their nanosecond mtimes. This publication startup also saves their
+actual bytes outside the repository before checks. Use `-B` and
+`PYTHONDONTWRITEBYTECODE=1` for all project imports; remove only the task-owned
+clean validation worktree after qualification. Rangoon/LNSAT remain untouched.
+
+Publication evidence is
+`/private/tmp/vusl-schema-coverage-impl-publish-z2xq6qya`, outside build inputs.
+The prior implementation proof remains intact. Publication review, commit,
+clean-source qualification and hosted outcomes are pending at this opening
+checkpoint; the PR receipt records their actual completion. No merge,
+deployment, release, badge claim, parser extraction or provider operation is
+opened by this publication authorization.

@@ -1,6 +1,16 @@
 # Proposed native v0.1 schema, coverage and standards-alignment packet
 
-Status: prepared for owner review on October 20, 2026. Jeff authorized this
+Current status: Jeff accepted this packet and authorized its local implementation
+on October 20, 2026, after PR #12 merged. Section 8 freezes the implementation
+API and tooling choices within that authorization; the implementation roadmap
+owns current execution and validation state. Earlier proposal/preparation gates
+below record their historical checkpoint. Jeff separately authorized committing
+and pushing the reviewed implementation and opening its publication PR. The
+[roadmap publication continuation](implementation-plan.md#schema-coverage-implementation-publication-continuation--october-20-2026)
+owns that exact scope and evidence. No wire change, consumer change, merge,
+deployment or release is authorized.
+
+Preparation status: prepared for owner review on October 20, 2026. Jeff authorized this
 documentation packet and separately authorized its reviewed four-document
 publication, not its implementation or new public APIs. The
 [implementation roadmap](implementation-plan.md#native-v01-schema-coverage-and-standards-alignment-packet--october-20-2026)
@@ -310,3 +320,105 @@ source extraction, badge claim, merge, provider operation, deployment or
 release is authorized. A separate owner instruction opens only the exact
 four-document commit, branch push and publication PR; proposed implementation
 choices remain unaccepted.
+
+## 8. Accepted local implementation continuation — October 20, 2026
+
+Jeff's instruction accepts the schema, required-term coverage and written
+PROV/SKOS packet and authorizes local implementation after safely synchronizing
+main. Main is `64dbe7d070e948f2f4af4bef565123a9cf043e4e`, the normal merge of
+PR #12. Core exports/source, accepted wire/specification/conformance-plan bytes,
+native corpus and both independent consumer fixtures remain unchanged. Root
+workspace membership and its lock may add only the unpublished local helper;
+the existing registry-package closure must remain identical.
+
+### Frozen helper API and ownership
+
+These are bounded implementation choices under that accepted packet, frozen
+before helper implementation and subject to fresh independent review:
+
+```rust
+pub struct SnapshotRef<'a> {
+    pub system: &'a str,
+    pub scope: &'a str,
+    pub contract: &'a str,
+    pub contract_version: &'a str,
+    pub native_id: &'a str,
+    pub revision: &'a str,
+}
+pub struct PolicyInput<'a> {
+    pub profile: &'a str,
+    pub source: SnapshotRef<'a>,
+    pub target: SnapshotRef<'a>,
+    pub catalog_id: &'a str,
+    pub catalog_revision: &'a str,
+    pub required_terms: &'a [&'a str],
+}
+impl CoveragePolicy {
+    pub fn new(input: PolicyInput<'_>) -> Result<Self, PolicyError>;
+    pub fn profile(&self) -> &str;
+    pub fn source(&self) -> SnapshotRef<'_>;
+    pub fn target(&self) -> SnapshotRef<'_>;
+    pub fn catalog_id(&self) -> &str;
+    pub fn catalog_revision(&self) -> &str;
+    pub fn required_terms(&self) -> &[String];
+}
+pub fn evaluate<'r, 'p>(
+    review: &'r vusl_core::CheckedReview,
+    policy: &'p CoveragePolicy,
+) -> CoverageReport<'r, 'p>;
+impl<'r, 'p> CoverageReport<'r, 'p> {
+    pub fn checked_review(&self) -> &'r vusl_core::CheckedReview;
+    pub fn policy(&self) -> &'p CoveragePolicy;
+    pub fn binding_failures(&self) -> &[BindingFailure];
+    pub fn findings(&self) -> &[CoverageFinding];
+    pub fn is_covered(&self) -> bool;
+    pub fn require_covered_preserved(&self) -> Result<(), CombinedFailure>;
+}
+```
+
+`SnapshotRef` and `PolicyInput` are unchecked borrowed constructor inputs, not
+checked native objects. `CoveragePolicy` validates all bounds before copying
+content into private immutable fields. It supports content equality over the
+full ordered identity, but no unchecked construction, mutable access,
+deserialization or payload-printing Debug/Display. Reports have private
+construction, borrow both exact inputs and expose no rebinding operation.
+
+Fixed `PolicyError` categories distinguish unsupported profile, invalid source/
+target, identical snapshots, invalid catalog identifier/revision, invalid term
+count, invalid term index and duplicate term index. Fixed `BindingFailure`
+values identify profile/source/target mismatches. `CoverageFinding` exposes
+only a bounded `policy_index() -> u8` and `reason() -> CoverageReason`, where
+reasons are missing or downgraded. Binding failures precede deterministic
+policy-order term findings. `CombinedFailure` distinguishes coverage failure
+from the unchanged core `MeaningRefusal`; it contains no policy/review payload.
+Errors and findings may format only fixed labels and bounded indices. No new
+core refusal or public core API is introduced.
+
+### Selected schema tooling and offline qualification
+
+Use Python 3.11.17 with `jsonschema==4.26.0`, `attrs==26.1.0`,
+`jsonschema-specifications==2025.9.1`, `referencing==0.37.0`,
+`rpds-py==2026.9.1` and `typing-extensions==4.16.0`, without format extras.
+All are test/editor tooling, never Rust runtime dependencies. Provision only
+hash-pinned binary wheels for qualified CPython 3.11 macOS ARM64 and Linux
+x86_64 tuples; unsupported tuples fail rather than resolve another closure.
+The requirements file and `tests/schema-companion/tooling-lock.json` record
+exact versions, wheel hashes, license notices and nine bundled 2020-12 resource
+identities. Installation is explicit; test scripts never install or retrieve.
+
+The disposable pre-implementation canary passes offline metaschema validation,
+strict types/no coercion, no instance mutation, Unicode character versus UTF-8
+byte bounds, denied external reference retrieval and missing-resource failure.
+Official PyPI wheel checksums and bundled licenses were reviewed: MIT for the
+first five packages and PSF-2.0 for typing-extensions. A dated OSV query for all
+six exact versions returned no listed advisories on October 20, 2026; this is
+not continuing security clearance. No TLS verification was disabled. The host
+Python CA configuration failed during metadata retrieval; system-trusted curl
+retrieved metadata, and installation used verified local wheels offline.
+
+Owned implementation paths are the future paths in section 6, plus bounded
+metadata/README files under `tests/schema-companion/`. Root owns workspace,
+requirements/tooling decisions, CI, packet/README/status and integration.
+Disjoint workers own only the schema/runner/tests, helper crate/tests, or
+written standards-alignment document as explicitly assigned. Frozen native
+files, Rangoon and LNSAT are outside every writer's ownership.

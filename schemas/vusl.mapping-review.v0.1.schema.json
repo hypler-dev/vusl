@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VUSL mapping-review v0.1 authoring companion",
+  "description": "Non-normative structural authoring companion. Native VUSL validation remains authoritative for raw bytes, UTF-8 byte limits, duplicate decoded names, canonical identity, cross-item identity, and host scope.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["profile", "source", "target", "facets", "relationship"],
+  "properties": {
+    "profile": { "const": "vusl.mapping-review.v0.1" },
+    "source": { "$ref": "#/$defs/reference" },
+    "target": { "$ref": "#/$defs/reference" },
+    "facets": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 32,
+      "items": { "$ref": "#/$defs/facet" },
+      "contains": {
+        "type": "object",
+        "properties": { "required": { "const": true } },
+        "required": ["required"]
+      },
+      "minContains": 1
+    },
+    "relationship": { "$ref": "#/$defs/relationship" }
+  },
+  "$defs": {
+    "component": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^(?![\\s\\S]*(?:[\\u0000-\\u001F\\u007F-\\u009F\\uFDD0-\\uFDEF\\uFFFE\\uFFFF]|\uD83F\uDFFE|\uD83F\uDFFF|\uD87F\uDFFE|\uD87F\uDFFF|\uD8BF\uDFFE|\uD8BF\uDFFF|\uD8FF\uDFFE|\uD8FF\uDFFF|\uD93F\uDFFE|\uD93F\uDFFF|\uD97F\uDFFE|\uD97F\uDFFF|\uD9BF\uDFFE|\uD9BF\uDFFF|\uD9FF\uDFFE|\uD9FF\uDFFF|\uDA3F\uDFFE|\uDA3F\uDFFF|\uDA7F\uDFFE|\uDA7F\uDFFF|\uDABF\uDFFE|\uDABF\uDFFF|\uDAFF\uDFFE|\uDAFF\uDFFF|\uDB3F\uDFFE|\uDB3F\uDFFF|\uDB7F\uDFFE|\uDB7F\uDFFF|\uDBBF\uDFFE|\uDBBF\uDFFF|\uDBFF\uDFFE|\uDBFF\uDFFF))[\\s\\S]*$"
+    },
+    "note": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024,
+      "pattern": "^(?![\\s\\S]*(?:[\\u0000-\\u001F\\u007F-\\u009F\\uFDD0-\\uFDEF\\uFFFE\\uFFFF]|\uD83F\uDFFE|\uD83F\uDFFF|\uD87F\uDFFE|\uD87F\uDFFF|\uD8BF\uDFFE|\uD8BF\uDFFF|\uD8FF\uDFFE|\uD8FF\uDFFF|\uD93F\uDFFE|\uD93F\uDFFF|\uD97F\uDFFE|\uD97F\uDFFF|\uD9BF\uDFFE|\uD9BF\uDFFF|\uD9FF\uDFFE|\uD9FF\uDFFF|\uDA3F\uDFFE|\uDA3F\uDFFF|\uDA7F\uDFFE|\uDA7F\uDFFF|\uDABF\uDFFE|\uDABF\uDFFF|\uDAFF\uDFFE|\uDAFF\uDFFF|\uDB3F\uDFFE|\uDB3F\uDFFF|\uDB7F\uDFFE|\uDB7F\uDFFF|\uDBBF\uDFFE|\uDBBF\uDFFF|\uDBFF\uDFFE|\uDBFF\uDFFF))[\\s\\S]*$"
+    },
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["system", "scope", "contract", "contract_version", "native_id", "revision"],
+      "properties": {
+        "system": { "$ref": "#/$defs/component" },
+        "scope": { "$ref": "#/$defs/component" },
+        "contract": { "$ref": "#/$defs/component" },
+        "contract_version": { "$ref": "#/$defs/component" },
+        "native_id": { "$ref": "#/$defs/component" },
+        "revision": { "$ref": "#/$defs/component" }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/reference" }
+    },
+    "facet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_term", "target_term", "required", "fidelity", "loss", "note", "evidence"],
+      "properties": {
+        "source_term": { "$ref": "#/$defs/component" },
+        "target_term": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/component" }] },
+        "required": { "type": "boolean" },
+        "fidelity": { "enum": ["preserved", "transformed", "unknown", "unsupported"] },
+        "loss": { "oneOf": [{ "type": "null" }, { "enum": ["omission", "approximation", "constraint_dropped", "unrepresentable"] }] },
+        "note": { "$ref": "#/$defs/note" },
+        "evidence": { "$ref": "#/$defs/evidence" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "fidelity": { "const": "preserved" } }, "required": ["fidelity"] },
+          "then": {
+            "properties": {
+              "target_term": { "$ref": "#/$defs/component" },
+              "loss": { "type": "null" },
+              "evidence": { "$ref": "#/$defs/nonempty-evidence" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "fidelity": { "const": "transformed" } }, "required": ["fidelity"] },
+          "then": {
+            "properties": {
+              "target_term": { "$ref": "#/$defs/component" },
+              "loss": { "enum": ["omission", "approximation", "constraint_dropped"] },
+              "evidence": { "$ref": "#/$defs/nonempty-evidence" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "fidelity": { "const": "unknown" } }, "required": ["fidelity"] },
+          "then": { "properties": { "loss": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "fidelity": { "const": "unsupported" } }, "required": ["fidelity"] },
+          "then": {
+            "properties": {
+              "target_term": { "type": "null" },
+              "loss": { "const": "unrepresentable" }
+            }
+          }
+        }
+      ]
+    },
+    "nonempty-evidence": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/reference" }
+    },
+    "uncertainty": {
+      "type": "array",
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/note" }
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "basis", "evidence", "uncertainty"],
+      "properties": {
+        "state": { "enum": ["evidenced", "unresolved"] },
+        "basis": { "enum": ["producer_statement", "content_review", "none"] },
+        "evidence": { "$ref": "#/$defs/evidence" },
+        "uncertainty": { "$ref": "#/$defs/uncertainty" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "state": { "const": "evidenced" } }, "required": ["state"] },
+          "then": {
+            "properties": {
+              "basis": { "enum": ["producer_statement", "content_review"] },
+              "evidence": { "$ref": "#/$defs/nonempty-evidence" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "state": { "const": "unresolved" } }, "required": ["state"] },
+          "then": {
+            "properties": { "uncertainty": { "$ref": "#/$defs/nonempty-uncertainty" } },
+            "allOf": [
+              {
+                "if": { "properties": { "basis": { "const": "none" } }, "required": ["basis"] },
+                "then": { "properties": { "evidence": { "type": "array", "maxItems": 0 } } },
+                "else": {
+                  "properties": {
+                    "basis": { "enum": ["producer_statement", "content_review"] },
+                    "evidence": { "$ref": "#/$defs/nonempty-evidence" }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "nonempty-uncertainty": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/note" }
+    }
+  }
+}
