@@ -2,90 +2,76 @@
 
 # VUSL — Versioned Unified Semantic Language
 
-**Early draft · offline prototype · maintained by Hypler.**
+**Early draft · experimental native v0.1 direction · maintained by Hypler.**
 
-VUSL is a platform-neutral specification for describing capabilities,
-artifacts, observations, provenance and compatibility across systems. It
-keeps provider-native meaning and authority visible while giving independent
-platforms a shared vocabulary for qualified semantic views.
+VUSL is a platform-neutral semantic language for preserving native source
+identity, expressing semantic fidelity and translation loss, and describing
+relationships with explicit evidence and uncertainty. It is intended to be
+independently useful without Rangoon, LNSAT or a hosted service.
 
-VUSL is early draft work. There is no stable SDK, hosted service, network
-protocol or live conformance program. The repository contains specifications,
-profiles, vectors and Python validation for candidate inputs. It does not yet
-contain the planned standalone VUSL core library.
+The [accepted architectural direction](docs/vusl-native-direction.md) starts
+VUSL with its own normative specification, native identifiers, canonicalization
+rules, conformance suite and standalone Rust core. The exact new contract and
+core are **not yet accepted or implemented**. The [next packet](docs/next-implementation-packet.md)
+defines the smallest useful specification before implementation.
 
-## What VUSL covers
+## Architecture and ownership
 
-VUSL separates stages that are often incorrectly combined:
-
-```text
-authored intent -> exported artifact -> loaded/effective state
-                -> authorized action -> attempted execution
-                -> observed outcome -> independently checked effect
-```
-
-Each stage needs its own evidence. A local approval is not engine
-authorization. A provider completion report is not independent effect proof.
-An observation can preserve an unknown, conflict or refusal instead of
-inventing a successful result. Compatibility is qualified per operation and
-direction; mappings record native references, field relationships and loss.
-
-VUSL complements native standards and contracts. It does not replace MCP,
-A2A, OpenTelemetry, OpenAPI, CloudEvents, OAuth/OIDC, SPIFFE, W3C PROV or
-SLSA, and a mapping to a standard does not claim that an adapter exists.
-Compatibility rules and semantic-family boundaries are in the
-[architecture specification](docs/architecture.md).
-
-## Architecture and independence
-
-Other platforms can implement VUSL without installing Rangoon, LNSAT or a
-hosted service. Rangoon is the first named consumer, not a runtime
-prerequisite. Its workbench and application records remain Rangoon-owned.
-LNSAT remains an independent authorization and evidence engine. OpenShell is
-an independent optional engine. A VUSL view does not grant authority to either
-engine, and an engine does not need to implement VUSL.
-
-## What is implemented
-
-The current implementation inventory is deliberately narrow:
-
-| Area | Current state |
+| Project | Owns |
 | --- | --- |
-| Offline document inspection | Experimental parser and reference tests physically remain in Rangoon |
-| Source-reference probe | Offline inspection of already validated source records |
-| OpenShell projection | Synthetic, provider-specific read-only mapping |
-| LNSAT projection | Offline inspection of synthetic native-shaped JSON; authorization, attempt, receipt and reconciliation stay distinct; no connected LNSAT operation |
-| Standalone VUSL core | Planned; not yet extracted or built |
+| [VUSL](https://github.com/hypler-dev/vusl) | Sole VUSL specification authority, native contract, conformance and standalone Rust core |
+| [Rangoon](https://github.com/hypler-dev/rangoon) | First consumer, workbench, provider adapters and operator experience |
+| [LNSAT](https://github.com/hypler-dev/LNSAT) | Independent authorization, enforcement, receipts and reconciliation |
 
-The [implementation roadmap](docs/implementation-plan.md) owns the extraction
-plan and current work record. The [next implementation packet](docs/next-implementation-packet.md)
-records the bounded readiness evidence and remaining replay work.
+Rangoon will consume an immutable tested VUSL library revision after contract
+and core qualification. It will retire its redundant experimental implementation
+through its own reviewed work. VUSL does not gain a Rangoon/LNSAT dependency;
+a semantic view or parser result grants no native authority.
 
-## First profile and repository contents
+VUSL distinguishes authored intent, exported artifact, loaded state,
+authorization, attempted execution, reported outcome and independently checked
+effect. Native identifiers and versions retain their scope. Unknowns, conflicts,
+loss and refusals stay visible instead of being converted into successful
+compatibility claims. A shared ID, trace or digest alone proves no relationship
+or external effect.
 
-The [observation profile](docs/observation-profile.md) defines the exact
-offline document subset: shapes, types, bounds, nullability and refusal
-behavior. It is not a permission system and does not establish provider
-compatibility. The repository also contains:
+The [architecture design](docs/architecture.md) describes broader possibilities.
+Its semantic families are design backlog, not an implemented schema or a
+requirement to include every family in v0.1. VUSL complements provider-native
+contracts; it does not replace their authority or imply an implemented adapter.
 
-- [Conformance and evolution guidance](docs/conformance.md)
-- [D0a coverage inventory](docs/d0a-conformance-coverage.md)
-- [Origin and reference case specification](docs/d0a-origin-reference-test-cases.md)
-- [Offline core design assessment](docs/offline-core-design-assessment.md)
-- [Rangoon owner handoff](docs/handoffs/rangoon-core-baseline.md)
-- [LNSAT evidence handoff](docs/handoffs/lnsat-evidence-status.md)
+## Current implementation and historical assets
 
-The profile and vectors remain the exact source of truth for their current
-subset. Broad architecture targets do not add fields, identifiers or behavior
-to that subset. Future profiles need their own schema, vectors, refusal rules
-and independent review.
+This repository has Python tooling for repository integrity and historical
+input-construction evidence. The bounded experimental parser and Python oracle
+remain in Rangoon. They are reusable research assets, not the native VUSL core.
+No stable SDK, CLI, hosted service, public network protocol, active native
+conformance suite or connected-provider qualification exists here.
 
-## Validation and evidence
+The earlier RUSL/D0a schema, identifiers, vectors and completed 398-case replay
+are historical evidence. VUSL requires no legacy reader, dual-profile mode,
+converter, migration parity or preservation of prototype outcomes. Useful code
+and cases will be reevaluated against actual new requirements, with attribution
+and notices preserved. Renaming the old JSON fields/tokens does not define the
+new specification.
+
+The [dependency audit](docs/legacy-dependency-audit.md) records actual internal
+references to account for before deletion. Historical working-tree artifacts
+remain temporarily unchanged for provenance and existing integrity tooling;
+they are not active VUSL conformance or release obligations. Later reviewed
+cleanup can remove them while Git retains development history. External or
+stored usage has not been exhaustively ruled out.
+
+The [withdrawn migration proposal](docs/vusl-successor-migration.md) is retained
+as a supersession notice. The [revised Rangoon handoff](docs/handoffs/rangoon-core-baseline.md)
+prepares future owner instructions; it has not been sent to another chat.
+[Native LNSAT boundaries](docs/handoffs/lnsat-evidence-status.md) remain independent.
+
+## Validation and OpenSSF evidence
 
 Use a full Git checkout with the original extraction commit available locally,
-Git, and Python 3.9 or newer. The tools use the Python standard library; there
-are no project packages to install. Source archives alone cannot establish
-the required historical provenance. Run the checks from the project root:
+Git, and Python 3.9 or newer. Current tooling uses the Python standard library;
+no project packages are required. From the repository root:
 
 ```bash
 python3 -B scripts/validate.py
@@ -94,42 +80,30 @@ python3 -B scripts/test_case_plan.py
 git diff --check
 ```
 
-The validator checks provenance, preserved vectors, local links and all 398
-candidate input constructions. The two Python suites check validator and case
-plan behavior. These checks validate input construction and repository
-integrity; they do not replay the candidate inputs through the Rangoon parser,
-prove semantic outcomes, or establish live provider compatibility.
+These commands protect historical provenance, retained artifacts, construction
+metadata and repository links/whitespace. The 398 constructions are historical
+inputs, not native VUSL test cases or a required migration replay. Passing
+these checks establishes neither new-contract behavior nor semantic fidelity.
+Their artifact coupling must be retired or replaced explicitly with native
+specification/corpus work rather than mistaken for permanent compatibility.
 
-The [repository CI workflow](.github/workflows/vusl-integrity.yml) is configured
-for pull requests targeting main, pushes to main and manual dispatch. It uses
-Ubuntu 24.04, Python 3.12, pinned action commits, read-only permissions and full
-Git history so provenance checks can inspect the original extraction locally.
-It also checks whitespace over the event's commit range and verifies that the
-checks leave the checkout unchanged. It installs no project packages and uses
-no dependency cache. Local checks and hosted execution are separate evidence.
-The [readiness ledger](docs/openssf-readiness.md#local-repository-ci-implementation)
-records the published PR's successful hosted run and exact tested commit.
+The [repository CI workflow](.github/workflows/vusl-integrity.yml) runs current
+checks for PRs targeting main, pushes to main and manual dispatch, with pinned
+actions, read-only permissions, full history and Ubuntu 24.04/Python 3.12.
+It checks event-range whitespace and checkout mutations. The
+[OpenSSF evidence ledger](docs/openssf-readiness.md) records dated hosted receipts,
+criteria, gaps and unknowns. Passing is the initial readiness target; no badge,
+compliance, certification or native VUSL conformance is claimed. A disclosure
+contact, static-analysis evidence, repository protections and release
+qualification remain follow-up work.
 
-OpenSSF Passing is the initial readiness target. The
-[criterion evidence ledger](docs/openssf-readiness.md) distinguishes existing
-evidence, gaps, unknowns and proposed applicability, and tracks OSPS Baseline
-Level 1 separately. It is not a badge or compliance assertion. Documented
-automated tests are required by Passing; CI is suggested. Lint/static-analysis
-proof, a working disclosure contact and repository-control gaps remain visible
-follow-up work in the [implementation roadmap](docs/implementation-plan.md#openssf-passing-evidence-baseline-and-repository-ci--october-19-2026).
+## Contributing and provenance
 
-## Ownership and contribution
+The [implementation roadmap](docs/implementation-plan.md#vusl-native-contract-direction--october-19-2026)
+owns current status. Start with [governance](GOVERNANCE.md),
+[contribution guidance](CONTRIBUTING.md), [security boundaries](SECURITY.md),
+[historical provenance](PROVENANCE.md), [change history](CHANGELOG.md) and
+[repository coordination](AGENTS.md#repository-ownership-and-parallel-work).
 
-This repository owns the platform-neutral VUSL specification, profiles,
-compatibility rules and conformance vectors. Rangoon owns its workbench,
-application records and provider adapters. LNSAT owns native authorization,
-enforcement, receipts and reconciliation. Cross-repository changes belong in
-the owning repository and require an immutable reviewed reference.
-
-Start with [governance](GOVERNANCE.md), [contributing](CONTRIBUTING.md),
-[security boundaries](SECURITY.md), [extraction provenance](PROVENANCE.md),
-and the [change history](CHANGELOG.md). Follow the
-[repository ownership and parallel-work rules](AGENTS.md#repository-ownership-and-parallel-work).
-
-Licensed under [Apache-2.0](LICENSE). No certification, trademark rights or
-standards-body endorsement is implied.
+Licensed under [Apache-2.0](LICENSE). No trademark rights or standards-body
+endorsement is implied.

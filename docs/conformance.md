@@ -1,23 +1,25 @@
 # VUSL conformance and evolution
 
-Status: public draft guidance, October 18, 2026. Scope: documentation and existing offline implementations. [VUSL overview](../README.md) explains architecture; the [closed D0a specification](observation-profile.md) owns document behavior. This guide does not add a network binding, SDK API, authorization profile or runtime permission.
+Status: fresh experimental VUSL v0.1 contract guidance, October 19, 2026. Scope: proposed contract and historical evidence. No v0.1 schema, token set, API, core implementation or active consumer conformance exists. Historical D0a material is superseded for current acceptance and retained for provenance. This guide does not add a network binding, SDK API, authorization profile or runtime permission.
+
+The [native-contract decision](vusl-native-direction.md) is current direction. Retained D0a constraints and commands below describe historical source only; they are not requirements for the new schema or requests for further migration replay.
 
 ## Version and artifact identity
 
 Keep four identities separate:
 
-1. **Language/profile identifier:** `rangoon.rusl.v0.1` and `rangoon.rusl.observe.v0.1` select the experimental D0a shape. They do not identify a deployed engine.
+1. **Historical language/profile identifiers:** `rangoon.rusl.v0.1` and `rangoon.rusl.observe.v0.1` identify retained D0a artifacts only. They are not supported VUSL identifiers.
 2. **Specification snapshot:** an exact Git commit and file hashes identify the draft bytes reviewed. The [internal acceptance record](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/docs/intent.md#internal-d0a-profile-and-d2a-offline-adapter--october-17-2026) retains historical review pins; later editorial changes do not rewrite those pins.
-3. **Document identity:** D1 computes SHA-256 over `UTF8("rangoon.rusl.observe.v0.1") || 0x00 || canonical_document_bytes`. It identifies document bytes under that rule. It is not a schema digest, signature, verified producer identity, engine action commitment or approval.
+3. **Historical document identity:** D1 computed SHA-256 over the retained D0a domain and canonical bytes. It identifies historical artifact bytes only. It is not a v0.1 schema digest, signature, verified producer identity, engine action commitment or approval.
 4. **Adapter qualification:** a future supported integration must separately pin provider artifact/protocol, adapter/profile, operation/direction, identity/transport, environment, limitations and test evidence. A parser result cannot supply these facts.
 
-No stable public schema digest, registry service or version-negotiation API is established by this publication. A future stable profile must freeze its normative schema and vectors, assign an unambiguous immutable identity, and specify negotiation/migration before compatibility is advertised. Do not add an invented digest field to D0a: its object shapes remain closed.
+No stable public schema digest, registry service or version-negotiation API is established by this publication. A future stable profile must freeze its normative schema and vectors, assign an unambiguous immutable identity, and specify its relationship rules before compatibility is advertised. Do not add an invented digest field to historical D0a: its object shapes remain closed.
 
-## Existing offline implementation
+## Historical offline implementation
 
-The [Rust implementation](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/crates/rangoon-language/src/lib.rs) exposes `inspect(&[u8]) -> Result<Inspection, Diagnostic>`. On success, `Inspection` provides `kind()`, `canonical_bytes()` and `identity_sha256()`. The caller supplies bytes and owns any file selection, transport or storage. The library performs none of those operations and has no authority to authorize or execute.
+The [Rust implementation](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/crates/rangoon-language/src/lib.rs) is historical evidence. It exposes `inspect(&[u8]) -> Result<Inspection, Diagnostic>` for the retained D0a subset. It does not implement or accept fresh v0.1.
 
-The [Python reference](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/crates/rangoon-language/tests/reference_d0a.py) independently validates and serializes the same bounded subset. It is a test oracle, not a supported Python SDK. The two implementations replay shared fixtures; agreement on those fixtures is useful evidence, not exhaustive equivalence or certification.
+The [Python reference](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/crates/rangoon-language/tests/reference_d0a.py) is historical test evidence, not a supported Python SDK or v0.1 oracle. Any agreement is historical evidence, not exhaustive equivalence or certification.
 
 | D0a constraint | Current bound or behavior |
 | --- | --- |
@@ -44,15 +46,15 @@ python3 -B scripts/test_case_plan.py
 git diff --check
 ```
 
-The validator verifies the unchanged extraction manifest and seven destination hashes against the local VUSL extraction commit `b55e01955e9c59cd6ab652afe9a54c43589b09b8`, with Git replacement objects disabled. It checks the three current vector files against their preserved hashes, current inventory paths, local Markdown links and anchors, Markdown whitespace, and PNG identity. It also validates the [candidate origin/reference plan](d0a-origin-reference-test-cases.md#reproduce-construction-checks), including its fixed input identities, metadata, mutation grammar, family/outcome inventory and all 398 input constructions. Editorial Markdown may change without overwriting extraction hashes; the candidate's pinned normative input must still match its own hash. The focused regression tests exercise these boundaries in isolated fixtures; they do not change this working tree.
+The validator verifies historical extraction provenance, preserved vector files, current inventory paths, local Markdown links and anchors, Markdown whitespace, and PNG identity. It also checks the retained [candidate origin/reference plan](d0a-origin-reference-test-cases.md#reproduce-construction-checks), including its fixed input identities and 398 input constructions. These are temporary provenance/integrity checks, not v0.1 contract conformance, migration parity, parser acceptance or a requirement to preserve an old profile forever.
 
-Candidate construction is a separate evidence class from parser replay. A pass verifies 398 stated input lengths/hashes with 69 expected accepts and 329 expected refusals; it does not establish that either implementation produces those semantic outcomes. The [current work record](implementation-plan.md#repository-integrity-and-candidate-construction--october-19-2026) records the manifest reconciliation and prepared owner handoffs. The historical conformance-guide input hash in the coverage inventory identifies an earlier snapshot; it is not a current-file hash.
+Candidate construction is a historical evidence class separate from parser replay. A pass verifies retained input identities and metadata; it does not establish v0.1 semantic outcomes or consumer support. The [current work record](implementation-plan.md) owns current direction and acceptance state.
 
 Git and the pinned extraction commit must be available locally. Missing history is a failed check, not permission to skip provenance verification. Git transport access is disabled so a partial clone cannot retrieve missing objects from a remote. These checks do not verify the upstream Rangoon source hashes, execute its parser, establish semantic equivalence of editorial changes, or accept a stable profile. The [extraction provenance](../PROVENANCE.md) explains the historical and current identities. Consumers still pin their reviewed VUSL revision and relevant file hashes separately.
 
 ## Reproduce existing evidence
 
-The parser remains in Rangoon. From a Rangoon checkout pinned to `d23b2b73e7d0436325a03264144ac87c0056c10b`, with its declared Rust toolchain and cached locked dependencies:
+The parser remains in Rangoon. The commands below preserve historical evidence and are not current v0.1 conformance gates. They do not require migration, parity or successor conversion work.
 
 ```sh
 cargo test --locked --offline -p rangoon-language
@@ -76,7 +78,7 @@ The first two commands cover D1. D2a/D3a and the source-reference commands exerc
 | [OpenShell tests](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/crates/rangoon-integrations/tests/openshell_observation.rs) | Synthetic typed-window projection and limitations | A captured native response, VUSL serialization or live gateway support |
 | [LNSAT tests](https://github.com/hypler-dev/rangoon/blob/d23b2b73e7d0436325a03264144ac87c0056c10b/crates/rangoon-integrations/tests/lnsat_evidence.rs) | Pinned synthetic native-JSON evidence distinctions/refusals | Connected LNSAT operation, verified effect or VUSL authorization profile |
 
-## Required refusal behavior
+## Historical refusal behavior
 
 Reject an oversized, invalid UTF-8 or malformed document, duplicate names, unknown/missing fields, unsupported version/kind, invalid reference, unsupported extension or invalid semantic variant. Return a fixed `Diagnostic::code()` without echoing untrusted input. The [profile](observation-profile.md#bounds-and-canonical-bytes) lists the exact codes. Do not make arbitrary multi-error precedence part of a compatibility promise; the literal negative vectors pin the cases whose diagnostics are asserted.
 
@@ -84,9 +86,9 @@ An engine being absent leaves local Rangoon workflows usable. A failed future co
 
 ## Compatibility claims
 
-A useful claim names the exact subset and evidence, for example: “Experimental D0a offline inspection at commit X passes the six canonical vectors and 20 parser-addressable cases under toolchains Y/Z.” Never shorten this to “VUSL certified,” “universal support,” or “LNSAT-compatible enforcement.”
+A useful future v0.1 claim must name exact contract slice and evidence. Historical D0a results must be labeled historical; never shorten them to “VUSL certified,” “universal support,” or “LNSAT-compatible enforcement.”
 
-Before advertising a stable profile, require a reviewed closed schema, immutable vectors, reproducible independent implementations, negative/boundary tests, exact compatibility and migration behavior, and documented security/privacy limits. Before advertising a connected adapter, additionally qualify the real provider/version, ingress identity, consent, bounded transport, custody, cancellation, drift and per-operation semantics. A consequence-capable route also needs native execution-time checks and demonstrated bypass limits. Parser, transport, application and enforcement qualifications are separate.
+Before advertising a stable profile, require a reviewed closed schema, immutable vectors, reproducible independent implementations, negative/boundary tests, declared version/unsupported-input behavior and explicit handling for any actual supported dependency, and documented security/privacy limits. Before advertising a connected adapter, additionally qualify the real provider/version, ingress identity, consent, bounded transport, custody, cancellation, drift and per-operation semantics. A consequence-capable route also needs native execution-time checks and demonstrated bypass limits. Parser, transport, application and enforcement qualifications are separate.
 
 An internal accepted implementation, a public draft, a stable specification and multi-party adoption are different milestones. GitHub publication establishes availability of the design and source; it does not establish the later milestones. No third-party conformance program is operated by this draft.
 
@@ -97,9 +99,9 @@ Hypler maintains the current VUSL draft under [the contribution process](../GOVE
 1. The user workflow and exact native provider/standard version.
 2. Existing profile fields that fail to express the requirement, plus one valid and one refusing example.
 3. Source-to-projection mapping, native preservation, translation loss and privacy/authority impact.
-4. Versioning, old-reader behavior, retention and migration implications.
+4. Versioning, retention, explicit loss/refusal and authority implications.
 5. Required validators, independent review and evidence for any compatibility claim.
 
-Editorial corrections may clarify draft wording without changing bytes accepted by D1. Behavioral changes need a reviewed new profile revision and updated vectors; do not silently change an accepted token's meaning. Critical semantics cannot be hidden in optional extensions. New semantic families are added through small separately testable profiles, not an unrestricted payload dictionary or executable plugin escape hatch.
+Editorial corrections may clarify historical evidence or proposed direction. A future behavioral contract needs explicit reviewed schema/token/API decisions and evidence; do not silently treat historical identifiers as accepted VUSL meaning. Critical semantics cannot be hidden in optional extensions. New semantic families are design backlog, not active conformance.
 
 Executable adapters, network bindings and management services require their own implementation packets. Protocol documentation does not authorize installation, credential use or engine execution. A future independent standards effort would need published governance, interoperable independent implementations and external participation; it is not established by naming VUSL.

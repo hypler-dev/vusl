@@ -1,5 +1,9 @@
 # LNSAT handoff: reconcile public status and evidence compatibility
 
+Current VUSL direction, October 19, 2026: the [native-contract decision](../vusl-native-direction.md) supersedes any requirement below to preserve experimental D0a/RUSL identifiers or map native evidence into that old shape. The [dependency audit](../legacy-dependency-audit.md) found no named legacy dependency at public LNSAT `7072b5cb189b824e39e1d2eccf65e1a7843af066`. LNSAT remains independently authoritative; this historical source/status handoff authorizes no new mapping, decoder repin or LNSAT change. Any future VUSL projection must first justify and qualify the new native contract in its owning repository.
+
+The remaining source/status observations below are historical, not current native VUSL profile requirements.
+
 Status: prepared for the LNSAT owner; not dispatched or executed. Authority: the accepted [VUSL repository-integrity packet](../implementation-plan.md#repository-integrity-and-candidate-construction--october-19-2026). LNSAT's existing `docs/PROJECT_STATUS.md` remains the authority for its implementation and acceptance. This handoff proposes a bounded status correction and read-only compatibility assessment; it does not authorize engine or adapter changes.
 
 ## Verified baseline and problem
