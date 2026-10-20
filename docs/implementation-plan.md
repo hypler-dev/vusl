@@ -449,3 +449,141 @@ Controller diagnosis: `runner.temp` was used in job-level `env`, where the runne
 
 
 Workflow repair validation: official actionlint 1.7.12, archive SHA-256 `aba9ced2dee8d27fecca3dc7feb1a7f9a52caefa1eb46f3271ea66b6e0e6953f`, was verified and run only from temporary evidence. Its expression/schema check reproduces the original two `context "runner" is not allowed here` errors and accepts the corrected workflow with exit 0. Optional ShellCheck/Pyflakes integrations were disabled explicitly; no additional shell/Python analyzer result is implied. Repository integrity and whitespace checks pass. Exact tool, original/corrected logs and repair evidence remain under the publication receipt directory. The source commit and all corpus/spec/lock/oracle/core bytes stay unchanged by this workflow-only child; the updated PR records the child commit and actual new checks.
+
+
+## Native v0.1 consumer-compatibility packet — October 20, 2026
+
+Authority: Jeff authorized safely synchronizing local VUSL with merged main,
+then preparing the consumer-compatibility packet. This opens local Git sync and
+the exact documentation preparation below. It does not accept the proposed
+compiler/dependency policy or authorize implementation, consumer repinning,
+source publication, extraction, badge claims, deployment or release. This is
+the canonical current work record; the [detailed packet](native-v0.1-consumer-compatibility-packet.md)
+and [next-packet summary](next-implementation-packet.md) link here for status.
+The existing native specification/API acceptance remains in force.
+
+### Merged native-core receipt and local sync
+
+Jeff separately authorized PR #9 final review and conditional merge. Fresh
+independent OpenAI `gpt_reviewer` Terra-xhigh Rust and conformance reviews both
+passed with no actionable P1/P2/P3. Ten fresh exact-head local gates passed:
+formatting, warnings-denied Clippy, API/doctests, independent Python self-tests,
+4,911 native cases per implementation plus hostile/resource checks, historical
+integrity, 20 validator regressions, seven case-plan regressions, range
+whitespace and Actionlint. The corpus has 475 accepts and 4,436 refusals; zero
+observed diagnostic differences. These remain synthetic source results, not
+consumer support, exhaustive fuzzing or a release/security guarantee.
+
+PR #9 merged as `546501da9d9fc0cb4bf6d7499d3480f0413dbd50`, with exact parents
+`dfd85b24f67d1e1b8bf24a0c78c756e0cc78d06b` and reviewed head
+`c7d3c14738296c3b28814847ed3a6b66613fd8b2`. Merge and reviewed head share tree
+`3ca90975c064708992daec81da0c0f57447bfea7`; fetched public-main ancestry was
+verified. Both post-merge main runs passed: [native source conformance](https://github.com/hypler-dev/vusl/actions/runs/39400108781)
+and [repository integrity](https://github.com/hypler-dev/vusl/actions/runs/39400108859).
+Final exact-head validation, reviews, merge and preservation evidence remains
+in `/private/tmp/vusl-pr9-final-0gbece6s`, including `final-proof.json`.
+
+Local main fast-forwarded from `dfd85b24f67d1e1b8bf24a0c78c756e0cc78d06b` to
+`546501da9d9fc0cb4bf6d7499d3480f0413dbd50`. Preparation uses new branch
+`codex/native-v01-consumer-packet-20261020` at that commit. The prior core branch
+and every other prior branch remain retained. All starting tracked file bytes,
+three pre-existing ignored Python cache files and their mtimes, and safety stash
+`26dbabb5d59843ed42178fe518c078076b9b3446` were verified preserved across sync.
+The source tree was clean before documentation preparation. Sync and preparation
+proof lives at `/private/tmp/vusl-consumer-packet-cgr1ypzi`; it is local evidence,
+not a build dependency or a GitHub update.
+
+### Consumer gap and proposed next implementation
+
+Immutable Rangoon reference is `9bd9be17d17fd8f778ec88f8e9b9f41df5c01dc4`, the
+PR #51 documentation-retirement main revision. Only manifest/CI/provenance
+metadata at that immutable GitHub revision was read for this preparation; no
+Rangoon checkout was changed or built and LNSAT was not accessed. The detailed
+packet records exact hashes. Its workspace/desktop CI compiler versions are
+1.85.0/1.98.0, below VUSL's current 1.99.1 requirement. Its direct dependency
+constraints differ. A disposable offline combined-manifest probe reproduces
+Cargo exit 101 for conflicting exact Serde requirements 1.0.228/1.0.229. This is
+constraint-resolution evidence, not actual Rangoon build failure or proof about
+every other dependency. Existing historical provenance pins remain historical.
+
+The proposal retains 1.99.1 for initial downstream qualification and recommends
+reviewed compatible library requirements with independent exact fixture locks.
+Candidate minima and feature unions require owner acceptance and actual tests;
+no dependency or compiler policy changes here. It names two independent Cargo
+workspaces, full unchanged native-corpus outcomes under each resolved graph,
+public-API loss/uncertainty/guard checks, root/downstream offline gates,
+dependency/feature review and immutable evidence. A lower Rust floor and actual
+Rangoon integration are separate decisions in their owning scope. The
+[refreshed handoff](handoffs/rangoon-core-baseline.md) is prepared, not sent or
+accepted by Rangoon; it carries source/spec/corpus pins and remaining gates.
+
+### Exact preparation scope and evidence
+
+Owned paths: new `docs/native-v0.1-consumer-compatibility-packet.md`,
+`docs/next-implementation-packet.md`, `docs/handoffs/rangoon-core-baseline.md`,
+`README.md` and this roadmap. No other path is owned. Rust/Python sources,
+manifests/locks/toolchain, native/historical corpus, existing validators, CI,
+accepted spec/plan/API packet and notices remain byte-identical to synced main.
+Rollback removes only these five document deltas; preserve the stash and all
+unrelated work. No new intent/spec/status authority is created.
+
+Root OpenAI Sol owns scope, compiler/dependency decisions, integration and
+validation. OpenAI `gpt_docs` Luna-medium owns only the handoff rewrite; root
+owns the other four documents. A fresh OpenAI `gpt_reviewer` Terra-xhigh independently reviewed
+the exact five-document preparation and evidence. GLM is
+not contacted; native lanes fit the bounded secret-free packet. Applicable
+security work is dependency/feature/input/authority review inside implementation;
+full OpenSSF criteria closeout stays at v1.0 release candidate.
+
+Preparation validation passed: seven historical hashes, three preserved vectors,
+398 historical constructions, 183 current local links, PNG/Markdown integrity,
+20 repository-validator regressions, seven case-plan regressions, Git whitespace
+and explicit whitespace checks for all five documents, including the new file.
+Immutable pin consistency and exact five-path scope pass; all 5,437 non-owned
+tracked files, prior branches, stash and ignored cache bytes/mtimes remain
+preserved. The index is empty. Evidence is `validators.json` and the refreshed
+`preparation-proof.json` in the local preparation directory above.
+
+Fresh independent read-only review passes with no residual actionable P1/P2/P3.
+Review found a missing per-fixture advisory gate; the proposal now requires an
+explicit audit of every distinct root/fixture lock with exact auditor/database/
+lock identities, dated results and blocking unresolved actionable advisory or
+license findings. Final owned-file hashes were refreshed after that correction;
+prior hashes are not presented as final-byte evidence. The proposal remains
+unaccepted and all five document changes remain unstaged and uncommitted.
+
+Core behavior is unchanged; prior exact-head and actual merged-main hosted
+results are the baseline evidence, not a newly run native conformance claim.
+No implementation, commit, push, PR, merge, extraction, badge claim, provider
+operation, consumer change, package publication, deployment or release occurs
+in this preparation.
+
+
+### Consumer packet documentation publication continuation
+
+Jeff separately authorized committing and pushing the reviewed five-document
+consumer-compatibility preparation and opening a PR. This continuation opens
+only that documentation publication. Earlier preparation-only and uncommitted
+statements describe their dated checkpoint; the proposed compiler/dependency
+policy and implementation remain unaccepted. Merge, extraction, badge claims,
+consumer changes, package publication, deployment and release remain closed.
+
+Publication uses `codex/native-v01-consumer-packet-20261020`, base
+`546501da9d9fc0cb4bf6d7499d3480f0413dbd50`, verified fetch/push remote
+`https://github.com/hypler-dev/vusl.git`. Scope remains the exact five documents
+above, including the substantive reviewed README update. Only this appended
+publication receipt changes beyond the reviewed preparation hashes. Main,
+prior branches, safety stash `26dbabb5d59843ed42178fe518c078076b9b3446`, ignored
+cache state and all unrelated bytes are preserved; Rangoon/LNSAT remain
+untouched. Startup hashes, the prior review and final publication evidence live
+in `/private/tmp/vusl-consumer-publish-wh7w2vzf` as local evidence, not a build
+input.
+
+Controller owns exact-file staging, commit, push and PR metadata. Fresh
+independent read-only review checks the publication scope, unchanged four
+preparation documents and this continuation. Run repository integrity, both
+existing Python regression suites and staged whitespace/pin/preservation checks.
+The PR is the canonical remote publication receipt, recording its exact head,
+base and actual hosted CI state without a self-referential source commit. This
+documentation publication neither repairs the resolver conflict nor qualifies
+a consumer, changes a compiler/dependency policy or sends the Rangoon handoff.

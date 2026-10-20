@@ -18,6 +18,15 @@ records that decision, validation/review state and source-publication receipts.
 The native implementation is an experimental source candidate. The Cargo
 package remains unpublished; no stable support commitment is created.
 
+[PR #9](https://github.com/hypler-dev/vusl/pull/9) merged the native core as
+`546501da9d9fc0cb4bf6d7499d3480f0413dbd50`; both main source CI lanes passed.
+The [next consumer-compatibility packet](docs/native-v0.1-consumer-compatibility-packet.md)
+is prepared for review. It proposes independent downstream builds, compatible
+library dependency requirements and exact qualification locks. Current compiler
+requirements and a reproduced exact-pin resolver conflict still block Rangoon
+adoption. No consumer support or dependency/compiler change is claimed by
+that preparation.
+
 The [native v0.1 specification](docs/vusl-v0.1-specification.md) defines one
 source-to-target mapping-review workflow: scoped native snapshot references,
 per-term fidelity and typed loss, qualified relationship evidence, and a guard
@@ -132,9 +141,11 @@ multi-fault diagnostic differences are recorded. Release-mode resource checks
 measure peak heap, warmed inspection time and a deterministic hostile batch.
 Reports bind the actual Git revision, source-state label and content digest.
 Dirty source is labeled local/uncommitted; a clean committed rerun identifies
-its immutable source revision. Linux hosted checks remain unqualified until
-this workflow actually runs; Windows, native macOS arm64, WASM and
-consumer integrations are outside the current tested matrix.
+its immutable source revision. Linux x86_64 source checks passed at the merged
+PR #9 revision, with the
+[main native run](https://github.com/hypler-dev/vusl/actions/runs/39400108781)
+recorded in the roadmap. Windows, native macOS arm64 Rust, WASM and consumer
+integrations remain outside the current tested matrix.
 
 These commands protect historical provenance, retained artifacts, construction
 metadata and repository links/whitespace. The 398 constructions are historical
