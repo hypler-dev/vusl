@@ -1,0 +1,112 @@
+name: VUSL repository integrity
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  repository-integrity:
+    name: Repository integrity (construction only)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out complete repository history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Select Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+          check-latest: false
+
+      - name: Verify local provenance and 398 candidate constructions
+        run: python3 -B scripts/validate.py
+
+      - name: Run repository-validator regression tests
+        run: python3 -B scripts/test_validate.py
+
+      - name: Run case-plan regression tests
+        run: python3 -B scripts/test_case_plan.py
+
+      - name: Check whitespace in event changes
+        env:
+          GIT_NO_REPLACE_OBJECTS: '1'
+          GIT_NO_LAZY_FETCH: '1'
+          GIT_ALLOW_PROTOCOL: ''
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import re
+          import subprocess
+          from pathlib import Path
+
+          def commit(value):
+              if not isinstance(value, str) or re.fullmatch(r"[0-9a-f]{40}", value) is None:
+                  raise SystemExit("Expected a full GitHub commit SHA")
+              subprocess.run(["git", "cat-file", "-e", value + "^{commit}"], check=True)
+              return value
+
+          def empty_tree():
+              # A new branch/root commit has no prior tree. Write only this
+              # empty object in the ephemeral checkout; no commit is created.
+              return subprocess.check_output(
+                  ["git", "hash-object", "-t", "tree", "-w", "--stdin"], input=b""
+              ).decode().strip()
+
+          event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text())
+          event_name = os.environ["GITHUB_EVENT_NAME"]
+          checked = commit(os.environ["GITHUB_SHA"])
+          actual = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
+          if actual != checked:
+              raise SystemExit("Checkout does not match the workflow commit")
+
+          if event_name == "pull_request":
+              base = commit(event["pull_request"]["base"]["sha"])
+              head = commit(event["pull_request"]["head"]["sha"])
+              changes = base + "..." + head
+          elif event_name == "push":
+              head = commit(event["after"])
+              if head != checked:
+                  raise SystemExit("Push event does not match the workflow commit")
+              before = event["before"]
+              base = empty_tree() if before == "0" * 40 else commit(before)
+              changes = base + ".." + head
+          elif event_name == "workflow_dispatch":
+              parents = subprocess.check_output(
+                  ["git", "rev-list", "--parents", "-n", "1", checked], text=True
+              ).split()
+              base = parents[1] if len(parents) > 1 else empty_tree()
+              changes = base + ".." + checked
+          else:
+              raise SystemExit("Unsupported workflow event")
+
+          print("Checking whitespace in " + changes, flush=True)
+          subprocess.run(["git", "diff", "--check", changes, "--"], check=True)
+          PY
+
+      - name: Verify checks leave the checkout unchanged
+        run: |
+          python3 - <<'PY'
+          import subprocess
+
+          state = subprocess.check_output(
+              ["git", "status", "--porcelain=v1", "--untracked-files=all", "--ignored=matching"],
+              text=True,
+          )
+          if state:
+              raise SystemExit("Repository checks changed the checkout")
+          PY
