@@ -20,12 +20,20 @@ package remains unpublished; no stable support commitment is created.
 
 [PR #9](https://github.com/hypler-dev/vusl/pull/9) merged the native core as
 `546501da9d9fc0cb4bf6d7499d3480f0413dbd50`; both main source CI lanes passed.
-The [next consumer-compatibility packet](docs/native-v0.1-consumer-compatibility-packet.md)
-is prepared for review. It proposes independent downstream builds, compatible
-library dependency requirements and exact qualification locks. Current compiler
-requirements and a reproduced exact-pin resolver conflict still block Rangoon
-adoption. No consumer support or dependency/compiler change is claimed by
-that preparation.
+The [consumer-compatibility packet](docs/native-v0.1-consumer-compatibility-packet.md)
+was accepted and implemented on October 20, 2026, based on
+merged PR #10 baseline `3d6d1434d56cee1021ea2053b14b97fd3160e507`.
+Compatible library requirements now admit two independently locked downstream
+fixtures. Both pass all 4,911 unchanged native expectations (475 accepts and
+4,436 refusals each), including explicit loss, uncertainty and guard checks.
+The original root lock remains unchanged. These are synthetic public-API
+consumer results on Rust 1.99.1, not a Rangoon application build. Rangoon's
+recorded 1.85/1.98 compiler tuple still needs its owner's decision and proof.
+The [roadmap](docs/implementation-plan.md#native-v01-consumer-implementation-acceptance--october-20-2026)
+owns current execution, validation and review status. Jeff separately authorized
+source publication of this reviewed packet. Its publication PR records the exact
+source revision and actual hosted results; no new hosted consumer pass is
+claimed by this document. Consumer adoption and release remain separate gates.
 
 The [native v0.1 specification](docs/vusl-v0.1-specification.md) defines one
 source-to-target mapping-review workflow: scoped native snapshot references,
@@ -116,11 +124,14 @@ Use a full Git checkout with the original extraction commit available locally.
 Native checks use Rust **1.99.1** (Rust 2021 edition) with rustfmt/Clippy and
 Python **3.11.17**. Provision these tools explicitly; repository scripts do not
 install them. Cargo.lock pins build inputs; `dhat` is test-only heap instrumentation.
-Use an external build directory to keep the checkout unchanged:
+Use isolated external Cargo and build directories to keep the checkout unchanged:
 
 ```bash
+export CARGO_HOME="$(mktemp -d /tmp/vusl-cargo.XXXXXX)"
 export CARGO_TARGET_DIR="$(mktemp -d /tmp/vusl-target.XXXXXX)"
-cargo fetch --locked
+CARGO_NET_OFFLINE=false cargo fetch --locked
+CARGO_NET_OFFLINE=false cargo fetch --locked --manifest-path tests/consumer-compatibility/upstream/Cargo.toml
+CARGO_NET_OFFLINE=false cargo fetch --locked --manifest-path tests/consumer-compatibility/rangoon-constraints/Cargo.toml
 export CARGO_NET_OFFLINE=true
 cargo fmt --all -- --check
 cargo clippy --locked --workspace --all-targets -- -D warnings
@@ -134,6 +145,35 @@ python3 -B scripts/test_validate.py
 python3 -B scripts/test_case_plan.py
 git diff --check
 ```
+
+The independent consumer workspaces are outside the root Cargo workspace;
+root commands do not test them. The provisioning commands above fetch all
+three exact locks before selecting offline validation. Reuse those exported
+external Cargo directories for the following consumer checks.
+
+Run the consumer orchestrator with an isolated `CARGO_HOME`, external
+`CARGO_TARGET_DIR`, the tools above, and explicitly provisioned audit inputs:
+
+```bash
+python3 -B scripts/test_consumer_compatibility.py --self-test
+python3 -B scripts/test_consumer_compatibility.py \
+  --require-rust 1.99.1 --require-python 3.11.17 \
+  --audit-binary /absolute/path/to/cargo-audit \
+  --audit-archive /absolute/path/to/verified-cargo-audit-archive.tgz \
+  --audit-db /absolute/path/to/pinned-advisory-db \
+  --output /tmp/vusl-consumer-results.json
+```
+
+The [native workflow](.github/workflows/vusl-native.yml) records exact audit
+archive/database pins and provisioning commands. The runner verifies that
+binary against its allowlisted archive and the database against its pinned
+Git revision, tree and clean content. It audits all three locks before builds,
+then checks actual metadata/features, downstream formatting and Clippy, and
+the complete frozen corpus through each public-API fixture. Dependency/license
+review and independent review are separate human/controller evidence, never
+self-attested by the runner. Its dated advisory baseline is not continuous
+current-advisory clearance. Downstream corpus passes do not measure that
+graph's heap/timing; those budgets need separate qualification.
 
 Native validation checks each implementation against reviewed expectations,
 then compares canonical bytes, identities, assessments and guards. Allowed

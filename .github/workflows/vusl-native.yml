@@ -48,9 +48,12 @@ jobs:
           python3 --version
 
       - name: Provision locked build inputs
-        run: cargo +1.99.1 fetch --locked
+        run: |
+          cargo +1.99.1 fetch --locked
+          cargo +1.99.1 fetch --locked --manifest-path tests/consumer-compatibility/upstream/Cargo.toml
+          cargo +1.99.1 fetch --locked --manifest-path tests/consumer-compatibility/rangoon-constraints/Cargo.toml
 
-      - name: Verify dated dependency advisory baseline
+      - name: Provision verified dated advisory baseline
         # This immutable database is a reproducible dated baseline, not a
         # continuously current advisory assessment or release security clearance.
         shell: bash
@@ -68,8 +71,21 @@ jobs:
           git -C "$audit_root/db" fetch --depth=1 origin 999ec89d5d3f10f20be14750ec8c2d8b44e0ac9b
           git -C "$audit_root/db" checkout --detach FETCH_HEAD
           test "$(git -C "$audit_root/db" rev-parse HEAD)" = 999ec89d5d3f10f20be14750ec8c2d8b44e0ac9b
-          "$audit_root/cargo-audit-x86_64-unknown-linux-gnu-v0.22.2/cargo-audit" audit \
-            --no-fetch --no-yanked --stale --deny warnings --db "$audit_root/db" --file Cargo.lock
+          printf '%s\n' \
+            "VUSL_AUDIT_BINARY=$audit_root/cargo-audit-x86_64-unknown-linux-gnu-v0.22.2/cargo-audit" \
+            "VUSL_AUDIT_ARCHIVE=$audit_root/audit.tgz" \
+            "VUSL_AUDIT_DB=$audit_root/db" >> "$GITHUB_ENV"
+
+      - name: Audit all locked graphs and qualify independent consumers (offline)
+        env:
+          CARGO_NET_OFFLINE: 'true'
+        run: |
+          python3 -B scripts/test_consumer_compatibility.py --self-test
+          python3 -B scripts/test_consumer_compatibility.py \
+            --require-rust 1.99.1 --require-python 3.11.17 \
+            --audit-binary "$VUSL_AUDIT_BINARY" \
+            --audit-archive "$VUSL_AUDIT_ARCHIVE" --audit-db "$VUSL_AUDIT_DB" \
+            --output "$RUNNER_TEMP/vusl-consumer-run.json"
 
       - name: Format, warnings and library/API tests (offline)
         env:

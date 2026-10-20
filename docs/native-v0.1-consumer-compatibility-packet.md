@@ -1,10 +1,14 @@
-# Proposed native v0.1 consumer-compatibility packet
+# Native v0.1 consumer-compatibility packet
 
-Status: prepared for owner review on October 20, 2026. Jeff authorized local
-main synchronization and packet preparation, not the implementation or compiler/
-dependency policy proposed here. The [implementation roadmap](implementation-plan.md#native-v01-consumer-compatibility-packet--october-20-2026)
-owns acceptance and execution status. The native specification/API is already
-accepted; this proposal does not reopen or change it.
+Status: accepted and implemented on October 20, 2026. Source publication of
+the reviewed packet is separately authorized; its PR records the exact revision
+and actual hosted results.
+Jeff accepted the reviewed packet from merged PR #10 at
+`3d6d1434d56cee1021ea2053b14b97fd3160e507` and authorized this bounded local
+implementation. The [implementation roadmap](implementation-plan.md#native-v01-consumer-implementation-acceptance--october-20-2026)
+owns current acceptance, validation and review state. Earlier baseline/probe
+observations below are dated preparation evidence. The native specification/API
+remains unchanged; real consumer integration, merge and release are separate gates.
 
 ## Outcome and boundary
 
@@ -81,9 +85,9 @@ and `resolver.stderr`. The manifest/stderr SHA-256 pair is
 These temporary records are evidence, not build dependencies. A library's own
 Cargo lockfile does not supply an independent consumer's resolved graph.
 
-## Proposed compiler and dependency decisions
+## Accepted compiler and dependency decisions
 
-The following recommendations require owner acceptance before implementation:
+Jeff accepted the following decisions for this implementation:
 
 1. Retain Rust **1.99.1** for the first downstream qualification. Do not lower
    `rust-version` without testing the actual proposed minimum, dependencies,
@@ -92,11 +96,11 @@ The following recommendations require owner acceptance before implementation:
    recorded 1.85/1.98 Rangoon CI tuple blocked.
 2. Prefer reviewed compatible library requirements with exact qualification
    locks over forcing every caller onto VUSL's original exact versions.
-   Candidate Cargo requirements are `serde = "1.0.228"`,
+   Accepted Cargo requirements are `serde = "1.0.228"`,
    `serde_json = "1.0.151"` and `sha2 = "0.11.0"`, retaining the core's explicit
-   feature choices. These are hypotheses, not tested or accepted minima.
-   They admit the two recorded direct-dependency tuples; complete resolution,
-   API availability, transitive constraints and behavior still require proof.
+   feature choices. Both exact fixture tuples now resolve and pass conformance.
+   This does not qualify every admitted version or minimum combination; other
+   tuples still require resolution, API, feature and behavior evidence.
 3. Preserve the current root lock if it still resolves legitimately. Create
    separate exact locks for downstream fixtures and review every added/changed
    dependency, checksum, yanked state, feature, build script and license/notice.
@@ -118,12 +122,12 @@ Compatibility is limited to exact tested tuples. Compatible version syntax
 does not qualify every version in its permitted range, every feature union,
 an older compiler, an installed package or Rangoon's full application graph.
 
-## Proposed implementation ownership
+## Implementation ownership
 
-No implementation file below is changed by this preparation packet. After
-acceptance, one writer owns the following bounded VUSL slice:
+The local implementation changes only the bounded VUSL slice below. The root
+lock remains unchanged. Disjoint fixture/runner writers report to the controller:
 
-| Paths | Permitted future change |
+| Paths | Permitted change |
 | --- | --- |
 | `Cargo.toml` | Only accepted dependency requirements; retain compiler, version, workspace, features and profile policy unless separately amended |
 | `Cargo.lock` | Only justified closure changes, with an exact reviewed lock diff |
@@ -184,7 +188,7 @@ the library is never an expected-output generator.
    `no_std`, package installation and full Rangoon integration remain unqualified
    without their own results. Python is a test oracle, not a production SDK.
 
-The downstream report is proposed test metadata, not a new VUSL wire profile.
+The downstream report is test metadata, not a new VUSL wire profile.
 No parser result, document ID or guard grants authorization, proves complete
 required scope, authenticates evidence or verifies an external effect. Hosts
 must establish their own required-term inventory and display untrusted text
@@ -193,7 +197,8 @@ safely; optional loss and uncertainty must remain visible.
 ## Handoff, recovery and closed actions
 
 The [Rangoon baseline handoff](handoffs/rangoon-core-baseline.md) identifies the
-current immutable source candidate and unresolved gates. It is prepared, not
+earlier immutable core baseline and unresolved gates; an immutable compatibility
+implementation pin is pending. It is prepared, not
 sent or accepted by the Rangoon owner. After upstream compatibility proof,
 Rangoon must open its own bounded integration packet: actual base/manifest/
 lockfiles, compiler decision, feature closure, caller/storage inventory,
@@ -202,11 +207,19 @@ consumer tests, independent review and exact upstream pin. Its historical
 reinterpreted as that runtime pin. Retire obsolete parser/test/workspace
 references only after its reviewed cutover passes.
 
-Preserve the safety stash and prior branches. Roll back this preparation by
-removing only the exact five owned document deltas listed in the roadmap.
-Future implementation rollback restores only its accepted manifest/fixture/CI
-delta; it never resets a consumer checkout or discards unrelated work. No
-consumer repin, old-source deletion, compiler installation, provider operation,
-commit, push, PR, merge, badge submission, deployment or release is authorized
-by this proposal. OpenSSF practices accompany the feature; the full criteria
-review remains in v1.0 release-candidate closeout.
+Preserve the safety stash and prior branches. Rollback restores only the exact
+accepted manifest/fixture/runner/workflow/document delta, leaving unrelated work
+and consumer checkouts untouched. The local report binds the implementation
+source digest and labels it `local_uncommitted`; the baseline Git HEAD is not
+an immutable implementation pin. Both exact fixtures pass 4,911 cases each;
+the original root lock and all accepted contract/corpus bytes remain unchanged.
+The roadmap records dependency/license review, all three dated lock audits,
+full root validation and fresh independent review.
+
+Jeff separately authorized committing and pushing this exact reviewed packet
+and opening its publication PR. Earlier local/uncommitted evidence remains a
+dated implementation checkpoint; committed reruns and hosted results belong to
+the publication receipt. No consumer repin, old-source deletion, compiler
+installation, provider operation, merge, badge submission, deployment or release
+is authorized. OpenSSF practices accompany the
+feature; full criteria review remains in v1.0 release-candidate closeout.
