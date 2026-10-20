@@ -587,3 +587,187 @@ The PR is the canonical remote publication receipt, recording its exact head,
 base and actual hosted CI state without a self-referential source commit. This
 documentation publication neither repairs the resolver conflict nor qualifies
 a consumer, changes a compiler/dependency policy or sends the Rangoon handoff.
+
+
+## Native v0.1 consumer implementation acceptance — October 20, 2026
+
+Jeff explicitly accepted and authorized implementation of the reviewed consumer-
+compatibility packet, after safely syncing local main. Accepted preparation:
+merged PR #10, commit `3d6d1434d56cee1021ea2053b14b97fd3160e507`, packet
+SHA-256 `db0745f200a0e35f774691f253d552dee053a0c5df74d7e76225f2046299fffa`. This supersedes the earlier
+proposal/unaccepted preparation status for this exact implementation scope.
+The native specification/API, frozen corpus and Rust 1.99.1 target remain
+unchanged. Accepted dependency requirements to qualify are Serde `1.0.228`,
+serde_json `1.0.151`, and sha2 `0.11.0`, retaining explicit core features.
+Permitted ranges do not establish qualification of every admitted version.
+
+Local main fast-forwarded to the merge commit; implementation uses
+`codex/native-v01-consumer-impl-20261020` at that base. Preserve safety stash
+`26dbabb5d59843ed42178fe518c078076b9b3446`, all prior branches, ignored state
+and unrelated files. Startup and synchronization evidence is retained under
+`/private/tmp/vusl-consumer-impl-2ryxuwma`.
+
+Ownership is the accepted packet's exact manifest/optional lock, five fixture
+files, Python consumer runner, native workflow and five status/handoff documents.
+Controller owns dependency resolution/audit, CI, integration, documentation and
+final judgment. Disjoint native workers own fixture test source/manifests and
+the Python runner; fresh independent read-only review follows validation.
+Rangoon/LNSAT are not accessed or changed. No legacy source is read or extracted.
+Compiler installation, consumer repinning, commit, push, merge, badge claim,
+package publication, provider operation, deployment and release remain closed.
+Actual implementation/test/review results will be recorded below; this owner
+acceptance is not itself a passing result or hosted qualification.
+
+### Local implementation and validation receipt
+
+The accepted dependency requirements are implemented in root `Cargo.toml`;
+Rust remains 1.99.1 and root `Cargo.lock` remains byte-identical at
+`95155fba36ad836cfd1a6e7e32c5bc632b0a89e4b5d7bb48a2f8eea05bf50352`.
+Two independent unpublished fixture workspaces consume only the public core API:
+
+| Fixture | Exact direct tuple (`serde` / `serde_json` / `sha2`) | Lock SHA-256 |
+| --- | --- | --- |
+| upstream | `1.0.228` / `1.0.154` / `0.11.1` | `a3987c7f3b1db98c0b8138ecdd8fff5b3d96a88167cbaf5cdde4345d480b6ee9` |
+| rangoon-constraints | `1.0.229` / `1.0.151` / `0.11.0` | `d64451ca53fd1f3778faea40f002bcf16bc21ce415e694ebaf3738c2dc3a2847` |
+
+Actual feature metadata confirms upstream Serde `std`, serde_json `std/raw_value`
+and no sha2 features; the Rangoon-constraints graph unifies Serde
+`default/derive/serde_derive/std`, serde_json `default/raw_value/std` and sha2
+`alloc/default/oid`. Its Serde derive probe compiles. Each fixture checks all
+4,911 immutable native expectations (475 accepts, 4,436 refusals), exact
+canonical bytes/IDs, assessments, guards and explicit optional loss/residual
+uncertainty. Invalid inputs expose no checked result. These test workspaces
+are not implementations of Rangoon, a production adapter or another parser.
+
+The new Python orchestrator strictly verifies frozen corpus identities, complete
+JSONL coverage and actual Cargo metadata/features; missing/duplicate rows,
+nonzero exits and output/expectation mismatches fail. It audits all three exact
+locks before builds, uses locked offline commands, and records full graphs,
+commands, tools, OS, effective compiler target and source/lock hashes. An
+explicit `--target` selects the queried compiler host for downstream builds;
+Cargo's compiler selection is bound to the queried PATH tool and wrappers are
+disabled. Cargo home/target directories must resolve outside the checkout;
+tracked, untracked and ignored status drift fails. Reports label this checkout
+`local_uncommitted` and do not substitute baseline HEAD for an immutable
+implementation revision. Runner reports explicitly disclaim performing manual
+dependency/license or independent review.
+
+Before builds, the controller reviewed 47 distinct registry tuples across the
+three graphs, including seven added versions: const-oid 0.10.2, serde/core/derive
+1.0.229, serde_json 1.0.151, sha2 0.11.0 and syn 3.0.6. Archive/index/lock checksums,
+yanked state, feature unions, licenses/notices and new build scripts were
+reviewed; no unresolved actionable issue was found. Added versions have
+MIT/Apache-2.0 license alternatives; existing notice obligations remain. This
+is source dependency review, not a distribution-license or security guarantee.
+
+All three locks pass cargo-audit 0.22.2 against advisory commit
+`999ec89d5d3f10f20be14750ec8c2d8b44e0ac9b`, tree
+`7fab15e592b35835decefbb43f6578c70565e4d9`, dated
+`2026-10-17T17:23:59+02:00`, checked October 20, 2026 UTC. The runner binds the
+actual audit binary to its verified archive member and checks the clean DB
+content. Local arm64 auditor archive SHA-256 is
+`ec7ca4263769593df4d909be85b94a6b79efa2897be5d2bb8ebd516e823175af`;
+Linux CI archive SHA-256 is
+`ab28a1bdb54db4d5d8ad5981cf1f959410370b3d28250dbd35f6a44248620e39`.
+This pinned dated baseline is not continuous current-advisory clearance.
+
+The ten full root gates pass: rustfmt, warnings-denied Clippy, seven API tests
+and six compile-fail doctests, native-runner self-tests, full Rust/Python
+4,911-case comparison with zero observed diagnostic differences and resource/
+hostile checks, repository integrity, 20 validator regressions, seven case-plan
+regressions, whitespace and Actionlint 1.7.12. Optional ShellCheck/Pyflakes
+integrations were disabled for Actionlint. Root resource results measured
+71,840-byte maximum peak heap, 1,227,500 ns maximum warmed inspection, a
+10,000-case Rust hostile batch and 10,000-case Python hostile batch. These root
+measurements do not qualify downstream graph heap/timing. Local host is arm64
+macOS 26; Rust/Cargo 1.99.1 compiles x86_64-apple-darwin, with Python 3.11.17.
+No native arm64 Rust, older Rust, Windows, WASM or actual Rangoon result is
+inferred. The modified CI has no hosted run in this unpublished task.
+
+Fresh OpenAI `gpt_reviewer` Terra-xhigh independently reviewed the fixture,
+manifest/lock and CI slice: PASS, no actionable P1/P2/P3. Separate runner review
+found a Linux archive-pin typo, missing compiler-target evidence and unchecked
+Cargo output paths. Controller corrected all three and added regression checks;
+final runner revalidation and independent re-review are recorded below when
+complete. OpenAI `gpt_worker` Terra-high produced the bounded Rust fixtures and
+Python runner; Sol integrated dependencies, CI, documentation and corrections.
+No GLM or Spark lane was contacted; adequate native lanes handled this packet.
+
+Local evidence remains under `/private/tmp/vusl-consumer-impl-2ryxuwma`:
+`dependency-review.json`, `audits-before-build.json`, `validators.json`,
+`native-run.json`, consumer reports and preservation proof. Earlier consumer
+reports predate review corrections and are not final-source qualification.
+The new workflow fetches each lock explicitly, verifies the pinned auditor/DB,
+audits all graphs and runs downstream checks before root gates; read-only
+permissions, action/tool pins, resource budgets and checkout-purity gate remain.
+
+Current delta is exactly 13 paths: `Cargo.toml`, native workflow, the five
+fixture files, `scripts/test_consumer_compatibility.py`, README and the four
+packet/roadmap/handoff documents. Accepted specification/API/core source,
+frozen corpus, historical manifest/tooling, root lock and notices remain
+unchanged. Preservation checks cover 5,435 non-owned tracked files, prior
+branches and safety stash; three pre-existing ignored Python cache bytes and
+mtimes remain unchanged. The index is empty; all implementation/doc changes
+remain unstaged and uncommitted. Rangoon/LNSAT remain untouched. No extraction,
+badge claim, commit, push, merge, package publication, provider operation,
+deployment or release occurred. The next checkpoint is an exact reviewed
+local delta; publication and an immutable hosted qualification require separate
+authorization before consumer integration.
+
+Final consumer rerun passes after all three review corrections:
+`consumer-run-final.json`, SHA-256
+`2cf1bf0d99b827d347d0513d1ac7235fa76ee7e3450e369744e98f21dc35e9a0`.
+Its explicit 20-path implementation source digest is
+`c02c6c354c9d3c6644823389e36d74a93cb2038571231f70bf1fbd2b362d94ef`;
+status documentation is excluded from that digest and reviewed separately.
+Both exact fixture graphs pass formatting, warnings-denied Clippy and all
+4,911 native cases each, with all three audits passing before builds. The
+report binds compiler host and effective build target to x86_64-apple-darwin,
+and source/lock/status identities match before and after execution. Runner
+self-tests pass, including the real Linux archive-pin consistency, target
+override and repository-contained Cargo-path regressions. The fresh independent
+OpenAI `gpt_reviewer` Terra-xhigh runner re-review passes with no residual
+P1/P2/P3; the earlier failing review and report remain superseded evidence.
+
+Final five-document evidence review also passes: fresh OpenAI `gpt_reviewer`
+Terra-xhigh, no residual P1/P2/P3. Its README provisioning-order finding was
+corrected: the recipe now exports isolated external Cargo home/target paths and
+fetches all three locks with explicit online provisioning before offline checks.
+Fixture/CI, runner and documentation independent reviews are complete. Local
+implementation acceptance checks pass within the exact tested tuples; immutable
+publication/hosted qualification and actual consumer integration remain open.
+
+
+### Consumer implementation source-publication continuation — October 20, 2026
+
+Jeff separately authorized committing and pushing the reviewed consumer-
+compatibility implementation and opening a PR. This continuation opens only
+that exact VUSL source-publication slice. Earlier local/uncommitted and closed-
+publication statements describe their dated checkpoints; the accepted contract,
+compiler/dependency decisions and implementation scope are unchanged. Merge,
+extraction, badge claims, consumer changes, package publication, provider
+operation, deployment and release remain closed.
+
+Publication uses `codex/native-v01-consumer-impl-20261020`, base
+`3d6d1434d56cee1021ea2053b14b97fd3160e507`, verified fetch/push remote
+`https://github.com/hypler-dev/vusl.git`. Starting hashes match all 13 files in
+the final reviewed implementation proof. Only publication-status wording in
+the five already owned documents changes beyond that reviewed checkpoint;
+implementation sources, manifests, locks, workflow and source digest remain
+unchanged. The substantive README setup/behavior update is included. Preserve
+main, all prior branches, safety stash `26dbabb5d59843ed42178fe518c078076b9b3446`,
+pre-existing ignored cache bytes/mtimes and all unrelated work. Rangoon/LNSAT
+remain untouched; no consumer handoff is sent.
+
+Root controller owns exact-file staging, commit, push and PR metadata. Fresh
+independent read-only publication review checks the exact 13-file slice,
+unchanged implementation bytes, status wording and previous validation/review
+evidence. Run repository integrity, regression/self-tests, staged whitespace,
+Actionlint and exact source/preservation checks before commit. Rerun both
+unchanged consumer fixtures against the clean immutable commit, then inspect
+actual hosted CI. Record commands, hashes and results in external publication
+evidence at `/private/tmp/vusl-consumer-publish-0p1c8kqx`; these temporary records
+are not build inputs. The PR is the canonical remote publication receipt,
+recording its exact head/base and actual checks without a self-referential
+source commit. No local test, review, push or green CI grants merge or release
+authority.

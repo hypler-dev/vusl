@@ -1,57 +1,49 @@
-# Next VUSL packet: native v0.1 consumer compatibility
+# Next VUSL checkpoint: consumer compatibility review and immutable qualification
 
-Status: proposal prepared for owner review, October 20, 2026. Jeff authorized
-safe local main synchronization and packet preparation. Compiler/dependency
-policy changes and implementation remain unaccepted. The
-[implementation roadmap](implementation-plan.md#native-v01-consumer-compatibility-packet--october-20-2026)
-owns current acceptance, evidence and execution status.
+Status: the native v0.1 consumer-compatibility packet was accepted and implemented
+on October 20, 2026. Jeff separately authorized publication of the reviewed
+source packet; its PR records the exact revision and actual hosted results. The
+[implementation roadmap](implementation-plan.md#native-v01-consumer-implementation-acceptance--october-20-2026)
+owns acceptance, execution and review status; the
+[accepted packet](native-v0.1-consumer-compatibility-packet.md) defines scope.
 
-## Completed baseline
+## Implemented locally
 
-[PR #9](https://github.com/hypler-dev/vusl/pull/9) merged as
-`546501da9d9fc0cb4bf6d7499d3480f0413dbd50`. Its tree matches reviewed head
-`c7d3c14738296c3b28814847ed3a6b66613fd8b2`; both post-merge main CI lanes
-passed. The unpublished core and independent oracle pass 4,911 native cases
-(475 accepts, 4,436 refusals), API/hostile/resource and repository gates.
-The accepted native specification/API remains unchanged. Consumer integration,
-stable support, package publication and release remain separate gates.
+Local main was safely synchronized with merged PR #10 at
+`3d6d1434d56cee1021ea2053b14b97fd3160e507`. The implementation retains Rust
+1.99.1, the accepted specification/API and every frozen native expectation.
+Compatible library requirements resolve both independently locked downstream
+workspaces: the original direct tuple and the dated Rangoon dependency/feature
+constraints. Both pass all 4,911 cases (475 accepts, 4,436 refusals), exact
+canonical bytes/IDs, assessments, guards and explicit loss/uncertainty checks.
+The root lock is unchanged. The orchestrator verifies source/corpus/lock/tool
+identities, audits each distinct lock before builds, and checks actual resolved
+graphs, features, formatting and Clippy offline. Native CI now provisions and
+runs those checks; a workflow definition alone is not a hosted pass.
 
-## Next outcome
+## Next safe checkpoint
 
-The [consumer-compatibility proposal](native-v0.1-consumer-compatibility-packet.md)
-defines the bounded implementation, exact reference identities, unresolved
-choices, owned files and acceptance checks. The immediate blocker is concrete:
-VUSL requires Rust 1.99.1 while the Rangoon reference CI uses 1.85/1.98, and
-a disposable combined exact-pin manifest fails Serde dependency resolution.
-That probe is not a Rangoon build or integration result.
+Publish only the reviewed slice under the separate source-publication
+authorization. Rerun clean committed source and inspect actual hosted CI to
+establish the immutable compatibility candidate. Final PR review and any merge
+require a separate owner instruction. The
+[prepared Rangoon handoff](handoffs/rangoon-core-baseline.md) cannot substitute
+for that pin or authorize integration. No message has been sent.
 
-Recommended implementation after separate acceptance:
-
-1. Keep Rust 1.99.1 as the initial qualification target. Any lower floor or
-   Rangoon compiler change needs its own explicit decision and proof.
-2. Review compatible library dependency requirements and independent exact
-   fixture locks. The proposed version ranges/minima are hypotheses until
-   dependency review, resolution and conformance checks pass.
-3. Build two independent public-API consumers: the original qualified direct
-   versions and the dated Rangoon constraints/features. Run all unchanged
-   native expectations under each actual resolved graph, plus explicit
-   preserved/blocked/unresolved/refused, optional-loss and uncertainty checks.
-4. Run root and downstream locked/offline gates, qualify feature unions,
-   record immutable source/lock/tool/platform tuples and obtain fresh review.
-5. Refresh the [prepared Rangoon handoff](handoffs/rangoon-core-baseline.md)
-   with the tested compatibility revision. Rangoon subsequently qualifies its
-   real application graph and cutover in its own accepted packet.
+Rangoon then owns an accepted application-integration packet: actual base,
+compiler decision, manifests/locks/features, required-term inventory, storage
+and caller impact, full native outcomes and reviewed cutover. The synthetic
+constraints fixture does not qualify Rangoon itself or Rust 1.85/1.98. A lower
+VUSL compiler floor, downstream heap/timing, native ARM Rust, Windows, WASM,
+package installation and broader feature tuples need their own evidence.
 
 ## Boundaries
 
-This preparation changes only five VUSL documents. It changes no Rust/Python
-implementation, dependency, compiler, corpus, wire contract or CI. Future
-fixtures are test tools, not a product CLI or SDK. The native mapping-review
-profile does not replace observation/engine contracts. No legacy reader,
-converter, alias, extraction or 398-case parity program is introduced.
-
-Keep Rangoon/LNSAT, the safety stash, unrelated work and prior branches
-untouched. No consumer repin, parser deletion, provider operation, commit,
-push, PR, merge, badge claim, deployment or release follows from this proposal.
-Tests, dependency/security review, documentation and evidence accompany the
-feature; full OpenSSF criteria closeout remains at v1.0 release candidate.
+Keep Rangoon/LNSAT, safety stash, unrelated work and prior branches untouched.
+Only the exact reviewed source commit, branch push and publication PR are
+authorized. No extraction, consumer repin, parser deletion, provider operation,
+merge, badge claim, deployment or release is authorized. Test fixtures
+are instrumentation, not a product CLI or SDK. No legacy reader, alias,
+converter or 398-case parity program is introduced. Applicable tests,
+dependency/security review and evidence accompany features; full OpenSSF
+criteria closeout remains at v1.0 release candidate.

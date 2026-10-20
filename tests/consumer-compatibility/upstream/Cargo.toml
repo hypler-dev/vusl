@@ -1,0 +1,24 @@
+[workspace]
+resolver = "2"
+
+[package]
+name = "vusl-consumer-upstream-fixture"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.99.1"
+publish = false
+
+[dependencies]
+serde = { version = "=1.0.228", default-features = false, features = ["std"] }
+serde_json = { version = "=1.0.154", default-features = false, features = ["std", "raw_value"] }
+sha2 = { version = "=0.11.1", default-features = false }
+vusl-core = { path = "../../../crates/vusl-core" }
+
+[features]
+default = []
+derive-check = ["serde/derive"]
+
+[[test]]
+name = "smoke"
+path = "../smoke.rs"
+harness = false
