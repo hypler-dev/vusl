@@ -1,5 +1,16 @@
 # Change history
 
+## Local native v0.1 implementation — October 19, 2026
+
+- Record owner acceptance of the pinned experimental native contract/API.
+- Add unpublished Rust core, immutable checked views, exact canonical identity,
+  declared-meaning assessment and fixed privacy-preserving refusals.
+- Add independently authored native corpus/Python oracle, strict differential
+  and corruption tests, safe test-only heap measurement, hostile checks and
+  a pinned Linux source CI lane. Final review/results live in the roadmap.
+- Preserve historical manifest/vector/tooling bytes; no legacy extraction,
+  consumer changes, stable release, badge claim or publication.
+
 ## Unreleased — Native VUSL architectural direction
 
 - Select a fresh experimental VUSL v0.1 contract with VUSL as sole specification authority; evaluate the schema against current requirements instead of renaming the prototype.

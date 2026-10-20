@@ -1,6 +1,6 @@
 # VUSL draft governance
 
-VUSL is a fresh experimental v0.1 semantic interoperability specification maintained by Hypler. This repository owns its draft contract, core direction and conformance corpus. No new wire format, schema, core implementation or active consumer support is accepted yet. A document or vector in this repository does not by itself establish a stable release, certification, community standard, or multi-party adoption.
+VUSL is a fresh experimental v0.1 semantic interoperability specification maintained by Hypler. This repository owns its draft contract, core direction and conformance corpus. Jeff accepted the exact experimental native v0.1 specification/API and authorized local Rust-core implementation on October 19, 2026; the implementation roadmap records its immutable contract pins and current evidence. This does not establish stable support, qualified consumers, publication or release acceptance. A document or vector in this repository does not by itself establish a stable release, certification, community standard, or multi-party adoption.
 
 ## Proposals and review
 

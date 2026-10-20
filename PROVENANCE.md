@@ -17,3 +17,24 @@ The experimental Rust parser and Python reference remain in Rangoon. At extracti
 The logo in `assets/vusl-logo.png` was generated for this project with OpenAI image generation and selected on October 18, 2026. It is a raster PNG on a light background, not an authored vector asset. No uniqueness or trademark clearance is asserted.
 
 No private strategic assessment, credentials, native test logs, customer data, application database or engine runtime is included in this extraction.
+
+
+## Newly authored native v0.1 implementation
+
+The native Rust core, Python oracle and synthetic corpus in this local packet
+were independently authored from the accepted VUSL specification and execution
+packet. No Rangoon/LNSAT source was read, copied or extracted for implementation.
+Historical vectors are not relabeled as native conformance. Separate producers
+authored Rust, Python and expected corpus data; reviewers checked specification
+expectations before implementation comparisons. The roadmap records accepted
+revision/hash pins, corrections, exact corpus identities, dependency/toolchain
+provenance, source-tree evidence and remaining qualification gates.
+
+Cargo.lock records exact registry versions/checksums. Third-party sources are
+build inputs rather than vendored project source; license/notice identities
+were reviewed, including MIT-only dependencies and Unicode-3.0 data obligations.
+Future artifact redistribution must retain applicable notices and qualify its
+actual dependency/artifact inventory. `dhat` is a pinned test-only instrument,
+not a runtime dependency or project-owned unsafe allocator. Existing project
+LICENSE and NOTICE are unchanged; no release or blanket security clearance is
+claimed. See the [implementation evidence](docs/implementation-plan.md#native-rust-core-implementation-acceptance--october-19-2026).
