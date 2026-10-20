@@ -771,3 +771,172 @@ are not build inputs. The PR is the canonical remote publication receipt,
 recording its exact head/base and actual checks without a self-referential
 source commit. No local test, review, push or green CI grants merge or release
 authority.
+
+
+## Native v0.1 schema coverage and standards alignment packet — October 20, 2026
+
+Authority: Jeff authorized preparing the JSON Schema, required-term coverage
+and PROV/SKOS alignment packet. This opens only local documentation preparation,
+not acceptance of the proposed schema/tooling/coverage API or implementation.
+The [detailed packet](native-v0.1-schema-coverage-alignment-packet.md) contains
+proposed outcomes, trust/binding rules, applicability limits, future paths and
+acceptance cases. The [next-packet summary](next-implementation-packet.md) links
+here for current state. This roadmap remains the single work-status authority.
+The existing native specification/API acceptance stays unchanged.
+
+### Verified baseline and isolation
+
+Preparation starts at `1697a71a35b0508c0dc28bf434d58df9c33c8967`, tree
+`7a7a71bb2c4d6a0550fd4686b99ef02f51c0d60c`, on new local branch
+`codex/schema-coverage-alignment-packet-20261020`. It is based on the published
+consumer implementation [PR #11](https://github.com/hypler-dev/vusl/pull/11),
+which remains open and unmerged at this checkpoint. Both hosted PR checks pass:
+[native Linux source conformance](https://github.com/hypler-dev/vusl/actions/runs/39413395085)
+and [repository integrity](https://github.com/hypler-dev/vusl/actions/runs/39413395198).
+Prior clean-commit local evidence binds both 4,911-case consumer graphs and the
+root suite to that exact head. Publication evidence remains at
+`/private/tmp/vusl-consumer-publish-0p1c8kqx`; these results are not schema or
+coverage qualification. No new native/consumer run is claimed for docs-only
+preparation.
+
+Local main and origin/main remain `3d6d1434d56cee1021ea2053b14b97fd3160e507`.
+The implementation branch remains retained at its published head; no main sync,
+fetch, rebase, merge or remote write occurs here. Fetch/push remote is verified
+as `https://github.com/hypler-dev/vusl.git`. Future publication must explicitly
+reconcile the dependent PR/main base without silently including or merging
+another packet. All existing branches, safety stash
+`26dbabb5d59843ed42178fe518c078076b9b3446`, four starting ignored Python cache
+files and their mtimes, and unrelated bytes must remain preserved.
+
+### Proposed feature mechanics and limits
+
+The companion uses a pinned 2020-12 dialect for authoring structure; it cannot
+replace raw-byte/core conformance or turn schema acceptance into a preservation
+claim. The future test ledger accounts for every frozen native member with
+explicit structural, core-only and raw-input applicability. Character counts
+are not UTF-8 byte bounds; schema/dialect references must remain offline.
+
+The coverage proposal is a separate pure helper consuming `CheckedReview` and
+an independently selected versioned policy. The policy binds full expected
+source/target snapshots and a bounded mandatory source-term inventory. Missing
+terms or producer downgrades fail coverage. The combined guard also requires
+the existing meaning guard; original loss/unknown/uncertainty stays visible.
+Report identity includes the full immutable policy content, not catalog labels;
+reports borrow their exact policy/review and cannot be rebound to replacements.
+Neither catalog labels nor a validated policy establish trust, complete native
+semantics, evidence truth or authority. Catalog selection/verification is a host
+prerequisite. No catalog wire format, native profile field or core API changes.
+
+PROV/SKOS work is a written applicability/absence mapping and synthetic
+counterexamples. It does not implement RDF output or a reasoner. A scoped,
+directional VUSL `preserved` claim does not entail SKOS symmetric/transitive
+`exactMatch`; evidenced declarations do not prove actual derivation, activity,
+actor, authenticity, installation or effect. Schemas and coverage mechanics
+precede optional executable standards adapters.
+
+### Preparation ownership and validation gates
+
+Owned paths are exactly `README.md`,
+`docs/native-v0.1-schema-coverage-alignment-packet.md`,
+`docs/next-implementation-packet.md` and this roadmap. Root Sol owns architecture,
+ambiguity, the detailed packet, README, work record, integration and validation.
+OpenAI `gpt_docs` Luna-medium owns only the bounded next-packet summary. Fresh
+OpenAI `gpt_reviewer` Terra-xhigh read-only review follows the exact four-file
+packet and proof. Native lanes fit the secret-free work; no GLM or Spark lane
+is contacted. No file in Rangoon/LNSAT is accessed or changed, and no message is
+sent to their chats. No new competing intent/status document is introduced.
+
+Run `python3 -B scripts/validate.py`, `python3 -B scripts/test_validate.py`,
+`python3 -B scripts/test_case_plan.py`, `git diff --check`, explicit whitespace
+checks including the new file, exact immutable baseline pins, and an all-file/
+branch/stash/ignored-state preservation comparison. Documentation-only checks
+must not be reported as newly executed native or standards conformance.
+Dependency installations, core/schema/helper implementation, changes to the
+accepted wire/spec/API/corpus/locks/toolchain/CI, extraction, badge claims,
+commit, push, PR creation, merge, deployment and release remain closed. Owner
+acceptance and implementation authorization must precede the future packet's
+code changes. Actual preparation results and independent review follow below.
+
+### Preparation evidence and independent review
+
+Preparation checks pass: repository integrity verifies seven historical hashes,
+three retained vectors, 398 historical constructions and current Markdown/PNG/
+link integrity; 20 repository-validator regressions and seven case-plan
+regressions pass. Git whitespace and explicit whitespace checks cover all four
+owned documents, including the untracked packet. Five frozen spec/plan/corpus/
+root-lock pins match the published baseline. No native test, schema validator,
+coverage helper or PROV/SKOS adapter was implemented or newly qualified here.
+
+Fresh OpenAI `gpt_reviewer` Terra-xhigh schema/standards/status review passes
+with no actionable P1/P2/P3. Separate fresh OpenAI `gpt_reviewer` Terra-xhigh
+coverage-policy review found that catalog labels alone did not define policy
+identity. The packet now binds identity to the full immutable content tuple,
+requires privately constructed reports borrowing the exact policy/review, and
+adds same-label/different-content non-interchangeability cases. Re-review
+passes with no residual actionable P1/P2/P3. The report is limited to mandatory
+source-term coverage; complete target semantics remain separately qualified.
+
+Startup, validator, pin, review and final preservation evidence lives in
+`/private/tmp/vusl-schema-coverage-plan-vgns1bd3`, not in build dependencies.
+All 5,445 non-owned tracked file bytes, existing refs, stash and four pre-existing
+ignored cache files/mtimes are preserved. HEAD remains `1697a71`; main and
+origin/main remain `3d6d143`. The index is empty. Exactly four document deltas
+remain unstaged and uncommitted on the isolated preparation branch. This
+packet is reviewed preparation, not owner acceptance of its proposed APIs or
+permission to implement. No foreign repository access/change, wire change,
+extraction, badge claim, commit, push, merge, deployment or release occurred.
+
+
+### Schema/coverage packet documentation-publication continuation — October 20, 2026
+
+Jeff separately authorized committing and pushing the reviewed schema,
+required-term coverage and PROV/SKOS packet documents and opening a PR. This
+continuation opens only that exact four-document publication. Earlier
+uncommitted/closed-publication statements record their preparation checkpoint.
+Proposed schema/tooling, helper API and alignment decisions remain unaccepted
+for implementation. Wire changes, implementation, extraction, badge claims,
+merge, consumer changes, provider operation, deployment and release stay closed.
+
+Startup hashes match all four reviewed preparation files. Publication uses
+`codex/schema-coverage-alignment-packet-20261020`, parent
+`1697a71a35b0508c0dc28bf434d58df9c33c8967`; the intended fetch/push remote is
+`https://github.com/hypler-dev/vusl.git`. PR #11 remains open at that parent,
+with both hosted checks passing; main remains `3d6d1434d56cee1021ea2053b14b97fd3160e507`.
+Target the documentation PR at `codex/native-v01-consumer-impl-20261020` so its
+diff contains only this four-document packet. Do not merge the documentation
+into that implementation branch. Once PR #11 is separately merged, verify
+`1697a71a35b0508c0dc28bf434d58df9c33c8967` is an ancestor of actual main and
+that the documentation PR diff against main contains exactly the four owned
+paths before retargeting. A squash/rebase merge may fail ancestry: then do not
+retarget or merge this branch as-is. A separately scoped reconciliation must
+replay only the reviewed docs delta onto actual main in an isolated branch,
+with fresh validation/review before publication; no automatic rebase or
+force-push is authorized here. Fresh main-targeted checks precede any separately
+authorized merge. This continuation authorizes neither PR merge and makes no
+claim that the implementation is already on main.
+
+Only publication-status/dependency wording changes beyond the reviewed packet;
+all schema, policy identity/binding, coverage and standards-alignment design
+remains unchanged. README's substantive packet description stays included.
+Exactly owned paths: `README.md`,
+`docs/native-v0.1-schema-coverage-alignment-packet.md`,
+`docs/next-implementation-packet.md` and this roadmap. Preserve all other bytes,
+prior branches/main, safety stash `26dbabb5d59843ed42178fe518c078076b9b3446` and
+four ignored cache files with their mtimes. Rangoon/LNSAT remain untouched;
+no consumer handoff is sent.
+
+Root owns staging, commit, push, PR metadata and preservation proof. Obtain
+fresh independent read-only publication review, run repository integrity,
+both regression suites and staged/all-four-file whitespace/pin/scope checks.
+The unchanged workflows filter automatic PR runs to `main`, so this stacked
+PR does not trigger those automatic checks. Explicitly run the two existing
+read-only `workflow_dispatch` checks at its published branch head and record
+actual results separately; manual runs do not substitute for later required
+main-targeted PR checks or grant merge authority. No workflow file/settings,
+source, API, corpus, dependency or wire bytes change.
+
+Publication evidence lives at
+`/private/tmp/vusl-schema-coverage-publish-nno1jk2n` as local records, not build
+inputs. The publication PR is the canonical remote receipt for exact head/base,
+four-file scope, dependency and actual hosted results. Preparation checks and
+prior native CI are not new schema/coverage/PROV/SKOS implementation proof.

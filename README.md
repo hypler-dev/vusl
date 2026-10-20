@@ -35,6 +35,20 @@ source publication of this reviewed packet. Its publication PR records the exact
 source revision and actual hosted results; no new hosted consumer pass is
 claimed by this document. Consumer adoption and release remain separate gates.
 
+The next [schema, required-term coverage and standards-alignment packet](docs/native-v0.1-schema-coverage-alignment-packet.md)
+is prepared for owner review. It proposes a JSON Schema 2020-12 authoring
+companion, independently selected mandatory-term coverage outside the unchanged
+core, and a written PROV/SKOS alignment with explicit non-equivalence limits.
+No companion schema, coverage helper or RDF adapter is implemented by that
+preparation. The native profile, canonical bytes/IDs, assessment and guard
+remain unchanged. Its [roadmap record](docs/implementation-plan.md#native-v01-schema-coverage-and-standards-alignment-packet--october-20-2026)
+owns scope, proposed decisions and preparation evidence. PR #11 remains the
+open consumer-implementation baseline at this checkpoint; this next packet
+neither merges it nor changes Rangoon/LNSAT.
+Jeff separately authorized publishing these four reviewed packet documents.
+Their publication PR records the exact head, dependency and actual checks;
+publication does not accept or implement the proposed schema/coverage APIs.
+
 The [native v0.1 specification](docs/vusl-v0.1-specification.md) defines one
 source-to-target mapping-review workflow: scoped native snapshot references,
 per-term fidelity and typed loss, qualified relationship evidence, and a guard
