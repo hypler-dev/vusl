@@ -20,11 +20,14 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
-      CARGO_HOME: ${{ runner.temp }}/vusl-cargo
-      CARGO_TARGET_DIR: ${{ runner.temp }}/vusl-target
       CARGO_INCREMENTAL: '0'
       PYTHONDONTWRITEBYTECODE: '1'
     steps:
+      - name: Select temporary build directories
+        shell: bash
+        run: |
+          printf '%s\n' "CARGO_HOME=$RUNNER_TEMP/vusl-cargo" "CARGO_TARGET_DIR=$RUNNER_TEMP/vusl-target" >> "$GITHUB_ENV"
+
       - name: Check out full repository history
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:

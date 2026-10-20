@@ -40,6 +40,8 @@ independent standard-library Python oracle, hostile-input checks and dedicated
 [native CI workflow](.github/workflows/vusl-native.yml) implement that packet.
 Qualification is limited to actually completed source/toolchain/platform
 results in the roadmap; a workflow file alone is not a hosted CI pass.
+The native CI lane initializes build directories from `RUNNER_TEMP` inside a
+runner step; hosted validation remains a separate PR check.
 
 Development prioritizes native core features and mechanics. Relevant tests,
 CI, security checks and evidence updates accompany each feature packet. The
