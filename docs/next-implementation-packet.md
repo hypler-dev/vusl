@@ -1,49 +1,33 @@
-# Next VUSL checkpoint: consumer compatibility review and immutable qualification
+# Next VUSL checkpoint: native v0.1 schema coverage and standards alignment
 
-Status: the native v0.1 consumer-compatibility packet was accepted and implemented
-on October 20, 2026. Jeff separately authorized publication of the reviewed
-source packet; its PR records the exact revision and actual hosted results. The
-[implementation roadmap](implementation-plan.md#native-v01-consumer-implementation-acceptance--october-20-2026)
-owns acceptance, execution and review status; the
-[accepted packet](native-v0.1-consumer-compatibility-packet.md) defines scope.
+Status: proposed preparation only, October 20, 2026. The current work record is
+the [implementation roadmap](implementation-plan.md#native-v01-schema-coverage-and-standards-alignment-packet--october-20-2026),
+with detail in the [schema coverage and standards alignment packet](native-v0.1-schema-coverage-alignment-packet.md).
+This checkout is based on `1697a71a35b0508c0dc28bf434d58df9c33c8967`, with
+[PR #11](https://github.com/hypler-dev/vusl/pull/11) open and unmerged. The
+packet remains stacked on the unmerged consumer compatibility packet; future
+publication keeps a four-document diff by targeting PR #11's branch. After
+PR #11 is separately merged, verify its exact head is an ancestor of actual
+main and the diff remains exactly four documents before retargeting. If a
+squash/rebase merge breaks that condition, separately reconcile only the docs
+delta onto actual main in an isolated branch; do not retarget this branch as-is.
+Fresh review and main-targeted checks precede any separately authorized merge.
 
-## Implemented locally
+The next design decision covers a proposed companion JSON Schema 2020-12 for
+authoring and structural checks. VUSL core remains authority for raw bytes,
+canonicalization and semantic inspection. A separately selected, versioned
+required-term inventory and its evaluation remain outside the unchanged core;
+they must identify scope, evidence and refusal behavior without turning
+omission into a successful completeness claim.
 
-Local main was safely synchronized with merged PR #10 at
-`3d6d1434d56cee1021ea2053b14b97fd3160e507`. The implementation retains Rust
-1.99.1, the accepted specification/API and every frozen native expectation.
-Compatible library requirements resolve both independently locked downstream
-workspaces: the original direct tuple and the dated Rangoon dependency/feature
-constraints. Both pass all 4,911 cases (475 accepts, 4,436 refusals), exact
-canonical bytes/IDs, assessments, guards and explicit loss/uncertainty checks.
-The root lock is unchanged. The orchestrator verifies source/corpus/lock/tool
-identities, audits each distinct lock before builds, and checks actual resolved
-graphs, features, formatting and Clippy offline. Native CI now provisions and
-runs those checks; a workflow definition alone is not a hosted pass.
+The packet also records PROV and SKOS alignment decisions with synthetic
+examples. It does not add RDF export, a reasoner, or equivalence, authenticity,
+authorization or semantic-truth claims. Schema and required-term coverage come
+before optional adapters. Existing frozen 4,911-case corpus, native core and CI
+remain unchanged.
 
-## Next safe checkpoint
-
-Publish only the reviewed slice under the separate source-publication
-authorization. Rerun clean committed source and inspect actual hosted CI to
-establish the immutable compatibility candidate. Final PR review and any merge
-require a separate owner instruction. The
-[prepared Rangoon handoff](handoffs/rangoon-core-baseline.md) cannot substitute
-for that pin or authorize integration. No message has been sent.
-
-Rangoon then owns an accepted application-integration packet: actual base,
-compiler decision, manifests/locks/features, required-term inventory, storage
-and caller impact, full native outcomes and reviewed cutover. The synthetic
-constraints fixture does not qualify Rangoon itself or Rust 1.85/1.98. A lower
-VUSL compiler floor, downstream heap/timing, native ARM Rust, Windows, WASM,
-package installation and broader feature tuples need their own evidence.
-
-## Boundaries
-
-Keep Rangoon/LNSAT, safety stash, unrelated work and prior branches untouched.
-Only the exact reviewed source commit, branch push and publication PR are
-authorized. No extraction, consumer repin, parser deletion, provider operation,
-merge, badge claim, deployment or release is authorized. Test fixtures
-are instrumentation, not a product CLI or SDK. No legacy reader, alias,
-converter or 398-case parity program is introduced. Applicable tests,
-dependency/security review and evidence accompany features; full OpenSSF
-criteria closeout remains at v1.0 release candidate.
+All proposed design choices, file paths, dependencies and APIs require owner
+acceptance before implementation. No consumer handoff has been sent. No
+implementation acceptance or wire change is granted. Jeff separately
+authorized committing/pushing only these four reviewed documents and opening
+their publication PR. Merge, deployment and release remain closed.
