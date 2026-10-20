@@ -10,6 +10,14 @@ After separate owner acceptance and implementation authorization, deliver a stan
 
 Current preparation owns exactly new `docs/native-v0.1-rust-core-packet.md`, this next-packet record and `docs/implementation-plan.md`. The specification/conformance-plan bytes, existing source/artifacts/scripts/CI, README, handoffs, assets and licenses remain unchanged. No Rust package, executable corpus, dependency installation, source copy, foreign repository access or consumer integration is authorized now.
 
+## Development priority and OpenSSF cadence
+
+Feature and mechanics development is the active priority. The next development slice remains the standalone native Rust core: supplied-byte inspection, native identity/canonicalization, fidelity/loss and relationship checks, meaning guard, independent conformance and adversarial tests. The contract/API acceptance and implementation gates below remain explicit.
+
+Carry relevant OpenSSF practices inside that feature packet: tests, CI, warning/static checks, dependency/security review, documentation and evidence updates. Preserve existing baseline checks. Do not schedule completion of the entire Passing ledger as a prerequisite for unrelated mechanics work; concrete defects and requirements affecting the feature still need resolution. The [readiness ledger](openssf-readiness.md#development-cadence-and-v10-closeout) tracks accumulated evidence.
+
+At the v1.0 release-candidate milestone, perform the full criterion-level evidence/applicability review and resolve release-relevant gaps before owner release approval. No badge achievement, submission, stable release or deployment is promised or authorized by this priority decision.
+
 ## Decisions and gates before coding
 
 1. **Owner contract acceptance:** accept or revise the exact specification/plan commit and SHA-256 pair recorded in the Rust packet. Accept the narrow one-to-one selected-term workflow, declared required-scope guard, producer/host evidence obligations, native identifiers/domain, limits and explicit unknown/loss behavior. Do not infer acceptance from this preparation request.
