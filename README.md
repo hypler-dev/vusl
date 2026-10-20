@@ -31,6 +31,12 @@ protocols, tool/dependency qualification and exact future implementation scope.
 It is an execution proposal, not implemented Rust code or an approved package.
 Contract acceptance and implementation authorization remain separate gates.
 
+Development prioritizes native core features and mechanics. Relevant tests,
+CI, security checks and evidence updates accompany each feature packet. The
+[OpenSSF cadence](docs/openssf-readiness.md#development-cadence-and-v10-closeout)
+reserves the full criteria/evidence review for v1.0 release-candidate closeout,
+before stable release approval. This plan makes no badge or compliance claim.
+
 ## Architecture and ownership
 
 | Project | Owns |

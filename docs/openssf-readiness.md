@@ -1,13 +1,22 @@
 # OpenSSF readiness ledger
 
 Status: dated local evidence ledger, 2026-10-19. This document is an evidence
-map for VUSL's current OpenSSF Passing review. It is not an OpenSSF answer
+map for ongoing development and VUSL's planned v1.0 OpenSSF Passing readiness
+review. It is not an OpenSSF answer
 submission, badge, score, registration, compliance claim, or second roadmap.
 `Evidence present`, `Partial`, `Gap`, `Unknown`, and `N/A candidate` are local
 assessments only. `N/A candidate` requires later owner confirmation against
 the exact project result and release scope.
 
 Architectural scope update, October 19, 2026: the [native-contract decision](vusl-native-direction.md) withdraws the old D0a profile/corpus as active VUSL requirements. This ledger retains its dated repository/tooling observations. Existing 398-case construction checks are historical integrity evidence, not native VUSL conformance; reassess interface, testing and release evidence against the new contract when accepted. No badge or compliance claim follows.
+
+## Development cadence and v1.0 closeout
+
+Jeff's October 19 direction makes feature and mechanics development the active priority. OpenSSF practices are part of that work: each feature packet includes its relevant tests, CI, interface documentation, dependency/security checks and evidence updates. Preserve the existing baseline and fix concrete correctness/security problems when they arise. Completing the entire criteria ledger is not a prerequisite for every development packet; requirements directly relevant to that packet still apply.
+
+Plan a complete criterion-by-criterion evidence refresh, applicability review and unresolved-gap assessment during v1.0 release-candidate closeout, before the owner approves a stable v1.0 release. Use actual implementation, conformance, distribution and operating evidence from the proposed release, with named owners for remaining work. This is a planned readiness review, not a promise that all criteria or a badge will be achieved by a particular date. Badge registration/submission/claims and release retain separate authorization. Silver/Gold remain later optional work.
+
+The [implementation roadmap](implementation-plan.md#native-v01-contract-review-and-rust-core-packet--october-19-2026) owns development order. This ledger records evidence as features land; it does not become a competing feature roadmap or a standing evidence-only workstream ahead of the native core.
 
 ## Scope and sources
 
