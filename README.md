@@ -15,6 +15,16 @@ rules, conformance suite and standalone Rust core. The exact new contract and
 core are **not yet accepted or implemented**. The [next packet](docs/next-implementation-packet.md)
 defines the smallest useful specification before implementation.
 
+The [proposed native v0.1 specification](docs/vusl-v0.1-specification.md)
+now describes one source-to-target mapping-review workflow: scoped native
+snapshot references, per-term fidelity and typed loss, qualified relationship
+evidence, and a guard for the review's declared required meaning. Its
+[conformance plan](docs/vusl-v0.1-conformance-plan.md) derives new test
+obligations from that contract rather than preserving prototype outcomes.
+Both documents await owner acceptance. Their example byte/digest calculations
+are design evidence; no native core, executable corpus or native conformance
+result is delivered by this proposal.
+
 ## Architecture and ownership
 
 | Project | Owns |
