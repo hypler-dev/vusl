@@ -82,7 +82,10 @@ and independent review.
 
 ## Validation and evidence
 
-Run the repository checks from the project root:
+Use a full Git checkout with the original extraction commit available locally,
+Git, and Python 3.9 or newer. The tools use the Python standard library; there
+are no project packages to install. Source archives alone cannot establish
+the required historical provenance. Run the checks from the project root:
 
 ```bash
 python3 -B scripts/validate.py
@@ -96,6 +99,24 @@ candidate input constructions. The two Python suites check validator and case
 plan behavior. These checks validate input construction and repository
 integrity; they do not replay the candidate inputs through the Rangoon parser,
 prove semantic outcomes, or establish live provider compatibility.
+
+The [repository CI workflow](.github/workflows/vusl-integrity.yml) is configured
+for pull requests targeting main, pushes to main and manual dispatch. It uses
+Ubuntu 24.04, Python 3.12, pinned action commits, read-only permissions and full
+Git history so provenance checks can inspect the original extraction locally.
+It also checks whitespace over the event's commit range and verifies that the
+checks leave the checkout unchanged. It installs no project packages and uses
+no dependency cache. Local checks and hosted execution are separate evidence.
+The [readiness ledger](docs/openssf-readiness.md#local-repository-ci-implementation)
+records the published PR's successful hosted run and exact tested commit.
+
+OpenSSF Passing is the initial readiness target. The
+[criterion evidence ledger](docs/openssf-readiness.md) distinguishes existing
+evidence, gaps, unknowns and proposed applicability, and tracks OSPS Baseline
+Level 1 separately. It is not a badge or compliance assertion. Documented
+automated tests are required by Passing; CI is suggested. Lint/static-analysis
+proof, a working disclosure contact and repository-control gaps remain visible
+follow-up work in the [implementation roadmap](docs/implementation-plan.md#openssf-passing-evidence-baseline-and-repository-ci--october-19-2026).
 
 ## Ownership and contribution
 
