@@ -22,6 +22,8 @@ These are design goals, not claims of novelty against every existing product or 
 
 ## Starting point and constraints
 
+Historical prototype inventory and constraints, superseded by the native-contract decision. The D0a preservation rules below describe the previous extraction strategy, not active native VUSL schema, compatibility or acceptance requirements. Retained bytes are provenance evidence pending cleanup; the new contract does not inherit the old shape or behavior.
+
 The [current implementation inventory](../README.md#current-implementation-and-historical-assets) is the baseline. VUSL currently contains specifications, canonical vectors and Python repository validation. The experimental Rust D1 inspector and Python reference live in Rangoon. D0a-H is an offline source-reference probe; D2a/D2b OpenShell and D3a LNSAT work have separate provider-specific limits. None establishes a general VUSL SDK, serializer, network protocol, connected provider qualification or consequence-capable route.
 
 Preserve the [extraction manifest](../conformance/manifest.json), historical hashes, existing vector bytes, digest domain and `rangoon.rusl.*` identifiers. Current D0a remains closed: two document kinds, omitted native bytes, empty extensions, unverified authenticity and no authority. Later profiles do not loosen it. A new fixture set or behavioral profile needs its own reviewed identity and compatibility record; it must not rewrite extraction evidence.
@@ -29,6 +31,8 @@ Preserve the [extraction manifest](../conformance/manifest.json), historical has
 The original planning packet performed no source extraction, dependency update, engine operation or publication. Rangoon source-side qualification and consumer changes belong in its owning chat; the future extracted core belongs in VUSL. The D0a origin clarification was independently reviewed before publication preparation; it does not establish current parser conformance. The publication continuation below separately authorizes the reviewed VUSL branch update. Merge and release remain closed. The selected foundation is offline first; a hosted platform is a later decision.
 
 ## Reusable boundaries and language direction
+
+Historical reusable-boundary proposal, superseded by the native-contract decision. The table and assessment below record earlier D0a/API/extraction choices only; none selects a current VUSL field set, canonical identity, diagnostics, API, test oracle or integration acceptance gate. Reuse must be justified against the separately accepted native specification.
 
 | Boundary | Proposed deliverable | Ownership and implementation constraint |
 | --- | --- | --- |
@@ -286,3 +290,12 @@ Authority: Jeff separately authorized committing and pushing the reviewed native
 Publish exactly the 18 owned documentation paths listed above on `codex/vusl-native-contract-direction-20261019`, based on `a49a8f8652aaccb6d86ca1a555a50789500ef40b`, to the verified `https://github.com/hypler-dev/vusl.git` remote. Only this authorization record changes beyond the independently reviewed bytes. Preserve safety stash `26dbabb5d59843ed42178fe518c078076b9b3446`, all unrelated file bytes, prior branches and local main; do not apply/drop the stash, amend, force-push or delete branches. Rangoon and LNSAT are not read or modified by this publication packet.
 
 Before committing, rerun the existing repository validator, both regression suites and diff checks; verify exact staged scope, protected-file hashes, stash/list and prior refs; obtain independent read-only publication review. These checks concern historical integrity and tooling, not native VUSL conformance. The PR is the publication receipt for the exact commit, evidence and review. Observe automatically triggered hosted CI separately without manual dispatch, and leave the PR open. Publishing this direction does not accept the proposed v0.1 specification or authorize the next implementation packet.
+
+
+### PR #5 final review and conditional merge continuation
+
+Authority: Jeff separately requested final review of PR #5 and merge if everything passes, preserving the safety stash and unrelated work, keeping Rangoon and LNSAT untouched, with no extraction, badge claim or deployment. This opens only the reviewed PR's conditional merge gate; earlier publication instructions to leave it open are historical. Schema/core implementation, deletion, consumer repin, cross-repository changes, provider actions, repository settings, release and deployment remain closed.
+
+Final review identified an earlier roadmap boundary table whose D0a/API proposal still looked current despite the native-contract decision. The correction marks both the prototype constraints and reusable-boundary section explicitly historical and superseded. Only this roadmap changes; it adds no new contract or implementation obligation and changes no source, artifact, script or CI byte. Revalidate, obtain independent read-only review, push an additive correction and require successful hosted checks on the final exact PR head before merge. Verify current base/head, reviews, threads and repository gates immediately before a head-guarded merge, with no protection bypass, auto-merge or branch deletion.
+
+The PR receipt will record the final reviewed head, exact merge commit, tree/ancestry proof and actual post-merge CI state. Preserve the retained stash, unrelated bytes, prior branches and local checkout; synchronization with merged main remains a separate safe follow-up. Passing this review does not accept the next native specification or authorize extraction, a badge claim or deployment.
