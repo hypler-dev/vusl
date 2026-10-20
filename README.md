@@ -106,8 +106,9 @@ Ubuntu 24.04, Python 3.12, pinned action commits, read-only permissions and full
 Git history so provenance checks can inspect the original extraction locally.
 It also checks whitespace over the event's commit range and verifies that the
 checks leave the checkout unchanged. It installs no project packages and uses
-no dependency cache. Local implementation does not establish a hosted run;
-hosted CI evidence remains unrun until separately authorized publication.
+no dependency cache. Local checks and hosted execution are separate evidence.
+The [readiness ledger](docs/openssf-readiness.md#local-repository-ci-implementation)
+records the published PR's successful hosted run and exact tested commit.
 
 OpenSSF Passing is the initial readiness target. The
 [criterion evidence ledger](docs/openssf-readiness.md) distinguishes existing

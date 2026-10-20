@@ -29,8 +29,9 @@ Current repository evidence includes `README.md`, `GOVERNANCE.md`,
 the documented suites `python3 -B scripts/test_validate.py` (20 tests) and
 `python3 -B scripts/test_case_plan.py` (7 tests), alongside
 `python3 -B scripts/validate.py` (398 candidate constructions). A locally implemented
-workflow is recorded in the implementation plan; no hosted run occurred in
-this packet.
+workflow is recorded in the implementation plan. The original local-only
+packet had no hosted run; the publication receipt below records subsequent
+hosted execution separately.
 
 Applicability is deliberate. VUSL contains Python repository tooling with
 documented inputs and outputs, so it is not treated as a blank
@@ -86,7 +87,7 @@ is the smallest concrete evidence needed to change the local assessment.
 | `test` | MUST | Evidence present | README/CONTRIBUTING document validator, 20-test suite, 7-test suite and 398 constructions. | Preserve public invocations; maintainer. |
 | `test_invocation` | SHOULD | Evidence present | Standard Python commands are documented in README/CONTRIBUTING. | Keep commands runnable; maintainer. |
 | `test_most` | SUGGESTED | Partial | Candidate construction and validator tests are bounded; no branch/function coverage report. | Add measured coverage or rationale; QA owner. |
-| `test_continuous_integration` | SUGGESTED | Partial | Proposed local workflow is specified; hosted execution is unrun. | Run on authorized hosted repository; CI owner. |
+| `test_continuous_integration` | SUGGESTED | Evidence present | The published workflow passed the PR #4 hosted run linked below at exact head `edd9792ac5555b2ced5742071c907bfc281897c6`. | Keep hosted checks current for subsequent heads; CI owner. |
 | `test_policy` | MUST | Evidence present | [CONTRIBUTING](../CONTRIBUTING.md) requires deterministic vectors/tests for semantic changes. | Keep policy tied to change proposals; governance owner. |
 | `tests_are_added` | MUST | Partial | Existing docs require tests, but this ledger lacks code-level citations for most recent major changes. | Cite actual changed code and tests for latest major change; maintainer. |
 | `tests_documented_added` | SUGGESTED | Evidence present | [CONTRIBUTING](../CONTRIBUTING.md) documents test expectations. | Keep proposal guidance current; governance owner. |
@@ -132,9 +133,18 @@ checks, validates the actual event commit range for whitespace, and verifies a
 clean checkout. Event metadata is parsed as data and commit identities are
 validated before Git invocation.
 
-Local workflow evidence and hosted execution evidence remain separate.
-Hosted CI is unrun; no publication or dispatch is authorized by this packet.
-The local packet has no hosted CI receipt. Repository metadata says Actions is
+Local workflow evidence and hosted execution evidence remain separate. The
+original implementation authorization covered local work only; Jeff separately
+authorized publication through [PR #4](https://github.com/hypler-dev/vusl/pull/4).
+The [first hosted run](https://github.com/hypler-dev/vusl/actions/runs/39346309690)
+completed successfully on 2026-10-19 (America/Los_Angeles) for exact PR head
+`edd9792ac5555b2ced5742071c907bfc281897c6`, using Ubuntu 24.04/Python 3.12.
+Every provenance/construction, regression, event-range whitespace and checkout
+preservation step passed. No workflow was manually dispatched. This is a
+receipt for that head; later heads require their own run. It does not replay
+the parser, establish semantic conformance, or demonstrate OpenSSF compliance.
+
+Repository metadata says Actions is
 enabled, default workflow permissions are read, approval of pull-request
 reviews is disabled, and action SHA pinning is not required. Main is not
 protected in the dated snapshot; no branch rules, releases, tags, advisories,
