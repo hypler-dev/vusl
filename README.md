@@ -13,7 +13,7 @@ The [accepted architectural direction](docs/vusl-native-direction.md) starts
 VUSL with its own normative specification, native identifiers, canonicalization
 rules, conformance suite and standalone Rust core. The exact new contract and
 core are **not yet accepted or implemented**. The [next packet](docs/next-implementation-packet.md)
-defines the smallest useful specification before implementation.
+records the remaining contract acceptance gates and proposed Rust core work.
 
 The [proposed native v0.1 specification](docs/vusl-v0.1-specification.md)
 now describes one source-to-target mapping-review workflow: scoped native
@@ -24,6 +24,12 @@ obligations from that contract rather than preserving prototype outcomes.
 Both documents await owner acceptance. Their example byte/digest calculations
 are design evidence; no native core, executable corpus or native conformance
 result is delivered by this proposal.
+
+The [proposed Rust core packet](docs/native-v0.1-rust-core-packet.md) specifies
+an immutable supplied-byte API, bounded parsing canaries, independent test
+protocols, tool/dependency qualification and exact future implementation scope.
+It is an execution proposal, not implemented Rust code or an approved package.
+Contract acceptance and implementation authorization remain separate gates.
 
 ## Architecture and ownership
 
