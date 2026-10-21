@@ -48,6 +48,53 @@ EXPECTED_RESOURCE_URIS = (
     DIALECT,
 )
 EXPECTATIONS_FORMAT = "vusl.schema-companion.applicability-expectations.v0.1"
+DIAGNOSTIC_FORMAT = "vusl.schema-companion.diagnostic.v0.1"
+DIAGNOSTIC_CATALOG = "docs/diagnostics.md"
+COMPANION_FAILURE_CODES = frozenset(
+    {
+        "accepted_member_schema_rejected",
+        "applicability_expectation_mismatch",
+        "applicability_metadata_invalid",
+        "frozen_corpus_count_mismatch",
+        "frozen_corpus_invalid",
+        "native_oracle_mismatch",
+        "output_path_invalid",
+        "python_version_mismatch",
+        "report_write_failed",
+        "schema_document_invalid",
+        "schema_metaschema_invalid",
+        "schema_metaschema_unavailable",
+        "schema_reference_invalid",
+        "schema_validator_unavailable",
+        "self_test_adjacent_noncharacter_rejected",
+        "self_test_blocked_schema_invalid",
+        "self_test_character_byte_boundary",
+        "self_test_control_suffix_accepted",
+        "self_test_corpus",
+        "self_test_expected_gate",
+        "self_test_external_reference_allowed",
+        "self_test_huge_number_not_representable",
+        "self_test_instance_mutated",
+        "self_test_metadata",
+        "self_test_metadata_validation",
+        "self_test_missing_resource_allowed",
+        "self_test_missing_resource_failure",
+        "self_test_noncharacter_accepted",
+        "self_test_ordinary_unicode_rejected",
+        "self_test_strict_raw",
+        "self_test_structural_accept",
+        "self_test_tooling_failure",
+        "self_test_valid_rejected",
+        "self_test_weakened_schema",
+        "tooling_lock_invalid",
+        "tooling_resources_identity",
+        "tooling_resources_invalid",
+        "tooling_resources_missing",
+        "tooling_version_mismatch",
+        "unexpected_reference_resolution",
+        "unexpected_failure",
+    }
+)
 EXPECTED_TOTALS = {
     "accepted": 475,
     "refused": 4436,
@@ -70,6 +117,36 @@ class _DuplicateName(Exception):
 
 def _fail(code: str) -> NoReturn:
     raise CompanionError(code)
+
+
+def _actual_python() -> str:
+    return ".".join(str(part) for part in sys.version_info[:3])
+
+
+def _require_python_version(required_python: str) -> None:
+    if _actual_python() != required_python:
+        _fail("python_version_mismatch")
+
+
+def _failure_code(error: CompanionError) -> str:
+    code = str(error)
+    if code in COMPANION_FAILURE_CODES:
+        return code
+    return "unexpected_failure"
+
+
+def _emit_diagnostic(mode: str, error: CompanionError, report_error: CompanionError | None = None) -> None:
+    diagnostic = {
+        "catalog": DIAGNOSTIC_CATALOG,
+        "failure": _failure_code(error),
+        "format": DIAGNOSTIC_FORMAT,
+        "message": "See docs/diagnostics.md for the fixed failure code.",
+        "mode": mode,
+        "status": "failed",
+    }
+    if report_error is not None:
+        diagnostic["report_failure"] = _failure_code(report_error)
+    sys.stderr.write(json.dumps(diagnostic, sort_keys=True, separators=(",", ":")) + "\n")
 
 
 def _pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
@@ -282,7 +359,10 @@ def _require_expected(expected: str, actual: str, expected_reason: str | None = 
 def _external_output(path: Path, repo_root: Path) -> Path:
     if not path.is_absolute():
         _fail("output_path_invalid")
-    resolved = path.resolve()
+    try:
+        resolved = path.resolve()
+    except (OSError, RuntimeError):
+        _fail("output_path_invalid")
     try:
         resolved.relative_to(repo_root)
     except ValueError:
@@ -464,9 +544,8 @@ def _self_test(schema: dict[str, Any], registry: Registry) -> None:
 
 
 def _run(repo_root: Path, required_python: str) -> dict[str, Any]:
-    actual_python = ".".join(str(part) for part in sys.version_info[:3])
-    if actual_python != required_python:
-        _fail("python_version_mismatch")
+    _require_python_version(required_python)
+    actual_python = _actual_python()
     lock, registry = _tooling(repo_root / "tests/schema-companion/tooling-lock.json", required_python)
     schema_path = repo_root / "schemas/vusl.mapping-review.v0.1.schema.json"
     schema = _schema(schema_path, registry)
@@ -537,25 +616,38 @@ def main(argv: list[str] | None = None) -> int:
     repo_root = Path(__file__).resolve().parents[1]
     if args.self_test:
         try:
+            _require_python_version(args.require_python)
             _, registry = _tooling(repo_root / "tests/schema-companion/tooling-lock.json", args.require_python)
             schema = _schema(repo_root / "schemas/vusl.mapping-review.v0.1.schema.json", registry)
             _self_test(schema, registry)
-        except CompanionError:
+        except CompanionError as error:
+            _emit_diagnostic("self_test", error)
             return 1
         return 0
     if args.output is None:
         parser.error("--output is required unless --self-test is used")
     try:
         output = _external_output(args.output, repo_root)
+    except CompanionError as error:
+        _emit_diagnostic("applicability", error)
+        return 1
+    try:
         report = _run(repo_root, args.require_python)
     except CompanionError as error:
-        report = {"format": "vusl.schema-companion.applicability.v0.1", "status": "failed", "failure": str(error)}
+        report = {"format": "vusl.schema-companion.applicability.v0.1", "status": "failed", "failure": _failure_code(error)}
         try:
-            output = _external_output(args.output, repo_root)
-        except CompanionError:
+            _write(output, report)
+        except CompanionError as write_error:
+            _emit_diagnostic("applicability", error, write_error)
             return 1
-    _write(output, report)
-    return 0 if report["status"] == "passed" else 1
+        _emit_diagnostic("applicability", error)
+        return 1
+    try:
+        _write(output, report)
+    except CompanionError as error:
+        _emit_diagnostic("applicability", error)
+        return 1
+    return 0
 
 
 if __name__ == "__main__":

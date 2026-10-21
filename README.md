@@ -127,6 +127,24 @@ Other tooling tuples require separate qualification; do not resolve a substitute
 closure. Rust checks below include the helper's ownership, policy-boundary and
 combined-guard tests through `--workspace`.
 
+## Diagnostics for humans and LLM consumers
+
+The [diagnostics catalog](docs/diagnostics.md) explains native input refusals,
+valid blocked/unresolved reviews, coverage policy/binding failures and schema
+qualification failures. Each code has a cause, safe repair and retry condition.
+Codes belong to their originating layer; an accepted review, complete coverage
+or successful meaning guard never grants execution authority.
+
+The local diagnostics continuation adds fixed-code schema failure records on
+stderr, including `--self-test` and output-path/write failures. Successful runs
+remain quiet, and the existing applicability report format stays unchanged.
+This is test-tool output, not a native wire or Rust API change. See the
+[current work record](docs/implementation-plan.md#diagnostics-implementation-continuation--october-20-2026)
+for validation and review. Jeff separately authorized source publication of
+this reviewed packet; the [publication continuation](docs/implementation-plan.md#diagnostics-publication-continuation--october-21-2026)
+owns the exact scope. Its PR records the immutable head, dependent base and
+actual CI results. Publication does not grant merge, deployment or release authority.
+
 Development prioritizes native core features and mechanics. Relevant tests,
 CI, security checks and evidence updates accompany each feature packet. The
 [OpenSSF cadence](docs/openssf-readiness.md#development-cadence-and-v10-closeout)

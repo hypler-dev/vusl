@@ -111,6 +111,7 @@ jobs:
 
       - name: Companion schema, applicability and tooling regressions (offline)
         run: |
+          "$RUNNER_TEMP/vusl-schema/venv/bin/python" -B scripts/test_schema_companion_diagnostics.py
           "$RUNNER_TEMP/vusl-schema/venv/bin/python" -B scripts/test_schema_companion.py --self-test
           "$RUNNER_TEMP/vusl-schema/venv/bin/python" -B scripts/test_schema_companion.py \
             --require-python 3.11.17 --output "$RUNNER_TEMP/vusl-schema-run.json"
