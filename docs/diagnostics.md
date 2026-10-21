@@ -214,4 +214,3 @@ only after the unexpected failure is understood and repaired. It does not catch
 all Python exceptions. Startup import failures
 remain Python/CLI prerequisites outside this controlled diagnostic catalog. No
 shared SDK, logger, network, or adapter is implied.
-
