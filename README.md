@@ -26,7 +26,7 @@ merged PR #10 baseline `3d6d1434d56cee1021ea2053b14b97fd3160e507`.
 Compatible library requirements now admit two independently locked downstream
 fixtures. Both pass all 4,911 unchanged native expectations (475 accepts and
 4,436 refusals each), including explicit loss, uncertainty and guard checks.
-The original root lock remains unchanged. These are synthetic public-API
+The consumer packet retained the original root lock. These are synthetic public-API
 consumer results on Rust 1.99.1, not a Rangoon application build. Rangoon's
 recorded 1.85/1.98 compiler tuple still needs its owner's decision and proof.
 The [roadmap](docs/implementation-plan.md#native-v01-consumer-implementation-acceptance--october-20-2026)
@@ -35,19 +35,30 @@ source publication of this reviewed packet. Its publication PR records the exact
 source revision and actual hosted results; no new hosted consumer pass is
 claimed by this document. Consumer adoption and release remain separate gates.
 
-The next [schema, required-term coverage and standards-alignment packet](docs/native-v0.1-schema-coverage-alignment-packet.md)
-is prepared for owner review. It proposes a JSON Schema 2020-12 authoring
-companion, independently selected mandatory-term coverage outside the unchanged
-core, and a written PROV/SKOS alignment with explicit non-equivalence limits.
-No companion schema, coverage helper or RDF adapter is implemented by that
-preparation. The native profile, canonical bytes/IDs, assessment and guard
-remain unchanged. Its [roadmap record](docs/implementation-plan.md#native-v01-schema-coverage-and-standards-alignment-packet--october-20-2026)
-owns scope, proposed decisions and preparation evidence. PR #11 remains the
-open consumer-implementation baseline at this checkpoint; this next packet
-neither merges it nor changes Rangoon/LNSAT.
-Jeff separately authorized publishing these four reviewed packet documents.
-Their publication PR records the exact head, dependency and actual checks;
-publication does not accept or implement the proposed schema/coverage APIs.
+Jeff accepted the [schema, required-term coverage and standards-alignment packet](docs/native-v0.1-schema-coverage-alignment-packet.md#8-accepted-local-implementation-continuation--october-20-2026)
+and authorized its local implementation on October 20, 2026, after
+[PR #11](https://github.com/hypler-dev/vusl/pull/11) merged as `8dea656` and
+[PR #12](https://github.com/hypler-dev/vusl/pull/12) merged as `64dbe7d`.
+The [current roadmap record](docs/implementation-plan.md#native-v01-schema-coverage-implementation-acceptance--october-20-2026)
+owns implementation and qualification state. The companion schema supplies
+authoring checks, a separate unpublished `vusl-coverage` crate checks an
+independently selected mandatory source-term inventory, and the
+[written PROV/SKOS alignment](docs/native-v0.1-standards-alignment.md) records
+applicability, missing evidence and counterexamples. No RDF adapter is added.
+The native profile, wire/specification, core API/source, canonical bytes/IDs,
+assessment, guard and frozen corpus remain unchanged. Root Cargo metadata adds
+only the local helper; existing registry-package entries remain identical.
+Local validation does not establish a hosted CI pass, consumer adoption or release.
+The local implementation and both independent reviews now pass. Its schema
+ledger accounts for every frozen member: all 475 native accepts pass, 34 named
+core-only refusals also pass the structural subset, 4,306 structural refusals
+fail it, and 96 raw inputs cannot be represented as strict decoded instances.
+The helper passes nine integration tests and six ownership compile-fail tests.
+The roadmap records the full unchanged native/consumer gates and limitations;
+Jeff separately authorized source publication of this exact reviewed packet.
+Its publication PR records the immutable source revision and actual hosted
+results. Source publication does not establish consumer adoption, package
+publication, stable support or release acceptance.
 
 The [native v0.1 specification](docs/vusl-v0.1-specification.md) defines one
 source-to-target mapping-review workflow: scoped native snapshot references,
@@ -73,6 +84,48 @@ Qualification is limited to actually completed source/toolchain/platform
 results in the roadmap; a workflow file alone is not a hosted CI pass.
 The native CI lane initializes build directories from `RUNNER_TEMP` inside a
 runner step; hosted validation remains a separate PR check.
+
+## Authoring schema and independent coverage
+
+The [JSON Schema 2020-12 companion](schemas/vusl.mapping-review.v0.1.schema.json)
+is a non-normative structural subset. Schema acceptance does not establish raw
+UTF-8/JSON validity, byte bounds, native conformance, canonical identity or
+preserved meaning. Native instances gain no `$schema` member. The
+[companion tooling record](tests/schema-companion/README.md) explains the strict
+all-member applicability ledger and pinned offline dialect resources. Tooling
+uses six exact hash-locked Python packages without format extras; scripts never
+install dependencies or retrieve references.
+
+The separate [`vusl-coverage`](crates/vusl-coverage/Cargo.toml) library takes an
+existing immutable `CheckedReview` and a host-selected validated `CoveragePolicy`.
+Policies bind the profile, full ordered source/target snapshots, catalog
+identifier/revision and 1–32 exact mandatory source terms. Missing or downgraded
+terms fail coverage. Reports borrow the exact review and full-content policy;
+their combined guard also requires the original core meaning guard to succeed.
+Optional loss and uncertainty remain inspectable. Coverage does not authenticate
+the policy, establish a complete target inventory, verify evidence or authorize
+execution. The library performs no I/O, policy discovery or reference resolution.
+
+Provision companion tooling explicitly with Python 3.11.17, then run offline:
+
+```bash
+export VUSL_SCHEMA_ENV="$(mktemp -d /tmp/vusl-schema.XXXXXX)"
+python3 -m venv "$VUSL_SCHEMA_ENV/venv"
+"$VUSL_SCHEMA_ENV/venv/bin/python" -m pip --disable-pip-version-check --no-cache-dir download \
+  --only-binary=:all: --require-hashes --dest "$VUSL_SCHEMA_ENV/wheels" \
+  -r scripts/test_schema_companion.requirements.txt
+"$VUSL_SCHEMA_ENV/venv/bin/python" -m pip --disable-pip-version-check --no-cache-dir install \
+  --no-index --only-binary=:all: --require-hashes --find-links "$VUSL_SCHEMA_ENV/wheels" \
+  -r scripts/test_schema_companion.requirements.txt
+PYTHONDONTWRITEBYTECODE=1 "$VUSL_SCHEMA_ENV/venv/bin/python" -B scripts/test_schema_companion.py --self-test
+PYTHONDONTWRITEBYTECODE=1 "$VUSL_SCHEMA_ENV/venv/bin/python" -B scripts/test_schema_companion.py \
+  --require-python 3.11.17 --output "$VUSL_SCHEMA_ENV/schema-run.json"
+```
+
+The binary-wheel pins cover CPython 3.11 macOS ARM64 and Linux x86_64 only.
+Other tooling tuples require separate qualification; do not resolve a substitute
+closure. Rust checks below include the helper's ownership, policy-boundary and
+combined-guard tests through `--workspace`.
 
 Development prioritizes native core features and mechanics. Relevant tests,
 CI, security checks and evidence updates accompany each feature packet. The

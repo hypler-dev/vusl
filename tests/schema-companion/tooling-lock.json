@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "python": "3.11.17",
+  "dialect": "https://json-schema.org/draft/2020-12/schema",
+  "qualified_wheel_targets": [
+    "CPython 3.11 macOS ARM64",
+    "CPython 3.11 manylinux x86_64"
+  ],
+  "packages": [
+    {
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "license": "MIT",
+      "license_files": [
+        {
+          "path": "jsonschema-4.26.0.dist-info/licenses/COPYING",
+          "sha256": "4f92a015a13c4d1a040bef018aa13430b4f1bc73b41b16bb846c346766de7439"
+        }
+      ],
+      "requires_dist": [
+        "attrs>=22.2.0",
+        "jsonschema-specifications>=2023.03.6",
+        "referencing>=0.28.4",
+        "rpds-py>=0.25.0",
+        "fqdn; extra == \"format\"",
+        "idna; extra == \"format\"",
+        "isoduration; extra == \"format\"",
+        "jsonpointer>1.13; extra == \"format\"",
+        "rfc3339-validator; extra == \"format\"",
+        "rfc3987; extra == \"format\"",
+        "uri-template; extra == \"format\"",
+        "webcolors>=1.11; extra == \"format\"",
+        "fqdn; extra == \"format-nongpl\"",
+        "idna; extra == \"format-nongpl\"",
+        "isoduration; extra == \"format-nongpl\"",
+        "jsonpointer>1.13; extra == \"format-nongpl\"",
+        "rfc3339-validator; extra == \"format-nongpl\"",
+        "rfc3986-validator>0.1.0; extra == \"format-nongpl\"",
+        "rfc3987-syntax>=1.1.0; extra == \"format-nongpl\"",
+        "uri-template; extra == \"format-nongpl\"",
+        "webcolors>=24.6.0; extra == \"format-nongpl\""
+      ],
+      "wheels": [
+        {
+          "filename": "jsonschema-4.26.0-py3-none-any.whl",
+          "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+          "url": "https://files.pythonhosted.org/packages/69/90/f63fb5873511e014207a475e2bb4e8b2e570d655b00ac19a9a0ca0a385ee/jsonschema-4.26.0-py3-none-any.whl"
+        }
+      ]
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "license": "MIT",
+      "license_files": [
+        {
+          "path": "attrs-26.1.0.dist-info/licenses/LICENSE",
+          "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f"
+        }
+      ],
+      "requires_dist": [],
+      "wheels": [
+        {
+          "filename": "attrs-26.1.0-py3-none-any.whl",
+          "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+          "url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl"
+        }
+      ]
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "license": "MIT",
+      "license_files": [
+        {
+          "path": "jsonschema_specifications-2025.9.1.dist-info/licenses/COPYING",
+          "sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c"
+        }
+      ],
+      "requires_dist": [
+        "referencing>=0.31.0"
+      ],
+      "wheels": [
+        {
+          "filename": "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+          "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+          "url": "https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl"
+        }
+      ]
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "license": "MIT",
+      "license_files": [
+        {
+          "path": "referencing-0.37.0.dist-info/licenses/COPYING",
+          "sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c"
+        }
+      ],
+      "requires_dist": [
+        "attrs>=22.2.0",
+        "rpds-py>=0.7.0",
+        "typing-extensions>=4.4.0; python_version < \"3.13\""
+      ],
+      "wheels": [
+        {
+          "filename": "referencing-0.37.0-py3-none-any.whl",
+          "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+          "url": "https://files.pythonhosted.org/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl"
+        }
+      ]
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.9.1",
+      "license": "MIT",
+      "license_files": [
+        {
+          "path": "rpds_py-2026.9.1.dist-info/licenses/LICENSE",
+          "sha256": "314e4e91be3baa93c0fb4bccc9e4e97cd643eb839b065af921782c2175fe9909"
+        }
+      ],
+      "requires_dist": [],
+      "wheels": [
+        {
+          "filename": "rpds_py-2026.9.1-cp311-cp311-macosx_11_0_arm64.whl",
+          "sha256": "3231c4c0e521dafa5be0c9f114ee2c2ad46650836f2d72caa86801950c3e7044",
+          "url": "https://files.pythonhosted.org/packages/9e/b2/632c3d034961149eff606e3e357547620a9ab37b849ae5815f67838753fd/rpds_py-2026.9.1-cp311-cp311-macosx_11_0_arm64.whl"
+        },
+        {
+          "filename": "rpds_py-2026.9.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "sha256": "136a1c3fe4402b7008bc81cb62ee538481795b61a7e83df88dff3b3f02b726ff",
+          "url": "https://files.pythonhosted.org/packages/2d/5c/aac3b960fd55d37b49f77c0eebbe043eaf36762ebd48e7b46951e59c1c05/rpds_py-2026.9.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+        }
+      ]
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "license": "PSF-2.0",
+      "license_files": [
+        {
+          "path": "typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+        }
+      ],
+      "requires_dist": [],
+      "wheels": [
+        {
+          "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+          "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+          "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "uri": "https://json-schema.org/draft/2020-12/meta/applicator",
+      "canonical_contents_sha256": "46a5141432ac51fff467e6c2230c19cba0b07d6a492c0fb062a1a852c370eed7"
+    },
+    {
+      "uri": "https://json-schema.org/draft/2020-12/meta/content",
+      "canonical_contents_sha256": "adcc808be6d10c12a2fcdf3123ecc4b56b18df58fc86001f2740ddd10fdeedfd"
+    },
+    {
+      "uri": "https://json-schema.org/draft/2020-12/meta/core",
+      "canonical_contents_sha256": "fc882f9fe8343beacb4b47b4a65441a9bfe2a15f279c66ceb6ddd65da7586edd"
+    },
+    {
+      "uri": "https://json-schema.org/draft/2020-12/meta/format-annotation",
+      "canonical_contents_sha256": "f35165bc538974536af0c491819172f68e32e304e677742e67fe12f008731e60"
+    },
+    {
+      "uri": "https://json-schema.org/draft/2020-12/meta/format-assertion",
+      "canonical_contents_sha256": "dd93ef25f948d92a237f15019808465bbd3fe58e2ed45fe9548afc2319eb1a45"
+    },
+    {
+      "uri": "https://json-schema.org/draft/2020-12/meta/meta-data",
+      "canonical_contents_sha256": "5b3b96d59a4a2f16fc72a0dcaf758aea40aae866a61ac9d0d71dd9d6a8603115"
+    },
+    {
+      "uri": "https://json-schema.org/draft/2020-12/meta/unevaluated",
+      "canonical_contents_sha256": "61f01418e98cdbb0ad0fbfbd593780bdadb7fb745a7adff646d26c103bc6d166"
+    },
+    {
+      "uri": "https://json-schema.org/draft/2020-12/meta/validation",
+      "canonical_contents_sha256": "34fba27426a2fe175b459326a4013434775f06dd33d1209cab9028decae1e240"
+    },
+    {
+      "uri": "https://json-schema.org/draft/2020-12/schema",
+      "canonical_contents_sha256": "c1cacf82bea665da4dbaf58eb341b7af39420d4c9248a012aba3436ef1f802bb"
+    }
+  ],
+  "resource_hash_encoding": "JSON object contents serialized with sorted keys, compact separators, ensure_ascii=false, UTF-8; no newline",
+  "advisory_review": {
+    "date": "2026-10-20",
+    "source": "https://api.osv.dev/v1/querybatch",
+    "query_sha256": "fc798d1db2452465a24b7c4cf8c656d80b6433e5a1d3607c0a91c94b9f8a8963",
+    "response_sha256": "402d69c3d413d7da2876f614bf0855c177a6337e953ea80f07bb0da716eabf8a",
+    "versions_checked": 6,
+    "listed_advisories": 0,
+    "limitation": "Dated exact-version query, not continuing security clearance."
+  }
+}

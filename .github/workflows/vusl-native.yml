@@ -53,6 +53,20 @@ jobs:
           cargo +1.99.1 fetch --locked --manifest-path tests/consumer-compatibility/upstream/Cargo.toml
           cargo +1.99.1 fetch --locked --manifest-path tests/consumer-compatibility/rangoon-constraints/Cargo.toml
 
+      - name: Provision hash-locked companion tooling
+        shell: bash
+        run: |
+          set -euo pipefail
+          schema_root="$RUNNER_TEMP/vusl-schema"
+          python3 -m venv "$schema_root/venv"
+          "$schema_root/venv/bin/python" -m pip --disable-pip-version-check --no-cache-dir download \
+            --only-binary=:all: --require-hashes --dest "$schema_root/wheels" \
+            -r scripts/test_schema_companion.requirements.txt
+          "$schema_root/venv/bin/python" -m pip --disable-pip-version-check --no-cache-dir install \
+            --no-index --only-binary=:all: --require-hashes --find-links "$schema_root/wheels" \
+            -r scripts/test_schema_companion.requirements.txt
+          "$schema_root/venv/bin/python" -m pip --disable-pip-version-check check
+
       - name: Provision verified dated advisory baseline
         # This immutable database is a reproducible dated baseline, not a
         # continuously current advisory assessment or release security clearance.
@@ -94,6 +108,12 @@ jobs:
           cargo +1.99.1 fmt --all -- --check
           cargo +1.99.1 clippy --locked --workspace --all-targets -- -D warnings
           cargo +1.99.1 test --locked --workspace
+
+      - name: Companion schema, applicability and tooling regressions (offline)
+        run: |
+          "$RUNNER_TEMP/vusl-schema/venv/bin/python" -B scripts/test_schema_companion.py --self-test
+          "$RUNNER_TEMP/vusl-schema/venv/bin/python" -B scripts/test_schema_companion.py \
+            --require-python 3.11.17 --output "$RUNNER_TEMP/vusl-schema-run.json"
 
       - name: Native corpus, independent oracle and resource budgets (offline)
         env:
