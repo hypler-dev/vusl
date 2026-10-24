@@ -1174,3 +1174,217 @@ clean-source qualification and hosted outcomes are pending at this opening
 checkpoint; the PR receipt records their actual completion. No merge,
 deployment, release, badge claim, parser extraction or provider operation is
 opened by this publication authorization.
+
+## Diagnostics implementation continuation — October 20, 2026
+
+Authority: Jeff explicitly authorized implementing the diagnostics catalog and
+repairing silent schema self-test failures. This section is the canonical work
+record. The outcome is actionable, payload-free diagnostics for humans and LLM
+consumers, with negative-path evidence. No native wire, Rust API, specification,
+schema semantics, frozen expectations or dependency change is authorized.
+
+Startup verifies the VUSL repository and both origin URLs as
+`https://github.com/hypler-dev/vusl.git`, branch
+`codex/native-v01-schema-coverage-impl-20261020`, clean HEAD
+`d8028c65ed312d7a4ff8c9a08780c8fcf6e8e2ca`. That source packet was published
+as [PR #13](https://github.com/hypler-dev/vusl/pull/13); its earlier local and
+hosted results do not qualify this uncommitted continuation. No synchronization,
+branch switch, new commit or remote mutation is part of this task.
+
+Accepted scope and ownership:
+
+- Root Sol/OpenAI owns integration, risk, validation, this roadmap,
+  `docs/next-implementation-packet.md`, `README.md`,
+  `tests/schema-companion/README.md` and `.github/workflows/vusl-native.yml`.
+- Native Terra-high/OpenAI implementation owns
+  `scripts/test_schema_companion.py` and
+  `scripts/test_schema_companion_diagnostics.py`.
+- Native Luna-medium/OpenAI documentation owns `docs/diagnostics.md`.
+- Fresh independent read-only Terra-xhigh/OpenAI review checks the exact final
+  diff against this accepted scope and the measured validation evidence.
+
+Workers receive only local VUSL source paths and synthetic fixtures. No
+external-provider transfer, GLM/Spark contact or foreign-repository handoff is
+needed. One writer owns each file. The catalog documents existing native and
+coverage states; it neither creates new Rust codes nor adds a shared runtime
+logger, SDK or adapter.
+
+Acceptance requires a catalog covering malformed input, valid assessments,
+meaning guards, coverage policy/binding/findings and schema failure codes, with
+safe correction and retry conditions. Expected schema self-test failures must
+return 1 with one deterministic structured stderr diagnostic instead of silence.
+Normal qualification failures and invalid/unwritable external output paths must
+also remain observable without leaking input, arbitrary exception text or paths.
+Successful runs remain quiet and the existing applicability report stays
+compatible. Missing Python imports and CLI usage are distinct prerequisite/usage
+paths; this packet does not promise structured output for every process failure.
+
+Validation: new diagnostic negative-path regressions, companion self-test,
+complete 4,911-member applicability check, repository integrity, both repository
+regression suites, actionlint and whitespace. Freeze checks compare all native
+core/helper/schema/corpus/dependency bytes with startup. No Rust source changes
+are planned, so previously completed Rust/resource/consumer suites are baseline
+evidence, not a new execution claim. A Graphify index is absent; no generated
+index is created. Validation and fresh review are pending at this opening.
+
+Preserve stash `26dbabb5d59843ed42178fe518c078076b9b3446`, all non-owned
+tracked bytes, prior refs/worktrees and four ignored cache files with their
+nanosecond mtimes. Startup backups and evidence are outside build inputs at
+`/private/tmp/vusl-diagnostics-4belxvre`. Every project Python invocation/import
+uses `-B` and `PYTHONDONTWRITEBYTECODE=1`. An initial file-name inventory
+accidentally extended outside VUSL and was stopped; no foreign file contents
+were opened or changed. Subsequent work is confined to this repository and
+required local skill, memory and tool paths.
+
+Risks: documentation must not invent an exact culprit for multi-fault native
+input, turn a valid blocked/unresolved review into malformed input, hide a
+meaning refusal behind successful coverage, or recommend weakening required
+scope, evidence, bounds or pins. Notes and identifiers remain untrusted data.
+Retry requires the documented correction; repeated unchanged input is not a
+repair. Rangoon/LNSAT stay untouched. No wire change, extraction, badge claim,
+commit, push, merge, package publication, deployment or release is authorized.
+
+### Diagnostics implementation and final local evidence
+
+Local implementation is complete. The catalog covers all eight malformed-input
+codes, three valid assessments, both meaning-guard refusals, nine policy errors,
+three binding failures, indexed coverage findings, the combined guard and every
+fixed schema failure code. It explains namespaces, formatting, zero-based policy
+indices, precedence, safe correction and retry conditions. No new native state
+or runtime API is introduced.
+
+The runner emits one compact JSON stderr record using test-tool format
+`vusl.schema-companion.diagnostic.v0.1`: `format`, `status`, `mode`, `failure`,
+`catalog` and a fixed `message`. Controlled failures return 1; success remains
+silent with status 0. Unknown `CompanionError` text becomes `unexpected_failure`,
+never caller content. If a failed applicability report also cannot be written,
+the same record retains the primary `failure` and adds sanitized `report_failure`.
+Actual Python version is now checked in self-test mode as well as normal mode.
+Invalid output resolution and write failures return diagnostics without a
+traceback. Existing applicability report format and successful bytes are
+unchanged. No claim is made for missing imports, argparse usage, unexpected
+Python exceptions, closed stderr or process termination.
+
+| Local gate | Result |
+| --- | --- |
+| Diagnostics regressions | 16 tests pass, including tooling/schema/self-test failures, fixed-code redaction, normal failed-report compatibility, invalid/in-repo/loop paths, mocked and actual filesystem write failure, primary-plus-write failure, success silence, catalog/code drift and real subprocess behavior. |
+| Companion self-test | Exact Python 3.11.17 environment returns 0 with empty stdout/stderr. |
+| Complete applicability | All 4,911 records pass; the entire output is byte-identical to the clean `d8028c6` baseline report. Totals remain 475 native accepts, 4,436 native refusals, 509 schema passes, 4,306 structural failures, 34 core-only cases and 96 raw nonrepresentable cases. |
+| Real negative CLI | Wrong-version self-test returns 1 with its fixed code; wrong-version qualification plus an absent output parent returns one record containing `python_version_mismatch` and `report_failure: report_write_failed`, without path or exception text. |
+| Catalog coverage | All 27 distinct existing Rust state/code strings are documented; regression checks require every schema literal failure code in the fixed allowlist and every allowlisted code in the catalog, plus the exact JSON example. |
+| Repository integrity | Seven extraction hashes, three retained vectors, all 398 historical constructions and 204 current local links pass at the first check. This remains construction/provenance evidence. |
+| Repository regressions | 20 validator tests and seven case-plan tests pass. |
+| Workflow and whitespace | Actionlint and `git diff --check` pass. The CI definition invokes the new regressions; no hosted execution of this uncommitted continuation is claimed. |
+
+Fresh independent native Terra-xhigh/OpenAI read-only review passes with no
+actionable P1/P2/P3. It checked the exact eight-path diff, source identities,
+accepted scope, catalog/native/coverage semantics and measured evidence. An
+initial proposed finding about external-target output symlinks was withdrawn:
+the accepted scope preserves the baseline external-output behavior while
+rejecting paths/symlinks into the repository. It did not require rejecting all
+external symlinks. No unrelated output-policy redesign was added. Root Sol
+integrated Terra implementation and Luna documentation, verified evidence and
+retains final judgment. No GLM/Spark lane was contacted.
+
+All 5,453 non-owned starting tracked files remain byte-identical. This includes
+native core/helper source, accepted specification/conformance plan, companion
+schema, complete frozen corpus, all lock/tooling/applicability metadata and
+consumer fixtures. All refs and worktrees, safety stash and four ignored cache
+hashes/nanosecond mtimes remain unchanged; the index is empty. Only the eight
+named files are modified/untracked. Source HEAD remains `d8028c6`; no additional
+commit, push, PR update, merge, extraction, badge claim, package publication,
+deployment or release occurred. Rangoon/LNSAT remain untouched.
+
+Evidence at `/private/tmp/vusl-diagnostics-4belxvre` contains the exact review
+patch/source hashes, validator logs, complete applicability report and its
+clean-baseline equality proof, actual negative CLI records, native-code coverage,
+review receipts and final preservation proof. These are local evidence artifacts,
+not build inputs. The canonical work record is this continuation; no competing
+intent or specification copy was created. Final status-only documentation
+updates receive the same review's bounded recheck before closeout.
+
+## Diagnostics publication continuation — October 21, 2026
+
+Authority: Jeff separately authorized committing and pushing the reviewed
+human/LLM diagnostics catalog and schema self-test fixes, then opening a PR.
+This continuation opens only source publication of the eight-path diagnostics
+packet. Earlier statements closing publication describe the implementation
+checkpoint. Native wire/specification/API, dependency pins, schema semantics,
+frozen corpus and consumer contracts stay unchanged. Rangoon/LNSAT remain
+untouched; no merge, deployment, package publication or release is authorized.
+
+Startup verifies the VUSL root, origin fetch/push URLs
+`https://github.com/hypler-dev/vusl.git`, clean index and the exact reviewed
+implementation hashes in `/private/tmp/vusl-diagnostics-4belxvre/final-proof.json`.
+HEAD is `d8028c65ed312d7a4ff8c9a08780c8fcf6e8e2ca` on
+`codex/native-v01-schema-coverage-impl-20261020`, with only the eight reviewed
+paths modified/untracked. Public main remains
+`64dbe7d070e948f2f4af4bef565123a9cf043e4e`; local main and origin/main stay
+unchanged. PR #13 remains open at `d8028c6`, with auto-merge off. It is a
+prerequisite, not merged work or permission to advance that branch.
+
+Create `codex/native-v01-diagnostics-20261021` at the same reviewed parent,
+carrying the owned changes without modifying PR #13's branch. Open the new PR
+against `codex/native-v01-schema-coverage-impl-20261020`, keeping its diff to
+exactly these eight paths:
+
+- `.github/workflows/vusl-native.yml`;
+- `README.md`, `docs/diagnostics.md`, `docs/implementation-plan.md`,
+  `docs/next-implementation-packet.md`, `tests/schema-companion/README.md`;
+- `scripts/test_schema_companion.py` and
+  `scripts/test_schema_companion_diagnostics.py`.
+
+Publication edits lifecycle/status wording in the five documents above and
+adds explicit `-B` to two documented invocations already protected by
+`PYTHONDONTWRITEBYTECODE=1`, resolving the publication review's P3 finding.
+The diagnostic runner, 16-test suite and one-line workflow addition remain
+byte-identical to the reviewed implementation. Root Sol owns exact staging,
+commit, qualification, ordinary push, PR metadata and final preservation proof.
+Fresh independent read-only Terra-xhigh/OpenAI publication review checks this
+narrow delta, accepted scope and retained implementation evidence. Native GPT
+fits the work; no GLM/Spark contact or foreign-repository handoff is needed.
+
+Before committing, verify integrity, whitespace, all reviewed hashes, exact
+scope, frozen native/schema/dependency bytes, stash and unrelated work. No
+active non-sample Git hooks are installed; no hook or remote changes are made.
+After committing, qualify that immutable revision in a task-owned clean
+detached worktree: all 16 diagnostic regressions, real schema self-test, all
+4,911 applicability entries, repository integrity, 20 validator and seven
+case-plan regressions, actionlint and commit whitespace. Use the provisioned
+Python 3.11.17 schema environment with exact packages and offline resources;
+assert the full applicability report remains byte-identical to the clean
+`d8028c6` report. No native Rust source changes are introduced; earlier local
+Rust/resource/consumer checks remain baseline evidence, not a new local run.
+
+Push only the qualified diagnostics commit to the verified new branch without
+force, then open its dependent PR with auto-merge off. Both existing test
+workflows trigger PR checks only against main, so the feature-base PR does not
+receive those automatic PR runs. Dispatch the existing read-only native and
+integrity workflows on the published diagnostics branch and bind their actual
+`workflow_dispatch` run heads to the exact source commit. The native workflow
+retains full Linux consumer/audit, Rust/API, companion, oracle/hostile/resource
+and clean-checkout gates. Manual passes are evidence for that revision, not
+main-targeted PR checks or qualification of a future merge tree.
+
+Do not merge PR #13, retarget either PR or change its branch as part of this
+publication. After separate PR #13 merge authorization is exercised elsewhere,
+a later task must fetch actual main, prove the exact prerequisite head's
+ancestry and eight-path diff, obtain retarget authority and rerun main-targeted
+PR checks. Squash/rebase or upstream drift can require reconciliation; never
+force-push or infer ancestry from a title, green CI or chat history.
+
+The new PR is the canonical remote receipt for commit/base/tree identities,
+review and actual CI results. No self-referential source commit or amendment
+is needed merely to name its own hash. Publication review, commit qualification
+and dispatch outcomes are pending at this opening checkpoint; record their
+actual completion in the PR rather than claiming an unrun check passed.
+
+Preserve stash `26dbabb5d59843ed42178fe518c078076b9b3446`, all 5,453
+non-owned starting tracked files, prior refs/main and all four ignored cache
+files with exact nanosecond mtimes. Startup saves their actual bytes outside
+the checkout. Every project Python import uses `-B` and
+`PYTHONDONTWRITEBYTECODE=1`; remove only the task-owned clean validation
+worktree. Publication evidence is
+`/private/tmp/vusl-diagnostics-publish-fh9f039y`, outside build inputs.
+No wire change, extraction, badge claim, foreign-repository edit, merge,
+deployment, provider operation, package publication or release is opened.

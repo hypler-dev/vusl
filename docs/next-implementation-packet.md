@@ -1,38 +1,44 @@
-# Next VUSL checkpoint: native v0.1 schema coverage and standards alignment
+# Next VUSL checkpoint: diagnostics catalog and schema failure visibility
 
-Status: accepted local implementation and independent review complete, October 20, 2026. Jeff
-accepted and authorized this packet after PR #12 merged as
-`64dbe7d070e948f2f4af4bef565123a9cf043e4e`; local main is safely synchronized.
-The current work record is the
-[implementation roadmap](implementation-plan.md#native-v01-schema-coverage-implementation-acceptance--october-20-2026),
-with detail in the [schema coverage and standards alignment packet](native-v0.1-schema-coverage-alignment-packet.md).
-The previous stacked-PR preparation checkpoint is historical. PR #11's exact
-head is an ancestor of merged main, and PR #12 merged only four reviewed
-documents. The accepted continuation freezes helper API and schema tooling
-before implementation. Publication and any later merge retain separate gates.
+Status: Jeff accepted and authorized local implementation on October 20, 2026.
+The [diagnostics continuation in the implementation roadmap](implementation-plan.md#diagnostics-implementation-continuation--october-20-2026)
+is the canonical work record for scope, validation, review and acceptance state.
+Local implementation, validation and independent review pass. Jeff separately
+authorized committing and pushing this reviewed packet and opening a PR on
+October 21, 2026; the [publication continuation](implementation-plan.md#diagnostics-publication-continuation--october-21-2026)
+owns that limited scope.
 
-The accepted packet implements a companion JSON Schema 2020-12 for
-authoring and structural checks. VUSL core remains authority for raw bytes,
-canonicalization and semantic inspection. A separately selected, versioned
-required-term inventory and its evaluation remain outside the unchanged core;
-they must identify scope, evidence and refusal behavior without turning
-omission into a successful completeness claim.
+The baseline is `d8028c65ed312d7a4ff8c9a08780c8fcf6e8e2ca`, the reviewed
+schema, required-term coverage and written PROV/SKOS packet published as
+[PR #13](https://github.com/hypler-dev/vusl/pull/13). Its completed results are
+baseline evidence, not validation of the diagnostics continuation. Local main,
+prior branches and the safety stash remain unchanged.
 
-The packet also records PROV and SKOS alignment decisions with synthetic
-examples. It does not add RDF export, a reasoner, or equivalence, authenticity,
-authorization or semantic-truth claims. Schema and required-term coverage come
-before optional adapters. The frozen 4,911-case corpus and native core remain
-unchanged. Native CI gains explicit companion provisioning/offline checks and
-workspace helper tests while retaining every previous gate.
+This continuation adds a [human/LLM diagnostics catalog](diagnostics.md) for
+native input refusals, valid assessment, meaning guards, coverage failures and
+schema qualification. It repairs silent schema self-test failures with fixed-code
+structured stderr output. Normal report failures, invalid output paths and
+write failures also remain visible without exposing caller payloads, paths or
+arbitrary exception text. Existing applicability reports stay compatible;
+successful runs stay quiet. Python import errors and CLI usage remain separate
+prerequisite/usage paths.
 
-Local qualification passes: all 4,911 schema applicability entries, nine helper
-integration tests and six compile-fail tests, the unchanged native/consumer/
-resource gates, and both independent reviews. The roadmap records measured
-counts, identities, review repairs and limitations. Jeff separately authorized
-committing and pushing this exact reviewed source packet and opening a PR.
-The [publication continuation](implementation-plan.md#schema-coverage-implementation-publication-continuation--october-20-2026)
-owns scope and checks; its PR records the immutable head and actual hosted
-results. Qualify the clean committed revision and inspect the hosted checks.
-No consumer handoff has been sent. Preserve safety stash and unrelated work;
-Rangoon/LNSAT remain untouched. No wire changes, merge, deployment, package
-publication or release are authorized.
+Targeted negative-path regressions cover the output contract, redaction,
+success behavior and report protection. Native CI gains that regression command
+alongside its existing self-test and full 4,911-member applicability check.
+The native wire, core/helper APIs and source, accepted specification,
+canonicalization, schema semantics, corpus and tooling/dependency pins remain
+unchanged. The roadmap records exact paths, measured checks and fresh review;
+no earlier hosted pass is counted as this continuation's CI.
+
+The diagnostics publication PR stacks on PR #13's unchanged source branch while
+that prerequisite remains open. Keep its diff to the eight owned paths; do not
+advance or merge PR #13. Main-only PR triggers do not run for a feature-base PR,
+so dispatch the two existing test workflows on the exact published diagnostics
+revision and record them as manual runs, not main-targeted PR checks. After
+PR #13 is separately merged, recheck immutable ancestry and exact diff before
+any separately authorized retarget or merge.
+
+Next safe checkpoint: review the published diagnostics PR and actual evidence.
+Do not merge or deploy. Rangoon/LNSAT stay untouched. No extraction, badge claim,
+consumer adoption, package publication or release is opened.
