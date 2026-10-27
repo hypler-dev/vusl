@@ -1,52 +1,112 @@
-# LNSAT handoff: reconcile public status and evidence compatibility
+# LNSAT handoff: native evidence compatibility and authority boundaries
 
-Current VUSL direction, October 19, 2026: the [native-contract decision](../vusl-native-direction.md) supersedes any requirement below to preserve experimental D0a/RUSL identifiers or map native evidence into that old shape. The [dependency audit](../legacy-dependency-audit.md) found no named legacy dependency at public LNSAT `7072b5cb189b824e39e1d2eccf65e1a7843af066`. LNSAT remains independently authoritative; this historical source/status handoff authorizes no new mapping, decoder repin or LNSAT change. Any future VUSL projection must first justify and qualify the new native contract in its owning repository.
+Status: VUSL-owned handoff refreshed October 25, 2026; not dispatched or
+executed by this task. The [VUSL roadmap](../implementation-plan.md#reference-consumer-and-composition-fit-preparation--october-25-2026)
+owns this preparation, and LNSAT's own `docs/PROJECT_STATUS.md` remains authority
+for its implementation and qualification. The
+[reference-consumer/composition packet](../native-v0.1-reference-consumer-composition-packet.md)
+is proposed VUSL example work, not an LNSAT adapter or engine dependency.
 
-The remaining source/status observations below are historical, not current native VUSL profile requirements.
+## Public source snapshot and completed status correction
 
-Status: prepared for the LNSAT owner; not dispatched or executed. Authority: the accepted [VUSL repository-integrity packet](../implementation-plan.md#repository-integrity-and-candidate-construction--october-19-2026). LNSAT's existing `docs/PROJECT_STATUS.md` remains the authority for its implementation and acceptance. This handoff proposes a bounded status correction and read-only compatibility assessment; it does not authorize engine or adapter changes.
+The intended public repository is `https://github.com/hypler-dev/LNSAT.git`.
+Public main was rechecked at `35a41963ad698934c7ee00852c71355e329c34fa`.
+Its [request-bound Git-result document](https://github.com/hypler-dev/LNSAT/blob/35a41963ad698934c7ee00852c71355e329c34fa/docs/architecture/request-bound-git-result.md)
+already describes merged experimental private result source with synthetic
+fixture evidence and no runtime/product effect. The older VUSL handoff's
+request to correct its unmerged label is therefore superseded; do not open a
+duplicate status-fix packet from that historical observation.
 
-## Verified baseline and problem
+The earlier PR #102 / `f5d6a592ff8302276b72196f77a7d13f5c00e3f0` snapshot
+and its old labels are historical provenance. Neither that merge nor the newer
+public source makes a private seam a public runtime API, qualifies a real Git
+consequence or grants source-tested fixtures production authority.
 
-The intended public remote is `https://github.com/hypler-dev/LNSAT.git`. GitHub [PR #102](https://github.com/hypler-dev/LNSAT/pull/102) was confirmed merged at `f5d6a592ff8302276b72196f77a7d13f5c00e3f0` on October 18, 2026 Pacific time (`2026-10-19T06:34:56Z`). That exact source snapshot still says:
+Canonical local LNSAT checkouts were observed pointing at
+`LNSAT-private-archive.git`; old temporary worktree records may be prunable.
+Do not alter their remotes, branches, dirty files or worktree metadata. The
+receiving LNSAT owner must verify the intended repository and current exact
+public source independently. This VUSL preparation read public snapshots only
+for engine compatibility; it does not maintain a competing engine completion
+ledger.
 
-- `docs/architecture/request-bound-git-result.md:3`: “Status: unmerged experimental private source candidate”.
-- `docs/PROJECT_STATUS.md:69`: “The current unmerged source candidate adds a distinct private request-bound”.
+## Version-qualified surfaces must remain separate
 
-Correct publication status after checking current public ancestry. Preserve the source-only, private-interface, synthetic-proof and runtime limitations; a public-main merge does not turn a private source seam into a public API or a real Git consequence.
+Rangoon's accepted offline D3a decoder records source
+`f669181a1eaf574b1891a5c3fcc838870097e176` and contract
+`lnsat.gateway.runtime_composition.v1_0`. Its selected synthetic surface has
+three authenticated exact-ID GET shapes for authorization, operation and
+attempt evidence. It is inert, not a connected supported consumer or a complete
+action-history reader.
 
-The canonical local `/Users/jeff/hypler/code/LNSAT` checkout pointed at `LNSAT-private-archive.git` during review. Other worktrees may share that origin. Do not change its remote, branch or dirty files. Verify root/HEAD/status/fetch and push URLs, then inspect an isolated public-source checkout. Fetching public source, if needed, must follow the receiving owner's permissions; no archive write or publication is requested by this handoff.
+The newer public LNSAT source separately describes:
 
-## Proposed scope and ownership
+| Surface | Native boundary and qualification |
+| --- | --- |
+| Action-request record | Schema 18 immutable request root, recorded policy evaluation and redacted exact-ID operator-record read. Intake records intent; it does not dispatch or mint authority. Read requires native authentication and `ReadEvidence` checks. |
+| Request-bound source admission | `lnsat.request-execution-admission.source.v1`; receipt-free. Do not reinterpret its attempts as completed consequences. |
+| Request-bound Git result | Adapter `adapter:local:request-bound-git-commit@v1`, protocol `lnsat.request-bound-git.protocol.v1`; private source binds request, policy, authorization, consumption, launch and result evidence. Synthetic source checks are not real runtime/effect qualification. |
+| Recovery/reconciliation | Recorded `outcome_unknown`, receipt persistence and matched reconciliation are distinct facts. Reading recorded reconciliation does not authorize invoking it or retrying an action. |
 
-The LNSAT controller owns merge/ancestry truth, source interpretation, privacy and all protected engine lanes. After it accepts the packet, an exact docs worker may own only `docs/architecture/request-bound-git-result.md`, the relevant `docs/PROJECT_STATUS.md` paragraph and the owning status receipt. Include a substantive `README.md` update if a later authorized publication requires it. A fresh independent read-only reviewer checks that wording matches immutable source and does not promote qualification.
+These later surfaces are not automatically qualified by the older D3a decoder.
+That does not prove the old selected read surface is broken. Retain exact
+versions, supported/unsupported/unknown coverage and no automatic decoder repin.
+Native Rust 1.97.1 in the inspected public LNSAT toolchain need not be upgraded
+merely to coexist with VUSL's Rust 1.99.1 reference implementation. LNSAT remains
+independent and needs no mandatory VUSL library dependency.
 
-Proposed routing: OpenAI `gpt_docs` (`gpt-5.6-luna`, medium) for the exact publication-status wording; OpenAI `gpt_reader` (`gpt-5.6-luna`, medium) for exact public function/contract comparison; a separate OpenAI `gpt_reviewer` (`gpt-5.6-terra`, xhigh) for independent read-only review. Required thinking is exact documentation/evidence comparison. The receiving controller retains protected semantic and privacy judgment, confirms the exact owning receipt path before assignment and rechecks its current model policy. No other writer owns engine files through this handoff.
+## Proposed compatibility return from the owning chat
 
-Use the repository's existing status/receipt process. This document records dependency questions, not a second LNSAT completion ledger. No store/schema, native authorization, admission, proof constructor, receipt, route, CLI or runtime source change is in scope.
+If its owner separately accepts a read-surface assessment, return a compact
+matrix, not a merged universal schema:
 
-Permitted payload: exact public-source document/function snapshots, immutable commit/contract identities, bounded sanitized diffs and test summaries. No live database, credentials, production evidence, raw native logs or private archive contents. Native review requires no provider transfer; GLM use would need the active owner's explicit secret-free snapshot rules and any required transfer approval.
+- exact source revision, product/wire/protocol/schema identities and selected
+  route/envelope/serializer paths; identify whether each is public, private,
+  synthetic-only or actually runtime-qualified;
+- request root, recorded policy, approval/authorization/consumption and attempt
+  lineage actually exposed by each read; references alone do not authenticate
+  an approver or establish current authority;
+- request/tool/adapter/launch identities and native digest domains; a matching
+  string or content hash cannot join systems or substitute for a native binding;
+- caller identity, `ReadEvidence`, session-proof, redaction, custody and
+  retention requirements; distinguish reads from intake and reconcile mutation;
+- absent, incomplete, unsupported, stale, malformed and generic rejection
+  behavior; a generic `403` must not become an action denial or proof an object
+  is absent; raw native payloads stay out of diagnostic text;
+- reported receipt, `outcome_unknown`, already-recorded reconciliation and
+  independently observed effect as separate evidence. No failed read proves
+  that no action occurred, and no unknown outcome authorizes automatic retry.
 
-## Compatibility questions for the owner
+Any Rangoon decoder/connected-read update belongs to its owning chat under a
+separate accepted packet, immutable native pins and supported/refusal tests.
+No transport, credentials, POST/reconcile, real Docker/Git consequence or
+production data is authorized by this request for a compatibility matrix.
 
-Rangoon's existing D3a offline decoder records the older native source pin `f669181a`; the public request-bound Git-result work uses adapter `adapter:local:request-bound-git-commit@v1` and protocol `lnsat.request-bound-git.protocol.v1`. Do not repin or reinterpret D3a through this handoff.
+## VUSL fit and diagnostics
 
-Return a small version-qualified comparison covering:
+VUSL `vusl.mapping-review.v0.1` reviews selected semantic mappings between two
+native snapshots. It does not replace request, authorization, receipt or
+reconciliation contracts. VUSL coverage and meaning guards cannot validate
+LNSAT permission/evidence truth or grant an engine capability. A review must
+refuse or disclose a critical mapping loss rather than silently dropping it.
 
-- Immutable request root, recorded policy evaluation and approval/authorization/consumption lineage.
-- Request-bound one-use admission and guarded dispatch as separate source stages.
-- Request/tool/launch/adapter/protocol identity and digest binding.
-- Receipt persistence, reported completion, `outcome_unknown`, reconciliation and independent effect evidence.
-- Which evidence reads are actually exposed, their exact authentication/redaction/custody requirements, and which proof constructors remain test-only.
-- Supported, unsupported and unknown mappings, plus any fields that must be omitted or refused rather than forced into D0a. D0a remains unverified observation data and cannot carry native authority.
+Keep VUSL `meaning_unresolved`, native LNSAT `outcome_unknown` and Rangoon
+storage recovery separate. LNSAT's `lnsat.error_envelope.v1_0` source contract
+uses stable namespaced codes and public-safe summaries without raw reflection;
+VUSL's Python schema diagnostics are a different test-tool format. No common
+runtime error envelope, shared persistence, event bridge or projection is
+introduced. A future host adapter must preserve originating contract/version,
+fixed codes, bounded safe context and truthful repair/retry limitations.
 
-Any Rangoon decoder update belongs to its owning chat with separate acceptance, exact native contract pin, synthetic fixtures and refusal tests. LNSAT remains independent of VUSL and Rangoon; no VUSL adapter becomes an authorization path.
+The [native-contract decision](../vusl-native-direction.md) supersedes every
+historical RUSL/D0a preservation or migration requirement. No mapping into old
+identifiers, compatibility layer, converter or parity gate is required. Current
+VUSL baseline and conformance pins are in the
+[Rangoon handoff](rangoon-core-baseline.md); its source qualification does not
+close LNSAT runtime, security, support or release gates.
 
-## Acceptance and validators
-
-1. Reconfirm PR #102 merge, exact commit ancestry and current source wording. Record any newer source revision separately.
-2. Correct only stale publication labels and use existing source evidence for maturity claims. Review the exact docs diff; run `git diff --check` and the applicable repository documentation/history checks.
-3. Run repository-required `npm run check` and `npm run public:check` when its declared environment is available. At the inspected snapshot, documents reported Node `24.21.0` versus required `22.22.3` and missing `smol-toml` as local blockers. These are dated reports, not newly executed checks. Recheck and record exact current results without installing dependencies or weakening gates implicitly.
-4. Obtain fresh independent review. Return an immutable source/status receipt and bounded mapping assessment, with unresolved evidence reads and privacy gaps named.
-
-No production database, schema migration, provider operation, public route, real Docker/Git consequence, decoder repin, commit/push/merge, deployment or release is authorized. VUSL fixes and candidate-construction checks do not close LNSAT's runtime or release gates.
+No LNSAT edits, tool/dependency changes, decoder repin, provider operation,
+commit/push/merge, deployment, release, extraction or badge claim is authorized.
+The owner selects its own exact tests and evidence after accepting any later
+packet; historical Node/dependency blockers are not asserted as current test
+results. No handoff message has been sent by this task.
