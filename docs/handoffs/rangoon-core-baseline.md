@@ -1,116 +1,170 @@
-# Rangoon handoff: native VUSL v0.1 consumer baseline
+# Rangoon handoff: native VUSL reference consumer and composition fit
 
-Status: future consumer-compatibility handoff prepared locally on October 20,
-2026; not sent to the Rangoon chat. Authority: the VUSL [implementation
-roadmap](../implementation-plan.md#native-v01-consumer-implementation-acceptance--october-20-2026),
-the [accepted consumer compatibility packet](../native-v0.1-consumer-compatibility-packet.md)
-and the [native-contract decision](../vusl-native-direction.md). This document
-does not authorize Rangoon implementation, deletion, repinning, publication,
-merge or operations.
+Status: refreshed in VUSL on October 27, 2026; preparation only. This refreshed
+handoff has not been sent or executed by this task. The
+[VUSL roadmap](../implementation-plan.md#reference-consumer-and-composition-fit-preparation--october-25-2026)
+owns acceptance and evidence; the
+[proposed reference-consumer/composition packet](../native-v0.1-reference-consumer-composition-packet.md)
+describes future VUSL work. Rangoon's owner separately accepts any application
+adoption, pin, parser retirement, UI or publication work. This is not a second
+Rangoon roadmap.
 
-## Current VUSL baseline
+## Current immutable upstream candidate
 
-VUSL main now contains merged PR #10 at
-`3d6d1434d56cee1021ea2053b14b97fd3160e507`. Compatibility changes are not
-available at that baseline revision. Their separately authorized publication PR
-records the exact implementation head and actual committed/hosted results.
-The earlier native core merged through PR #9 at commit
-`546501da9d9fc0cb4bf6d7499d3480f0413dbd50`. The reviewed head is
-`c7d3c14738296c3b28814847ed3a6b66613fd8b2`, and both trees match
-`3ca90975c064708992daec81da0c0f57447bfea7`. The accepted contract and
-conformance plan are evaluated at commit
-`d05dca770ff756826255aad7e62fcdfdb6ad952f`, with these file hashes:
+Use VUSL main `7e3f7f31f6ae701f18884f98356e873ab32efb4e` as the proposed
+reviewed consumer baseline, not the old PR #10 preparation revision or the
+historical extraction. It includes merged consumer compatibility, coverage,
+schema/standards alignment and diagnostics through PR #14. Both
+[native main CI](https://github.com/hypler-dev/vusl/actions/runs/40121175440)
+and [integrity main CI](https://github.com/hypler-dev/vusl/actions/runs/40121175512)
+passed at that exact source revision. The reference executable/composition
+packet is proposed and is not present at this pin.
 
-- specification: `a03814d6afcdaacbe5d1c4b3ae01227f1174711866ee38d7f92db390603d8717`
-- plan: `ff03e1b9976b8b7e9c273c16f937a94e885bb019bb5681df88b414e82c6b7c65`
+| Required artifact | SHA-256 |
+| --- | --- |
+| `docs/vusl-v0.1-specification.md` | `a03814d6afcdaacbe5d1c4b3ae01227f1174711866ee38d7f92db390603d8717` |
+| `docs/vusl-v0.1-conformance-plan.md` | `ff03e1b9976b8b7e9c273c16f937a94e885bb019bb5681df88b414e82c6b7c65` |
+| `conformance/native-v0.1/manifest.json` | `ced5eaf9797c48363eb67c1db7f11628cccaf6bbdb22f4a0e4274163334fe132` |
+| `conformance/native-v0.1/cases.json` | `b7eff0ed533857cc40a6ceba3bab15ed8fab83d8a6c7918ef9c126b55317279e` |
+| Root `Cargo.lock` | `915c6aa6e605e0f9af35cab75220f1afddd138fda6f12155fc627e15b4695e61` |
 
-The native corpus manifest is pinned to
-`ced5eaf9797c48363eb67c1db7f11628cccaf6bbdb22f4a0e4274163334fe132`, with
-corpus cases hash
-`b7eff0ed533857cc40a6ceba3bab15ed8fab83d8a6c7918ef9c126b55317279e`.
-The lockfile hash is
-`95155fba36ad836cfd1a6e7e32c5bc632b0a89e4b5d7bb48a2f8eea05bf50352`.
-The core package is `0.1.0-dev.1` and remains unpublished.
+The accepted spec/plan bytes remain those evaluated at
+`d05dca770ff756826255aad7e62fcdfdb6ad952f`. Consumer code should point at the
+[native specification](https://github.com/hypler-dev/vusl/blob/7e3f7f31f6ae701f18884f98356e873ab32efb4e/docs/vusl-v0.1-specification.md),
+not treat `b55e019`'s historical README as an active specification or core pin.
+Keep historical provenance separate; do not rewrite retained bytes/hashes as a
+migration exercise.
 
-The reviewed native corpus has 4,911 cases: 475 accepted and 4,436 refused.
-The checked local toolchain is Rust 1.99.1 and Python 3.11.17. Local Rust
-validation ran on an arm64 macOS 26 host with an x86_64-apple-darwin compiler
-and binary; hosted Linux x86_64 validation passed on the native PR and main
-workflows:
+`vusl-core` and `vusl-coverage` remain unpublished `0.1.0-dev.1`. Their current
+qualification uses Rust/Cargo 1.99.1 and Python 3.11.17. The 4,911 native cases
+have 475 accepts/4,436 refusals. Both independent synthetic downstream graphs
+pass those cases; that does not qualify Rangoon's real graph, heap/timing,
+installed desktop, native ARM, Windows, WASM or target loaders. Older local
+macOS Rust evidence used an x86_64 compiler/binary on an ARM64 host. A temporary
+local Python cache is now incomplete; fresh pinned hosted qualification passed,
+but future local runs need explicitly restored verified tooling.
 
-- [native PR workflow](https://github.com/hypler-dev/vusl/actions/runs/39390345504)
-- [integrity PR workflow](https://github.com/hypler-dev/vusl/actions/runs/39390345525)
-- [native main workflow](https://github.com/hypler-dev/vusl/actions/runs/39400108781)
-- [integrity main workflow](https://github.com/hypler-dev/vusl/actions/runs/39400108859)
+## Consumer observations are dated and distinct
 
-These hosted results predate the consumer changes. Native ARM Rust, Windows,
-WASM and actual application consumer integration remain unqualified.
+The October 25 public snapshot was
+`9bd9be17d17fd8f778ec88f8e9b9f41df5c01dc4`; October 27 public main is
+`01423598cc212a5ad7f3bbefd213573f37efd55d`. Its older Rust 1.85 workspace /
+1.85.0 and 1.98.0 CI observations are historical public-source facts, not a
+universal description of every current working tree.
 
-The core exposes `inspect(&[u8]) -> Result<CheckedReview, Refusal>`. A checked
-document assesses `declared_preserved`, `blocked` or `unresolved`; malformed
-input produces a distinct refusal rather than an assessment. The core
-preserves an immutable canonical ID and remains an inspection and assessment
-boundary. It does not authorize actions, authenticate evidence, resolve native
-references, prove semantic truth or establish authority.
+The October 25 read-only `app-personal` snapshot had HEAD
+`c132ea62bc57b29375ee8c5a3a38ca005462ca40` plus substantial uncommitted work.
+Its Cargo floor, toolchain and configured source-CI variable declare 1.99.1.
+That is configuration alignment, not a successful real VUSL dependency build,
+public-main adoption or a supported compiler tuple. A separate dirty
+`app-review` snapshot at `8140689303737a6bd163f5190a7cf6910596915b` still
+recorded older toolchains. Neither checkout is an immutable integration pin.
+The top-level local `rangoon` directory is the website; the receiving owner
+must identify the actual application repository, branch and current work.
 
-## Rangoon compatibility status
+At the inspected personal snapshot, the inert `rangoon-language` experimental
+parser remained, and no `vusl-core` runtime dependency was adopted. Its
+`docs/vusl.md` distinguishes archive navigation from a future usable pinned
+core/cutover. Do not treat a compiler change or a historical `vusl-upstream.json`
+record as adoption. No source, tests, stored data or parser are deleted through
+this handoff.
 
-Rangoon reference source was inspected at immutable commit `9bd9be17d17fd8f778ec88f8e9b9f41df5c01dc4` (PR #51 documentation
-retirement merged). Its historical provenance record points to VUSL commit
-`b55e01955e9c59cd6ab652afe9a54c43589b09b8`; that record is not a VUSL core pin.
+Earlier exact-pin Serde conflicts were addressed by compatible VUSL library
+requirements and two independently locked synthetic fixtures. The actual
+Rangoon manifest, feature unification and lock still need owner qualification;
+never copy VUSL's root lock into Rangoon. Do not change the compiler, dependency
+pins or CI automatically.
 
-Rangoon's workspace uses Rust 1.85; its recorded CI and desktop CI toolchains
-are Rust 1.85.0 and 1.98.0. VUSL's current initial qualification target is
-Rust 1.99.1. At the dated reference, direct dependency observations differed:
-Rangoon recorded
-`serde 1.0.229`, `serde_json 1.0.151` and `sha2 0.11.0`; VUSL's unchanged root lock uses
-`serde 1.0.228`, `serde_json 1.0.154` and `sha2 0.11.1`.
+## October 27 public and active-owner update
 
-The preparation's combined exact-pin probe failed on Serde. VUSL now uses
-reviewed compatible requirements and has locally qualified two independently
-locked public-API fixtures on Rust 1.99.1. The upstream tuple is
-Serde 1.0.228 / serde_json 1.0.154 / sha2 0.11.1; the Rangoon-constraints tuple
-is 1.0.229 / 1.0.151 / 0.11.0, including Serde derive/default and sha2 default
-features. Each passes the complete unchanged 4,911-case corpus (475 accepts,
-4,436 refusals), loss/uncertainty visibility and guard/refusal checks. This
-resolves the synthetic dependency conflict, not the actual Rangoon application
-graph or its recorded older compiler tuple. Downstream heap/timing is not
-measured by a corpus pass. All three exact locks pass the pinned dated advisory
-audit; dependency/license review remains separate evidence in the VUSL roadmap.
+[PR #53](https://github.com/hypler-dev/rangoon/pull/53) merged a separate offline
+request-record decoder; [PR #54](https://github.com/hypler-dev/rangoon/pull/54)
+merged its pure inspection lifecycle. The exact public
+[connector contract](https://github.com/hypler-dev/rangoon/blob/01423598cc212a5ad7f3bbefd213573f37efd55d/docs/lnsat-evidence-connector.md)
+keeps the LNSAT `35a41963` request-record source pin distinct from D3a's
+`f669181a` runtime-composition pin. Fixed summaries/errors, late-result fencing,
+Discard owner drain and a purge acknowledgment do not establish authenticated
+reads, physical erasure, engine authority or native/UI adoption. This eight-file
+public delta does not change the VUSL contract/dependency or compiler manifest.
+Its Rust 1.85 source qualification does not qualify VUSL's Rust 1.99.1 tuple.
 
-Do not substitute the baseline revision for an implementation pin. Before
-integration, select the exact reviewed compatibility revision from the
-publication PR and verify its clean committed rerun and actual hosted checks. Rangoon's owner must separately decide and qualify its
-compiler and real dependency graph. No automatic dependency, compiler or CI
-change is authorized by this handoff.
+The active owner chat and live `app-personal` documentation were inspected
+read-only on October 27, still at dirty HEAD `c132ea62`. New local work includes
+saved-file handoff, in-file Find and contextual composition UX. The current RM-1
+packet is an unmounted offline metadata inventory: scoped system/root/session/
+snapshot identities, bounded pages, reported completeness, independent receipt
+and observation times, expiry, revocation and late-result fencing. Source and
+review were actively changing during inspection; this is a dated observation,
+not a frozen qualification receipt. Native selected-root custody, authenticated
+two-installation transport, source-content access, copy/apply/restore and
+rollout remain later owner gates. No owner checkout was edited or tested here.
 
-The current profile mapping review is not a replacement for Rangoon's older
-observations and does not replace D1, D2a or D3a, or wire an engine. E0 and E1
-remain historical work. Rangoon's encrypted-startup work and current owner
-surface remain untouched.
+No additional native profile is justified by metadata inventory alone. Keep
+reported inventory completeness separate from required-term coverage; recent
+reports separate from live freshness; file digests/revisions separate from
+semantic fidelity, authenticated origin or lineage; and transferred/written/
+loaded states separate from effect and permission. A copied destination has
+its own scoped native identity. Do not infer a mapping review from byte equality
+or invent evidence from a cursor, timestamp or purge acknowledgment.
 
-## Future consumer acceptance
+Future reference-consumer fixtures should expose these distinctions using the
+existing synthetic source/target contract and compiled policies. They must not
+embed RM-1/LNSAT envelopes or claim their compatibility. Real adapter adoption,
+remote-version lineage and freshness protocols remain Rangoon-owned; a concrete
+unrepresentable semantic requirement would need a separate versioned VUSL
+proposal. The reference consumer and composition-fit packet remains the next
+VUSL implementation candidate, with no wire change.
 
-When a Rangoon owner opens a consumer packet, that owner must first verify its
-own repository identity, branch, HEAD, status, control docs, callers, stored
-data and workspace inventory. The packet must name an accepted compiler and
-dependency policy, then qualify an immutable reviewed compatibility revision.
-It must pin that revision, then run an unchanged clean committed rerun with
-actual hosted evidence. It must test real manifests and lockfiles, feature
-unification, and valid declared-preserved, blocked and unresolved reviews with
-exact canonical bytes, document IDs and guard results. Malformed-input refusals
-expose no checked result, canonical bytes or document ID. Optional loss and
-uncertainty must remain visible. Host-required terms, untrusted text handling and the
-absence of authentication must be explicit in the consumer evidence.
+## Proposed owner packet and acceptance
 
-Consumer qualification must use VUSL's native contract. It does not require
-398-case parity, a legacy reader, an alias, a converter or preservation of
-prototype outcomes. Historical callers, fixtures and workspace references may
-be retired only after a reviewed Rangoon cutover packet inventories them and
-passes its caller, test and workspace checks. Any actual supported caller or
-stored-data obligation requires a direct update or an explicit retirement/data
-handling decision in Rangoon.
+Before editing, the Rangoon owner rechecks Git root/HEAD/status/remotes,
+required controls and the exact proposed base commit. It records one accepted
+consumer packet and actual affected files in its own ledger. Then:
 
-This is a proposed future handoff, not an instruction to begin that work. It
-does not duplicate a consumer roadmap; the VUSL accepted packet and roadmap are the
-canonical records. No message has been sent to Rangoon.
+1. Pin reviewed upstream core/helper/spec/corpus identities and document any
+   offline-copy paths/digests. Establish compiler/dependency policy and test the
+   real application graph, including feature unification and exact locks.
+2. Construct `CoveragePolicy` from independently accepted host requirements,
+   binding the ordered six-component source/target snapshots, catalog ID,
+   catalog revision and exact ordered mandatory terms. A producer's own
+   `required` flags or a catalog label alone cannot establish completeness.
+3. Exercise preserved, blocked and unresolved reviews, optional loss and
+   residual uncertainty, malformed input, missing/downgraded terms and full
+   snapshot/direction mismatches. Assert canonical bytes/ID, native assessment,
+   both guards and deterministic redacted findings without modifying core rules.
+4. Keep native input refusal, valid meaning assessment, policy/coverage failure,
+   storage recovery, unavailable provider and LNSAT outcome states distinct.
+   Host explanations identify the originating layer/contract/version and safe
+   repair; do not echo content or use messages as compatibility identities.
+5. Qualify real composition cases: Rangoon merge is 2–16 inputs to one output;
+   split is one input to 2–16 outputs. VUSL v0.1 supplies single-edge reviews,
+   not whole-composition, conflict-completeness or transitive preservation proof.
+   Preserve Copy/Authored/Replace, exclusions and duplication truth in Rangoon.
+   No native wire expansion, hidden truncation or invented preservation follows.
+6. Preserve provider-free authoring, encrypted-startup/recovery gates and exact
+   authority boundaries. LNSAT/OpenShell remain optional. A successful VUSL
+   guard is not approval, engine authorization, verified target loading or effect.
+7. After independently reviewed cutover and caller/stored-data inventory, decide
+   retirement of inert experimental source in Rangoon. No legacy reader, alias,
+   converter, dual profile or 398-case parity obligation is created.
+
+Acceptance requires the immutable commit tuple actually tested: VUSL revision
+and paths/hashes; Rangoon commit plus source-state label; compiler/target;
+application lock/features; selected policy/catalog; cases and actual command,
+review and hosted results. Dirty-source tests remain local evidence; qualify a
+clean committed consumer only under its own separate publication authority.
+A passing reference example is not this application receipt.
+
+## Ownership and closed actions
+
+VUSL owns native conformance and the future independent reference example.
+Rangoon owns workbench/UI, host inventory, evidence acceptance, adapters and
+parser retirement. LNSAT owns authority, receipts and reconciliation. The
+current mapping-review profile does not replace Rangoon D1/D2a/D3a, create an
+engine connection or require prototype preservation.
+
+This handoff proposes owner work only. It does not authorize Rangoon edits,
+repinning, deletion, dependency/tool installation, tests with live data,
+credentials, provider calls, commit/push/merge, deployment or release. No message
+has been sent by this preparation task. The receiver must recheck current
+source and its own explicit authorization before acting.

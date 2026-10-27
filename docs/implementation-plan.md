@@ -1388,3 +1388,162 @@ worktree. Publication evidence is
 `/private/tmp/vusl-diagnostics-publish-fh9f039y`, outside build inputs.
 No wire change, extraction, badge claim, foreign-repository edit, merge,
 deployment, provider operation, package publication or release is opened.
+
+## Reference consumer and composition-fit preparation — October 25, 2026
+
+Authority: Jeff requested safe VUSL synchronization with merged main, then
+preparation of the reference-consumer/composition-fit packet and refreshed
+handoffs. This section is the canonical work record; the
+[proposed packet](native-v0.1-reference-consumer-composition-packet.md) supplies
+behavior/acceptance detail and the [next checkpoint](next-implementation-packet.md)
+summarizes it. Preparation is authorized. Example implementation, its report/exit
+API and any consumer adoption remain proposed, not owner-accepted by this task.
+A later user instruction separately authorizes documentation publication below.
+
+Startup: verified root `/Users/jeff/hypler/code/vusl`, both origin URLs
+`https://github.com/hypler-dev/vusl.git`, clean diagnostics branch at
+`78b5ae41c8c720badd1f2301e1eabd0d07a83d5e`, local main `64dbe7d`, and
+public merged main `7e3f7f31f6ae701f18884f98356e873ab32efb4e`. PR #14 is
+merged and both native/integrity main checks pass. Before syncing, recorded all
+refs/status, 5,461 tracked-file hashes, stash and four ignored cache hashes and
+nanosecond mtimes; actual cache bytes were backed up outside the repository.
+No active non-sample hook is installed and no hook/configuration changes occur.
+
+Verified both the old local main and current head are ancestors of public main,
+and current head/public main have identical trees. Switched the clean checkout
+to main and advanced it with `--ff-only`; no new commit or merge commit was
+created. Every starting tracked byte, ignored cache and stash remained
+identical after sync. Both local main/origin main now point to `7e3f7f3`.
+The preparation branch is `codex/reference-consumer-composition-packet-20261025`;
+prior source branches remain retained. No Rangoon/LNSAT checkout was changed.
+
+Exactly six documentation paths are owned:
+
+- `docs/native-v0.1-reference-consumer-composition-packet.md` (new);
+- `README.md`, `docs/implementation-plan.md`, `docs/next-implementation-packet.md`;
+- `docs/handoffs/rangoon-core-baseline.md` and
+  `docs/handoffs/lnsat-evidence-status.md`.
+
+The proposed example consumes existing checked types/coverage policies, keeps
+native and combined guards separate, bounds explicit host I/O and redacts
+output. Composition groups are fixture metadata only; per-edge results do not
+assert aggregate preservation, transitivity, authority, target loading or true
+evidence. The implementation would add a separate example/lock/test surface
+and proportional CI checks after acceptance; none is implemented here.
+
+Handoff refresh reuses the October 25 read-only fit review at
+`/private/tmp/vusl-cross-review-8oqqzch9/final-proof.json`. Public Rangoon main
+was rechecked at `9bd9be17d17fd8f778ec88f8e9b9f41df5c01dc4`, public LNSAT
+at `35a41963ad698934c7ee00852c71355e329c34fa`. Dirty Rangoon personal/review
+snapshots are labeled local observations, not accepted application pins or
+public qualification. Local 1.99.1 declarations are not VUSL adoption. Current
+public LNSAT already corrected the older unmerged-result label; no duplicate
+engine status-fix is requested. Its older selected read shapes and newer native
+request/result protocols remain separately qualified. No consumer source was
+read anew from its private archive, edited, repinned or tested in this task;
+no handoff message is sent. Receiving owners recheck their own current authority.
+
+Root Sol/OpenAI is the only writer and owns architecture, scope, integration,
+validation and external-state judgment. Fresh native read-only reviewer uses
+the installed `gpt_reviewer` role, verified at its TOML before model claims;
+only exact secret-free docs/diff and baseline evidence are supplied. No extra
+writer is useful for this small coherent packet; no GLM/Spark contact or
+additional-provider transfer is needed. Graphify index is absent; no generated
+index is created for this docs-only change.
+
+Named checks: repository integrity, 20 validator and seven case-plan regressions,
+all-path whitespace including the new document, exact six-path/frozen-source
+hash checks, and stash/cache/ref preservation. No new Rust/Python runtime,
+reference-consumer, composition, native corpus or hosted pass is claimed from
+document preparation. Existing main results are immutable baseline evidence.
+The prior local native Python 3.11.17 cache is incomplete; repository-only
+stdlib checks may use the available Python while recording its actual version.
+Future native checks retain their exact tooling requirement.
+
+Preparation evidence: `/private/tmp/vusl-reference-packet-zdb1isnt`. Validation
+and independent review are pending at this opening checkpoint. Source, tests,
+CI, locks, companion schema, native specification/plan/corpus and historical
+manifest stay byte-identical. Preserve stash
+`26dbabb5d59843ed42178fe518c078076b9b3446` and unrelated work. No wire
+change, consumer change, extraction, badge claim, provider operation, merge,
+deployment, package publication or release is authorized.
+
+## Reference consumer packet publication — October 25, 2026
+
+Jeff separately authorized committing and pushing the reviewed packet and
+refreshed handoffs and opening a PR. This continuation opens publication of
+only the six documentation paths above after completion, checks and fresh
+independent review. It does not accept or authorize the proposed executable,
+report/exit API, dependencies, fixtures, schema, CI or consumer implementation.
+Earlier preparation-only statements describe that earlier gate.
+
+Verify exact reviewed hashes/scope, stage only those six paths and run staged
+whitespace including the new document. Commit only after those gates pass;
+qualify the clean immutable revision proportionally, then ordinary push to the
+verified VUSL branch and open a main-targeted PR with auto-merge off. Record
+actual fresh native/integrity hosted results in that PR; docs-only local checks
+and old main runs do not substitute for them. The PR is the canonical remote
+receipt for its own commit/head/base identities; no self-referential source
+amendment is needed. No force, branch deletion, remote/hook change or automatic
+merge is authorized. Keep the stash, ignored cache bytes/mtimes and unrelated
+work intact. No wire changes, Rangoon/LNSAT edits or handoff dispatch, merge,
+deployment, release, extraction or badge claim is opened.
+
+### Local preparation completion and review
+
+The six-document preparation is complete and independently reviewed. The
+packet specifies the proposed executable/input/report/exit boundary, 1–16-edge
+fixture groups, native versus combined guard states, redaction and explicit
+independent-workspace CI commands. It does not implement any example or accept
+its API. Refreshed handoffs name `7e3f7f3`, frozen native pins, dated dirty
+consumer observations and separately qualified LNSAT surfaces. No consumer
+repository change or dispatch occurred.
+
+Local repository checks pass: seven extraction hashes, three retained vectors,
+398 historical constructions, 221 current local links, 20 validator tests and
+seven case-plan tests. Tracked and new-document whitespace checks pass; the
+new-file no-index diff's exit 1 denotes a difference from `/dev/null`, not a
+whitespace error, and emits no diagnostics. These use the available Python
+3.11.6 standard library, not a substituted native qualification tuple.
+No native/example/compiler/platform result is inferred from these docs checks.
+
+Fresh read-only OpenAI `gpt_reviewer`, verified as `gpt-5.6-terra` xhigh in its
+role TOML, found two P2 design omissions: unevaluated guard values were missing
+from the proposed enum table, and root-workspace commands could omit the new
+independent example. Both are resolved with exact guard states/goldens and an
+explicit manifest fetch/audit/fmt/Clippy/test/fixture-runner CI plan. Re-review
+passes with no actionable P1/P2/P3. Root Sol remains the only writer and final
+controller. A bounded final status-delta recheck precedes commit.
+
+All 5,456 non-owned starting tracked files, native specification/API/core/helper,
+all schema/corpus/locks/tooling and the immutable historical manifest remain
+byte-identical. Four ignored cache hashes/nanosecond mtimes and safety stash
+remain unchanged. Main was fast-forwarded only; source HEAD remains `7e3f7f3`
+at this uncommitted checkpoint on the packet branch with an empty index. The
+publication PR will record the actual new immutable docs revision, committed
+checks and hosted outcomes. Implementation, wire changes, Rangoon/LNSAT edits,
+merge, deployment, extraction, badge claim and release remain closed.
+
+## Rangoon update review — October 27, 2026
+
+Jeff requested a review of latest Rangoon work while the six-document packet's
+publication remained authorized. Public main advanced from `9bd9be17` to
+`01423598cc212a5ad7f3bbefd213573f37efd55d` through PR #53 (offline LNSAT
+request-record decoder) and PR #54 (pure inspection lifecycle). The eight-file
+comparison leaves VUSL contracts/dependencies and compiler declarations alone.
+The active owner's dirty `app-personal` HEAD remains `c132ea62`; read-only
+current docs/chat show new local file/composition UX and active RM-1 offline
+inventory work. Active source observations are not immutable validation or
+consumer adoption proof, and no consumer tests were run by this VUSL task.
+
+Conclusion: keep the reference-consumer/composition-fit implementation candidate.
+Refresh the Rangoon handoff and proposed synthetic fit cases to distinguish
+inventory completeness, semantic coverage, freshness, byte identity, lineage,
+transfer/load/effect and authority. Do not add a remote inventory/transfer
+profile or alter the accepted native contract. Actual adapters, custody,
+transport, lifecycle mounting and application dependency qualification remain
+consumer-owned. No consumer repository edit or message dispatch occurred.
+The same six documentation paths remain the publication scope. Prior review
+and validation describe the previous bytes; fresh review and repository checks
+are required for this additive update before commit/push/PR. No executable
+implementation, wire change, extraction, badge claim, merge or deploy is opened.

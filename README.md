@@ -27,8 +27,9 @@ Compatible library requirements now admit two independently locked downstream
 fixtures. Both pass all 4,911 unchanged native expectations (475 accepts and
 4,436 refusals each), including explicit loss, uncertainty and guard checks.
 The consumer packet retained the original root lock. These are synthetic public-API
-consumer results on Rust 1.99.1, not a Rangoon application build. Rangoon's
-recorded 1.85/1.98 compiler tuple still needs its owner's decision and proof.
+consumer results on Rust 1.99.1, not a Rangoon application build. The October 25
+handoff distinguishes Rangoon's older public compiler tuple from newer local
+1.99.1 declarations; the actual application graph still needs owner qualification.
 The [roadmap](docs/implementation-plan.md#native-v01-consumer-implementation-acceptance--october-20-2026)
 owns current execution, validation and review status. Jeff separately authorized
 source publication of this reviewed packet. Its publication PR records the exact
@@ -144,6 +145,33 @@ for validation and review. Jeff separately authorized source publication of
 this reviewed packet; the [publication continuation](docs/implementation-plan.md#diagnostics-publication-continuation--october-21-2026)
 owns the exact scope. Its PR records the immutable head, dependent base and
 actual CI results. Publication does not grant merge, deployment or release authority.
+
+## Next proposed feature: reference consumer and composition fit
+
+[PR #13](https://github.com/hypler-dev/vusl/pull/13) merged schema/coverage work
+as `d939304`, and [PR #14](https://github.com/hypler-dev/vusl/pull/14) merged
+diagnostics as `7e3f7f31f6ae701f18884f98356e873ab32efb4e`. Both
+[native main](https://github.com/hypler-dev/vusl/actions/runs/40121175440) and
+[integrity main](https://github.com/hypler-dev/vusl/actions/runs/40121175512)
+checks pass at that latter source revision; packages remain unpublished.
+
+The [new proposed packet](docs/native-v0.1-reference-consumer-composition-packet.md)
+prepares an independently usable executable example of inspection, host-selected
+coverage and meaning guards with redacted human/JSON output. Composition-fit
+cases must distinguish individual edge reviews from whole-composition claims:
+Rangoon merge/split recipes do not automatically gain aggregate preservation
+from VUSL v0.1. No reference executable, new native profile or runtime adapter is
+implemented by this documentation. The native wire, core/helper, schema,
+dependencies and frozen corpus stay unchanged.
+
+The [Rangoon](docs/handoffs/rangoon-core-baseline.md) and
+[LNSAT](docs/handoffs/lnsat-evidence-status.md) handoffs now distinguish current
+upstream pins, dirty consumer observations, independent authority and separate
+read/protocol qualification. Neither authorizes or dispatches consumer work.
+The [roadmap checkpoint](docs/implementation-plan.md#reference-consumer-and-composition-fit-preparation--october-25-2026)
+owns preparation and pending implementation acceptance. Jeff separately
+authorized publication of the reviewed documentation; its PR records the exact
+revision and actual checks. Implementation, merge and deployment stay separate.
 
 Development prioritizes native core features and mechanics. Relevant tests,
 CI, security checks and evidence updates accompany each feature packet. The
