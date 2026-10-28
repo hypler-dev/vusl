@@ -1,0 +1,20 @@
+[workspace]
+resolver = "2"
+
+[package]
+name = "vusl-reference-consumer"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.99.1"
+license = "Apache-2.0"
+publish = false
+
+[dependencies]
+serde = { version = "=1.0.229", default-features = false, features = ["derive", "std"] }
+serde_json = { version = "=1.0.151", default-features = false, features = ["std"] }
+vusl-core = { path = "../../crates/vusl-core" }
+vusl-coverage = { path = "../../crates/vusl-coverage" }
+
+[[test]]
+name = "reference"
+path = "tests/reference.rs"

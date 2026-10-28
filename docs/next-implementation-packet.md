@@ -1,47 +1,47 @@
-# Next VUSL checkpoint: reference consumer and composition fit
+# Current VUSL checkpoint: reference consumer and composition fit
 
-Status: documentation preparation authorized October 25, 2026; executable
-implementation and example report/exit API remain proposed. Jeff separately
-authorized committing/pushing the reviewed documentation and opening a PR.
-The [implementation roadmap](implementation-plan.md#reference-consumer-and-composition-fit-preparation--october-25-2026)
-owns preparation/acceptance, with a separate
-[publication continuation](implementation-plan.md#reference-consumer-packet-publication--october-25-2026).
+Jeff accepted the exact merged reference-consumer/composition-fit packet and
+its report/exit API and authorized local implementation on October 27, 2026.
+The [implementation record](implementation-plan.md#reference-consumer-implementation-acceptance--october-27-2026)
+owns current source, validation, independent review and remaining gates.
+Preparation-only statements in the [original packet](native-v0.1-reference-consumer-composition-packet.md)
+are dated history, superseded for this exact accepted local slice.
 
-Local main is safely synchronized to merged PR #14 at
-`7e3f7f31f6ae701f18884f98356e873ab32efb4e`. The native core, compatible
-consumer requirements, separate coverage helper, schema and diagnostics are
-implemented source with actual main CI evidence. No reference-consumer or
-composition implementation is included in this documentation packet.
+Local main was safely fast-forwarded to merged PR #15 at
+`b19e436062150434f8f7fb83db994a751e284ddc`. The implementation branch is
+`codex/reference-consumer-impl-20261027`; no source publication is authorized.
 
-The [proposed packet](native-v0.1-reference-consumer-composition-packet.md)
-defines an independent unpublished executable example using existing core and
-coverage APIs, compiled synthetic policies, explicit bounded input, redacted
-human/JSON output, separate input/policy/coverage/meaning failures and precise
-exit semantics. It introduces no native wire or policy-file grammar. Its
-fixtures must demonstrate preserved/blocked/unresolved, optional loss and
-uncertainty, independent required-term coverage and snapshot mismatches.
+The separately unpublished [reference example](../examples/reference-consumer/README.md)
+uses the existing native core and coverage helper with independently compiled
+synthetic policies. It demonstrates bounded supplied-byte inspection, exact
+native identity/assessment, policy/coverage failures, both meaning guards,
+redacted JSON/human output and deterministic exit precedence. Its independent
+workspace/lock, fixtures, runner and explicit offline native-CI gates are
+additional evidence; root workspace checks alone cannot qualify it.
 
-Composition-fit examples cover merge and split edges, authored/replaced content,
-missing coverage, duplication and conflicts. Their aggregate composition result
-always remains `not_assessed`; successful edge guards cannot prove whole-output
-preservation or complete conflict discovery. Propose another versioned profile
-only if real cases establish the need. Do not modify v0.1 or its 4,911 cases.
+Composition-fit cases distinguish merge/split edges, authored/replaced content,
+missing coverage, duplication and conflicts. Every report retains
+`scope: edge_only`, `composition_assessment: not_assessed` and `authority: none`.
+Inventory completeness is not semantic coverage; recent observations, matching
+bytes, receipt counts and copy success are not authenticated origin, preserved
+meaning, target loading or permission. Actual consumer envelopes/adapters,
+remote custody and authority remain outside this example.
 
-The refreshed [Rangoon](handoffs/rangoon-core-baseline.md) handoff names current
-upstream pins and distinguishes local Rust 1.99.1 declarations from actual
-application adoption. Its October 27 refresh covers merged offline request
-inspection and the active offline inventory packet without claiming remote
-compatibility or expanding VUSL v0.1. The [LNSAT](handoffs/lnsat-evidence-status.md) handoff
-retires a stale status-fix request and keeps older offline reads, newer native
-request/result protocols, permissions and unknown states separate. Neither
-handoff has been dispatched by this task or authorizes consumer changes.
+The [Rangoon](handoffs/rangoon-core-baseline.md) and
+[LNSAT](handoffs/lnsat-evidence-status.md) handoffs remain dated owner proposals;
+this implementation does not send or execute them. No actual Rangoon dependency
+graph, installed runtime, target loader, native ARM Rust, Windows or WASM
+qualification follows from synthetic local source results.
 
-Next safe step: review the documentation PR and separately accept/authorize the
-proposed implementation. Its future native checks require a restored verified
-local Python 3.11.17 environment or explicitly recorded pinned hosted evidence;
-the prior temporary local cache is incomplete. Keep OpenSSF checks alongside
-features, with full criteria closeout at v1.0 release candidate.
+Current execution checks and review are recorded in the implementation record.
+Local qualification and independent review pass. Jeff separately authorized
+committing/pushing the reviewed implementation and opening a PR; the
+[publication continuation](implementation-plan.md#reference-consumer-implementation-publication--october-27-2026)
+owns its exact scope. Qualify the clean immutable source and record actual hosted
+results in that PR. No merge or release authority follows. Keep OpenSSF
+engineering checks alongside features, with full criteria closeout at v1.0 RC.
 
-Preserve safety stash/unrelated work. Rangoon/LNSAT remain untouched. No wire
-change, example implementation, extraction, badge claim, merge, deployment,
-package publication or release is opened by this documentation publication.
+Preserve safety stash/unrelated work. Native wire/core/helper/specification,
+schema/corpus and existing locks remain frozen. Rangoon/LNSAT stay untouched.
+No extraction, badge claim, merge, deploy, package publication or release is
+opened by the implementation or source-publication continuation.

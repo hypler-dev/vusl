@@ -1,0 +1,4 @@
+scope: edge_only
+composition_assessment: not_assessed
+authority: none
+{"format":"vusl.reference-consumer.report.v0.1","mode":"scenario","scenario":"target-contract-mismatch","scope":"edge_only","composition_assessment":"not_assessed","authority":"none","edges":[{"edge_index":0,"policy_fixture":"preserved","input_status":"checked","profile":"vusl.mapping-review.v0.1","refusal_code":null,"document_id":"vusl.mapping-review.v0.1:sha256:fc7803e28558e7ee32cc74a9b6f3603b7742b9012546392ec2dcd44427be6273","assessment":"declared_preserved","policy_error":null,"coverage_status":"incomplete","binding_failures":["target_mismatch"],"findings":[],"meaning_guard":"passed","combined_guard":"coverage_incomplete","optional_loss_present":false,"optional_unknown_present":false,"residual_uncertainty_count":0}]}

@@ -52,6 +52,7 @@ jobs:
           cargo +1.99.1 fetch --locked
           cargo +1.99.1 fetch --locked --manifest-path tests/consumer-compatibility/upstream/Cargo.toml
           cargo +1.99.1 fetch --locked --manifest-path tests/consumer-compatibility/rangoon-constraints/Cargo.toml
+          cargo +1.99.1 fetch --locked --manifest-path examples/reference-consumer/Cargo.toml
 
       - name: Provision hash-locked companion tooling
         shell: bash
@@ -100,6 +101,22 @@ jobs:
             --audit-binary "$VUSL_AUDIT_BINARY" \
             --audit-archive "$VUSL_AUDIT_ARCHIVE" --audit-db "$VUSL_AUDIT_DB" \
             --output "$RUNNER_TEMP/vusl-consumer-run.json"
+
+      - name: Audit and qualify reference consumer (offline)
+        env:
+          CARGO_NET_OFFLINE: 'true'
+        run: |
+          "$VUSL_AUDIT_BINARY" audit --no-fetch --no-yanked --stale --deny warnings \
+            --db "$VUSL_AUDIT_DB" --file examples/reference-consumer/Cargo.lock --json
+          cargo +1.99.1 fmt --manifest-path examples/reference-consumer/Cargo.toml --all -- --check
+          cargo +1.99.1 clippy --locked --offline --manifest-path examples/reference-consumer/Cargo.toml --all-targets -- -D warnings
+          cargo +1.99.1 test --locked --offline --manifest-path examples/reference-consumer/Cargo.toml
+          python3 -B scripts/test_reference_consumer.py --self-test
+          python3 -B scripts/test_reference_consumer.py \
+            --require-rust 1.99.1 --require-python 3.11.17 \
+            --manifest-path examples/reference-consumer/Cargo.toml \
+            --fixture-manifest tests/reference-consumer/manifest.json \
+            --output "$RUNNER_TEMP/vusl-reference-results.json"
 
       - name: Format, warnings and library/API tests (offline)
         env:

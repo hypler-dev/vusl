@@ -1,0 +1,1501 @@
+{
+  "format": "vusl.reference-consumer.fixtures.v0.1",
+  "files": [
+    {
+      "path": "goldens/authored-no-inheritance.json",
+      "sha256": "01760ef7cb6f9ee874a3d00bd8c945ce6c110a0433394c22974dba6f97e56c01"
+    },
+    {
+      "path": "goldens/authored-no-inheritance.txt",
+      "sha256": "fe7f8b4430c14e9a933f3437ff8a76c3d71e3df800dcaf84134c4bbff022f870"
+    },
+    {
+      "path": "goldens/blocked-required.json",
+      "sha256": "e53a9daf01986bcbea0366e820bdfd752e8b8b052829378239fc0fed6767e5ca"
+    },
+    {
+      "path": "goldens/blocked-required.txt",
+      "sha256": "1f9f5e4ac46a102804a483d335ed97023ac15b97d9c6810875f826eb033537d7"
+    },
+    {
+      "path": "goldens/copy-snapshot-mismatch.json",
+      "sha256": "3fa0c009d8e4f4727e533d43304db318167bf937185fb4d1cd23df9ee1d1c1ee"
+    },
+    {
+      "path": "goldens/copy-snapshot-mismatch.txt",
+      "sha256": "d0ff7598d6390bcc2a50dc392b3d4368b1e987036d4673ebc66fe4c9f47d5a2f"
+    },
+    {
+      "path": "goldens/coverage-downgraded.json",
+      "sha256": "4b0c45591d381017c33fc37273f48625389d85807843232b071f1253d76a2572"
+    },
+    {
+      "path": "goldens/coverage-downgraded.txt",
+      "sha256": "7b6bf543b4df4534ef0533e9fbd14e65f8ac27493296550170465321d3a11cf8"
+    },
+    {
+      "path": "goldens/coverage-missing.json",
+      "sha256": "45874fcc06783d2e9db212b977c6bb72854e54a410407fbad0adc5820d4137c9"
+    },
+    {
+      "path": "goldens/coverage-missing.txt",
+      "sha256": "e3c68aa363602962a8fd919bec0a9c219be0c0b2b08e4c6f14e10f99feecb6ed"
+    },
+    {
+      "path": "goldens/duplicate-names.json",
+      "sha256": "a49812d01904fa8da029a0de7d49deb8b1a8308753899e77d6313ee515c7c454"
+    },
+    {
+      "path": "goldens/duplicate-names.txt",
+      "sha256": "cb3f1a800cc68b8bae28ddccd8c2ce0da2235ea655761231c1cee2627591225d"
+    },
+    {
+      "path": "goldens/input-blocked.json",
+      "sha256": "b0cc7ffc16defa48178efb8248871de3460c2c5cb7eff828304358b4a98b4c11"
+    },
+    {
+      "path": "goldens/input-blocked.txt",
+      "sha256": "27df467dca31fb5588290f7bce1d5bffd0a17bb64ee5e1ea1ca084955f613318"
+    },
+    {
+      "path": "goldens/input-invalid-policy.json",
+      "sha256": "7fdebc2c4bf3e5b769bc7fdafbc05380ba2c703ab6420b0c4ebee3214cdf3a34"
+    },
+    {
+      "path": "goldens/input-invalid-policy.txt",
+      "sha256": "350dd03d8e0959600be34458ec2f3941cd524ddcb1b0ac5159ac80b7d07acf4f"
+    },
+    {
+      "path": "goldens/input-missing.json",
+      "sha256": "626f1a5de9fc14ad9329a1724d134a44e416f5fb0616628c1957f24965281764"
+    },
+    {
+      "path": "goldens/input-missing.txt",
+      "sha256": "ce7f3451658fa7662fbe9f7bf75293d71f367f09ce27d89e833e0d0c160057e0"
+    },
+    {
+      "path": "goldens/input-overflow.json",
+      "sha256": "bfbc034d6fdcce3cf1f7651ba51fe344048932e571b4df8f119c4af7283f5713"
+    },
+    {
+      "path": "goldens/input-overflow.txt",
+      "sha256": "68838ab553a6dcbc01d3ea3fefe56836fbbe4f14edb023a07e6bc0199aa07611"
+    },
+    {
+      "path": "goldens/input-preserved.json",
+      "sha256": "45f0a1c802d8983a4866223ee77a2e56c7ac42e6302a583199f70762fccfb21d"
+    },
+    {
+      "path": "goldens/input-preserved.txt",
+      "sha256": "c8f7186094a917f51b5920f5e315e3ca74a7b8b1d2cd19ef04869fe8a3076742"
+    },
+    {
+      "path": "goldens/input-refused.json",
+      "sha256": "df68b813a01d370b4d8a3b4aa9e9cafd718a6d3f1f0ac14d21a54604d0777a5c"
+    },
+    {
+      "path": "goldens/input-refused.txt",
+      "sha256": "66c8aab217ab82f21be03b9ddc5da89da20af705007d72494f0955e0aa39cde3"
+    },
+    {
+      "path": "goldens/input-unresolved.json",
+      "sha256": "a31c6a18752bfa8f1600049881129dd1c0255ac0121336594fa92850334164cc"
+    },
+    {
+      "path": "goldens/input-unresolved.txt",
+      "sha256": "ff00e5cd9ec28f726654e2578e8f0c2e00486daf3d14f989aef7382c956a26c0"
+    },
+    {
+      "path": "goldens/invalid-policy-keeps-blocked.json",
+      "sha256": "bcf1d94fe22c71e7e045a5ae25c7a39b371b9df12e949765f9badedeccd1964f"
+    },
+    {
+      "path": "goldens/invalid-policy-keeps-blocked.txt",
+      "sha256": "847dfe83f66c367192b094a648fa1fb8dd8786d79a87303bf280d62cce11c5b5"
+    },
+    {
+      "path": "goldens/inventory-complete-is-not-coverage.json",
+      "sha256": "781c9709880487d23216027cc94567acd17ae3a4347dbf26e0e592ef76d9db65"
+    },
+    {
+      "path": "goldens/inventory-complete-is-not-coverage.txt",
+      "sha256": "4ef35f600ee372c5313255737ec66069d44f151f5dbb7e65e8093cb0800f2d9a"
+    },
+    {
+      "path": "goldens/matching-bytes-not-provenance.json",
+      "sha256": "6086a8e5dfca4f3046abe5012ca4a672e4f3734426bf318a24abaf6d571505e0"
+    },
+    {
+      "path": "goldens/matching-bytes-not-provenance.txt",
+      "sha256": "f4c82a8e84963df3ad577d2b1e81916b1cf00b3f31edac520c67c6cba27895b8"
+    },
+    {
+      "path": "goldens/merge-all-preserved.json",
+      "sha256": "1861f4b30663b2f7b7eb4684e9281c707182476fe1a7ca960dc44b71ef256739"
+    },
+    {
+      "path": "goldens/merge-all-preserved.txt",
+      "sha256": "c9a03dfacd8e8284ba54230009d6d60e3d7eefa6edafbd14c008e383a6d88206"
+    },
+    {
+      "path": "goldens/merge-blocked.json",
+      "sha256": "b34fee5f7e5065614abeb0f73c102ef0e17916182ac3b4f1fcb4e4dbe44f763c"
+    },
+    {
+      "path": "goldens/merge-blocked.txt",
+      "sha256": "48d18f4a4a6571cb201bd4e66f770a9853827f2e6b02adc9f8f68e0116e30512"
+    },
+    {
+      "path": "goldens/merge-unknown.json",
+      "sha256": "804cfc4babded6975b8523931e02faf62151d678cc9c60ef0e9527612d11e48b"
+    },
+    {
+      "path": "goldens/merge-unknown.txt",
+      "sha256": "1c1ff089852ec6f5ef2387269be29afe59be0215def1a1148b370afe71f56aab"
+    },
+    {
+      "path": "goldens/mixed-coverage-meaning.json",
+      "sha256": "e2ce2065dcb519d1fd0a2521d93d446855e239631963ee5a7759073935f048e5"
+    },
+    {
+      "path": "goldens/mixed-coverage-meaning.txt",
+      "sha256": "9c6a111c3336f4326571e45b502d4048e26678309094ec68f50bd8dec49bf545"
+    },
+    {
+      "path": "goldens/mixed-refusal-coverage-meaning.json",
+      "sha256": "47220ea07d9113f21c0023ac24fc26984575cbacdf3270290a7bd30bc167a40b"
+    },
+    {
+      "path": "goldens/mixed-refusal-coverage-meaning.txt",
+      "sha256": "3db7b92d1bce97c065cb83ce31fe6e96499156a5ef92c9d98b8feeb3aa167486"
+    },
+    {
+      "path": "goldens/multiple-findings.json",
+      "sha256": "0762b8a9d04d972530eac3e5e133ad046f8b36c28483445ba813a39494873912"
+    },
+    {
+      "path": "goldens/multiple-findings.txt",
+      "sha256": "a355d1ad56c947f77546407ccc50e17b30bf93f8f5025528d98bdf3cbb804bb6"
+    },
+    {
+      "path": "goldens/native-refusal.json",
+      "sha256": "a23605f1220c762fd4923670b4201603e57e315515084f8bd2c435fd310d989b"
+    },
+    {
+      "path": "goldens/native-refusal.txt",
+      "sha256": "72530b6d88a589f01c65c1e0bd9fb0fbc202b3e626b3a152df2568497ec50943"
+    },
+    {
+      "path": "goldens/optional-loss.json",
+      "sha256": "6d4fc987e25e704ec7fc40602ae9857d586d743e1fa49d52f8a2c48c7b51f069"
+    },
+    {
+      "path": "goldens/optional-loss.txt",
+      "sha256": "ee444bc73121108ecf1e0ed85d96a41801d73dcd4f986eeac0c94ac1399b4210"
+    },
+    {
+      "path": "goldens/optional-unknown.json",
+      "sha256": "78acd364afd0c8daceb95bd9dd20a5c953698dd7eb562f10148fb42cf60e10eb"
+    },
+    {
+      "path": "goldens/optional-unknown.txt",
+      "sha256": "4b3af036ed1cea3b5d537252988fd12e20a60bfb80345ba82c65a2f8ffe8fef6"
+    },
+    {
+      "path": "goldens/policy-capacity.json",
+      "sha256": "91148411b5ddf03fd2ec06bb6b469f1f72bdece14f6b17c51f07dcca1f721bd2"
+    },
+    {
+      "path": "goldens/policy-capacity.txt",
+      "sha256": "89bbb66abf22e27860fea430a310354dabaa7e8ede31e8611d018c763427a102"
+    },
+    {
+      "path": "goldens/policy-duplicate.json",
+      "sha256": "103fb906a586bc2690137fb95ab80ed05adbc1cfe17f6786f71ec621f07fc30d"
+    },
+    {
+      "path": "goldens/policy-duplicate.txt",
+      "sha256": "d6563ed253c0b33dd21068f9c267b29ff2f019436adb8efe779075742cc52405"
+    },
+    {
+      "path": "goldens/policy-invalid-term.json",
+      "sha256": "504b78174f55c864db35a94bac123b8f973f86745726d90a5c2cf5d4bee32bdd"
+    },
+    {
+      "path": "goldens/policy-invalid-term.txt",
+      "sha256": "e0d3f3af2e874985b820200baca1c7d34dd158dd3d146e99b7f01fe965211596"
+    },
+    {
+      "path": "goldens/policy-invalid.json",
+      "sha256": "36f84673e3524c5f466700b55ae4ba2803d3cbd3a0da9bf2c06dcb77953d9b0e"
+    },
+    {
+      "path": "goldens/policy-invalid.txt",
+      "sha256": "05b5cc98a79990fdf7494e20aef6728a5a54741f3cdebd2879329d122249f09c"
+    },
+    {
+      "path": "goldens/recent-report-not-permission.json",
+      "sha256": "a7796ea87969e233b725ec6e2f600665e497a6200ec32424bf09ce235200f907"
+    },
+    {
+      "path": "goldens/recent-report-not-permission.txt",
+      "sha256": "63a58573c0a735dab836fddcab2c5a9e2849737a4596989aafee90408fcd6a43"
+    },
+    {
+      "path": "goldens/replaced-required.json",
+      "sha256": "bbe5f4ba74ad765d2fe915e595521cee896a61058713d0005a94f2ca06b32fc9"
+    },
+    {
+      "path": "goldens/replaced-required.txt",
+      "sha256": "9c11ede941fe6dbd95d8603d9a56b5f2f842f8feab140ec3859f32da3dd3e378"
+    },
+    {
+      "path": "goldens/residual-uncertainty.json",
+      "sha256": "2753340c49ac231f909c474555534342f63ae7e137b8116848f337e3aa6a864b"
+    },
+    {
+      "path": "goldens/residual-uncertainty.txt",
+      "sha256": "7e0b08f16a6c27abb0c7839a7c88dcda0c4c53f653cb64364ad164830e3858c9"
+    },
+    {
+      "path": "goldens/resolved-conflict-limited.json",
+      "sha256": "a1d736f1010359cd5a9d83078bceb72abd3e03f647e6e368af4defa4540c1480"
+    },
+    {
+      "path": "goldens/resolved-conflict-limited.txt",
+      "sha256": "d855fab624404357aaf6264594d13edd151804de76e2547d2603faad12a7e033"
+    },
+    {
+      "path": "goldens/reverse-direction.json",
+      "sha256": "c993da6fb75fc986d393a2219d4c0e440eed48b2ca3d7a7d95aefa10a21cddae"
+    },
+    {
+      "path": "goldens/reverse-direction.txt",
+      "sha256": "f32a3b15cab20ff0fcc006cb6624006f6fee7a5e9fc82a86e0c82e3521b76d86"
+    },
+    {
+      "path": "goldens/same-catalog-reordered.json",
+      "sha256": "f233227cbbf2f8e8620dea12692776a8e966e46e534bc833091bbfb7eec4fc06"
+    },
+    {
+      "path": "goldens/same-catalog-reordered.txt",
+      "sha256": "40cddefe21b37c7d647d11179a68d1b6e97d7d3fbc7f5856afe28eae0154473e"
+    },
+    {
+      "path": "goldens/single-preserved.json",
+      "sha256": "b5b708ebdb5f387d5cf0cfdc0c1891403f8485e86f710a7df5ebf7e36177079e"
+    },
+    {
+      "path": "goldens/single-preserved.txt",
+      "sha256": "3694ab4aa4adc98449fc191a79d7d1753adc616d5496731d86dfbd1c5d6d5b50"
+    },
+    {
+      "path": "goldens/sixteen-edges.json",
+      "sha256": "5f8f100938245d45b97a782ee9564c99464aaa4e6b58e62b5b270a2356b5c2e3"
+    },
+    {
+      "path": "goldens/sixteen-edges.txt",
+      "sha256": "fdb5794888dda06a599fa589347aa3198a0cd25328b497bfe64983abd2a60421"
+    },
+    {
+      "path": "goldens/source-contract-mismatch.json",
+      "sha256": "ab4130a1a4686da1af44b2aff5033aa573a86dc0c98afdf2d29cac6f367e7b31"
+    },
+    {
+      "path": "goldens/source-contract-mismatch.txt",
+      "sha256": "69b7333be9a0f5162529ad23f423b4bda4f08cc03a3ca653ef2bcfe76263d930"
+    },
+    {
+      "path": "goldens/source-contract-version-mismatch.json",
+      "sha256": "f4b3cdb6860a281346b151701be142515530f996aca11a55f148a5bcca09aeb5"
+    },
+    {
+      "path": "goldens/source-contract-version-mismatch.txt",
+      "sha256": "c03c037f96776879d179bdd8da2586ed8605f0214af31118ce354d1558e365d1"
+    },
+    {
+      "path": "goldens/source-native-id-mismatch.json",
+      "sha256": "436b3327cb7f5e685bd7546e86626284f7bbeafe7ea76af3edd54a423dabb000"
+    },
+    {
+      "path": "goldens/source-native-id-mismatch.txt",
+      "sha256": "15236d97f769f0fabb8f903b82fdfa500a60c10ea1253349bdbef79c2864a089"
+    },
+    {
+      "path": "goldens/source-revision-mismatch.json",
+      "sha256": "6a41db0fb3994431d60b80a1e052b018b054b651374d46cf9a06b459d9f50c9b"
+    },
+    {
+      "path": "goldens/source-revision-mismatch.txt",
+      "sha256": "f181945f0ef252764a3db4c379a75e689eda2738778ecb3095be11f9188a92ff"
+    },
+    {
+      "path": "goldens/source-scope-mismatch.json",
+      "sha256": "dc637b35179ecf1a4ed18b8e69767ab1d3a8ed42f0a8fa536ca0c8fa05758125"
+    },
+    {
+      "path": "goldens/source-scope-mismatch.txt",
+      "sha256": "4b6a57ade2bc434bf66d29954fe6dc1bfeeac2ed909489faffde21dda78c8c76"
+    },
+    {
+      "path": "goldens/source-system-mismatch.json",
+      "sha256": "d3efdc5577d042492895259174da933f1debac99cc6985c6b5ccc26fdf47ff2c"
+    },
+    {
+      "path": "goldens/source-system-mismatch.txt",
+      "sha256": "87091ed817950f1f4a8c0707f0950b6604584bff9ce851ae76c3fe0aa7b09ea2"
+    },
+    {
+      "path": "goldens/split-duplicate-use.json",
+      "sha256": "583c64dba205f35b2738beee4aac2b2915ff88d2d25d48c7df263b55fe01bc7b"
+    },
+    {
+      "path": "goldens/split-duplicate-use.txt",
+      "sha256": "a05ea3ca0a1a7ac578900b74852fe4681e7ec9c53b0826281cbec27d4f882a4a"
+    },
+    {
+      "path": "goldens/split-omission.json",
+      "sha256": "479d21e5b57d88d4e826469b7854e7499d6399fc2f40dfa21bb7227abe37688e"
+    },
+    {
+      "path": "goldens/split-omission.txt",
+      "sha256": "2420362e192627aae04c1aefd59d3d21a160c14f963949aa1e5a25b4aa8de51e"
+    },
+    {
+      "path": "goldens/split-preserved.json",
+      "sha256": "a35f6cbaeed468148ea00b9ba2db929500587689db05759b1f061faae5101090"
+    },
+    {
+      "path": "goldens/split-preserved.txt",
+      "sha256": "ab62b41d8068e58ba8675f9f9aeaf06f4b739e33b2bc121b1fd4a800ed66ba0c"
+    },
+    {
+      "path": "goldens/target-contract-mismatch.json",
+      "sha256": "8d0ec2209bf48f8b2231314c5ef9874b2930b52751c238a9b32db2c32b285b80"
+    },
+    {
+      "path": "goldens/target-contract-mismatch.txt",
+      "sha256": "553161a05b6d5b53c7b146d28dc4a5b690f256c453137eebb060a9f75c4bd365"
+    },
+    {
+      "path": "goldens/target-contract-version-mismatch.json",
+      "sha256": "d4486c480bbbfa074dd739a79c839329667033dd1ea7e7677f712f6a41af122d"
+    },
+    {
+      "path": "goldens/target-contract-version-mismatch.txt",
+      "sha256": "96a3203eb12aee26a4e4789c931802b2d6ab5b03d27eb1c06b57347ccbeecb88"
+    },
+    {
+      "path": "goldens/target-native-id-mismatch.json",
+      "sha256": "29aaec0f70b95d30877d87d1d4638ddca6c208360dd0e5a21a8e5c7e96ad1015"
+    },
+    {
+      "path": "goldens/target-native-id-mismatch.txt",
+      "sha256": "d19ee9ce94db4f9052ec80a769ef9642c42c693c0f2f23f5798cf9ff59104ee9"
+    },
+    {
+      "path": "goldens/target-revision-mismatch.json",
+      "sha256": "b973e94105cae603ff33eb1aba185b8608bcc80365ee67ec56d0609a064ea843"
+    },
+    {
+      "path": "goldens/target-revision-mismatch.txt",
+      "sha256": "008125497e31f2f35fa6d0c9cc2672199a1ea18652837b7b8ba033bc8d02ebda"
+    },
+    {
+      "path": "goldens/target-scope-mismatch.json",
+      "sha256": "f49e2eef5b8e5ea6227569e2dbab1b3ac9af4afe0b7839e197d9adc461f1f19a"
+    },
+    {
+      "path": "goldens/target-scope-mismatch.txt",
+      "sha256": "308b2ca3c0af771f2ac4b2461b58ff3c9b82ffda5a66bbb9c58b30907c30bce2"
+    },
+    {
+      "path": "goldens/target-system-mismatch.json",
+      "sha256": "155d5b31b3bb137b57e6ede783c5b203ee266a08bed594447398ebef608da274"
+    },
+    {
+      "path": "goldens/target-system-mismatch.txt",
+      "sha256": "52ed3041b4afb76497ad64d9e2148dc9af0fe12d8c099e2f8d3ecd9bbc4d2e9a"
+    },
+    {
+      "path": "goldens/unknown-required.json",
+      "sha256": "6482dce7928f5944684353941a7a4774899736285195e35b8de8a51e7bc49916"
+    },
+    {
+      "path": "goldens/unknown-required.txt",
+      "sha256": "8d9a85f5600491de86c673d9fb3e54d7cd639cc60b933623a43c5f2e7b0fbe22"
+    },
+    {
+      "path": "goldens/unresolved-conflict.json",
+      "sha256": "449e42ff6627216eb86c79e1bc084a46b0ea8b211fe4624a5d591ae49240477d"
+    },
+    {
+      "path": "goldens/unresolved-conflict.txt",
+      "sha256": "3cba11925c7a6f7f4f4200a7afdf50f34e8e93ba3a4ae06935988d19a47fe5ec"
+    },
+    {
+      "path": "goldens/unresolved-relationship.json",
+      "sha256": "614e1a7d00335e8acbf32c1c4b592194b55f0dd326b0e07f4b8fb0b9725d8955"
+    },
+    {
+      "path": "goldens/unresolved-relationship.txt",
+      "sha256": "a8c44b47ef3f0e3e173f882ab74f92cfed26cab237409f20af3a3457f6d81504"
+    },
+    {
+      "path": "goldens/unsupported-profile.json",
+      "sha256": "99dea92152c5806bf2adcdee626a2fd3edd846b0f6254b21ec54c9ad4b002892"
+    },
+    {
+      "path": "goldens/unsupported-profile.txt",
+      "sha256": "3b01def3e2fc4925203c09102e7819fa4c9eb42c7d74497d63d7c6d68003fca3"
+    },
+    {
+      "path": "goldens/unsupported-required.json",
+      "sha256": "c15e6423cad871ae9d301f9901af1b7a0486330f6db48e069953ff4a534550cc"
+    },
+    {
+      "path": "goldens/unsupported-required.txt",
+      "sha256": "95286788416052eb7dafa4d971e561457d174d6d074c64188d84d0eaa118b7f1"
+    },
+    {
+      "path": "inputs/authored-unknown.json",
+      "sha256": "5a6ff72bf3301ee115bdd814e434f2d176c56d124163d1bfc572b2c0f0ebeba7"
+    },
+    {
+      "path": "inputs/blocked.json",
+      "sha256": "fe872919d8b58feddcfd731a00575025485e836ffaabf0068fb81c993d54f56e"
+    },
+    {
+      "path": "inputs/downgraded.json",
+      "sha256": "29f149f034cd8d5bc4c241acb5102c7071782af6fcb5fead1252e009e8f423f2"
+    },
+    {
+      "path": "inputs/duplicate.json",
+      "sha256": "0b3593134acd33273cd535e849d9769a2dbab6b5ce94d8a9ae27762ab6b79b93"
+    },
+    {
+      "path": "inputs/merge-b-blocked.json",
+      "sha256": "5bd0139354c58c17b81b52acc607eded684eb7bfe44781e320517f16fa16c191"
+    },
+    {
+      "path": "inputs/merge-b-unknown.json",
+      "sha256": "6a1553c7ceec28e42e0a9c91ece8179b3db32668be04fe356fde89f4f70039f0"
+    },
+    {
+      "path": "inputs/merge-b.json",
+      "sha256": "bce9560777d985a7ff8249f7826eb8dc01a1dc3d8b09d08a94037686073ae235"
+    },
+    {
+      "path": "inputs/optional-loss.json",
+      "sha256": "0d2f0c07a5f5080f4898e21b0a211af0bb28ba157c95a8b7f59cb6be250d0540"
+    },
+    {
+      "path": "inputs/optional-unknown.json",
+      "sha256": "5ba1e07631c74b712d6ad2abd6495ef0f15d7288db42411cea0dd4d63b7fb787"
+    },
+    {
+      "path": "inputs/overflow.json",
+      "sha256": "1abe08ebecf1c18cab71f6fe28aaddf20268f85bad78bb9a72f88ca47c874662"
+    },
+    {
+      "path": "inputs/preserved.json",
+      "sha256": "909dfc7462c45e99d16cecdcbdb3a6393a4f4d6879404e8d37ed917bbb67a2cd"
+    },
+    {
+      "path": "inputs/profile.json",
+      "sha256": "07250314b80542cbe2fc816393885efe7fca4e7f43b496859c9f51ac09a5344b"
+    },
+    {
+      "path": "inputs/refused.json",
+      "sha256": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96"
+    },
+    {
+      "path": "inputs/replaced.json",
+      "sha256": "d937b3aade4427b4b3581180e86b7f7aca85f09209326c6e361383acccdc8ea3"
+    },
+    {
+      "path": "inputs/resolved-conflict.json",
+      "sha256": "4bb8a542cd93ad6f4b5fed30a298fc7335eeb1409b8d1c67471eb79184474a29"
+    },
+    {
+      "path": "inputs/source-contract.json",
+      "sha256": "34545023103a749aad691f6ca3d879ca27e4a759211ecdc474e1c5bbb300648f"
+    },
+    {
+      "path": "inputs/source-contract_version.json",
+      "sha256": "d1e59ab289ccb13b48f4a0db79fc141b04daf4a15bdd7daeb4156dadbd46447a"
+    },
+    {
+      "path": "inputs/source-native_id.json",
+      "sha256": "8c60b2f5abcd63bec76f0ff6b95297c38dab8be2a8689e1811120f0f190729be"
+    },
+    {
+      "path": "inputs/source-revision.json",
+      "sha256": "bdc5cdbdbd5c0fa5ef7c9fab3ce730043cda7dfb01da364d43e8d5eb1591b9d8"
+    },
+    {
+      "path": "inputs/source-scope.json",
+      "sha256": "e8d99a44c6f99a64956cf487b184452f10359e63a5f49490bbd702bf43c0a776"
+    },
+    {
+      "path": "inputs/source-system.json",
+      "sha256": "cfea198cc19e3915774457bedc0034099b9334883749721449a8a1c6cffb4cbf"
+    },
+    {
+      "path": "inputs/split-c-omitted.json",
+      "sha256": "211818a911a045125f12ad2ca960c2caa071ee77d5bfabe036f2ab85780f483f"
+    },
+    {
+      "path": "inputs/split-c.json",
+      "sha256": "406a7321f7cad9395444add52f28e3c0d880ca4e72befadcfb8da208cf680870"
+    },
+    {
+      "path": "inputs/target-contract.json",
+      "sha256": "c676ec69ffd6039700e5e3cb94dbc771040f3ada8e76a46e1aacb29c100d8bfb"
+    },
+    {
+      "path": "inputs/target-contract_version.json",
+      "sha256": "25f3cbb362c2e0f014e628f0997294d01d8b21f7a15708285e78c22a0aa60615"
+    },
+    {
+      "path": "inputs/target-native_id.json",
+      "sha256": "4d14ebd1d879af8716ac49e9dbe25f073734dde3dad08db57f0771874fb26477"
+    },
+    {
+      "path": "inputs/target-revision.json",
+      "sha256": "61312d423af03c20965156ab3d1decb0f89d0e9a1d7e3a84a4a466f61f144f11"
+    },
+    {
+      "path": "inputs/target-scope.json",
+      "sha256": "c13d133936d4f5c055a362a49bcf2e7087dfe750039086dc7a1c6cb6e967fa38"
+    },
+    {
+      "path": "inputs/target-system.json",
+      "sha256": "00ebd3bf6abc38a2275e5f57be706096edce736c149b485db76478788535a4aa"
+    },
+    {
+      "path": "inputs/uncertainty.json",
+      "sha256": "2647026aad6b7891cdb36b7b01004b968677313d7cc3d6cd0953bfeee301ddf4"
+    },
+    {
+      "path": "inputs/unknown.json",
+      "sha256": "903c834fbc28079c4bce419b2f61a8ffd79f2eb10b280482eea207f1566e6cf4"
+    },
+    {
+      "path": "inputs/unresolved.json",
+      "sha256": "c76441530d516c0ef188d46ee34637e9aadf4d5fca8d4cd6b83298f3c1ee046d"
+    },
+    {
+      "path": "inputs/unsupported.json",
+      "sha256": "922aa45a60a0c4c84bf88afc9ad52e11686f148896c74d573b803eb9c707e24d"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "inputs/authored-unknown.json",
+      "sha256": "5a6ff72bf3301ee115bdd814e434f2d176c56d124163d1bfc572b2c0f0ebeba7"
+    },
+    {
+      "path": "inputs/blocked.json",
+      "sha256": "fe872919d8b58feddcfd731a00575025485e836ffaabf0068fb81c993d54f56e"
+    },
+    {
+      "path": "inputs/downgraded.json",
+      "sha256": "29f149f034cd8d5bc4c241acb5102c7071782af6fcb5fead1252e009e8f423f2"
+    },
+    {
+      "path": "inputs/duplicate.json",
+      "sha256": "0b3593134acd33273cd535e849d9769a2dbab6b5ce94d8a9ae27762ab6b79b93"
+    },
+    {
+      "path": "inputs/merge-b-blocked.json",
+      "sha256": "5bd0139354c58c17b81b52acc607eded684eb7bfe44781e320517f16fa16c191"
+    },
+    {
+      "path": "inputs/merge-b-unknown.json",
+      "sha256": "6a1553c7ceec28e42e0a9c91ece8179b3db32668be04fe356fde89f4f70039f0"
+    },
+    {
+      "path": "inputs/merge-b.json",
+      "sha256": "bce9560777d985a7ff8249f7826eb8dc01a1dc3d8b09d08a94037686073ae235"
+    },
+    {
+      "path": "inputs/optional-loss.json",
+      "sha256": "0d2f0c07a5f5080f4898e21b0a211af0bb28ba157c95a8b7f59cb6be250d0540"
+    },
+    {
+      "path": "inputs/optional-unknown.json",
+      "sha256": "5ba1e07631c74b712d6ad2abd6495ef0f15d7288db42411cea0dd4d63b7fb787"
+    },
+    {
+      "path": "inputs/overflow.json",
+      "sha256": "1abe08ebecf1c18cab71f6fe28aaddf20268f85bad78bb9a72f88ca47c874662"
+    },
+    {
+      "path": "inputs/preserved.json",
+      "sha256": "909dfc7462c45e99d16cecdcbdb3a6393a4f4d6879404e8d37ed917bbb67a2cd"
+    },
+    {
+      "path": "inputs/profile.json",
+      "sha256": "07250314b80542cbe2fc816393885efe7fca4e7f43b496859c9f51ac09a5344b"
+    },
+    {
+      "path": "inputs/refused.json",
+      "sha256": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96"
+    },
+    {
+      "path": "inputs/replaced.json",
+      "sha256": "d937b3aade4427b4b3581180e86b7f7aca85f09209326c6e361383acccdc8ea3"
+    },
+    {
+      "path": "inputs/resolved-conflict.json",
+      "sha256": "4bb8a542cd93ad6f4b5fed30a298fc7335eeb1409b8d1c67471eb79184474a29"
+    },
+    {
+      "path": "inputs/source-contract.json",
+      "sha256": "34545023103a749aad691f6ca3d879ca27e4a759211ecdc474e1c5bbb300648f"
+    },
+    {
+      "path": "inputs/source-contract_version.json",
+      "sha256": "d1e59ab289ccb13b48f4a0db79fc141b04daf4a15bdd7daeb4156dadbd46447a"
+    },
+    {
+      "path": "inputs/source-native_id.json",
+      "sha256": "8c60b2f5abcd63bec76f0ff6b95297c38dab8be2a8689e1811120f0f190729be"
+    },
+    {
+      "path": "inputs/source-revision.json",
+      "sha256": "bdc5cdbdbd5c0fa5ef7c9fab3ce730043cda7dfb01da364d43e8d5eb1591b9d8"
+    },
+    {
+      "path": "inputs/source-scope.json",
+      "sha256": "e8d99a44c6f99a64956cf487b184452f10359e63a5f49490bbd702bf43c0a776"
+    },
+    {
+      "path": "inputs/source-system.json",
+      "sha256": "cfea198cc19e3915774457bedc0034099b9334883749721449a8a1c6cffb4cbf"
+    },
+    {
+      "path": "inputs/split-c-omitted.json",
+      "sha256": "211818a911a045125f12ad2ca960c2caa071ee77d5bfabe036f2ab85780f483f"
+    },
+    {
+      "path": "inputs/split-c.json",
+      "sha256": "406a7321f7cad9395444add52f28e3c0d880ca4e72befadcfb8da208cf680870"
+    },
+    {
+      "path": "inputs/target-contract.json",
+      "sha256": "c676ec69ffd6039700e5e3cb94dbc771040f3ada8e76a46e1aacb29c100d8bfb"
+    },
+    {
+      "path": "inputs/target-contract_version.json",
+      "sha256": "25f3cbb362c2e0f014e628f0997294d01d8b21f7a15708285e78c22a0aa60615"
+    },
+    {
+      "path": "inputs/target-native_id.json",
+      "sha256": "4d14ebd1d879af8716ac49e9dbe25f073734dde3dad08db57f0771874fb26477"
+    },
+    {
+      "path": "inputs/target-revision.json",
+      "sha256": "61312d423af03c20965156ab3d1decb0f89d0e9a1d7e3a84a4a466f61f144f11"
+    },
+    {
+      "path": "inputs/target-scope.json",
+      "sha256": "c13d133936d4f5c055a362a49bcf2e7087dfe750039086dc7a1c6cb6e967fa38"
+    },
+    {
+      "path": "inputs/target-system.json",
+      "sha256": "00ebd3bf6abc38a2275e5f57be706096edce736c149b485db76478788535a4aa"
+    },
+    {
+      "path": "inputs/uncertainty.json",
+      "sha256": "2647026aad6b7891cdb36b7b01004b968677313d7cc3d6cd0953bfeee301ddf4"
+    },
+    {
+      "path": "inputs/unknown.json",
+      "sha256": "903c834fbc28079c4bce419b2f61a8ffd79f2eb10b280482eea207f1566e6cf4"
+    },
+    {
+      "path": "inputs/unresolved.json",
+      "sha256": "c76441530d516c0ef188d46ee34637e9aadf4d5fca8d4cd6b83298f3c1ee046d"
+    },
+    {
+      "path": "inputs/unsupported.json",
+      "sha256": "922aa45a60a0c4c84bf88afc9ad52e11686f148896c74d573b803eb9c707e24d"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "single-preserved",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 0,
+      "report": "goldens/single-preserved.json",
+      "text_report": "goldens/single-preserved.txt"
+    },
+    {
+      "id": "blocked-required",
+      "edges": [
+        {
+          "input": "inputs/blocked.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 4,
+      "report": "goldens/blocked-required.json",
+      "text_report": "goldens/blocked-required.txt"
+    },
+    {
+      "id": "unsupported-required",
+      "edges": [
+        {
+          "input": "inputs/unsupported.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 4,
+      "report": "goldens/unsupported-required.json",
+      "text_report": "goldens/unsupported-required.txt"
+    },
+    {
+      "id": "unknown-required",
+      "edges": [
+        {
+          "input": "inputs/unknown.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 4,
+      "report": "goldens/unknown-required.json",
+      "text_report": "goldens/unknown-required.txt"
+    },
+    {
+      "id": "unresolved-relationship",
+      "edges": [
+        {
+          "input": "inputs/unresolved.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 4,
+      "report": "goldens/unresolved-relationship.json",
+      "text_report": "goldens/unresolved-relationship.txt"
+    },
+    {
+      "id": "optional-loss",
+      "edges": [
+        {
+          "input": "inputs/optional-loss.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 0,
+      "report": "goldens/optional-loss.json",
+      "text_report": "goldens/optional-loss.txt"
+    },
+    {
+      "id": "optional-unknown",
+      "edges": [
+        {
+          "input": "inputs/optional-unknown.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 0,
+      "report": "goldens/optional-unknown.json",
+      "text_report": "goldens/optional-unknown.txt"
+    },
+    {
+      "id": "residual-uncertainty",
+      "edges": [
+        {
+          "input": "inputs/uncertainty.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 0,
+      "report": "goldens/residual-uncertainty.json",
+      "text_report": "goldens/residual-uncertainty.txt"
+    },
+    {
+      "id": "coverage-missing",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "missing"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/coverage-missing.json",
+      "text_report": "goldens/coverage-missing.txt"
+    },
+    {
+      "id": "coverage-downgraded",
+      "edges": [
+        {
+          "input": "inputs/downgraded.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/coverage-downgraded.json",
+      "text_report": "goldens/coverage-downgraded.txt"
+    },
+    {
+      "id": "multiple-findings",
+      "edges": [
+        {
+          "input": "inputs/downgraded.json",
+          "policy": "missing"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/multiple-findings.json",
+      "text_report": "goldens/multiple-findings.txt"
+    },
+    {
+      "id": "same-catalog-reordered",
+      "edges": [
+        {
+          "input": "inputs/downgraded.json",
+          "policy": "reordered"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/same-catalog-reordered.json",
+      "text_report": "goldens/same-catalog-reordered.txt"
+    },
+    {
+      "id": "policy-duplicate",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "duplicate"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/policy-duplicate.json",
+      "text_report": "goldens/policy-duplicate.txt"
+    },
+    {
+      "id": "policy-invalid",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "invalid"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/policy-invalid.json",
+      "text_report": "goldens/policy-invalid.txt"
+    },
+    {
+      "id": "policy-capacity",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "capacity"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/policy-capacity.json",
+      "text_report": "goldens/policy-capacity.txt"
+    },
+    {
+      "id": "policy-invalid-term",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "invalid_term"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/policy-invalid-term.json",
+      "text_report": "goldens/policy-invalid-term.txt"
+    },
+    {
+      "id": "native-refusal",
+      "edges": [
+        {
+          "input": "inputs/refused.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 2,
+      "report": "goldens/native-refusal.json",
+      "text_report": "goldens/native-refusal.txt"
+    },
+    {
+      "id": "duplicate-names",
+      "edges": [
+        {
+          "input": "inputs/duplicate.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 2,
+      "report": "goldens/duplicate-names.json",
+      "text_report": "goldens/duplicate-names.txt"
+    },
+    {
+      "id": "unsupported-profile",
+      "edges": [
+        {
+          "input": "inputs/profile.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 2,
+      "report": "goldens/unsupported-profile.json",
+      "text_report": "goldens/unsupported-profile.txt"
+    },
+    {
+      "id": "input-overflow",
+      "edges": [
+        {
+          "input": "inputs/overflow.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 2,
+      "report": "goldens/input-overflow.json",
+      "text_report": "goldens/input-overflow.txt"
+    },
+    {
+      "id": "copy-snapshot-mismatch",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "mismatch"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/copy-snapshot-mismatch.json",
+      "text_report": "goldens/copy-snapshot-mismatch.txt"
+    },
+    {
+      "id": "reverse-direction",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "reverse"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/reverse-direction.json",
+      "text_report": "goldens/reverse-direction.txt"
+    },
+    {
+      "id": "authored-no-inheritance",
+      "edges": [
+        {
+          "input": "inputs/authored-unknown.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 4,
+      "report": "goldens/authored-no-inheritance.json",
+      "text_report": "goldens/authored-no-inheritance.txt"
+    },
+    {
+      "id": "replaced-required",
+      "edges": [
+        {
+          "input": "inputs/replaced.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 4,
+      "report": "goldens/replaced-required.json",
+      "text_report": "goldens/replaced-required.txt"
+    },
+    {
+      "id": "resolved-conflict-limited",
+      "edges": [
+        {
+          "input": "inputs/resolved-conflict.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 0,
+      "report": "goldens/resolved-conflict-limited.json",
+      "text_report": "goldens/resolved-conflict-limited.txt"
+    },
+    {
+      "id": "unresolved-conflict",
+      "edges": [
+        {
+          "input": "inputs/unresolved.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 4,
+      "report": "goldens/unresolved-conflict.json",
+      "text_report": "goldens/unresolved-conflict.txt"
+    },
+    {
+      "id": "inventory-complete-is-not-coverage",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "missing"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/inventory-complete-is-not-coverage.json",
+      "text_report": "goldens/inventory-complete-is-not-coverage.txt"
+    },
+    {
+      "id": "recent-report-not-permission",
+      "edges": [
+        {
+          "input": "inputs/uncertainty.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 0,
+      "report": "goldens/recent-report-not-permission.json",
+      "text_report": "goldens/recent-report-not-permission.txt"
+    },
+    {
+      "id": "matching-bytes-not-provenance",
+      "edges": [
+        {
+          "input": "inputs/resolved-conflict.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 0,
+      "report": "goldens/matching-bytes-not-provenance.json",
+      "text_report": "goldens/matching-bytes-not-provenance.txt"
+    },
+    {
+      "id": "source-system-mismatch",
+      "edges": [
+        {
+          "input": "inputs/source-system.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/source-system-mismatch.json",
+      "text_report": "goldens/source-system-mismatch.txt"
+    },
+    {
+      "id": "source-scope-mismatch",
+      "edges": [
+        {
+          "input": "inputs/source-scope.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/source-scope-mismatch.json",
+      "text_report": "goldens/source-scope-mismatch.txt"
+    },
+    {
+      "id": "source-contract-mismatch",
+      "edges": [
+        {
+          "input": "inputs/source-contract.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/source-contract-mismatch.json",
+      "text_report": "goldens/source-contract-mismatch.txt"
+    },
+    {
+      "id": "source-contract-version-mismatch",
+      "edges": [
+        {
+          "input": "inputs/source-contract_version.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/source-contract-version-mismatch.json",
+      "text_report": "goldens/source-contract-version-mismatch.txt"
+    },
+    {
+      "id": "source-native-id-mismatch",
+      "edges": [
+        {
+          "input": "inputs/source-native_id.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/source-native-id-mismatch.json",
+      "text_report": "goldens/source-native-id-mismatch.txt"
+    },
+    {
+      "id": "source-revision-mismatch",
+      "edges": [
+        {
+          "input": "inputs/source-revision.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/source-revision-mismatch.json",
+      "text_report": "goldens/source-revision-mismatch.txt"
+    },
+    {
+      "id": "target-system-mismatch",
+      "edges": [
+        {
+          "input": "inputs/target-system.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/target-system-mismatch.json",
+      "text_report": "goldens/target-system-mismatch.txt"
+    },
+    {
+      "id": "target-scope-mismatch",
+      "edges": [
+        {
+          "input": "inputs/target-scope.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/target-scope-mismatch.json",
+      "text_report": "goldens/target-scope-mismatch.txt"
+    },
+    {
+      "id": "target-contract-mismatch",
+      "edges": [
+        {
+          "input": "inputs/target-contract.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/target-contract-mismatch.json",
+      "text_report": "goldens/target-contract-mismatch.txt"
+    },
+    {
+      "id": "target-contract-version-mismatch",
+      "edges": [
+        {
+          "input": "inputs/target-contract_version.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/target-contract-version-mismatch.json",
+      "text_report": "goldens/target-contract-version-mismatch.txt"
+    },
+    {
+      "id": "target-native-id-mismatch",
+      "edges": [
+        {
+          "input": "inputs/target-native_id.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/target-native-id-mismatch.json",
+      "text_report": "goldens/target-native-id-mismatch.txt"
+    },
+    {
+      "id": "target-revision-mismatch",
+      "edges": [
+        {
+          "input": "inputs/target-revision.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/target-revision-mismatch.json",
+      "text_report": "goldens/target-revision-mismatch.txt"
+    },
+    {
+      "id": "merge-all-preserved",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/merge-b.json",
+          "policy": "merge_b"
+        }
+      ],
+      "exit": 0,
+      "report": "goldens/merge-all-preserved.json",
+      "text_report": "goldens/merge-all-preserved.txt"
+    },
+    {
+      "id": "merge-blocked",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/merge-b-blocked.json",
+          "policy": "merge_b"
+        }
+      ],
+      "exit": 4,
+      "report": "goldens/merge-blocked.json",
+      "text_report": "goldens/merge-blocked.txt"
+    },
+    {
+      "id": "merge-unknown",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/merge-b-unknown.json",
+          "policy": "merge_b"
+        }
+      ],
+      "exit": 4,
+      "report": "goldens/merge-unknown.json",
+      "text_report": "goldens/merge-unknown.txt"
+    },
+    {
+      "id": "split-preserved",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/split-c.json",
+          "policy": "split_c"
+        }
+      ],
+      "exit": 0,
+      "report": "goldens/split-preserved.json",
+      "text_report": "goldens/split-preserved.txt"
+    },
+    {
+      "id": "split-omission",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/split-c-omitted.json",
+          "policy": "split_c"
+        }
+      ],
+      "exit": 4,
+      "report": "goldens/split-omission.json",
+      "text_report": "goldens/split-omission.txt"
+    },
+    {
+      "id": "split-duplicate-use",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/split-c.json",
+          "policy": "split_c"
+        }
+      ],
+      "exit": 0,
+      "report": "goldens/split-duplicate-use.json",
+      "text_report": "goldens/split-duplicate-use.txt"
+    },
+    {
+      "id": "mixed-refusal-coverage-meaning",
+      "edges": [
+        {
+          "input": "inputs/blocked.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "missing"
+        },
+        {
+          "input": "inputs/refused.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 2,
+      "report": "goldens/mixed-refusal-coverage-meaning.json",
+      "text_report": "goldens/mixed-refusal-coverage-meaning.txt"
+    },
+    {
+      "id": "mixed-coverage-meaning",
+      "edges": [
+        {
+          "input": "inputs/blocked.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "missing"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/mixed-coverage-meaning.json",
+      "text_report": "goldens/mixed-coverage-meaning.txt"
+    },
+    {
+      "id": "invalid-policy-keeps-blocked",
+      "edges": [
+        {
+          "input": "inputs/blocked.json",
+          "policy": "duplicate"
+        }
+      ],
+      "exit": 3,
+      "report": "goldens/invalid-policy-keeps-blocked.json",
+      "text_report": "goldens/invalid-policy-keeps-blocked.txt"
+    },
+    {
+      "id": "sixteen-edges",
+      "edges": [
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        },
+        {
+          "input": "inputs/preserved.json",
+          "policy": "preserved"
+        }
+      ],
+      "exit": 0,
+      "report": "goldens/sixteen-edges.json",
+      "text_report": "goldens/sixteen-edges.txt"
+    }
+  ],
+  "input_checks": [
+    {
+      "id": "preserved",
+      "input": "inputs/preserved.json",
+      "policy": "preserved",
+      "exit": 0,
+      "report": "goldens/input-preserved.json",
+      "text_report": "goldens/input-preserved.txt"
+    },
+    {
+      "id": "blocked",
+      "input": "inputs/blocked.json",
+      "policy": "preserved",
+      "exit": 4,
+      "report": "goldens/input-blocked.json",
+      "text_report": "goldens/input-blocked.txt"
+    },
+    {
+      "id": "unresolved",
+      "input": "inputs/unresolved.json",
+      "policy": "preserved",
+      "exit": 4,
+      "report": "goldens/input-unresolved.json",
+      "text_report": "goldens/input-unresolved.txt"
+    },
+    {
+      "id": "refused",
+      "input": "inputs/refused.json",
+      "policy": "preserved",
+      "exit": 2,
+      "report": "goldens/input-refused.json",
+      "text_report": "goldens/input-refused.txt"
+    },
+    {
+      "id": "missing",
+      "input": "inputs/preserved.json",
+      "policy": "missing",
+      "exit": 3,
+      "report": "goldens/input-missing.json",
+      "text_report": "goldens/input-missing.txt"
+    },
+    {
+      "id": "invalid-policy",
+      "input": "inputs/preserved.json",
+      "policy": "duplicate",
+      "exit": 3,
+      "report": "goldens/input-invalid-policy.json",
+      "text_report": "goldens/input-invalid-policy.txt"
+    }
+  ],
+  "operational_checks": [
+    {
+      "id": "seventeen_edges",
+      "args": [
+        "--scenario",
+        "seventeen-edges"
+      ],
+      "diagnostic": {
+        "layer": "example_io",
+        "code": "invalid_edge_count",
+        "catalog": "docs/diagnostics.md"
+      }
+    }
+  ]
+}
