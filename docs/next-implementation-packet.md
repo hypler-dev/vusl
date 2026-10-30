@@ -9,7 +9,8 @@ are dated history, superseded for this exact accepted local slice.
 
 Local main was safely fast-forwarded to merged PR #15 at
 `b19e436062150434f8f7fb83db994a751e284ddc`. The implementation branch is
-`codex/reference-consumer-impl-20261027`; no source publication is authorized.
+`codex/reference-consumer-impl-20261027`. Implementation acceptance alone did
+not authorize source publication; the separate authorization is recorded below.
 
 The separately unpublished [reference example](../examples/reference-consumer/README.md)
 uses the existing native core and coverage helper with independently compiled
