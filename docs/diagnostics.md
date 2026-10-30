@@ -1,8 +1,8 @@
 # VUSL diagnostics catalog
 
 This catalog describes the fixed diagnostics currently exposed by the native
-core, the source-term coverage helper, and the offline schema-companion test
-tool. It is an operator and LLM aid. It does not add a native wire field, a
+core, the source-term coverage helper, the reference consumer example, and the
+offline schema-companion test tool. It is an operator and LLM aid. It does not add a native wire field, a
 new protocol version, an authorization result, or a release claim. The source
 of truth is the implementation linked in each section; this document records
 what those outputs mean and how to respond safely.
@@ -214,3 +214,17 @@ only after the unexpected failure is understood and repaired. It does not catch
 all Python exceptions. Startup import failures
 remain Python/CLI prerequisites outside this controlled diagnostic catalog. No
 shared SDK, logger, network, or adapter is implied.
+
+## Reference consumer example diagnostics
+
+The separately unpublished [reference consumer](../examples/reference-consumer/README.md) uses a host-only CLI envelope `vusl.reference-consumer.diagnostic.v0.1`, with exactly `format`, `layer`, `code` and `catalog`. Its layer is `example_io`, and catalog is `docs/diagnostics.md`. These are example diagnostics, not native input refusals, policy failures, engine results or new native wire fields. Usage and I/O failures exit 1 with fixed JSON on stderr and no success report. A broken stdout may already contain partial bytes; discard that stream as incomplete evidence. A broken stderr or process termination cannot guarantee a diagnostic.
+
+| Code | Cause | Safe repair and retry condition |
+| --- | --- | --- |
+| `invalid_arguments` | Unknown, duplicate, missing or incompatible options; unknown compiled scenario/policy; unsupported format; relative input path. | Use one documented mode and closed labels. Validate all options before opening input. Retry after correcting the invocation; no policy discovery or automatic repair follows. |
+| `input_read_failed` | Explicit file/stdin open or bounded read failed, including missing/unreadable files or directory input. | Confirm the selected input and read permission without scanning or echoing its path/content. Retry only after the caller fixes the input/read condition. |
+| `invalid_edge_count` | Requested synthetic group has zero or more than sixteen edges. | Use a supported bounded scenario. Do not truncate a composition or change the native profile to make it pass. |
+| `report_failed` | A complete report cannot be serialized within the example's 262,144-byte cap. | Retain the failure and diagnose the example/report fixture. No partial group is complete evidence; retry only after a corrected, reviewed bounded report. |
+| `output_write_failed` | Writing or flushing the selected report to stdout failed. | Discard any partial stdout, fix the caller's sink and explicitly rerun inspection if appropriate. Do not infer success or retry a consequential action. |
+
+Successful JSON and human output describe the same ordered edges and explicit `edge_only`, `composition_assessment: not_assessed`, `authority: none` scope. Native malformed input exits 2 with unchanged native refusal codes; typed policy or coverage failure exits 3; covered but blocked/unresolved meaning exits 4. A complete multi-edge report uses precedence 2, 3, 4, 0, while operational failure 1 overrides it. Optional loss, uncertainty and native meaning remain visible even if policy/coverage fails. Exit 0 establishes only that the selected edge guards passed; it grants neither whole-composition preservation nor authority.

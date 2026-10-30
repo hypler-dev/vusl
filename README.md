@@ -146,7 +146,7 @@ this reviewed packet; the [publication continuation](docs/implementation-plan.md
 owns the exact scope. Its PR records the immutable head, dependent base and
 actual CI results. Publication does not grant merge, deployment or release authority.
 
-## Next proposed feature: reference consumer and composition fit
+## Reference consumer and composition fit
 
 [PR #13](https://github.com/hypler-dev/vusl/pull/13) merged schema/coverage work
 as `d939304`, and [PR #14](https://github.com/hypler-dev/vusl/pull/14) merged
@@ -155,13 +155,14 @@ diagnostics as `7e3f7f31f6ae701f18884f98356e873ab32efb4e`. Both
 [integrity main](https://github.com/hypler-dev/vusl/actions/runs/40121175512)
 checks pass at that latter source revision; packages remain unpublished.
 
-The [new proposed packet](docs/native-v0.1-reference-consumer-composition-packet.md)
-prepares an independently usable executable example of inspection, host-selected
+Jeff accepted the [packet](docs/native-v0.1-reference-consumer-composition-packet.md)
+and authorized local implementation on October 27, 2026. The [implementation record](docs/implementation-plan.md#reference-consumer-implementation-acceptance--october-27-2026)
+owns current validation and review; no hosted or release qualification follows.
+The separately unpublished [reference example](examples/reference-consumer/README.md) provides an independently usable executable example of inspection, host-selected
 coverage and meaning guards with redacted human/JSON output. Composition-fit
 cases must distinguish individual edge reviews from whole-composition claims:
 Rangoon merge/split recipes do not automatically gain aggregate preservation
-from VUSL v0.1. No reference executable, new native profile or runtime adapter is
-implemented by this documentation. The native wire, core/helper, schema,
+from VUSL v0.1. No new native profile or runtime adapter is introduced. The native wire, core/helper, schema,
 dependencies and frozen corpus stay unchanged.
 
 The [Rangoon](docs/handoffs/rangoon-core-baseline.md) and
@@ -169,9 +170,13 @@ The [Rangoon](docs/handoffs/rangoon-core-baseline.md) and
 upstream pins, dirty consumer observations, independent authority and separate
 read/protocol qualification. Neither authorizes or dispatches consumer work.
 The [roadmap checkpoint](docs/implementation-plan.md#reference-consumer-and-composition-fit-preparation--october-25-2026)
-owns preparation and pending implementation acceptance. Jeff separately
-authorized publication of the reviewed documentation; its PR records the exact
-revision and actual checks. Implementation, merge and deployment stay separate.
+records earlier preparation; the October 27 implementation record supersedes
+its dated preparation-only gate for this exact local packet. Earlier documentation
+publication and CI do not qualify the new implementation. Jeff separately
+authorized committing/pushing this reviewed source and opening a PR; the
+[publication continuation](docs/implementation-plan.md#reference-consumer-implementation-publication--october-27-2026)
+owns exact scope and gates. Its PR records the immutable source and actual hosted
+results. Merge, deployment, package publication and release remain closed.
 
 Development prioritizes native core features and mechanics. Relevant tests,
 CI, security checks and evidence updates accompany each feature packet. The
