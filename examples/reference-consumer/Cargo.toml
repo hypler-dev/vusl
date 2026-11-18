@@ -18,3 +18,7 @@ vusl-coverage = { path = "../../crates/vusl-coverage" }
 [[test]]
 name = "reference"
 path = "tests/reference.rs"
+
+[[example]]
+name = "route_comparison"
+test = true
