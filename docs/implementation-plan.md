@@ -1607,3 +1607,13 @@ The example fits the current profile. It exposes practical needs in order:
    semantics. Require a concrete counterexample to single-edge review and show
    how the new contract would represent it. Leave the bounded 1.0 decision
    separate from these experiments.
+
+## Product-neutral consumer result — November 18, 2026
+
+The [consumer result](consumer-result-v0.1.md) adds a versioned reference API
+over checked native reviews and immutable host-selected policies. Local
+outcomes distinguish preserved, missing or changed, and unresolved. Evidence
+output links term claims, disagreements and resolution needs. Separate edge
+results cannot establish chain-wide preservation. Native review wire and existing
+CLI report formats remain frozen. Target readback and LNSAT receipt identity,
+freshness, reconciliation and authority belong to their respective hosts.

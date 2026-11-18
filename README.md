@@ -188,6 +188,9 @@ The [saved-revision example](examples/reference-consumer/README.md#saved-revisio
 shows how a host can check independently required terms and reject a stale
 target preview before relying on a mapping review.
 
+The [versioned consumer result](docs/consumer-result-v0.1.md) provides local
+semantic verdicts and cited evidence for exact snapshots and host policies.
+
 ## Architecture and ownership
 
 | Project | Owns |

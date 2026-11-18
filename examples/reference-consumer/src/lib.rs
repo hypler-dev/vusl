@@ -811,3 +811,5 @@ pub fn exit_code(report: &Report) -> i32 {
         0
     }
 }
+
+pub mod consumer_result;
