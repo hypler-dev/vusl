@@ -114,3 +114,7 @@ review result, and target-loaded readback. This synthetic example has no target
 readback, so that status is unknown in every case. VUSL output describes one
 mapping edge. LNSAT decisions, receipts and observed effects remain native to
 LNSAT and require their own exact references and evidence.
+
+The optional [versioned consumer result](../../docs/consumer-result-v0.1.md)
+provides machine-readable verdicts and cited evidence through the Rust module.
+The original CLI remains the redacted diagnostic surface.

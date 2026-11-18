@@ -529,7 +529,7 @@ def broken_pipe(binary: Path, args: list[str], repo_root: Path, expected: dict[s
 
 
 def source_evidence(repo_root: Path, manifest: Path, fixture: dict[str, Any]) -> dict[str, Any]:
-    required = ["Cargo.toml", "Cargo.lock", "src/lib.rs", "src/main.rs", "tests/reference.rs", "README.md"]
+    required = ["Cargo.toml", "Cargo.lock", "src/lib.rs", "src/main.rs", "src/consumer_result.rs", "tests/consumer_result.rs", "tests/reference.rs", "README.md"]
     core = sorted(path.relative_to(repo_root).as_posix() for base in (repo_root / "crates/vusl-core", repo_root / "crates/vusl-coverage") for path in base.rglob("*") if path.is_file() and not path.is_symlink())
     sources = required + core + ["scripts/test_reference_consumer.py"]
     files = {relative: digest(manifest.parent / relative, "example_source_missing") for relative in required}
