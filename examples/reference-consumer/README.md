@@ -118,3 +118,32 @@ LNSAT and require their own exact references and evidence.
 The optional [versioned consumer result](../../docs/consumer-result-v0.1.md)
 provides machine-readable verdicts and cited evidence through the Rust module.
 The original CLI remains the redacted diagnostic surface.
+
+## Offline route comparison
+
+Run the synthetic comparison from the repository root using the provisioned
+Rust toolchain and offline dependencies.
+
+```sh
+cargo +1.99.1 run --locked --offline --manifest-path examples/reference-consumer/Cargo.toml --example route_comparison
+```
+
+Each JSON record carries one shared host input and the routes from both arms.
+The host checks whether a saved revision was selected and a preview review is
+available. The second arm adds an illustrative rule that holds for semantic
+review if an edge fails or adjacent snapshots differ. Both arms only select a
+review queue.
+
+| Fixture | Host evidence alone | Same evidence plus VUSL |
+| --- | --- | --- |
+| Continuous chain with passing edges | Queue preview review | Queue preview review |
+| Required meaning lost on second edge | Queue preview review | Hold for semantic review |
+| Passing edges with mismatched adjacent scope | Queue preview review | Hold for semantic review |
+| Missing host preview evidence | Hold for host evidence | Hold for host evidence |
+
+Within each pair, only the VUSL report and its route rule differ. This isolates
+route changes in the synthetic experiment. Evaluating real-world gains would
+require common cases with independently established expected routes. Every
+record leaves chain preservation unresolved, target-loaded readback unknown,
+and execution authority unassessed. The runnable example also serves as a
+regression test under the reference workspace's regular Cargo test command.

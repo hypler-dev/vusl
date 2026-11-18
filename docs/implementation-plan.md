@@ -1617,3 +1617,12 @@ output links term claims, disagreements and resolution needs. Separate edge
 results cannot establish chain-wide preservation. Native review wire and existing
 CLI report formats remain frozen. Target readback and LNSAT receipt identity,
 freshness, reconciliation and authority belong to their respective hosts.
+
+## Offline route comparison
+
+The [reference example](../examples/reference-consumer/README.md#offline-route-comparison)
+compares host evidence alone against the same evidence with the VUSL edge
+report. In the synthetic experiment, the added gate holds cases with required
+meaning loss or disconnected snapshots. Continuous passing edges and a host
+evidence hold serve as controls. Chain preservation stays unresolved in both
+arms. Review routing has no effect on target readback or execution authority.
