@@ -38,7 +38,7 @@ Input `-` selects stdin. Exactly one mode is required; duplicate, unknown or
 incompatible options are refused before opening input. Default format is JSON.
 Policies are closed synthetic labels: `preserved`, `missing`, `duplicate`,
 `mismatch`, `invalid`, `merge_b`, `split_c`, `capacity`, `invalid_term`,
-`reordered`, `reverse`. Some deliberately fail policy validation. They are
+`reordered`, `reverse`, `saved_preview`. Some deliberately fail policy validation. They are
 teaching fixtures, never host requirements inferred from a producer document.
 A real host instead constructs `CoveragePolicy` from its independently accepted
 inventory and calls `evaluate_input_with_policy` with supplied bytes. The
@@ -70,7 +70,7 @@ Every report states `edge_only`, `composition_assessment: not_assessed`,
 for causes, safe repair and retry conditions.
 
 The [fixture inventory](../../tests/reference-consumer/manifest.json) freezes
-33 synthetic inputs, 51 scenarios, six file/stdin cases and one deliberately
+38 synthetic inputs, 56 scenarios, six file/stdin cases and one deliberately
 unsupported 17-edge case. Golden IDs and native outcomes were prepared with
 the unchanged independent standard-library Python oracle; full snapshot/term
 coverage, guard precedence and report fields were independently assembled from
@@ -90,3 +90,27 @@ no completeness claim. Inventory completeness is not required-term coverage;
 recent observations, matching bytes, hashes/revisions, receipt counts and copy
 success establish neither authenticated provenance, lineage, target loading,
 verified effects nor permission. No actual RM-1 or LNSAT envelope is supported.
+
+## Saved revision to target preview
+
+The synthetic workbench selects saved instruction revision `saved-7`. The
+target supplies configuration preview revision `preview-3`. The host selects
+`saved_preview` independently of the review bytes. Its required terms, in
+order, are `review-before-apply` and `scope-limit`.
+
+Run the example with `--scenario saved-preview-preserved` or any scenario
+below. The same policy checks every case.
+
+| Scenario | Exit | What the host learns |
+| --- | --- | --- |
+| `saved-preview-preserved` | 0 | Both required terms survive the declared mapping. Display wording has optional loss. |
+| `saved-preview-missing` | 3 | The review omitted the scope limit. Policy index 1 identifies the missing term. |
+| `saved-preview-downgraded` | 3 | The review marked the scope limit optional. Policy index 1 identifies the downgrade. |
+| `saved-preview-unresolved` | 4 | Term coverage passes and the relationship remains unresolved. |
+| `saved-preview-stale-target` | 3 | The target ID and labels match, but `preview-4` fails the binding to `preview-3`. |
+
+The host should present three separate facts: selected saved revision, semantic
+review result, and target-loaded readback. This synthetic example has no target
+readback, so that status is unknown in every case. VUSL output describes one
+mapping edge. LNSAT decisions, receipts and observed effects remain native to
+LNSAT and require their own exact references and evidence.

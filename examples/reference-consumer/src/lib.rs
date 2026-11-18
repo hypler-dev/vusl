@@ -10,6 +10,7 @@ pub const MAX_EDGES: usize = 16;
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum PolicyLabel {
     Preserved,
+    SavedPreview,
     Missing,
     Duplicate,
     Mismatch,
@@ -25,6 +26,7 @@ impl PolicyLabel {
     pub fn parse(x: &str) -> Option<Self> {
         match x {
             "preserved" => Some(Self::Preserved),
+            "saved_preview" => Some(Self::SavedPreview),
             "missing" => Some(Self::Missing),
             "duplicate" => Some(Self::Duplicate),
             "mismatch" => Some(Self::Mismatch),
@@ -41,6 +43,7 @@ impl PolicyLabel {
     pub fn as_str(self) -> &'static str {
         match self {
             Self::Preserved => "preserved",
+            Self::SavedPreview => "saved_preview",
             Self::Missing => "missing",
             Self::Duplicate => "duplicate",
             Self::Mismatch => "mismatch",
@@ -101,6 +104,32 @@ pub enum Outcome {
 
 pub fn scenario(id: &str) -> Option<Vec<(&'static [u8], PolicyLabel)>> {
     match id {
+        "saved-preview-preserved" => Some(vec![(
+            include_bytes!("../../../tests/reference-consumer/inputs/saved-preview-preserved.json"),
+            PolicyLabel::SavedPreview,
+        )]),
+        "saved-preview-missing" => Some(vec![(
+            include_bytes!("../../../tests/reference-consumer/inputs/saved-preview-missing.json"),
+            PolicyLabel::SavedPreview,
+        )]),
+        "saved-preview-downgraded" => Some(vec![(
+            include_bytes!(
+                "../../../tests/reference-consumer/inputs/saved-preview-downgraded.json"
+            ),
+            PolicyLabel::SavedPreview,
+        )]),
+        "saved-preview-unresolved" => Some(vec![(
+            include_bytes!(
+                "../../../tests/reference-consumer/inputs/saved-preview-unresolved.json"
+            ),
+            PolicyLabel::SavedPreview,
+        )]),
+        "saved-preview-stale-target" => Some(vec![(
+            include_bytes!(
+                "../../../tests/reference-consumer/inputs/saved-preview-stale-target.json"
+            ),
+            PolicyLabel::SavedPreview,
+        )]),
         "single-preserved" => Some(vec![(
             include_bytes!("../../../tests/reference-consumer/inputs/preserved.json"),
             PolicyLabel::Preserved,
@@ -432,6 +461,11 @@ pub fn scenario(id: &str) -> Option<Vec<(&'static [u8], PolicyLabel)>> {
 }
 pub fn scenario_name(id: &str) -> Option<&'static str> {
     match id {
+        "saved-preview-preserved" => Some("saved-preview-preserved"),
+        "saved-preview-missing" => Some("saved-preview-missing"),
+        "saved-preview-downgraded" => Some("saved-preview-downgraded"),
+        "saved-preview-unresolved" => Some("saved-preview-unresolved"),
+        "saved-preview-stale-target" => Some("saved-preview-stale-target"),
         "single-preserved" => Some("single-preserved"),
         "blocked-required" => Some("blocked-required"),
         "unsupported-required" => Some("unsupported-required"),
@@ -505,6 +539,24 @@ pub fn fixed_policy(label: PolicyLabel) -> Result<CoveragePolicy, PolicyError> {
         revision: "r2",
     };
     match label {
+        PolicyLabel::SavedPreview => {
+            source = SnapshotRef {
+                system: "fixture-workbench",
+                scope: "test",
+                contract: "fixture.saved-instructions",
+                contract_version: "1",
+                native_id: "instructions",
+                revision: "saved-7",
+            };
+            target = SnapshotRef {
+                system: "fixture-target",
+                scope: "test",
+                contract: "fixture.configuration-preview",
+                contract_version: "2",
+                native_id: "preview",
+                revision: "preview-3",
+            };
+        }
         PolicyLabel::Mismatch => target.revision = "changed-copy",
         PolicyLabel::MergeB => {
             source.native_id = "tool-2";
@@ -519,6 +571,7 @@ pub fn fixed_policy(label: PolicyLabel) -> Result<CoveragePolicy, PolicyError> {
     }
     let overflow = ["action"; 33];
     let terms: &[&str] = match label {
+        PolicyLabel::SavedPreview => &["review-before-apply", "scope-limit"],
         PolicyLabel::Missing => &["action", "constraint"],
         PolicyLabel::Reordered => &["constraint", "action"],
         PolicyLabel::Duplicate => &["action", "action"],

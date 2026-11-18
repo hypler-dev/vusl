@@ -184,6 +184,10 @@ CI, security checks and evidence updates accompany each feature packet. The
 reserves the full criteria/evidence review for v1.0 release-candidate closeout,
 before stable release approval. This plan makes no badge or compliance claim.
 
+The [saved-revision example](examples/reference-consumer/README.md#saved-revision-to-target-preview)
+shows how a host can check independently required terms and reject a stale
+target preview before relying on a mapping review.
+
 ## Architecture and ownership
 
 | Project | Owns |
