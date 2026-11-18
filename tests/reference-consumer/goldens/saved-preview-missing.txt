@@ -1,0 +1,4 @@
+scope: edge_only
+composition_assessment: not_assessed
+authority: none
+{"format":"vusl.reference-consumer.report.v0.1","mode":"scenario","scenario":"saved-preview-missing","scope":"edge_only","composition_assessment":"not_assessed","authority":"none","edges":[{"edge_index":0,"policy_fixture":"saved_preview","input_status":"checked","profile":"vusl.mapping-review.v0.1","refusal_code":null,"document_id":"vusl.mapping-review.v0.1:sha256:26538c8fe62e10d327fec3e3ff2fc5fe41786d23479db406ac9de90d67135c08","assessment":"declared_preserved","policy_error":null,"coverage_status":"incomplete","binding_failures":[],"findings":[{"policy_index":1,"reason":"missing"}],"meaning_guard":"passed","combined_guard":"coverage_incomplete","optional_loss_present":true,"optional_unknown_present":false,"residual_uncertainty_count":0}]}

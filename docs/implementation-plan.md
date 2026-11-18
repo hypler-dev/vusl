@@ -1585,3 +1585,25 @@ Publication paths are the independent example's six files (`Cargo.toml`, `Cargo.
 Recheck all reviewed hashes, frozen native/core/helper/schema/corpus/existing locks, empty index, safety stash and four ignored cache hashes/mtimes. Stage only the exact owned paths and require staged whitespace/hash checks to pass before commit. Qualify the resulting clean immutable source using the pinned offline tools; ordinary push goes only to the verified VUSL branch, followed by a main-targeted PR with auto-merge off. The PR is the canonical remote receipt for its exact commit/head/base and actual fresh hosted check results; a source file need not predict its own commit hash. Prior local and merged-main results are not a new hosted pass.
 
 Preserve all 5,457 non-owned starting tracked files and existing branches/stash. No force, branch deletion, remote/hook change, wire/core/helper/schema/corpus/existing-lock change, Rangoon/LNSAT edit or dispatch, extraction, badge claim, merge, deploy, package publication or release is authorized. Fresh public source CI remains separate from consumer adoption, native ARM Rust/Windows/WASM, installed runtime and release qualification.
+
+## Saved revision to target preview example
+
+Accepted and implemented the offline saved-revision workflow. Five hand-authored
+synthetic reviews exercise one independently declared host inventory through
+the existing reference CLI. The frozen example manifest pins all five inputs
+and separate JSON/text goldens. Document IDs come from the Python native oracle.
+
+The example fits the current profile. It exposes practical needs in order:
+
+1. Improve producer ergonomics next. A future authoring helper
+   can use these fixtures to prove exact snapshot selection, explicit loss and
+   actionable repair without deriving mandatory terms from the review.
+2. Define a consumer-side receipt for the selected snapshots, independently
+   maintained policy revision and separate target readback. Keep it in the
+   consumer or test harness until a concrete portability need is established.
+   A mapping result by itself cannot distinguish a missing readback from a
+   successfully loaded target.
+3. Collect real, approved examples before proposing multi-edge composition
+   semantics. Require a concrete counterexample to single-edge review and show
+   how the new contract would represent it. Leave the bounded 1.0 decision
+   separate from these experiments.
