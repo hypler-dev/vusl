@@ -1,0 +1,88 @@
+{
+  "profile": "vusl.mapping-review.v0.1",
+  "source": {
+    "system": "irrigation-network",
+    "scope": "test",
+    "contract": "watering-plan",
+    "contract_version": "1",
+    "native_id": "source",
+    "revision": "3"
+  },
+  "target": {
+    "system": "irrigation-network",
+    "scope": "test",
+    "contract": "valve-plan",
+    "contract_version": "1",
+    "native_id": "target",
+    "revision": "7"
+  },
+  "facets": [
+    {
+      "source_term": "maximum-flow",
+      "target_term": "flow-ceiling",
+      "required": true,
+      "fidelity": "preserved",
+      "loss": null,
+      "note": "The target retains the required constraint.",
+      "evidence": [
+        {
+          "system": "irrigation-network",
+          "scope": "test",
+          "contract": "field-review",
+          "contract_version": "1",
+          "native_id": "review",
+          "revision": "2"
+        },
+        {
+          "system": "irrigation-network",
+          "scope": "test",
+          "contract": "rule-catalog",
+          "contract_version": "1",
+          "native_id": "catalog",
+          "revision": "1"
+        }
+      ]
+    },
+    {
+      "source_term": "watering-window",
+      "target_term": "open-interval",
+      "required": true,
+      "fidelity": "preserved",
+      "loss": null,
+      "note": "The target retains the required constraint.",
+      "evidence": [
+        {
+          "system": "irrigation-network",
+          "scope": "test",
+          "contract": "field-review",
+          "contract_version": "1",
+          "native_id": "timing-review",
+          "revision": "2"
+        }
+      ]
+    }
+  ],
+  "relationship": {
+    "state": "evidenced",
+    "basis": "content_review",
+    "evidence": [
+      {
+        "system": "irrigation-network",
+        "scope": "test",
+        "contract": "field-review",
+        "contract_version": "1",
+        "native_id": "review",
+        "revision": "2"
+      },
+      {
+        "system": "irrigation-network",
+        "scope": "test",
+        "contract": "rule-catalog",
+        "contract_version": "1",
+        "native_id": "catalog",
+        "revision": "1"
+      }
+    ],
+    "uncertainty": []
+  }
+}

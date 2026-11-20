@@ -147,3 +147,56 @@ require common cases with independently established expected routes. Every
 record leaves chain preservation unresolved, target-loaded readback unknown,
 and execution authority unassessed. The runnable example also serves as a
 regression test under the reference workspace's regular Cargo test command.
+
+## Opt-in exact mapping obligations
+
+Call `exact_mapping::inspect_exact_mapping` with a native `CheckedReview`
+and an `ExactMappingPolicy` constructed from a caller-selected
+`CoveragePolicy` and a slice of `Obligation` values. The coverage policy
+binds the policy ID and revision, both six-field endpoint identities, and
+1–32 unique required source terms. Supply exactly one obligation per source
+term in policy order. Each obligation supplies an exact target term and a
+set of 1–8 distinct expected facet evidence references. Every reference
+comparison includes system, scope, contract, contract version, native ID,
+and revision. Evidence order does not affect whether the obligation passes.
+
+The additive JSON format `vusl.exact-mapping-result.v0.1` echoes the policy
+binding and the checked document ID. Each obligation reports its zero-based
+policy index, source and expected target term, expected references, observed
+facet, and all applicable findings. Reference findings include the specific
+missing or unexpected tuple.
+
+| Stable reason | Interpretation |
+| --- | --- |
+| `source_mismatch`, `target_mismatch` | The corresponding snapshot identity differs. |
+| `source_revision_mismatch`, `target_revision_mismatch` | Only the revision differs. |
+| `endpoint_binding_unresolved` | The obligation was not evaluated because an endpoint differs. |
+| `required_term_missing`, `required_term_downgraded` | The required source term is absent or marked optional. |
+| `target_term_mismatch` | The declared target term differs from the expected pair. |
+| `required_meaning_loss` | The facet declares loss, including a dropped constraint. |
+| `required_meaning_uncertain` | The facet declares unknown fidelity. |
+| `expected_evidence_missing`, `unexpected_evidence` | A facet citation is absent from the review or falls outside the policy's exact set. |
+| `relationship_unresolved` | The review declares the relationship unresolved. |
+
+Endpoint mismatches leave the edge unresolved and skip all facet checks.
+For bound edges, a definite term failure or declared loss produces
+`required_meaning_missing_or_changed`. Evidence differences or declared
+uncertainty produce `unresolved` when there is no definite term failure.
+An edge with all obligations satisfied and an evidenced relationship produces
+`required_meaning_preserved`. The relationship state is read from the
+review. Expected reference sets apply to individual facets.
+
+`inspect_exact_chain` accepts 2–16 edges. It reports each edge and whether
+adjacent snapshots match exactly. Its outcome stays `unresolved` with
+`chain_preservation_unknown` or `chain_discontinuous`; an explicit
+composition rule would be needed to establish end-to-end preservation.
+
+Native v0.1 inputs, legacy Rust result functions and the existing CLI retain
+their behavior. Exact results contain caller-supplied terms and references.
+Callers own evidence trust, live freshness, target-loaded readback, receipt
+identity, reconciliation, and authorization.
+
+Library lending and irrigation fixtures in `tests/fixtures/exact` pair
+independent policy data with native reviews. The tests apply the same
+counterexamples to both domains, including a changed target term, foreign
+citation, stale endpoint, missing citation, and dropped constraint.

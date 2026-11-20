@@ -5,7 +5,7 @@ use vusl_coverage::{evaluate, CoveragePolicy, SnapshotRef};
 
 pub const FORMAT: &str = "vusl.consumer-result.v0.1";
 
-fn snapshot(reference: SnapshotRef<'_>) -> Value {
+pub(super) fn snapshot(reference: &SnapshotRef<'_>) -> Value {
     json!({
         "system": reference.system, "scope": reference.scope,
         "contract": reference.contract, "contract_version": reference.contract_version,
@@ -13,8 +13,8 @@ fn snapshot(reference: SnapshotRef<'_>) -> Value {
     })
 }
 
-fn native(reference: &NativeReference) -> Value {
-    snapshot(SnapshotRef {
+pub(super) fn native(reference: &NativeReference) -> Value {
+    snapshot(&SnapshotRef {
         system: reference.system(),
         scope: reference.scope(),
         contract: reference.contract(),
@@ -24,7 +24,7 @@ fn native(reference: &NativeReference) -> Value {
     })
 }
 
-fn refs(values: &[NativeReference]) -> Vec<Value> {
+pub(super) fn refs(values: &[NativeReference]) -> Vec<Value> {
     values.iter().map(native).collect()
 }
 
@@ -36,8 +36,8 @@ pub fn inspect_pair(
     alternative: Option<&CheckedReview>,
     policy: &CoveragePolicy,
 ) -> Value {
-    let expected_source = snapshot(policy.source());
-    let expected_target = snapshot(policy.target());
+    let expected_source = snapshot(&policy.source());
+    let expected_target = snapshot(&policy.target());
     let mut reasons = Vec::new();
     let mut claims = Vec::new();
     let mut relationships = Vec::new();
