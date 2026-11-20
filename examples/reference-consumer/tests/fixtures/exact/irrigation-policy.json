@@ -1,0 +1,52 @@
+{
+  "id": "irrigation-review",
+  "revision": "4",
+  "source": {
+    "system": "irrigation-network",
+    "scope": "test",
+    "contract": "watering-plan",
+    "contract_version": "1",
+    "native_id": "source",
+    "revision": "3"
+  },
+  "target": {
+    "system": "irrigation-network",
+    "scope": "test",
+    "contract": "valve-plan",
+    "contract_version": "1",
+    "native_id": "target",
+    "revision": "7"
+  },
+  "source_term": "maximum-flow",
+  "target_term": "flow-ceiling",
+  "evidence": [
+    {
+      "system": "irrigation-network",
+      "scope": "test",
+      "contract": "field-review",
+      "contract_version": "1",
+      "native_id": "review",
+      "revision": "2"
+    },
+    {
+      "system": "irrigation-network",
+      "scope": "test",
+      "contract": "rule-catalog",
+      "contract_version": "1",
+      "native_id": "catalog",
+      "revision": "1"
+    }
+  ],
+  "second_source_term": "watering-window",
+  "second_target_term": "open-interval",
+  "second_evidence": [
+    {
+      "system": "irrigation-network",
+      "scope": "test",
+      "contract": "field-review",
+      "contract_version": "1",
+      "native_id": "timing-review",
+      "revision": "2"
+    }
+  ]
+}

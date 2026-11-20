@@ -1,0 +1,52 @@
+{
+  "id": "library-review",
+  "revision": "4",
+  "source": {
+    "system": "library-network",
+    "scope": "test",
+    "contract": "lending-rule",
+    "contract_version": "1",
+    "native_id": "source",
+    "revision": "3"
+  },
+  "target": {
+    "system": "library-network",
+    "scope": "test",
+    "contract": "circulation-rule",
+    "contract_version": "1",
+    "native_id": "target",
+    "revision": "7"
+  },
+  "source_term": "member-only-loan",
+  "target_term": "eligible-borrower",
+  "evidence": [
+    {
+      "system": "library-network",
+      "scope": "test",
+      "contract": "field-review",
+      "contract_version": "1",
+      "native_id": "review",
+      "revision": "2"
+    },
+    {
+      "system": "library-network",
+      "scope": "test",
+      "contract": "rule-catalog",
+      "contract_version": "1",
+      "native_id": "catalog",
+      "revision": "1"
+    }
+  ],
+  "second_source_term": "loan-duration",
+  "second_target_term": "checkout-period",
+  "second_evidence": [
+    {
+      "system": "library-network",
+      "scope": "test",
+      "contract": "field-review",
+      "contract_version": "1",
+      "native_id": "timing-review",
+      "revision": "2"
+    }
+  ]
+}

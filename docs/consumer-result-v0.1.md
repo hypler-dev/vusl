@@ -60,3 +60,16 @@ those properties and cannot substitute for a native receipt.
 The [Rust example tests](../examples/reference-consumer/tests/consumer_result.rs)
 cover exact policy binding, single-fact scope/revision counterexamples with
 matching labels, evidence disagreement and continuous/discontinuous passing chains.
+
+## Opt-in exact mapping result
+
+The reference consumer also exposes `vusl.exact-mapping-result.v0.1`
+through `exact_mapping::inspect_exact_mapping`. Callers select exact
+source-to-target term obligations and the expected facet evidence for
+each pair. The result identifies the failed obligation and distinguishes
+term mismatch, loss, evidence differences, and uncertainty.
+`exact_mapping::inspect_exact_chain` reports each edge independently and
+leaves whole-chain preservation unresolved.
+
+See the [exact mapping contract](../examples/reference-consumer/README.md#opt-in-exact-mapping-obligations)
+and [conformance tests](../examples/reference-consumer/tests/exact_mapping.rs).

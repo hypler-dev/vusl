@@ -813,3 +813,5 @@ pub fn exit_code(report: &Report) -> i32 {
 }
 
 pub mod consumer_result;
+
+pub mod exact_mapping;
