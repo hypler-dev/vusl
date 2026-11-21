@@ -3970,7 +3970,7 @@ crates.io allowlist as an identity mismatch. The checker now accepts either
 a disabled publish setting or the exact crates.io allowlist, while still
 verifying core's local source, manifest path, name and version. The self-test
 covers both accepted settings and rejects unrestricted or other-registry
-publication settings. Coverage remains disabled.
+publication settings. That core candidate kept coverage disabled.
 
 ## Core prerelease registry verification
 
@@ -3984,4 +3984,31 @@ A standalone consumer outside the VUSL workspace used Rust 1.99.1, a fresh
 Cargo home and the exact registry dependency `=0.1.0-dev.1`. The consumer
 lock confirmed the crates.io source and matching checksum, and the locked
 smoke test verified native inspection, canonical bytes and the declared
-preservation guard. Coverage remains unpublished with `publish = false`.
+preservation guard. Coverage was unpublished and had `publish = false` at
+the time of core verification.
+
+## Coverage crates.io release candidate
+
+The `vusl-coverage` candidate targets `0.1.0-dev.1` from merged main
+`6455db361f355d4347626c29168e9f2027059648`. Its manifest allows only
+crates.io. Workspace builds use the local core path at the existing exact
+version. The normalized archive manifest requires the published
+`vusl-core = "=0.1.0-dev.1"`, and its lockfile records the crates.io source
+and the checksum in the core registry verification above.
+
+A credential-free Cargo 1.99.1 dry run from a scratch source copy verified
+the 10-file archive against public core. The archive SHA-256 is
+`7feac41f8c0f906993340f57abd5b374b7fe2d9c1ad94aba4220f0201b3a4cf1`.
+The unpacked archive passed nine integration tests and six doctests using
+its bundled lockfile and the registry core fetched during the dry run.
+Workspace formatting, Clippy, tests, and the consumer checker self-test
+also passed. Core's manifest, the workspace lockfile and implementation
+sources are unchanged.
+
+Coverage remains unpublished. The [release checklist](crates-io-release-checklist.md)
+requires a fresh locked dry run and digest from the approved clean commit,
+separate upload approval, and a clean consumer using both published crates.
+
+Repository integrity, 20 validator tests and seven case-plan tests passed.
+Independent read-only review passed after clarifying the historical
+coverage status in the core entries. Hosted CI remains pending.

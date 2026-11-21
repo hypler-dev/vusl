@@ -9,10 +9,10 @@ and cites evidence for the relationship. The Rust core inspects reviews offline.
 
 **Status:** Experimental native v0.1, maintained by Hypler.
 [`vusl-core` `0.1.0-dev.1`](https://crates.io/crates/vusl-core/0.1.0-dev.1)
-is available on crates.io as a prerelease. `vusl-coverage` remains available
-from source with registry publication disabled. The
-[implementation roadmap](docs/implementation-plan.md) tracks stable 1.0 work
-and consumer qualification.
+is available on crates.io as a prerelease. `vusl-coverage` is available from
+source, and its `0.1.0-dev.1` crates.io candidate pins that exact core release.
+Coverage publication is pending. The [implementation roadmap](docs/implementation-plan.md)
+tracks stable 1.0 work and consumer qualification.
 
 ## Current implementation and historical assets
 
