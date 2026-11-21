@@ -118,6 +118,15 @@ jobs:
             --fixture-manifest tests/reference-consumer/manifest.json \
             --output "$RUNNER_TEMP/vusl-reference-results.json"
 
+      - name: Qualify exact results and authoring cases (offline)
+        env:
+          CARGO_NET_OFFLINE: 'true'
+        run: |
+          python3 -B scripts/export_exact_diagnostics.py --self-test
+          "$RUNNER_TEMP/vusl-schema/venv/bin/python" -B scripts/test_exact_result_schema.py \
+            --require-python 3.11.17 \
+            --consumer-run "$RUNNER_TEMP/vusl-reference-results.json"
+
       - name: Format, warnings and library/API tests (offline)
         env:
           CARGO_NET_OFFLINE: 'true'

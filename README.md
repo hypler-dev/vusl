@@ -40,6 +40,9 @@ This example checks whether a target preview preserves the terms required for
 a specific saved revision. The companion cases cover missing or downgraded
 terms, stale targets, and unresolved relationships.
 
+To check your own inputs, use the [strict inspection example](examples/reference-consumer/README.md#generate-strict-reports-from-caller-inputs)
+with native reviews and a policy selected by your application.
+
 ## Exact mapping and evidence
 
 The opt-in [exact mapping API](docs/consumer-result-v0.1.md#opt-in-exact-mapping-result)
@@ -48,14 +51,51 @@ and the expected evidence references for each pair. Its versioned JSON result
 identifies each failed obligation and distinguishes mismatches, missing or
 unexpected citations, declared loss, and uncertainty. Library lending and
 irrigation fixtures exercise the same rules. Native v0.1 review inputs and
-existing consumer APIs remain compatible.
+existing consumer APIs remain compatible. Callers can also require an exact
+evidence basis and citation set for the relationship itself. Strict reports
+also surface producer-required terms and disclosed loss outside host scope.
 
-The [consumer result guide](docs/consumer-result-v0.1.md) also covers evidence
-disagreement and chain results. Whole-chain preservation remains unresolved
-until an explicit composition rule establishes it. Callers own evidence trust,
+The [consumer result guide](docs/consumer-result-v0.1.md) also covers exact
+review comparisons that distinguish different citations from conflicting claims. Chain diagnostics locate missing required
+term links between edges that share an exact snapshot. Whole-chain preservation
+remains unresolved until an explicit composition rule establishes it. Callers own evidence trust,
 live freshness, target-loaded readback, receipts, reconciliation, and
 authorization. The [offline route comparison](examples/reference-consumer/README.md#offline-route-comparison)
-shows how semantic evidence can change a synthetic host’s review route.
+shows when strict checks change a synthetic host’s review route.
+The [saved-report checker](docs/validation.md#bind-a-saved-report-to-the-selected-policy)
+can verify strict reports offline against the host's selected policy and the
+supplied native reviews. Its [comparison evidence view](docs/validation.md#explain-comparison-evidence)
+shows both claims, exact citation overlap, and differences between cited
+revisions of the same record.
+
+With producer scope coverage selected, paired review also identifies conflicting
+claims about required terms outside the host inventory and retains each
+producer's declarations and citations for follow-up. It also lists citation
+differences for those terms, including when the declarations agree.
+Producer scope disagreements distinguish omitted terms from present optional claims.
+
+The [offline explanation example](examples/reference-consumer/README.md#offline-claim-explanations)
+joins producer notes to checked document identities and selected terms. It
+distinguishes missing claims from skipped checks while retaining the semantic
+result unchanged.
+Its paired mode separates literal explanation differences from typed claim
+conflicts and preserves each review's attribution.
+
+A [machine-readable help catalog](docs/exact-mapping-diagnostics-v0.2.json)
+provides fixed descriptions for strict result findings and caller follow-up
+tokens. CI checks it against the human documentation and result schema.
+The explanation example's opt-in help mode joins those descriptions to exact
+finding locations while preserving the semantic result.
+
+The reference consumer also provides a
+[conservative draft helper](docs/consumer-result-v0.1.md#conservative-drafts)
+from an independently selected exact policy. Every required term starts
+unknown, with no asserted citations and an unresolved relationship. The
+draft keeps semantic preservation unresolved.
+
+A runnable [authoring walkthrough](examples/reference-consumer/README.md#offline-native-authoring-walkthrough)
+shows twenty synthetic cases, including omitted requirements, foreign evidence
+and native refusal. Native conformance and host-policy outcomes stay separate.
 
 ## Documentation
 

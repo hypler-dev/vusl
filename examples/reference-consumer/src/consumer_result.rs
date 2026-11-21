@@ -14,14 +14,18 @@ pub(super) fn snapshot(reference: &SnapshotRef<'_>) -> Value {
 }
 
 pub(super) fn native(reference: &NativeReference) -> Value {
-    snapshot(&SnapshotRef {
+    snapshot(&native_snapshot_ref(reference))
+}
+
+pub(super) fn native_snapshot_ref(reference: &NativeReference) -> SnapshotRef<'_> {
+    SnapshotRef {
         system: reference.system(),
         scope: reference.scope(),
         contract: reference.contract(),
         contract_version: reference.contract_version(),
         native_id: reference.native_id(),
         revision: reference.revision(),
-    })
+    }
 }
 
 pub(super) fn refs(values: &[NativeReference]) -> Vec<Value> {

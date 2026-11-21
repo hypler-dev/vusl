@@ -1626,3 +1626,2270 @@ report. In the synthetic experiment, the added gate holds cases with required
 meaning loss or disconnected snapshots. Continuous passing edges and a host
 evidence hold serve as controls. Chain preservation stays unresolved in both
 arms. Review routing has no effect on target readback or execution authority.
+
+## Exact relationship evidence qualification
+
+The reference consumer now offers an opt-in relationship evidence check for
+callers that independently specify the basis and exact citation set. The
+[consumer result guide](consumer-result-v0.1.md#exact-relationship-evidence)
+defines the separate v0.2 edge result. Native review bytes and the v0.1 result
+contracts retain their meaning. Library and irrigation regressions cover
+foreign citations, a different evidence basis, citation reordering, and
+stale endpoint binding. Evidence trust and whole-chain preservation remain
+separate decisions.
+
+## Exact chain boundary diagnostics
+
+The reference consumer can now locate missing downstream policy obligations
+even when adjacent snapshots match and both edge results report preservation.
+The [v0.2 chain guide](consumer-result-v0.1.md#exact-chain-boundary-diagnostics)
+records how to distinguish missing term links, snapshot discontinuity, and
+policy binding failures. The library and irrigation fixtures exercise all
+three cases and keep the chain outcome unresolved. The legacy chain report
+and native contract retain their meaning.
+
+## Exact review comparison
+
+The reference consumer now compares two reviews under the same host-selected
+term and relationship requirements. [Comparison results](consumer-result-v0.1.md#comparing-two-exact-reviews)
+preserve both edge reports and distinguish claim conflict, differing edge
+outcomes, and endpoint binding failure. Library and irrigation regressions
+cover reordered citations, differing evidence, conflicting mappings and
+relationship states, agreement on loss of required meaning, and stale binding.
+
+## Host-selected treatment of residual uncertainty
+
+The reference consumer can leave a strict preservation verdict unresolved
+when the relationship is evidenced and the producer discloses residual
+uncertainty. The [exact relationship evidence guide](consumer-result-v0.1.md#exact-relationship-evidence)
+records the opt-in rule. Library and irrigation tests compare the same
+native review under both policy modes and cover a definite term failure.
+
+## Exact policy feasibility
+
+Strict v0.2 edge inspection now identifies host policies that require duplicate
+target terms, which no valid native v0.1 review can satisfy. The
+[policy feasibility rules](consumer-result-v0.1.md#policy-feasibility)
+identify the conflicting obligations and prevent a verdict that blames the
+review. Comparison and chain diagnostics carry the same distinction.
+
+## Strict offline route comparison
+
+The [strict route experiment](../examples/reference-consumer/README.md#strict-route-comparison)
+holds host inputs fixed per case and compares host-only routing, v0.1
+coverage, and v0.2 exact checks. In the initial matrix, three synthetic cases
+reached semantic review only when strict checks were enabled: a foreign relationship citation, a
+disclosed caveat, and a missing required term link between passing edges.
+The aligned and host-evidence controls keep their routes. This experiment
+measures review routing under the supplied synthetic policies.
+
+## Visibility outside the host policy
+
+The [v0.2 edge report](consumer-result-v0.1.md#findings-outside-the-host-policy)
+now shows producer-required facets outside the host's inventory and optional
+facets with loss or unknown fidelity. Both fixture domains verify that the
+findings retain cited evidence while the verdict remains tied to host scope.
+
+## Integrated exact v0.2 local qualification
+
+The local accuracy packet is based on merged main
+`dc53c7fd25f0f4d7bf90776c20569920d22d1081`. With Rust 1.99.1 and
+Python 3.11.17, the native runner checked all 4,911 frozen cases against
+both implementations, including 475 accepts and 4,436 refusals.
+Resource checks passed, including the 10,000-case hostile input batch.
+The reference runner passed 56 scenarios, six file/stdin cases, and
+20 operational probes. At this checkpoint, the Rust reference-consumer suite
+passed 28 tests covering v0.2 reports and strict routing.
+These results qualify the local source and tested toolchain.
+
+## Snapshot mismatch details
+
+The [v0.2 mismatch reasons](consumer-result-v0.1.md#snapshot-mismatch-details)
+now name the exact differing fields for edge binding and chain continuity.
+Both fixture domains mutate all six identity fields on each endpoint and
+verify stable ordering and the existing v0.1 reason shape.
+
+## Unverified term links
+
+The v0.2 chain report now distinguishes a missing downstream obligation
+from a selected term link with a failed exact check. It identifies both
+obligation indices and outcomes so callers can locate the underlying term
+findings. Both fixture domains cover foreign facet evidence on a linked term.
+
+## Required-term paths across multiple edges
+
+The v0.2 chain report now follows each original required term through the
+selected obligations, recording the first gap or failed check. Three-edge
+library and irrigation fixtures reorder middle policy obligations and verify
+that one term reaches the last edge while another stops at the missing link.
+The path reports local checks and retains the unresolved overall verdict.
+
+## Standalone route qualification
+
+At this checkpoint, the pinned reference runner built and launched the two
+then-available route comparison modes.
+It checks the expected review routes, evidence findings, unresolved chain
+status, and separate readback and authority fields. It also checks byte
+repeatability and records executable and output digests. The example's Rust
+tests continue to inspect the detailed diagnostics.
+
+## Citation revision details
+
+Strict facet and relationship findings now identify unexpected revisions of
+the same qualified evidence record. Both fixture domains cover two unexpected
+revisions, an already-matched revision, and a same-ID citation from another
+scope. Exact set matching, outcomes, and v0.1 findings retain their behavior.
+
+## Producer scope reconciliation
+
+The strict exact policy can now require explicit host coverage for every
+producer-required term. The opt-in mode leaves an otherwise positive
+verdict unresolved when coverage omits a producer-required term. Library
+and irrigation cases verify host recovery with an explicit obligation,
+definite term-failure precedence, optional loss, and stale binding.
+
+## Producer scope disagreements
+
+Exact comparison now identifies differing producer-required terms outside
+the host policy when producer scope coverage is enabled. Both fixture
+domains verify the distinction when both edge verdicts are unresolved,
+the review-index change when inputs are swapped, and the default behavior.
+
+## Exact claim conflict details
+
+Exact comparison now names the fields behind each required-term dispute.
+Both fixture domains cover omitted claims, differences in loss alone, and
+multiple changes with stable field order under swapped inputs.
+
+## Standalone required-term path qualification
+
+The pinned reference runner now checks every strict-mode term path against
+the expected steps and stop location. Runner self-tests reject missing
+steps, false completion, wrong boundary indices, and Boolean edge indices.
+The local routing and chain verdicts retain their existing semantics.
+
+The standalone strict example also includes a foreign facet citation on a
+selected downstream term. The coverage arm queues it, while the strict arm
+holds it and stops the affected path at the downstream term check.
+
+## Exact comparison evidence differences
+
+The v0.2 comparator now exposes citation differences separately from claim
+conflicts. Library and irrigation tests cover different citations when both
+edges are unresolved, citation reordering, a changed evidence basis, and
+skipped comparison on stale binding. At that checkpoint, all 32 Rust tests,
+strict Clippy, repository integrity, and the pinned reference runner passed.
+
+## Standalone paired-review qualification
+
+The reference example's `--compare-reviews` mode exercises exact review
+comparison through the executable. The pinned runner checks matching claims,
+evidence differences under equal unresolved edge verdicts, conflicting loss
+claims, and stale binding. Runner self-tests reject altered evidence identity,
+an incorrect conflict field, and a false evaluated result after stale binding.
+
+## Evidence identity mutation coverage
+
+The exact reference-consumer tests independently change each of the six
+citation identity fields on a required facet and on the relationship.
+Both fixture domains verify the precise missing and unexpected tuples, a
+revision hint only for the same qualified record, and legacy facet-only
+behavior. This covers 24 single-field counterexamples.
+
+The focused test passed on the current matcher and failed for each of six
+temporary matchers that ignored one identity field. Each variant compiled
+and failed the expected assertion. The active source retains all six fields.
+
+## Independent citation requirements
+
+Both fixture domains now exercise disjoint facet and relationship citation
+sets within one review. The exact consumer passes when each set satisfies
+its own requirement. Substituting either set for the other leaves the
+verdict unresolved and identifies only the affected evidence check.
+
+Three temporary matcher variants compiled and failed the focused test at
+the expected preservation assertion. They substituted a facet's expected
+citations for the relationship requirement, read observed facet citations
+as relationship evidence, or used the relationship expectation for a facet.
+
+## Standalone citation separation
+
+The strict route example now uses distinct term and relationship evidence
+records. Substituting the valid term record in the relationship evidence
+leaves term paths intact and holds the case for semantic review. The pinned
+runner checks both full reference tuples in the relationship findings.
+The strict matrix now has five additional holds across seven cases. All
+35 Rust tests and all three executable modes passed.
+
+## Exact consumer module boundaries
+
+The strict evaluator keeps per-edge policy and evidence checks in
+`exact_mapping.rs`. The chain tracer and paired comparator now live in
+their own internal modules and retain their public import paths. The
+qualification runner records both modules in its source inventory.
+
+## Reference consumer dependency compatibility
+
+A clean path-dependent consumer exposed a resolver conflict with the
+upstream compatibility fixture's Serde pin. The reference consumer now
+uses the core's compatible Serde and serde_json manifest requirements.
+Its checked-in lockfile and the other workspace lockfiles are byte-identical.
+The reference API remains unpublished.
+
+Three temporary downstream Cargo projects exercised the public reference
+imports and identical review input under the reference, upstream, and
+Rangoon-constraints fixture pins. In each project, the strict comparison
+remained unresolved after a relationship citation revision changed, and the
+v0.1 term-only verdict stayed preserved. Each resolved registry package set
+matched its corresponding checked-in lock by name, version, source, and
+checksum. These checks exercised synthetic source consumers.
+
+The pinned reference runner now executes the public-API smoke under both
+downstream fixture pin sets. It starts from their committed locks and checks
+registry package identity before building offline with the resolved locks.
+
+## Downstream lock verification
+
+The pinned runner now rejects malformed lockfiles, non-registry sources,
+invalid registry checksums, and unexpected local packages before compiling.
+It records the resolved downstream lock digest and verifies that the build
+keeps it intact. Runner self-tests cover each invalid lock condition.
+
+## Downstream strict-chain smoke
+
+Both pinned downstream builds now exercise the public chain API. The
+synthetic caller traces a required scope term through two passing edges
+and confirms the chain stays unresolved. Changing only the downstream
+facet citation then stops the scope path at the corresponding obligation
+while the other path completes.
+
+The runner now checks the fixture lock's local packages before resolution.
+Its regression test inserts an unexpected package and verifies that the
+runner refuses the fixture before invoking Cargo.
+
+## Strict chain limit coverage
+
+The boundary test traces 32 required terms through 16 consecutive reviews.
+A changed citation on the final obligation stops only its path at the final
+edge. The run checks all 512 recorded steps and rejects a seventeenth edge.
+
+The focused test passes on the current tracer and rejects three compiled
+temporary variants: one omits the final step, one omits the final term,
+and one accepts a seventeenth edge.
+
+## Decoded text identity in exact mapping
+
+Both fixture domains now verify that literal and escaped spellings of a
+Unicode string produce identical canonical bytes, document identity and
+strict results. Substituting the decomposed spelling in a single source
+term leaves the required term missing. Substituting it in a target term
+produces a target mismatch. Substituting it in a facet or relationship
+citation leaves the result unresolved and reports the exact missing and
+unexpected references for that check.
+
+All 37 reference-consumer tests passed. The focused test rejected three
+compiled temporary variants that normalized source terms, target terms,
+or evidence identifiers. Formatting, Clippy, repository validators, and
+the pinned offline consumer runner passed. This verification adds test
+coverage and documentation only.
+
+## Paired-review evidence for omitted claims
+
+The draft v0.2 comparator now lists citations from a review that supplies
+a required claim when its peer omits the claim. It keeps the omission as a
+presence disagreement and retains each edge outcome. Claim conflicts and
+citation or evidence-basis differences now include a resolution token
+identifying the material the caller should inspect at the bound revisions.
+The native inputs, v0.1 result contracts, and whole-chain verdict are unchanged.
+
+The library and irrigation cases exercise both review orders. The offline
+comparison example and pinned runner also check the missing-claim case,
+the one-sided citation tuple, and its resolution token.
+
+All 37 Rust tests, Clippy, formatting, repository validators and the
+pinned runner passed. The default and strict route modes produced
+byte-identical output to the preceding checkpoint. The runner also
+recorded identical results for all 56 scenarios, six direct inputs, and
+20 CLI probes. Independent review passed. Two compiled temporary variants
+that dropped one-sided citations or changed the resolution token failed the
+focused comparison test.
+
+## Exact policy review size feasibility
+
+The strict v0.2 reference consumer now detects when no preserved native
+review could carry the exact term and relationship obligations within the
+65,536-byte native limit. It reports the minimum and maximum byte counts
+as a policy feasibility failure and skips review findings that would
+otherwise misattribute the problem to the supplied review. The calculation
+counts mandatory fields, UTF-8 bytes, and canonical escaping without
+allocating a synthetic review.
+
+The boundary test independently constructs compact JSON at 65,535, 65,536,
+and 65,537 bytes. It checks native acceptance at the first two sizes and
+native resource refusal at the third. The oversized policy also skips
+paired-review comparison. The v0.1 result behavior and native byte limit
+remain unchanged.
+
+All 38 reference-consumer tests, formatting, Clippy, the repository
+validators, and the pinned offline runner passed. Both locked downstream
+builds passed. All three route modes and the runner's 56 scenarios, six
+direct inputs, and 20 CLI probes matched the preceding checkpoint. The
+boundary test rejected two compiled temporary variants that rejected the
+exact cap or ignored canonical escapes. Independent review passed.
+
+## Unresolved declaration in strict relationship findings
+
+A native review can declare its translation relationship unresolved while
+citing the exact records the host expects. The draft v0.2 result now reports
+that blocker within the relationship findings, with the evidence follow-up
+token for the bound revisions. The existing edge summary and outcome
+precedence remain unchanged. The scoped finding comes before any basis and
+citation differences and appears only when evaluation runs.
+
+The library and irrigation fixtures distinguish the unresolved declaration,
+an extra citation mismatch, and a stale endpoint that skips inspection.
+The offline paired example and runner verify an unresolved declaration with
+matching basis and citations. The legacy v0.1 result shape is unchanged.
+
+The focused test reproduced the empty relationship findings before the
+fix and passed afterward. All 38 Rust tests, formatting, Clippy,
+repository validators, and the pinned runner passed. Both downstream
+lock graphs passed. The default and strict route results and all 56
+standalone scenarios, six input checks, and 20 CLI probes matched the
+preceding checkpoint. Independent review passed.
+
+## Downstream claims outside the exact chain policy
+
+The draft v0.2 missing-link diagnostic now distinguishes an omitted
+downstream term from a producer claim outside the exact host policy.
+It retains the observed target, producer required flag, fidelity, loss,
+and citations when a claim exists. The boundary reason and the term-path
+stop carry the same diagnostic and evidence follow-up. The extra
+declaration leaves the link missing and chain preservation unresolved.
+
+Library and irrigation tests cover absent claims, optional claims, and
+producer-required claims outside the host policy. The strict offline
+route example retains the optional claim without changing the hold.
+Native inputs and legacy consumer behavior remain unchanged.
+
+All 38 Rust tests, formatting, Clippy, repository validators, the pinned
+runner, and both downstream builds passed. The strict example output
+changed as intended. Default and paired-review outputs and all 56
+scenarios, six input checks, and 20 CLI probes matched the preceding
+checkpoint. The focused test caught both a discarded downstream claim
+and a term path pointing to the wrong reason in compiled temporary variants.
+Independent review passed.
+
+## Relationship uncertainty differences in paired reviews
+
+Strict v0.2 comparison now exposes the uncertainty statements unique to
+each bound review, independently of citation differences and claim
+conflicts. It compares exact decoded text in input-review order. Shared
+statements are filtered regardless of position. Skipped comparisons report
+null. Differences are informational and the selected relationship policy
+still determines whether a caveat blocks a positive edge result.
+
+Both fixture domains cover one-sided, reordered, and differing disclosures.
+The offline comparison fixture and runner confirm that a caveat remains
+visible even when the state, citations, and default preservation verdict
+agree.
+
+All 38 Rust tests, formatting, Clippy, repository validators, and the
+pinned runner passed. Both downstream builds passed. Default and strict
+route outputs and all 56 scenarios, six input checks, and 20 CLI probes
+matched the preceding checkpoint. The focused test caught two compiled
+temporary variants that echoed shared statements or normalized punctuation.
+Independent review passed.
+
+## Unassessed target candidates in exact mapping
+
+A native facet can identify an alternate target while declaring its meaning
+unknown. The draft v0.2 consumer now retains the target mismatch and
+uncertainty findings and leaves that obligation unresolved. An assessed
+alternate target, downgraded requirement, or definite loss still yields the
+changed outcome. A stale binding skips both findings. The legacy v0.1
+behavior and native inputs are unchanged.
+
+Both fixture domains exercise alternate, matching, and absent candidates,
+mixed failures, and skipped evaluation. The offline paired example and
+pinned runner verify the unresolved edge. Strict skip-path tests now
+require fields documented as null to be present with a null value.
+
+The focused regression failed on the previous precedence and passed after
+the fix. All 39 Rust tests, formatting, Clippy, repository validators, the
+pinned runner, and both downstream builds passed. Default and strict route
+outputs and all 56 scenarios, six input checks, and 20 CLI probes matched
+the preceding checkpoint. The test also rejected compiled temporary
+variants that changed the legacy verdict or omitted a required null field.
+Independent review passed.
+
+## Route report binding qualification
+
+The offline runner independently qualifies the policy and document bindings
+in every default, strict, and paired-review edge. It reconstructs the
+synthetic reviews from the manifest-pinned input and recomputes their native
+document IDs with the Python reference checker. The run records the
+checker's source hash. The stale case checks observed and expected
+revisions separately.
+
+The prior runner accepted a modified policy revision and a substituted
+document ID. The updated verifier accepts the same executable's genuine
+reports and rejects alterations to the policy revision, document identity,
+and observed snapshot scope. This change is confined to qualification.
+
+The pinned run passed all 52 edge binding checks, 56 scenarios, six input
+checks, 20 CLI probes, and both downstream builds. All three route output
+digests and their executable digest matched the preceding checkpoint.
+All 39 Rust tests, Clippy, formatting, repository validators, and
+independent review passed.
+
+## Route verdict and evidence qualification
+
+The offline runner now checks the local verdict on every emitted edge.
+It derives the v0.2 required-term and relationship records from the
+reconstructed reviews and fixed fixture policies, including all expected
+and observed citations, findings, and skipped observations. Existing
+chain and paired-review checks still validate the aggregate results.
+
+The previous verifier accepted an edge with declared loss mislabeled
+unresolved, an uncertain edge mislabeled as changed, and a substituted
+observed citation. The updated verifier accepts genuine output in all
+three modes and rejects each of those changes without a route change.
+
+The pinned run checked 52 verdicts and the required-term and relationship
+records for 30 v0.2 edges. All 56 scenarios, six input checks, and 20 CLI
+probes matched the preceding checkpoint, as did all three route outputs
+and their executable digest. Both locked downstream builds, all 39 Rust
+tests, formatting, Clippy, the repository validators, and independent
+review passed. The self-tests also pin the semantic refusal code.
+
+## Exact mapping policy construction diagnostics
+
+The Rust reference consumer now exposes a fixed code and human-readable
+correction on each exact policy and relationship requirement constructor
+failure. Obligation errors expose their zero-based policy position, and
+both types implement the standard Rust error trait. The existing error
+variants and constructor validation rules are unchanged.
+
+Library and irrigation fixtures exercise all five codes and confirm
+that diagnostic messages omit supplied canary text. Both downstream
+smoke builds exercise the new public accessors. Native inputs, result
+formats, and CLI output remain unchanged.
+
+The pinned run verified both downstream builds and byte-identical output
+for all three route modes, 56 scenarios, six input checks, and 20 CLI
+probes. All 39 Rust tests, formatting, Clippy, and the repository
+validators passed. Independent review passed after the tests pinned
+validation precedence for multiple simultaneous constructor failures.
+
+## Strict chain edge-count diagnostics
+
+The strict Rust chain API now offers a typed refusal before evaluating an
+out-of-range chain. The error exposes a fixed code, the submitted count,
+and the inclusive bounds. The existing Option-returning API delegates to
+the same evaluator. Completed reports and unresolved whole-chain
+preservation semantics remain unchanged.
+
+Tests cover empty, one-edge, and oversized requests and successful chains
+at both bounds. The downstream builds exercise the public result and error
+paths.
+
+All 39 Rust tests, formatting, Clippy, repository validators, and the
+pinned runner passed. The runner confirmed byte-identical route and CLI
+outputs. The focused test rejected two compiled temporary variants
+that refused the exact maximum or reported the limit as the submitted count.
+Independent review passed.
+
+## Exact mapping result diagnostics catalog
+
+The diagnostics catalog now records the fixed strict-result codes and
+follow-up tokens for edges, exact obligations, relationship evidence,
+producer scope, chains, term paths, and paired comparisons. Each group
+names the report location and the evidence or policy detail to inspect.
+The result contract and example README link to this catalog for code and
+token definitions.
+
+A source audit matched all 35 emitted codes and four follow-up tokens
+to unique catalog entries. Repository validators and the pinned
+consumer runner passed. The runner's source comparison found only the
+example README changed, and all route and CLI outputs matched the
+preceding checkpoint. Independent review passed.
+
+## Policy feasibility before review inspection
+
+`ExactMappingPolicy::feasibility_findings` exposes the existing v0.2
+duplicate-target and native-size checks without a checked review. Strict
+inspection calls the same function and appends its findings after endpoint
+binding reasons. The legacy inspection and result behavior are unchanged.
+
+Tests cover a duplicate target, coexistence of both failures, the inclusive
+native byte limit, and exact agreement with the reasons in a strict edge
+report. The downstream fixture calls the public method.
+
+All 39 Rust tests, formatting, Clippy, repository validators, the pinned
+runner, and both downstream builds passed. All route and CLI output
+digests matched the preceding checkpoint. Focused tests rejected compiled
+variants that suppressed the size failure on a duplicate target or hid
+policy findings when a review was stale. Independent review passed.
+
+## Strict report fields and optional loss qualification
+
+The pinned runner now checks the complete synthetic v0.2 edge, chain,
+and comparison reports, including exact reason lists and outside-policy
+observations. A skipped edge must retain a null outside-policy field.
+The host wrapper remains the location of the independent readback and
+authority states.
+
+The previous runner accepted a removed optional-loss record and misplaced
+readback or authority fields. The updated runner accepts genuine output
+in all three modes and refuses these changes with fixed diagnostics.
+This change affects qualification only.
+
+The pinned runner verified 30 exact edges, seven strict chains, and eight
+comparisons. Both downstream builds and the repository validators passed.
+All route and CLI outputs matched the preceding checkpoint. Negative
+self-tests also pin failures for missing chain reasons and empty arrays
+in place of null outside-policy observations. Independent review passed.
+
+## Strict result JSON Schema companion
+
+The reference consumer now has a standalone Draft 2020-12 schema for
+decoded v0.2 edge, chain, and comparison reports. It constrains report
+fields, bounded arrays, reason payloads, and skipped null observations.
+Policy binding, canonical identities, evidence trust, and preservation
+verdicts remain the responsibility of the corresponding evaluators.
+The native input schema and report emitters are unchanged.
+
+The companion check uses the pinned schema environment and verifies the
+route executable and output digests against a passing consumer-run receipt.
+It checks the emitted reports, rejects structural counterexamples, and
+compares the allowed diagnostic vocabulary with the catalog.
+
+The pinned validator accepted 45 reports, including 30 individual edges,
+and rejected 11 structural counterexamples. All 35 codes and four
+follow-up tokens matched the catalog. Two temporary schema variants
+failed the checks when they opened edge fields or allowed non-null
+skipped comparison deltas. Native schema qualification and repository
+validators also passed. Issued binary and output digest mismatches were
+rejected against the consumer receipt. Independent review passed.
+
+## Schema qualification source binding
+
+The schema verifier now matches the passing consumer-run receipt against
+the current reference consumer source, dependency locks, and fixture
+inventory. It uses the runner's existing fingerprint logic before
+invocation and again after validation. The source check excludes the
+example README and unrelated Git status.
+
+A genuine older receipt matched the route executable and its output but
+predated changes to the qualification runner. The schema check previously
+accepted it. The source fingerprint check now refuses that receipt.
+
+A fresh pinned consumer run and the schema check passed for 45 reports and
+11 structural counterexamples. Altered manifest and lockfile digests,
+missing source fingerprints, and simulated source drift failed. A receipt
+with only an altered example README digest and Git status still passed.
+The route and CLI outputs matched the preceding run. Repository validators
+passed. Independent review passed.
+
+## Strict result schema outcome consistency
+
+The draft result schema now requires an unresolved outcome for an edge
+skipped after a binding or policy failure, and for a comparison that
+reports reasons. The Rust consumer already emits unresolved in these
+states. This change affects validation of decoded v0.2 reports only.
+
+The schema companion revalidated all 45 emitted reports and accepted two
+synthetic policy-only skips. It rejected 21 structural counterexamples.
+The ten new cases cover both conclusive outcomes on a stale edge, a
+skipped comparison, a conflicting comparison, and both policy-only skips.
+The companion detected removal of either outcome rule or either policy
+skip trigger. The native schema companion and repository validators
+passed. Independent review passed.
+
+## Reference consumer fixture snapshot validation
+
+The qualification runner now fingerprints the exact manifest bytes it
+parses, checks the bytes it reads for each golden report against its
+declared digest, and reloads the fixture manifest and inventory before
+comparing final source fingerprints. The passing receipt format is unchanged.
+
+An offline run against a copied fixture corpus previously passed after the
+manifest changed during the run. It now refuses `source_changed_during_run`.
+A changed input file refuses `fixture_file_invalid`. The self-test also
+exercises a manifest change between reads and divergent JSON and text goldens.
+
+The fresh pinned run matched the previous consumer binary, fixture inventory,
+three route modes, 56 scenarios, six input checks, 20 CLI probes, and both
+downstream builds. The schema companion and repository validators passed.
+Independent review passed.
+
+## Paired claims for uncovered producer-required terms
+
+When the host opts into producer scope coverage, paired review now reports
+target, fidelity, and loss disagreements on uncovered terms that both
+producers mark required. The draft v0.2 reason names the term and the
+specific fields in dispute. Each embedded edge supplies the declaration
+and citations in `outside_policy`. The host still selects the required
+obligation and verifies its evidence. The comparison remains unresolved.
+
+The lending and irrigation tests verify the conflict, both input orders,
+both embedded verdicts, and the absence of the diagnostic when declarations
+agree or the host retains the default policy. The schema companion accepted
+all seven ordered field combinations and rejected eight malformed field lists.
+A combined case pins scope reasons before shared-term conflicts, source-term
+ordering within each group, and both input-review directions. All 39 Rust tests,
+formatting, Clippy, and the pinned consumer runner passed. The three route
+modes, 56 scenarios, six input checks, 20 CLI probes, and both downstream
+builds matched the previous run. Native v0.1 and legacy outputs are unchanged.
+The companion verified 45 emitted reports, two synthetic policy skips, seven
+producer conflict reason shapes, and 29 structural counterexamples. Repository
+validators and independent review passed.
+
+## Citation differences for uncovered producer-required terms
+
+With producer scope coverage selected, paired review now compares citations
+for every uncovered term that either producer marks required. The draft v0.2
+`evidence_differences` entry uses scope `producer_term`, names the source term,
+and retains citations unique to each review in input order. These entries
+follow host-policy term entries in source-term order and precede relationship
+entries. They remain informational while independent coverage is unresolved.
+
+The lending and irrigation tests cover citation-only differences, reversed
+inputs, missing claims, optional claims, reordered citations, mixed delta
+scopes, default policies, and stale revisions. A maximal native review pair
+exercises 64 term deltas and one relationship delta. The schema companion
+accepts the new shape and the inclusive bound and rejects malformed entries
+and an oversized array. The native input format and legacy behavior are
+unchanged.
+
+All 40 Rust tests, formatting, Clippy, runner self-tests, pinned qualification,
+and repository validators passed. The schema companion validated 45 emitted
+reports and rejected 36 structural counterexamples. Four additional reports
+from a temporary downstream caller, including both domains' 65-delta maxima,
+validated against the schema. The companion detected temporary schema changes
+that allowed extra producer fields or refused the exact maximum.
+
+All three route modes, 56 scenarios, six input checks, 20 CLI probes, and both
+downstream fixture results matched the preceding checkpoint. Independent
+read-only review passed. The changes remain local and uncommitted.
+
+## Constructive policy feasibility checks
+
+The reference consumer conformance test now constructs 240 minimal native
+reviews across both fixture domains. The combinations exercise 1, 2, 8, and
+32 facets; 1, 2, and 8 citations; both evidence bases; and ASCII, multibyte
+UTF-8, quotation mark, and backslash reference components near the decoded
+byte limit. Each witness uses the policy's exact pairs and citations,
+one-byte notes, and an evidenced relationship without residual uncertainty.
+
+The test checks the preflight size result against the independently
+serialized witness. Reviews within the native byte limit must also pass
+the native inspector and strict term and relationship checks. Oversized
+witnesses must produce an exact size finding and a native resource refusal.
+The existing test at 65,535, 65,536, and 65,537 bytes remains in place.
+
+An isolated temporary variant incorrectly counted every relationship basis
+as `content_review`. The previous boundary test passed that variant, while
+the new test rejected it. All 41 Rust tests, formatting, Clippy, the pinned
+consumer runner, result schema checks, and repository integrity checks passed.
+The consumer binary and all fixture outputs matched the preceding checkpoint.
+Only the Rust test fingerprint changed in the runner's source inventory.
+
+OpenAI GPT-6.1-Sol produced this test slice. Independent read-only review by
+the `gpt_reviewer` role, configured as OpenAI GPT-5.6-Terra, passed. The two
+changed files are this work record and
+`examples/reference-consumer/tests/exact_mapping.rs`. The changes remain
+local and uncommitted.
+
+## Exact result schema qualification in CI
+
+The native workflow now invokes the exact result schema companion after
+reference consumer qualification. It uses the passing receipt from that
+job and its existing hash-locked Python environment. A failed checker exits
+the step with a failure. The step covers strict report shapes, diagnostic
+vocabulary, structural counterexamples, and binding to current source,
+fixtures, executable bytes, and route output.
+
+Local validation parsed the YAML, checked Bash syntax, and executed the
+workflow's exact command with the pinned tooling and a current passing
+receipt. Removing the receipt or changing its route-output digest made
+the step fail with the corresponding fixed diagnostic. Repository integrity,
+20 validator regressions, seven case-plan regressions, and whitespace checks
+passed. Hosted Linux CI remains unverified pending publication of this packet.
+
+The changed files are `.github/workflows/vusl-native.yml`,
+`docs/validation.md`, and this work record. OpenAI GPT-6.1-Sol produced the
+slice. Fresh read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra passed.
+The workflow edit remains local and uncommitted.
+
+## Root build inputs in qualification evidence
+
+Reference consumer source evidence now includes `root_manifest_sha256` for
+the root Cargo manifest and `toolchain_manifest_sha256` for the repository
+Rust toolchain manifest. Core package settings and dependency declarations
+are inherited from the root workspace. The receipt previously omitted both
+files. Its existing before-and-after comparison now includes their digests.
+
+The schema companion also requires matching hashes before invoking the
+qualified executable and after validation. An older receipt without the
+fields requires fresh qualification. The internal runner receipt gains two
+source metadata fields. Native review inputs and consumer result formats
+are unchanged.
+
+The runner self-test failed before the fix and passed after it. Controlled
+late digest changes for either manifest refused `source_changed_during_run`.
+The schema check refused missing or incorrect hashes before invoking the
+executable and also refused changed hashes after validation. A fresh pinned
+consumer run and schema qualification passed for 45 reports and 36 structural
+counterexamples. The exact CI command passed locally with that fresh receipt.
+
+The consumer binary, three route modes, 56 scenarios, six input checks,
+20 CLI probes, and both downstream fixture results matched the prior run.
+Repository integrity, 20 validator regressions, seven case-plan regressions,
+and whitespace checks passed. Independent read-only `gpt_reviewer` review
+using OpenAI GPT-5.6-Terra passed. OpenAI GPT-6.1-Sol produced the slice.
+
+Changed files are `scripts/test_reference_consumer.py`,
+`scripts/test_exact_result_schema.py`, `docs/validation.md`, and this record.
+The changes remain local and uncommitted.
+
+## Observed claims in producer scope disagreements
+
+Draft v0.2 `conflicting_producer_required_scope` reasons now include
+`claims_by_review` in input-review order. A present claim records its target,
+required flag, fidelity, loss, and citations. A null entry records absence.
+This distinguishes an omitted term from a present optional preserved claim,
+which can be absent from the other edge's `outside_policy` list. The two
+embedded document identities identify the sources of these observations.
+
+The existing reason code, required-review index, policy selection, and
+unresolved verdict semantics are retained. The schema requires two entries,
+with a required claim at the named index and an optional claim or null at
+the other index. This is an additive field in the unpublished draft result.
+
+Both fixture domains distinguish absence from a preserved optional claim in
+both review directions. Existing mixed-scope tests also pin the complete
+claim observations. All 42 Rust tests, formatting, Clippy, runner self-tests,
+and pinned consumer qualification passed. The schema companion verified
+45 emitted reports, four scope-conflict forms, and 46 structural
+counterexamples. Four real downstream reports, including the two 65-delta
+maxima, validated against the schema. Removing required-review alignment
+from the schema was detected by the negative checks.
+
+All three route modes, 56 scenarios, six input checks, 20 CLI probes, and
+both downstream fixture outputs matched the previous checkpoint. The exact
+CI command passed locally with the current receipt. Repository integrity,
+20 validator regressions, seven case-plan regressions, and whitespace checks
+passed. Independent read-only `gpt_reviewer` review using OpenAI
+GPT-5.6-Terra passed. OpenAI GPT-6.1-Sol produced the slice.
+
+Changed files are `examples/reference-consumer/src/exact_mapping/comparison.rs`,
+`examples/reference-consumer/tests/exact_mapping.rs`,
+`schemas/vusl.exact-mapping-result.v0.2.schema.json`,
+`scripts/test_exact_result_schema.py`, `docs/consumer-result-v0.1.md`,
+`docs/diagnostics.md`, `README.md`, and this record. Native v0.1 and legacy
+consumer behavior remain compatible. The work remains local and uncommitted.
+
+## Downstream producer scope diagnostic coverage
+
+The public-API smoke fixture now exercises producer scope checks under both
+independent dependency pin sets. It checks missing and optional preserved
+claims in both review directions, retains the exact citations, and checks
+producer-term citation and loss disagreements. A default-policy control
+continues to evaluate the selected host scope independently.
+
+Both temporary downstream projects passed with the expanded fixture. The
+runner's package inventory and resolved lock checks remain in force. The
+fixture retains its fixed success output.
+
+A temporary source variant replaced both observed claims with null. The
+previous smoke accepted that variant under both pin sets. The expanded
+smoke rejected it under each set. Formatting and Clippy with warnings denied
+passed inside both temporary downstream projects.
+
+Runner self-tests, pinned consumer qualification, schema qualification,
+repository integrity, 20 validator regressions, seven case-plan regressions,
+and whitespace checks passed. The reference binary, three route modes,
+56 scenarios, six input checks, 20 CLI probes, and both downstream lock and
+output results matched the previous checkpoint. Only the downstream fixture
+source fingerprint changed in the qualification inventory.
+
+OpenAI GPT-6.1-Sol produced the slice. Fresh read-only `gpt_reviewer` review
+using OpenAI GPT-5.6-Terra passed. Changed files are
+`examples/reference-consumer/tests/fixtures/downstream/main.rs`,
+`docs/validation.md`, and this record. The changes remain local and uncommitted.
+
+## Consumer handoff refresh against public source
+
+The November 20 read-only review verified public main at VUSL
+`dc53c7fd25f0f4d7bf90776c20569920d22d1081`, Rangoon
+`9167f3af21a25bcc9674e0fac8a3c119365e5aed`, and LNSAT
+`8e824b2e2099d499cc3022ecbe5942a95f1142f5`. The familiar local consumer paths
+resolve to a Rangoon website checkout and an LNSAT private archive, so they
+were excluded as current application evidence. No consumer checkout was edited
+or tested.
+
+The Rangoon handoff now identifies the public source reference consumer and exact
+v0.1 API, with hashes computed from the immutable public commit. The older
+reference-consumer preparation label and compiler discrepancy are superseded.
+Rangoon's public VUSL navigation still points at the historical extraction
+README; correction belongs to its owning chat. Its current Rust 1.99.1 setup
+aligns with VUSL's selected compiler, while application graph, feature,
+target-loader, and native qualification remain separate.
+
+The LNSAT handoff reflects source milestone 0.3.0 and its advisory System One
+direction. Public runner, weights, result contract, and management integration
+remain future owner work. A host-selected VUSL semantic gate can supply evidence
+for a bounded route comparison. Native target, attempt, receipt, cutoff,
+readback, abstention, and Gateway authority retain their own contracts.
+
+Both handoffs distinguish the public v0.1 source pin from the local uncommitted
+v0.2 diagnostics. The next integration target is a real exact-revision task
+under an independently selected host policy. This review established no need
+to change the native wire shape. Current-pin hosted Actions results were not
+established by the commit-status response, and no integration or release
+qualification is claimed by this documentation refresh.
+
+All seven upstream artifact hashes matched bytes read from the immutable VUSL
+commit. Repository integrity, 20 validator regressions, seven case-plan
+regressions, and whitespace checks passed. Independent read-only
+`gpt_reviewer` review using OpenAI GPT-5.6-Terra passed after clarifying that
+unevaluated host requirements are qualification gaps alongside the actual
+public v0.1 result. OpenAI GPT-6.1-Sol produced the documentation slice.
+
+Changed files are `docs/handoffs/rangoon-core-baseline.md`,
+`docs/handoffs/lnsat-evidence-status.md`, and this record. The refreshed handoffs
+remain local, uncommitted, and undispatched.
+
+## Maximum chain diagnostic completeness
+
+The strict chain conformance tests now exercise 16 bound edges with 32
+host-selected term obligations per edge in both fixture domains. Every local
+edge reports preservation, while every upstream target term lacks a downstream
+obligation. The report retains all
+480 missing-link reasons after the initial chain-preservation reason, with
+each boundary and obligation index, intermediate term, null downstream claim,
+and follow-up token. All 32 first-edge paths stop at their own first missing
+link, while the overall outcome stays unresolved.
+
+The schema companion now tests its inclusive 481-reason bound and rejects
+empty, oversized, and incorrectly prefixed reason arrays. Before this addition,
+the companion accepted a temporary schema variant with an incorrect maximum
+of 480. A temporary downstream caller also generated both complete maximum
+reports and validated them against the full result schema. Runtime behavior,
+native inputs, and result formats are unchanged.
+
+All 43 Rust tests, formatting, Clippy, runner self-tests, pinned consumer
+qualification, and schema qualification passed. The companion checked its
+45 emitted reports and 49 structural counterexamples. Temporary schema
+variants with maxima of 480 and 482 failed the new boundary checks. Removing
+the prefix declaration failed the existing diagnostic vocabulary check.
+
+The consumer binary, three route modes, 56 scenarios, six input checks,
+20 CLI probes, and both downstream fixture results matched the preceding
+checkpoint. Repository integrity, 20 validator regressions, seven case-plan
+regressions, and whitespace checks passed. Fresh read-only `gpt_reviewer`
+review using OpenAI GPT-5.6-Terra passed. OpenAI GPT-6.1-Sol produced the slice.
+Changed files are `examples/reference-consumer/tests/exact_mapping.rs`,
+`scripts/test_exact_result_schema.py`, and this record. The work remains
+local and uncommitted.
+
+## Inspection API selection and compiled guidance
+
+The consumer result guide now maps each entry point to its result format and
+applied checks. It distinguishes the original consumer and exact v0.1 APIs
+from the v0.2 edge, chain, and comparison APIs. Producer-scope selection is
+evaluated through the v0.2 entry points. Requirements outside the selected
+API's check set remain host qualification gaps alongside its actual result.
+The guide title now covers all these result formats and retains the original
+v0.1 heading anchor.
+
+The policy builder now has a compiled Rustdoc example. It independently
+selects one host-required term from a synthetic review with two producer-required
+terms, then calls the v0.2 inspection with explicit relationship evidence.
+The example checks the result format, applied policy flag, unresolved outcome,
+and producer-scope reason. It passes as a standalone doctest.
+
+Formatting, Clippy, all 43 Rust tests, the doctest, and a Rustdoc build with
+warnings denied passed. A temporary copy substituted the legacy v0.1 call:
+it compiled but failed the doctest's v0.2 format assertion, proving that the
+example detects the wrong entry point. The owning source tree was not mutated
+for this negative check. Existing CI's reference-consumer `cargo test` command
+also includes this doctest.
+
+The pinned consumer qualification receipt passed. Its 56 scenarios, six input
+checks, 20 CLI probes, three route-mode results, and both downstream fixture
+results matched the preceding checkpoint. Binary hashes changed; no binary
+identity claim is made. Schema qualification checked 45 emitted reports and
+49 structural counterexamples. Repository integrity, 20 validator regressions,
+seven case-plan regressions, and whitespace checks passed.
+
+Fresh independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra
+passed with no actionable findings. The review's separate doctest rerun lacked
+cached dependencies; the producer's offline test run above used the provisioned
+cache and passed. OpenAI GPT-6.1-Sol produced the slice. Changed files are
+`examples/reference-consumer/src/exact_mapping.rs`,
+`docs/consumer-result-v0.1.md`, and this record. This slice changes guidance
+and its executable example only; native inputs, runtime checks, and legacy
+result behavior are unchanged. Work remains local and uncommitted. The safety
+stash and unrelated work remain preserved; no consumer edit, commit, push,
+merge, publication, or deployment was performed.
+
+## Paired comparison symmetry and self-comparison qualification
+
+The next local accuracy slice qualifies review-order independence across
+mixed cases rather than only individual reversal examples. Its scope is a
+new reference-consumer test matrix and a guide clarification. Production
+logic, native wire inputs, policies, result formats, chain preservation,
+and consumer repositories remain unchanged.
+
+The matrix uses 24 conforming variants in each of the two unrelated domains.
+It covers required-term loss, downgrade, omission, unknown target candidates,
+foreign term and relationship citations, changed evidence basis, relationship
+uncertainty, producer-required scope differences, stale revisions, mixed
+failures, and reordered facets and citations. It checks each independently
+inspected edge against an explicit expected verdict under all four option
+combinations. Swapped comparisons must retain the verdict and reverse every
+positional attribution. Self-comparison must retain an existing edge failure
+or unresolved outcome. The matrix evaluates 4,608 ordered comparisons.
+
+Independent review identified a test weakness: symmetry alone can pass when
+both reports omit the same attribution fields. The matrix now also performs
+32 known-pair content checks. They require the producer-scope reason, review
+index and both claims, the term citation delta, the relationship basis delta,
+and the uncertainty delta under each domain and option combination.
+
+Formatting, Clippy, all 44 ordinary Rust tests and the doctest passed. The
+focused matrix and Clippy passed again after adding the presence witnesses.
+The pinned consumer qualification and result schema checks passed, including
+45 emitted reports and 49 structural counterexamples. Repository integrity,
+20 validator regressions, seven case-plan regressions, and whitespace checks
+passed. The consumer binary hash, 56 scenarios, six input checks, 20 CLI probes,
+three route-mode results, and both downstream fixture results matched the
+preceding checkpoint.
+
+In a temporary source copy, an injected first-review basis bias passed the
+preceding 23 exact-mapping tests but failed the new matrix's reverse-order
+assertion. Three further temporary variants removed scope claims, nulled
+citation deltas, or nulled uncertainty deltas. The symmetry-only test passed
+each variant; the corrected test with known-pair witnesses rejected all
+three. None of these mutations changed the owning source tree.
+
+Fresh independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra
+passed after the presence-check fix, with no remaining actionable findings.
+OpenAI GPT-6.1-Sol produced this slice. Changed files are
+`examples/reference-consumer/tests/comparison_symmetry.rs`,
+`docs/consumer-result-v0.1.md`, and this record. These checks qualify the
+listed synthetic comparisons, not evidence trust or a consumer integration.
+Whole-chain preservation remains unresolved. Work remains local and
+uncommitted; the safety stash, prior drafts and unrelated work remain
+preserved. No consumer edit, native wire change, commit, push, merge, badge
+claim, publication, or deployment was performed.
+
+## Dense edge diagnostics and schema capacity checks
+
+This local accuracy slice adds two-domain tests of dense diagnostics and
+checks the result schema's declared array boundaries. Native wire inputs,
+production logic, result formats, and the unresolved composition boundary
+remain unchanged. The canonical work record is this section.
+
+Eight conforming review variants combine eight missing expected citations
+with eight unexpected revisions of the same record. They also include a
+downgraded term, a mismatched target, loss or unknown fidelity, relationship
+basis mismatch, and either an unresolved relationship or residual uncertainty.
+The tests require all 19 term findings and all 18 relationship findings in
+order, including every missing reference's eight revision hints. Definite
+term failure remains the overall verdict. The legacy API must retain its
+original citation-finding shapes without revision hints.
+
+The schema companion separately checks its structural envelopes of 20 term
+findings, 19 relationship findings, 34 edge reasons, and 97 comparison reasons.
+Each declared limit must pass and one item beyond it must fail. Repeated
+synthetic findings test schema bounds; they do not assert a native semantic
+report with those repeated findings.
+
+Formatting, Clippy, all 45 ordinary Rust tests and the doctest passed. The
+schema companion validated its 45 emitted reports and rejected 53 structural
+counterexamples. The existing pinned consumer receipt matched the current
+runtime source and executable digests. Repository integrity, 20 validator
+regressions, seven case-plan regressions, and whitespace checks passed.
+
+A temporary caller generated all eight dense edge reports and validated them
+against the full schema. In a separate mutation of that temporary source copy,
+the missing-evidence loop omitted the eighth expected citation. The preceding
+23 exact-mapping tests still passed; the new dense-finding test rejected the
+truncated diagnostics. The owning source tree was not mutated for this proof.
+Fresh independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra
+passed, including a separate successful focused test run. The validation
+record was refreshed before final review acceptance; no actionable findings
+remain. OpenAI GPT-6.1-Sol produced this slice.
+
+Changed files are `examples/reference-consumer/tests/finding_capacity.rs`,
+`scripts/test_exact_result_schema.py`, `docs/validation.md`, and this record.
+These checks exercise diagnostic completeness and structural envelopes; they
+do not establish evidence trust, whole-chain preservation, consumer
+integration, or hosted CI results. Work remains local and uncommitted. The
+safety stash, prior drafts, and unrelated work remain preserved. No consumer
+edit, native wire change, commit, push, merge, badge claim, publication, or
+deployment was performed.
+
+## Two-term verdict precedence qualification
+
+This local accuracy slice checks combined required-term outcomes under the
+accepted three-outcome contract. Its scope is a new reference-consumer test
+matrix and validation documentation. Production behavior, native inputs,
+result formats, and the unresolved composition boundary remain unchanged.
+
+Each fixture domain supplies nine term states: preserved, lost constraint,
+unknown without a target, unknown target candidate, downgraded, absent,
+wrong target, foreign citation, and unsupported. The matrix combines both
+term states with evidenced, unresolved, or residual-uncertainty relationships;
+exact, stale-source, or stale-target bindings; and both policy and facet
+orders. An unrelated anchor keeps native reviews nonempty without satisfying
+either host obligation. It is required only when neither selected claim
+remains required, satisfying the native profile's declared-scope rule.
+
+An explicit decision table supplies expected outcomes independently of the
+implementation's enum ordering. The same review is inspected through both
+strict and legacy APIs, retaining their intentional differences for unknown
+target candidates and residual uncertainty. Stale bindings must skip each
+obligation instead of assigning term failure to an unbound review. Strict
+reports must also leave relationship and outside-policy observations null,
+with the relationship's endpoint-binding skip finding. All 5,832
+policy cases passed, comprising 11,664 strict and legacy inspections.
+
+Formatting, Clippy, all 46 ordinary Rust tests and the doctest passed. Schema
+qualification validated 45 emitted reports and rejected 53 structural
+counterexamples using an existing receipt matched to the current runtime.
+Repository integrity, 20 validator regressions, seven case-plan regressions,
+and whitespace checks passed.
+
+In a temporary source copy, a later unresolved term was allowed to overwrite
+an earlier definite failure in strict inspections. The preceding 23
+exact-mapping tests passed that mutation; the new matrix rejected it at a
+lost-constraint/unknown-term combination. The owning production code was not
+mutated. The validation guide also now distinguishes the configured Cargo
+matrix step before consumer receipt generation from the schema companion
+step that uses that receipt afterward.
+
+Fresh independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra
+passed after clarifying CI order and adding explicit relationship and
+outside-policy skip assertions. The focused matrix and Clippy passed again
+after those assertions. OpenAI GPT-6.1-Sol produced this slice.
+
+Changed files are `examples/reference-consumer/tests/verdict_precedence.rs`,
+`docs/validation.md`, and this record. The matrix qualifies the listed
+synthetic state combinations, not evidence trust, consumer integration,
+hosted CI, or end-to-end composition. Whole-chain preservation remains
+unresolved. Work remains local and uncommitted; the safety stash, prior drafts
+and unrelated work remain preserved. No consumer edit, native wire change,
+commit, push, merge, badge claim, publication, or deployment was performed.
+
+## Exact obligation attribution across the precedence matrix
+
+This local accuracy slice strengthens the existing two-term matrix to check
+complete obligation records as well as aggregate verdicts. The same 5,832
+policy cases and strict/legacy APIs remain in scope. Each record must retain
+its selected source and target terms, exact expected citations, observed
+claim or null, and all ordered findings. Policy and facet permutations must
+not move another term's declaration or diagnostics into that record.
+
+The expected findings come from the nine fixed case definitions and the
+independently selected fixture policy. They distinguish an absent claim from
+an existing claim without evidence, retain foreign-reference revision hints
+only in strict reports, and preserve the native observation's fidelity, loss,
+required flag, target, and citations. The matrix now requires 23,328 complete
+obligation checks. Production logic, native wire inputs, result formats,
+legacy behavior, and the unresolved composition boundary remain unchanged.
+
+The focused matrix passed all 23,328 obligation checks. Formatting, Clippy,
+all 46 ordinary Rust tests and the doctest passed. Repository integrity,
+20 validator regressions, seven case-plan regressions, and whitespace checks
+passed.
+
+Three temporary runtime mutations independently swapped observed claims,
+findings, or expected citations between two strict obligation records. They
+preserved the aggregate verdict and the record indices and source terms.
+The pre-enhancement matrix passed all three mutations; the full-record oracle
+rejected each one. The owning production source was not mutated for these
+experiments. Current runtime source fingerprints and the route executable
+matched the existing qualified consumer receipt.
+
+Fresh independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra
+passed with no actionable findings. OpenAI GPT-6.1-Sol produced this slice.
+Changed files are `examples/reference-consumer/tests/verdict_precedence.rs`,
+`docs/validation.md`, and this record. These tests qualify the listed
+synthetic obligations; they do not establish evidence trust, consumer
+integration, hosted CI, or whole-chain preservation.
+
+Work remains local and uncommitted. The safety stash, prior drafts, and
+unrelated checkout bytes remain preserved. No consumer edit, native wire
+change, commit, push, merge, badge claim, publication, or deployment was
+performed.
+
+## Offline checked-claim explanation example
+
+This local reference-consumer slice joins producer explanations to the
+existing versioned semantic result. It uses the same checked document and
+exact selected source term to find the native facet note. The native wire
+format and existing consumer-result formats remain unchanged. The new
+example's JSON groups the semantic result and separate producer context for
+illustration; it is not a new protocol format.
+
+Two unrelated fixture domains cover preservation, required loss, unknown
+meaning without evidence, missing claims, stale targets, and note-only
+changes. Evaluated uncertainty retains its producer explanation alongside
+the unresolved verdict; it is distinct from skipped checking. Missing claims
+and skipped checks receive distinct context states with null notes. Tests also cover
+reordered native facets, an infeasible policy, and note-bound document
+identity. Producer text remains data for caller review and cannot rewrite
+the typed semantic verdict.
+
+The Cargo manifest includes the example in normal tests. The pinned runner's
+source inventory now includes this example and the three newer integration
+matrices, so receipts name their source bytes as well. The runner continues
+to execute its existing CLI and route qualification; Cargo tests separately
+exercise the explanation example and matrices.
+
+Formatting, Clippy, all 49 ordinary Rust tests and the doctest passed,
+including the three new explanation tests. Runner self-tests, fresh pinned
+consumer qualification, and schema qualification passed. The focused example,
+Clippy, and pinned qualification passed again after adding the explicit
+unknown-without-evidence case. All twelve serialized
+example cases retained schema-valid semantic results and matching context
+document IDs. The schema companion also validated its 45 reports and rejected
+53 structural counterexamples.
+
+The consumer and route executable hashes, 56 scenarios, six input checks,
+20 CLI probes, three route-mode results, and both downstream fixture results
+matched the preceding checkpoint. The four added source inventory entries
+appear in the fresh receipt; removing any one from the source record is
+rejected. Repository integrity, 20 validator regressions, seven case-plan
+regressions, and whitespace checks passed.
+
+Fresh independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra
+passed after clarifying that an evaluated unknown-fidelity claim can retain
+its explanation while skipped checks cannot. The reviewer separately ran
+the three focused tests and checked the twelve emitted rows. OpenAI
+GPT-6.1-Sol produced this slice.
+
+Changed files are `README.md`, `examples/reference-consumer/Cargo.toml`,
+`examples/reference-consumer/README.md`,
+`examples/reference-consumer/examples/explain_findings.rs`,
+`scripts/test_reference_consumer.py`, `docs/consumer-result-v0.1.md`, and this
+record. Qualification metadata now binds four additional source files, so
+current-source checks require a regenerated receipt. Consumer APIs, native
+inputs, and result formats remain compatible. This synthetic example does
+not establish evidence trust, consumer integration, hosted CI, or whole-chain
+preservation.
+
+Work remains local and uncommitted. The safety stash, prior drafts, and
+unrelated work remain preserved. Rangoon and LNSAT were untouched. No native
+wire change, extraction, badge claim, commit, push, merge, publication, or
+deployment was performed.
+
+## Paired producer explanation comparison
+
+This local reference-consumer slice extends the explanation example with
+`--compare-notes`. The default output and the existing native and consumer
+result formats remain unchanged. Both modes use the same independently
+selected host policy. The paired mode retains the existing strict comparison,
+each review's producer context, and literal note differences with the exact
+source term, obligation, document IDs, and notes in review order.
+
+Twelve paired cases span both fixture domains. They distinguish a changed
+note from a typed conflict, demonstrate typed disagreement despite identical
+notes, retain missing-claim nulls, and skip note comparison for stale endpoint
+bindings. A separate test covers policy infeasibility. Reversing reviews must
+reverse note and document attribution. The example accepts only its named
+flag and returns a fixed usage message for unsupported arguments.
+
+Producer text remains caller-review context and cannot modify the semantic
+comparison. End-to-end composition, evidence trust, receipts, authorization,
+and consumer repositories remain outside this example.
+
+Formatting, Clippy, all 53 ordinary Rust tests and the doctest passed,
+including seven explanation tests. Fresh pinned consumer qualification and
+schema qualification passed, with 45 existing reports and 53 structural
+counterexamples. Repository integrity, 20 validator regressions, seven
+case-plan regressions, and whitespace checks passed.
+
+The 12 default and 12 paired serialized semantic results passed the full
+schema. Default output bytes matched the preceding checkpoint. Actual
+unsupported-argument runs exited 1 with empty stdout and a fixed usage
+message that did not echo the supplied value. Existing CLI and route binary
+hashes, 56 scenarios, six input checks, 20 CLI probes, three route modes, and
+both downstream fixture results matched the preceding qualification. Fresh
+independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra passed
+with no actionable findings. The reviewer separately checked seven focused
+tests, both CLI modes, default byte compatibility, and invalid arguments
+using the exact Rust 1.99.1 binaries. OpenAI GPT-6.1-Sol produced this slice.
+
+Changed files are `examples/reference-consumer/examples/explain_findings.rs`,
+`examples/reference-consumer/README.md`, `README.md`,
+`docs/consumer-result-v0.1.md`, and this record. This remains an illustrative
+offline example, with existing versioned results embedded unchanged. It does
+not establish source truth, consumer integration, hosted CI, receipt identity,
+authorization, or whole-chain preservation.
+
+Work remains local and uncommitted. The safety stash, prior drafts, and
+unrelated work remain preserved. Rangoon and LNSAT were untouched. No native
+wire change, extraction, badge claim, commit, push, merge, publication, or
+deployment was performed.
+
+## Generated machine-readable strict diagnostic help
+
+This local metadata and validation slice exports the existing strict v0.2
+diagnostic tables as a versioned JSON help catalog. Software consumers can
+look up the same fixed descriptions and caller follow-up text used by humans.
+The human tables remain the editable source; the generated artifact is checked
+against them and the result schema's complete vocabulary. Catalog metadata
+has its own format identifier and names the strict result format it describes.
+Native inputs, existing result fields and meanings, and caller-owned trust
+and authorization boundaries remain unchanged.
+
+The exporter verifies by default and writes only through explicit `--write`.
+Regeneration stages a new inode and atomically replaces the artifact,
+preserving unrelated hard-linked files and the previous artifact if replacement
+fails. Follow-up extraction is limited to its one table and stops at any
+following heading; orphan or additional token tables cannot add entries.
+It rejects malformed, empty, duplicate or ambiguous source tables, stale or
+extended artifacts, source read failures, and symlinked source/artifact paths.
+Regressions ensure invalid source cannot overwrite the existing artifact.
+The existing schema companion now checks source/artifact synchronization and
+schema vocabulary together, retaining its catalog missing/mismatch codes.
+CI runs exporter regressions in the existing schema-qualification step.
+
+All 13 exporter regressions and the 36-message/four-token artifact check
+passed. The current schema companion validated 45 emitted reports and
+rejected 53 structural counterexamples. Five additional catalog regressions
+now run inside the companion: stale help text, synchronized bogus code,
+synchronized missing token, a mismatched result format, and a missing source
+section must fail with the expected catalog labels.
+
+The exact CI run block passed locally with the existing pinned consumer
+receipt and refused both a missing receipt and a tampered route digest.
+Workflow order, shell syntax, and read-only permissions passed the source
+checks. Repository integrity, 20 validator regressions, seven case-plan
+regressions, and whitespace checks passed. No Rust source or runtime fixture
+changed; the existing qualified runtime fingerprint remains applicable.
+Fresh independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra
+passed after the atomic-write and token-boundary fixes. The reviewer
+independently reran all 13 exporter tests, the artifact check, and the schema
+companion with its five catalog counterexamples. No actionable findings
+remain. OpenAI GPT-6.1-Sol produced this slice.
+
+Changed files are `scripts/export_exact_diagnostics.py`,
+`docs/exact-mapping-diagnostics-v0.2.json`, `scripts/test_exact_result_schema.py`,
+`.github/workflows/vusl-native.yml`, `README.md`, `docs/README.md`,
+`docs/diagnostics.md`, `docs/consumer-result-v0.1.md`, `docs/validation.md`, and
+this record. Hosted CI and consumer integration remain unqualified by this
+local metadata packet. Whole-chain preservation remains unresolved.
+
+Work remains local and uncommitted. The safety stash, prior drafts, and
+unrelated work remain preserved. Rangoon and LNSAT were untouched. No native
+wire change, extraction, badge claim, commit, push, merge, publication, or
+deployment was performed.
+
+## Opt-in fixed help in the explanation example
+
+This local reference-consumer slice adds `--with-help` to the single and
+paired explanation modes. Fixed catalog messages appear beside the existing
+semantic result and producer context, with pointers to each finding code or
+caller follow-up token. Pointer scope is the row's explanation object. Help
+metadata names the catalog format, supported result format and source. The
+native and consumer-result formats remain unchanged.
+
+Lookup operates only on the generated semantic result. It does not parse
+producer strings, interpolate native identifiers into messages, infer trust,
+or derive a verdict. Unsupported formats, unknown lookup names and invalid
+catalog entries return fixed errors. Flags may appear in either order and
+duplicates remain rejected. Both existing outputs must stay byte-identical
+without the new opt-in flag.
+
+The qualification source inventory now includes the catalog embedded through
+`include_str!`. It records this example compile input; it does not certify the
+explanation example's binary identity. Runner regressions check that the
+catalog is inventoried, a changed digest changes the fingerprint, and a missing
+catalog fails with its fixed code.
+
+The 12 focused example tests, 58 ordinary Rust tests and one doctest passed,
+along with formatting and Clippy with warnings denied. All four output modes
+produced 48 schema-valid embedded results. Their 48 help entries resolved to
+the exact finding or follow-up fields and catalog messages. Removing help
+restored the original context and semantic results; default and paired
+outputs without help matched the preceding checkpoint byte for byte. Flag
+order was immaterial. Unsupported or duplicate arguments exited 1 with empty
+stdout and fixed usage text.
+
+The refreshed runner self-tests and pinned Rust 1.99.1/Python 3.11.17 consumer
+qualification passed. The schema companion accepted 45 existing emitted
+reports and rejected 53 structural counterexamples and five catalog
+counterexamples. Existing CLI and route binary hashes, 56 scenarios, six
+input checks, 20 CLI probes, three route modes and both downstream fixture
+results matched the preceding qualification. Source checks rejected omitted
+or incorrect catalog fingerprints. Repository integrity, 20 validator
+regressions, seven case-plan regressions and whitespace checks passed.
+
+Initial independent read-only review found one P3 gap: the source inventory
+included the catalog without a direct runner fingerprint regression. The
+regressions above address it. Three in-memory source mutations confirmed that
+omitting the catalog, freezing its digest, or changing its missing-file code
+are detected. Independent read-only `gpt_reviewer` review using OpenAI
+GPT-5.6-Terra passed after reviewing the fix and its evidence; no actionable
+findings remain. The reviewer also independently checked all 12 focused tests,
+both plain output baselines, both help modes, and invalid arguments during
+the initial review. OpenAI Codex produced this slice; the current runtime does
+not expose a precise producer model identifier.
+
+Changed files are `examples/reference-consumer/examples/explain_findings.rs`,
+`scripts/test_reference_consumer.py`, `examples/reference-consumer/README.md`,
+`README.md`, `docs/consumer-result-v0.1.md`, `docs/validation.md`, and this
+record. The helper remains private to the synthetic offline example; it is
+not a general JSON result validator. Whole-chain preservation stays unresolved,
+and callers retain evidence trust, readback, receipts and authorization.
+
+Work remains local and uncommitted. The safety stash, prior drafts and
+unrelated work remain preserved. Rangoon and LNSAT were untouched. No native
+wire change, extraction, badge claim, commit, push, merge, publication, release
+or deployment was performed.
+
+## Overlapping citation-set qualification
+
+This local accuracy slice extends reference-consumer conformance evidence for
+partial citation overlaps. The existing contract requires exact reference-set
+matching within each term or relationship, independent of citation order.
+Revision hints must include only unexpected citations of the same record;
+citations satisfying another expected revision must not appear as hints.
+
+A four-reference pool supplies three revisions of one record and a
+different-scope record with the same native ID. An independent bitmask
+oracle covers every nonempty expected/observed subset pair, both
+forward/reverse orders, both fixture domains, and both term and relationship
+locations. Other claims contain the complete pool, so a citation present
+elsewhere in the document cannot silently satisfy the selected claim.
+The checks retain legacy relationship behavior. All ordered findings, revision
+hints, original observed citation order and unaffected claims are checked.
+The matrix runs 3,600 cases and 7,200 strict/legacy inspections. Production
+logic, native inputs and result formats remain unchanged.
+
+A temporary source copy deliberately sorted missing expected references by
+their native tuples. All 23 existing exact-mapping tests passed that mutation;
+the new matrix rejected it when a reversed expected set required a different
+finding order. The owning production source was not mutated.
+
+The focused matrix, formatting, Clippy with warnings denied, all 59 ordinary
+Rust tests and the doctest passed. Runner self-tests and pinned Rust
+1.99.1/Python 3.11.17 qualification passed. The schema companion accepted 45
+emitted reports and rejected 53 structural counterexamples and five catalog
+counterexamples. Repository integrity, 20 validator regressions, seven
+case-plan regressions and whitespace checks passed. CLI and route binary
+hashes, 56 scenarios, six input checks, 20 probes, three route modes and both
+downstream fixture results matched the preceding qualification.
+
+Fresh independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra
+passed with no actionable findings. The reviewer independently ran the new
+matrix, the 23 existing exact-mapping tests, comparison symmetry and Clippy,
+and reviewed the remaining supplied validation evidence. OpenAI Codex produced
+this slice; the current runtime does not expose a precise producer model
+identifier.
+
+Changed files are `examples/reference-consumer/tests/evidence_sets.rs`,
+`scripts/test_reference_consumer.py`, `examples/reference-consumer/README.md`,
+and this record. The source inventory includes the new test; existing
+qualification receipts must be regenerated. This finite synthetic matrix
+qualifies these citation-set rules; it does not verify evidence contents or
+trust, whole-chain preservation, or consumer integration. The native corpus
+was not rerun because the core and wire contract did not change. Hosted CI
+remains unverified by these local checks.
+
+Work remains local and uncommitted. The safety stash, prior drafts and
+unrelated work remain preserved. Rangoon and LNSAT were untouched. No native
+wire change, extraction, badge claim, commit, push, merge, publication, release
+or deployment was performed.
+
+## Conservative exact-policy draft helper
+
+The active accuracy goal opens a bounded implementation of the producer
+ergonomics need recorded above. The reference consumer now offers a pure,
+deterministic helper that turns an independently supplied exact policy into
+a checked native draft. Each selected source term remains required, its
+expected target is an unassessed candidate, and its fidelity is `unknown`.
+Evidence arrays stay empty. The relationship stays `unresolved` with basis
+`none` and a fixed uncertainty statement. Successful drafting leaves both
+declared and required meaning preservation unresolved.
+
+The helper refuses an infeasible strict policy before creating a draft,
+using existing feasibility findings for caller investigation. Native
+inspection validates the constructed bytes before returning a checked
+value. Errors have fixed codes without native identifiers or notes.
+Policy ID/revision and expected citations remain caller-selected policy
+data; they are not copied into native claims or a new native envelope.
+The existing exact inspection binds the draft to that full policy separately.
+
+Four focused tests passed, covering both fixture domains, deterministic
+bytes/identities, all required terms and exact endpoints, empty evidence,
+unresolved outcomes, stale snapshot selection, policy feasibility and redacted
+errors. The maximum case includes 32 terms at the 256-byte text bound, eight
+expected citations and endpoint components at the 256-byte bound, including
+Unicode and JSON escaping. An oversized expected-evidence policy refuses
+construction without dropping requirements.
+
+Formatting, Clippy with warnings denied, all 63 ordinary Rust tests and the
+doctest passed. Runner self-tests, pinned Rust 1.99.1/Python 3.11.17 consumer
+qualification, and schema qualification passed: 45 existing emitted reports,
+53 structural counterexamples and five catalog counterexamples. The help
+catalog's 36 findings/four tokens remained unchanged. Repository integrity,
+20 validator regressions, seven case-plan regressions and whitespace checks
+passed.
+
+Three actual drafts from an isolated probe, covering both fixture domains
+and the 32-term maximum case, also passed the independent Python native
+oracle. Canonical bytes, document IDs, unresolved assessments and meaning
+guard refusals agreed. Their three emitted strict reports passed the full
+v0.2 result schema. This additional evidence concerns generated drafts; the
+unchanged 4,911-case native corpus was not rerun.
+
+Existing 56 scenarios, six input checks, 20 CLI probes, three route-mode
+records and both downstream fixtures matched the preceding qualification.
+The new module and tests are included in the source inventory. CLI and route
+binaries were rebuilt and have different hashes; the refreshed qualification
+receipt binds those binaries and current sources. Older source receipts need
+regeneration. Existing native inputs, result formats, legacy functions and
+CLI behavior remain compatible.
+
+Fresh independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra
+passed with no actionable findings. The reviewer independently ran the four
+focused tests, Clippy with warnings denied, formatting and whitespace checks,
+and reviewed the full qualification and native-Python proof. OpenAI Codex
+produced this slice; the current runtime does not expose a precise producer
+model identifier.
+
+The helper belongs only to the reference consumer; it does not assess native
+artifact contents, authenticate evidence, establish whole-chain preservation, or grant readback,
+receipt or execution authority. Hosted CI and real consumer integration remain
+separate qualification work.
+
+Changed files are `examples/reference-consumer/src/exact_mapping/draft.rs`,
+`examples/reference-consumer/src/exact_mapping.rs`,
+`examples/reference-consumer/tests/draft.rs`, `scripts/test_reference_consumer.py`,
+`README.md`, `examples/reference-consumer/README.md`,
+`docs/consumer-result-v0.1.md`, `docs/diagnostics.md`, and this record.
+
+Work remains local and uncommitted. Core, coverage, specification, native
+schema, corpus and historical manifest are unchanged. The safety stash, prior
+drafts and unrelated work remain preserved. Rangoon and LNSAT were untouched.
+No native wire change, extraction, badge claim, commit, push, merge,
+publication, release or deployment was performed.
+
+## Automatic qualification source inventory
+
+An accuracy audit found that the reference-consumer qualifier's fixed list
+could omit newly added source files. In an isolated synthetic workspace,
+content changes in an unlisted module, example, test, fixture and root
+`build.rs` each left the complete source fingerprint unchanged while Git
+metadata was held fixed. A file can already exist untracked before a run;
+its unchanged porcelain status does not bind its changing content.
+
+This bounded tooling fix retains required known inputs and adds every regular
+file beneath the example's `src`, `tests` and `examples` directories, plus
+root Rust files such as Cargo's automatic build script. Ordering is stable.
+Source-tree symlinks and nonregular files are refused, including symlinked
+ancestors within the repository. Core/coverage inventory uses the same
+regular-file traversal instead of silently omitting symlinks. External
+compile inputs, including the help catalog, keep their explicit fingerprints.
+
+A second concrete probe showed `Path.rglob` silently omitting a subtree with
+its read permissions removed. Traversal now uses an explicit scan-error
+handler. Unreadable subtrees and package-root listings refuse qualification
+with fixed inventory codes. A real unreadable subtree now produces that
+refusal. Ambiguous keys between the example and repository namespaces also
+refuse instead of overwriting a source fingerprint.
+
+The runner self-tests passed with six add/change/remove sequences, seven
+symlink cases, a nonregular-file refusal on the current host, two read-failure
+cases and a key-collision refusal. Git metadata stays fixed through the file
+drift cases. Six in-memory mutations were independently rejected: omitting
+discovered files, skipping symlinks, allowing aliased ancestors, allowing key
+collisions, ignoring subtree scan errors and ignoring root listing errors.
+The owning source was not mutated for those proofs.
+
+Pinned Rust 1.99.1/Python 3.11.17 consumer qualification passed with the final
+traversal implementation. The schema companion accepted 45 emitted reports
+and rejected 53 structural counterexamples and five catalog counterexamples.
+Repository integrity, 20 validator regressions, seven case-plan regressions
+and whitespace checks passed. No Rust source changed, so the preceding
+63-test/doctest evidence remains applicable without rerunning that suite.
+
+The current source-file set/count, CLI and route binary identities, 56
+scenarios, six input checks, 20 CLI probes, all three route modes and both
+downstream fixtures matched the preceding qualification. The refreshed
+receipt binds the updated runner and source inventory. Existing receipts need
+regeneration after the runner change; the receipt format is unchanged.
+Discovery covers the stated source trees and root Rust files. Other external
+compile inputs still require explicit inventory entries. These snapshots
+do not establish evidence trust, atomic build isolation, or consumer support.
+
+Changed files are `scripts/test_reference_consumer.py`, `docs/validation.md`,
+`examples/reference-consumer/README.md`, and this record. Native wire,
+library behavior, policies, result formats and fixture inventories remain
+unchanged.
+
+Fresh independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra
+passed with no actionable findings. The reviewer independently reran the
+pinned runner self-test, all six mutation checks, schema replay and whitespace
+checks, and inspected the final source inventory and documentation. OpenAI
+Codex produced this slice; the current runtime does not expose a precise
+producer model identifier.
+
+Work remains local and uncommitted. The safety stash, prior drafts and
+unrelated work remain preserved. Rangoon and LNSAT were untouched. No native
+wire change, extraction, badge claim, commit, push, merge, publication, release
+or deployment was performed.
+
+## Offline native authoring walkthrough
+
+The next local producer-ergonomics slice makes the conservative draft helper
+runnable through a synthetic reference example. Ten independent cases in
+each existing fixture domain show the selected host policy, authored
+native input, native assessment/refusal and exact semantic result separately.
+They are illustrative cases, not a native event stream or revision history.
+
+Cases cover unassessed drafts, a note-only edit, supplied citations without
+meaning assessment, declared constraint loss, a preserved fixture, omitted
+required meaning, a wrong target term, foreign evidence, a stale target
+selection and an invalid preservation claim. The example shows that
+native conformance and a passing declared-scope guard can coexist with a host
+policy failure. A native refusal has no semantic result or checked ID.
+
+The new `author_review` target runs its three focused tests through ordinary
+reference-consumer `cargo test`. Formatting, Clippy with warnings denied,
+all 66 ordinary Rust tests and the doctest passed. The pinned Rust
+1.99.1/Python 3.11.17 consumer qualification and runner self-tests passed.
+The existing schema companion accepted 45 emitted reports and rejected 53
+structural counterexamples and five catalog counterexamples. Repository
+integrity, 20 validator regressions, seven case-plan regressions and
+whitespace checks passed.
+
+Actual walkthrough output contained 18 accepted native inputs and two native
+refusals. The independent Python native oracle agreed on every document ID,
+assessment, guard result and refusal code; its success token `ok` maps to
+the example's `passed`. All 18 emitted strict results passed the full schema.
+The semantic outcomes were two preserved, six missing or changed, and ten
+unresolved. Three actual invalid-argument probes, including non-UTF-8 input,
+returned fixed usage text with empty stdout and no value echo. A closed stdout
+pipe produced the fixed output-failure code.
+
+The qualifier discovered and fingerprinted the new example automatically,
+without a manual inventory edit. The refreshed source record contains 45
+entries. Existing CLI and route binary identities, 56 scenarios, six input
+checks, 20 CLI probes, three route modes and both downstream fixtures matched
+the preceding qualification. The Cargo example metadata and source inventory
+changed; existing receipts need regeneration. The walkthrough has a separate
+local output/binary proof and is not an additional CLI mode in the existing
+qualification receipt.
+
+Changed files are `examples/reference-consumer/examples/author_review.rs`,
+`examples/reference-consumer/Cargo.toml`, `README.md`,
+`examples/reference-consumer/README.md`, `docs/consumer-result-v0.1.md`, and
+this record. Existing libraries, native wire, result formats, CLI behavior
+and fixture bytes are unchanged. The rows are illustrative output with
+existing versioned results embedded unchanged. Exit 0 means the example
+printed its independent cases; individual negative results remain visible.
+Fresh independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra
+passed with no actionable findings. The reviewer checked the source, actual
+emitted cases, documentation and final validation record. OpenAI Codex
+produced this slice; the current runtime does not expose a precise producer
+model identifier.
+
+Whole-chain preservation remains unresolved. These cases do not establish
+native artifact truth, evidence trust, target-loaded readback, receipt
+identity/freshness, authorization or consumer integration. Hosted CI and the
+unchanged full native corpus were not rerun by this local example packet.
+
+Work remains local and uncommitted. The safety stash, prior drafts and
+unrelated work remain preserved. Rangoon and LNSAT were untouched. No native
+wire change, extraction, badge claim, commit, push, merge, publication, release
+or deployment was performed.
+
+## Automated authoring-example qualification
+
+This local accuracy slice makes the authoring walkthrough's independent
+checks part of the existing schema CI gate. The checker rebuilds the
+named example offline under the qualified Rust toolchain/cache, bind checks
+to the current qualified source, and verify every native result with the
+independent Python oracle. A finite independent expectation for each case
+checks the complete strict edge report as well as its schema.
+
+Counterexamples ensure the checker refuses misleading native metadata,
+altered inputs or policies, missing/wrong findings, false preservation and
+extra authority claims. Unsupported argument checks and executable/source
+drift remain explicit. Successful logs name actual binary/output
+fingerprints. Existing consumer receipt, native wire and semantic-result
+formats remain unchanged. This is synthetic test qualification, with no
+claim of artifact truth, evidence trust or actual consumer support.
+
+The source record now discovers Python verifier modules and fingerprints the
+strict schema, tooling lock and validator requirements as well. Independent
+review found two gaps: human diagnostic text could drift after its initial
+consistency check, and several finite case values could vary while remaining
+internally consistent. The human catalog is now fingerprinted, with direct
+digest-change and missing-source regressions. Guidance, notes, uncertainty,
+target terms, evidence scopes and selected revisions use exact reviewed case
+values. Eight additional counterexamples cover fixed guidance and coherent
+input/policy changes. Those input/policy variants recompute IDs and complete
+reports, so stale metadata cannot be the reason they are rejected.
+
+The final pinned Rust 1.99.1/Python 3.11.17 consumer run and schema gate passed:
+45 existing reports, 53 structural counterexamples, five catalog
+counterexamples, 20 authoring cases, 18 strict authoring reports, two native
+refusals and 21 authoring counterexamples. Runner self-tests passed with the
+expanded verifier inventory. Two in-memory mutations removing full semantic
+comparison or native metadata checks were rejected by the counterexample
+gate. The owning source was not mutated for these proofs.
+
+The exact CI shell block ran successfully in an isolated local runner layout.
+Shell syntax, read-only permissions, step order and offline environment
+checks passed. Missing/stale receipts and an altered Rust identity each
+returned fixed errors with empty stdout. Injected human-catalog digest drift
+after the first source check also refused before any success output. These
+are local checks of the CI source; hosted execution remains unverified.
+
+Repository integrity, 20 validator regressions, seven case-plan regressions
+and whitespace checks passed. No Rust source changed, so the preceding
+66-test/doctest evidence was not repeated. The fresh receipt has 60 distinct
+source entries. Existing CLI/route binary identities, 56 scenarios, six input
+checks, 20 CLI probes, three route modes and both downstream fixtures matched
+the preceding qualification. The authoring binary/output hashes are logged
+separately by the enhanced checker.
+
+Changed files are `scripts/qualify_authoring_example.py`,
+`scripts/test_exact_result_schema.py`, `scripts/test_reference_consumer.py`,
+`.github/workflows/vusl-native.yml`, `docs/validation.md`, `docs/diagnostics.md`,
+`examples/reference-consumer/README.md`, and this record. Existing receipt,
+native wire and semantic-result formats remain unchanged. Receipts from
+older source inventories need regeneration. The checker now needs the
+qualified Rust toolchain and caches for its offline authoring build, in
+addition to the pinned Python schema environment.
+
+Fresh independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra
+passed the corrected code, focused replay and final full-pipeline record with
+no actionable findings. The reviewer independently confirmed the 60-entry
+source match, 20/18/2/21 replay, CI proof record and whitespace checks.
+OpenAI Codex produced this slice; the current runtime does not expose a
+precise producer model identifier.
+
+This finite test oracle does not qualify arbitrary authoring inputs or
+establish source truth, evidence
+trust, atomic build isolation, receipt identity or execution authority.
+Whole-chain preservation remains unresolved.
+
+Work remains local and uncommitted. The safety stash, prior drafts and
+unrelated work remain preserved. Rangoon and LNSAT were untouched. No native
+wire change, extraction, badge claim, commit, push, merge, publication, release
+or deployment was performed.
+
+## Preserved verdict consistency in the result schema
+
+The strict v0.2 schema accepted four kinds of contradictory authoring reports
+when only the verdict was changed to preserved. The cases covered a missing
+required term, foreign evidence, declared constraint loss and evidence
+supplied without assessment.
+
+The schema now requires a preserved edge to contain assessed, preserved
+required observations and an evidenced relationship, with empty findings
+and reasons for those checks. The positive verdict respects the policy's
+options for producer scope and residual relationship uncertainty. A
+preserved comparison requires two preserved edge results. Outside-policy
+finding codes must agree with their producer-required flags. Optional loss
+outside policy scope and allowed uncertainty can still accompany a positive
+verdict. Positive checks cover optional unknown and unsupported disclosures
+with empty citation sets, which the native profile permits. Callers verify
+exact matches by applying the selected policy to the native inputs.
+
+The pinned consumer runner and schema companion passed. The companion
+verified 45 existing reports, 53 structural counterexamples, five catalog
+counterexamples, 20 authoring cases with 21 counterexamples, and 18 new
+contradictory preservation counterexamples. A separate check accepted the
+eight original authoring reports across the two fixture domains and rejected
+all eight reports with their verdict changed to preserved. Qualified outputs
+matched the preceding receipt. The final rerun produced different executable
+hashes, which are recorded in its receipt and authoring replay log. Removing
+each of the three new schema rule groups in memory made the regressions
+fail. Repository integrity, 20 validator tests, seven case-plan tests,
+the consumer runner self-test and the diagnostic catalog check passed.
+
+This local schema change rejects previously accepted contradictory reports
+without changing the report format, native wire or Rust behavior. Regenerate
+qualification receipts to bind the revised schema and checker. Whole-chain
+preservation remains unresolved. Hosted CI remains unverified.
+
+Changed paths are `schemas/vusl.exact-mapping-result.v0.2.schema.json`,
+`scripts/test_exact_result_schema.py`, `scripts/qualify_authoring_example.py`,
+`docs/consumer-result-v0.1.md`, `docs/validation.md` and this record.
+OpenAI GPT-6.2-Sol produced this slice. The independent read-only
+`gpt_reviewer` review (OpenAI GPT-5.6-Terra) passed. Review confirmed that a
+global citation minimum would reject valid optional unknown and unsupported
+disclosures. The additions remain local on `codex/exact-relationship-evidence`
+at base `dc53c7fd25f0f4d7bf90776c20569920d22d1081`.
+
+## Skip diagnostics in the result schema
+
+The v0.2 result schema previously accepted missing or incorrect skip findings
+on unbound edges. It also accepted a missing required term without its finding
+and a skip finding attached to an evaluated relationship. The schema now
+checks that each skipped obligation and the relationship carry one finding
+for the blocking cause and null observations. Binding takes precedence when
+both binding and policy feasibility fail. The edge retains both causes.
+Evaluated edges carry evaluation findings, and a missing required term must
+have a null observation, the missing-term finding and a changed verdict.
+
+The pinned consumer replay and schema companion passed with 35 new
+counterexamples. The existing 45 route reports and all 20 authoring cases
+passed, as did the prior counterexample sets. Separate checks accepted the
+eight original authoring reports across library and irrigation and rejected
+the eight variants with a dropped, replaced or misplaced finding. Removing
+each new skip, evaluated-finding, missing-term or verdict rule in memory
+made the regressions fail. The six additional observation cases detect
+removal of the null requirement on either skipped check. The receipt binds
+the revised schema and verifier.
+Qualified outputs match the preceding receipt. This run used
+`CARGO_INCREMENTAL=0` and records current executable hashes. All 23
+exact-mapping Rust tests passed, along with repository integrity, 20 integrity
+tests, seven case-plan tests, the consumer runner self-test and whitespace
+checks.
+
+This local change tightens schema acceptance and retains the existing report
+format and evaluator behavior. Updated checks require a fresh qualification
+receipt. Whole-chain preservation remains unresolved. Hosted CI remains
+unverified.
+
+Changed paths are `schemas/vusl.exact-mapping-result.v0.2.schema.json`,
+`scripts/test_exact_result_schema.py`, `docs/consumer-result-v0.1.md`,
+`docs/validation.md` and this record. OpenAI GPT-6.2-Sol produced the change.
+The independent read-only `gpt_reviewer` review using OpenAI GPT-5.6-Terra
+passed after adding the observation cases. The changes are local on
+`codex/exact-relationship-evidence` at
+`dc53c7fd25f0f4d7bf90776c20569920d22d1081`.
+
+## Consistency of paired review summaries
+
+The v0.2 schema previously accepted a hidden binding failure, a fabricated
+binding failure on evaluated reviews and a reason-free comparison verdict
+that contradicted both embedded edge verdicts.
+
+The revised schema derives skip requirements from the two embedded edges.
+Binding failure may come from either review. An infeasible shared policy
+appears in both edges. Skipped comparisons list only the applicable blockers
+in runtime order and leave both difference fields null. A reason-free
+comparison repeats the verdict of both edges. A disagreement about edge
+outcomes uses its standalone reason and requires two different edge verdicts.
+These are checks on the report's internal consistency. Verify the underlying
+claims and evidence by applying the selected policy to the native inputs.
+
+Pinned replay passed all 45 existing reports, 20 authoring cases and previous
+counterexample groups. The companion rejected 40 inconsistent comparison
+examples. In-memory removal of each new rule group made the relevant
+regression check fail. The Rust comparison symmetry test passed along with
+repository integrity, 20 integrity tests, seven case-plan tests, the consumer
+runner self-test and whitespace checks. The fresh receipt matches the
+preceding binary identities and qualified outputs and binds the revised
+schema and companion sources.
+
+This tightens schema acceptance for inconsistent paired reports. It retains
+the existing report format and evaluator behavior. Qualification requires a
+fresh source-bound receipt. Hosted CI remains unverified.
+
+A separate chain probe confirmed that the two-edge aligned fixture still
+passes the schema when its first path step is edited to reference edge 15.
+The schema bounds index values by the format's maximum, independently of
+the edge and obligation counts in an individual report. That reference
+integrity gap led to the [chain report reference checks](#chain-report-reference-checks).
+
+Changed paths are `schemas/vusl.exact-mapping-result.v0.2.schema.json`,
+`scripts/test_exact_result_schema.py`, `docs/consumer-result-v0.1.md`,
+`docs/validation.md` and this record. OpenAI GPT-6.2-Sol produced the change.
+Independent read-only review by the `gpt_reviewer` role using OpenAI
+GPT-5.6-Terra passed. The changes are local on
+`codex/exact-relationship-evidence` at `dc53c7fd25f0f4d7bf90776c20569920d22d1081`.
+
+## Chain report reference checks
+
+The preceding two-edge probe exposed a dangling path reference that the
+schema accepted. The checker now combines the v0.2 schema with a report-level
+reference check. It reconstructs the ordered boundary findings and term paths
+from the embedded edges, obligations and declared findings. It compares edge
+and obligation coordinates, term identities, stops and local outcomes.
+Missing-link claim payloads must match any corresponding disclosure in the
+downstream edge and repeat exactly at the path stop.
+
+The replay runs this check on every emitted chain. The saved-report mode
+`--chain-report` exposes the same checks from the pinned Python environment
+without Cargo or a consumer receipt. A passing report describes an internally
+consistent trace. Evidence and claims require independent review of the
+native inputs. Whole-chain preservation remains unresolved.
+
+The pinned replay passed 45 existing reports, all seven chain traces,
+20 authoring cases and the previous counterexample groups. The checker
+rejected 27 chain mutations that pass the schema. The saved-file mode passed
+a valid case and rejected six invalid input cases, including the original
+nonexistent edge. An isolated source copy captured 27 additional Rust-emitted
+chains from the exact-mapping tests. Both checks accepted all 27, covering
+the five boundary diagnostic kinds and up to 16 edges and 32 obligations per
+edge. The revised checker is bound in a fresh consumer receipt. Existing
+binary identities and qualified outputs match the preceding run. Repository
+integrity, 20 integrity tests, seven case-plan tests, the consumer runner
+self-test and whitespace checks passed.
+
+Changed paths are `scripts/check_chain_references.py`,
+`scripts/test_exact_result_schema.py`, `docs/consumer-result-v0.1.md`,
+`docs/validation.md` and this record. OpenAI GPT-6.2-Sol produced the change.
+Independent read-only review by `gpt_reviewer` using OpenAI GPT-5.6-Terra
+passed. The change is local and hosted CI remains unverified.
+
+## Replay findings in saved edge reports
+
+The structural and chain reference checks previously accepted an observed
+citation revision change with its mismatch finding suppressed. They also
+accepted a changed verdict when the edge recorded citation uncertainty alone.
+
+The offline checker now recomputes ordered edge findings and the overall
+verdict from the embedded records. It checks endpoint bindings, policy
+feasibility, term and relationship observations, evidence reference
+differences and revision hints, and required-scope disclosures. Feasibility
+uses the byte length of the smallest preserved native review described by
+the policy. The checker applies the independent native oracle's text rules
+before sizing the witness or replaying edge findings. Those rules cover
+UTF-8 byte limits, controls, surrogate values and Unicode noncharacters.
+The saved-report command accepts an edge through
+`--edge-report`. The same check runs on embedded edges before validating a
+saved chain's path references and runs on emitted route and authoring edges
+in the pinned replay. Verification of the original reviews and evidence
+still requires their native inputs.
+
+The pinned replay passed all 45 route reports and 20 authoring cases and
+rejected 23 new edge counterexamples that passed structural validation.
+Saved-file probes passed valid chains and edges and rejected the motivating
+citation and verdict mutations without Cargo. Both saved modes accepted a
+256-byte Unicode component and rejected an overlong component and invalid
+scalars and controls. An instrumented source copy
+captured 609 additional strict reports from the existing Rust exact-mapping
+tests. All passed structural and consistency checks. Coverage includes all
+three edge verdicts, quoted and Unicode text, and the 65,536-byte feasible
+policy versus the 65,537-byte refusal. The new receipt binds the revised
+checkers and matches prior binary identities and qualified outputs.
+Repository integrity, 20 validator tests, seven case-plan tests, the
+native oracle and consumer runner self-tests, and whitespace checks passed.
+
+Changed paths are `scripts/check_edge_consistency.py`,
+`scripts/check_chain_references.py`, `scripts/test_exact_result_schema.py`,
+`scripts/qualify_authoring_example.py`, `scripts/reference_native_v01.py`,
+`docs/consumer-result-v0.1.md`,
+`docs/validation.md` and this record. The changes are local and use the
+existing native inputs and v0.2 report shape. OpenAI GPT-6.2-Sol produced
+the change. Independent read-only review by `gpt_reviewer` using OpenAI
+GPT-5.6-Terra passed after adding native text validation. Hosted CI remains
+unverified.
+
+## Replay differences in saved comparison reports
+
+The schema and edge replay accepted comparisons that suppressed observed
+citation or uncertainty differences, or paired edges with different policy
+revisions. An edge can be internally consistent while its comparison
+misstates what the two reviews agree on.
+
+The offline checker now compares both policy projections, including ordered
+obligations, exact citations and relationship requirements. Two edges with
+the same document ID and policy must report the same observations. For evaluated
+comparisons, it recomputes ordered term and producer-scope conflicts,
+citation differences, relationship conflicts and uncertainty differences.
+For blocked comparisons, the schema checks the skip structure and the
+embedded edges establish the blockers. The checker can use an optional
+preserved claim disclosed only by the comparison. Confirm its presence and
+content from the native review. The same native text and shape rules now
+apply when a saved chain carries an optional preserved claim.
+
+The saved-report mode `--comparison-report` works without Cargo and replays
+both edges before checking their differences. The pinned replay passed 45
+reports and 20 authoring cases, rejected 15 comparison mutations with valid
+schemas and individually consistent edges, and rejected one additional
+chain mutation in a repeated optional claim. Saved-file checks accepted
+all eight route comparisons and rejected five bad inputs without Cargo,
+including conflicting observations on one document ID.
+An instrumented source copy captured 4,703 Rust comparisons from the
+symmetry and exact-mapping tests. All passed schema, edge and comparison
+replay across both fixture domains, all three verdicts and all seven
+comparison reason categories. This included 199 comparisons with matching
+document IDs and identical observations.
+The current receipt binds the updated checker sources, with prior binary
+identities and qualified outputs matching. Repository integrity, 20 validator
+tests, seven case-plan tests, the consumer self-test and whitespace checks
+passed.
+
+Changed paths are `scripts/check_comparison_consistency.py`,
+`scripts/check_edge_consistency.py`, `scripts/check_chain_references.py`,
+`scripts/test_exact_result_schema.py`, `docs/consumer-result-v0.1.md`,
+`docs/validation.md` and this record. OpenAI GPT-6.2-Sol produced the change.
+Independent read-only review by `gpt_reviewer` using OpenAI GPT-5.6-Terra
+passed, including a follow-up review of the document identity check. These
+changes are local and hosted CI remains unverified.
+
+## Bind saved reports to their native reviews
+
+Report-only replay accepts a missing-link reason that omits an optional
+downstream claim when the edge did not disclose that claim. The same gap
+exists for an optional claim in a paired producer-scope conflict. A consistent
+report can also cite the wrong document ID or carry observations from a
+different checked review.
+
+Saved edge, chain, and comparison checks now take ordered native v0.1 files
+through `--native-review`. The independent oracle checks each input and
+recomputes its canonical document ID. The checker verifies both endpoints,
+including on skipped edges, together with evaluated term and relationship
+observations, ordered disclosures, missing-link claims, and paired
+producer-scope observations. It uses the policy recorded in the report. The
+caller still verifies the independent policy selection and evidence trust.
+The option leaves report-only behavior, native input and result formats, and
+whole-chain verdicts unchanged.
+
+The focused replay passed five bindings and rejected ten counterexamples
+that passed schema validation and report-only replay. The CLI passed 27
+checks with Cargo absent from PATH, including 18 Rust-emitted authoring edge
+reports across both domains and all three edge verdicts. Source-backed replay
+also rejected reversed inputs, the omitted downstream claim, and oversized
+and malformed review files.
+
+Pinned Rust 1.99.1 and Python 3.11.17 qualification passed 45 strict result
+reports and 20 authoring cases, including all 18 emitted edge bindings and
+two native refusals. The current receipt binds all four changed Python
+sources. Qualified output matches the previous receipt, and rebuilt
+executable hashes are recorded in the fresh receipt. Repository integrity,
+20 validator tests, seven case-plan tests, the consumer self-test, and
+whitespace checks passed.
+
+Changed paths are `scripts/check_native_review_binding.py`,
+`scripts/test_native_review_binding.py`, `scripts/test_exact_result_schema.py`,
+`scripts/qualify_authoring_example.py`, `README.md`,
+`docs/consumer-result-v0.1.md`, `docs/validation.md` and this record.
+OpenAI GPT-6.2-Sol produced the change. Independent read-only review by
+`gpt_reviewer` using OpenAI GPT-5.6-Terra passed. The work remains local,
+and hosted CI remains unverified.
+
+## Bind saved reports to the independently selected policy
+
+Removing an obligation that had no producer claim changed an emitted edge
+verdict from required meaning missing to preserved. The altered report
+retained the policy ID and revision and passed schema, report-only, and
+native-review binding checks. The producer could supply the same assertions
+while the report applied a different policy.
+
+The offline checker now accepts `--selected-policy` in each saved-report
+mode. It compares the complete policy, including endpoints, ordered
+obligations and citations, relationship requirements, and scope and
+uncertainty flags. A paired comparison uses one independently selected
+policy for both reviews. A chain binds one policy per edge in order.
+Diagnostics identify the first mismatch by policy position and JSON pointer.
+Use the policy file separately or alongside `--native-review`. The existing
+report-only and native-review modes, native wire, and result formats retain
+their behavior. The chain verdict remains unresolved. Source truth and
+execution authority stay with the host.
+
+Focused replay rejected 17 policy substitutions and invalid selections.
+Eight persistent CLI cases verify shared comparison policy and chain count,
+order, and per-edge checks. Thirty additional saved-file probes with Cargo
+absent from PATH covered the two authoring domains, the motivating omitted
+obligation on an edge and a comparison, and combined policy and native
+review binding.
+
+Pinned Rust 1.99.1 and Python 3.11.17 qualification passed 45 strict result
+reports and 20 authoring cases, including 18 emitted edges checked against
+native input and independently derived policy. Report outputs and qualified
+binaries match the previous receipt. Repository integrity, 20 validator
+tests, seven case-plan tests, the consumer self-test, and whitespace passed.
+
+Changed paths are `scripts/check_selected_policy.py`,
+`scripts/test_selected_policy.py`, `scripts/check_comparison_consistency.py`,
+`scripts/test_exact_result_schema.py`, `scripts/qualify_authoring_example.py`,
+`README.md`, `docs/consumer-result-v0.1.md`, `docs/validation.md` and this
+record. OpenAI GPT-6.2-Sol produced the change. Independent read-only review
+by `gpt_reviewer` using OpenAI GPT-5.6-Terra passed after adding the chain
+and comparison CLI regressions. The work remains local and hosted CI
+remains unverified.
+
+## Check whether reported observations can coexist natively
+
+A preserved saved edge passed replay when an optional loss and a required
+mapping named the same target. The native profile requires distinct
+non-null target terms. Similar omissions allowed reports to imply too many
+facets, no producer-required facets, or a review beyond the native byte limit.
+
+The checker now gives the independent oracle a minimal native review using
+the reported observations and one-byte notes. The witness omits undisclosed
+optional facets. When a chain or comparison supplies an optional preserved
+claim absent from its embedded edge, the checker tests it with the other
+claims for that edge. It also checks that both the policy and the document
+identify distinct source and target snapshots, including for skipped edges.
+Witness feasibility checks whether the declarations could coexist. Full
+input binding still requires the actual native reviews and host policy.
+Native wire and result formats and the unresolved chain verdict are retained.
+
+Focused tests accepted 32 observed facets and a 65,536-byte minimal review.
+They refused 33 facets, a 65,537-byte lower bound, no required facet,
+identical endpoints, and duplicate targets within edges and supplemental
+claims. The tests use both schema-valid reports and emitted reports.
+
+Pinned qualification passed 45 strict reports and 20 authoring cases, and
+six saved-file CLI probes passed with Cargo absent from PATH. An instrumented
+source copy emitted 19,816 edge, 34 chain, and 4,757 comparison reports from
+the reference consumer's Rust tests. All passed schema validation and their
+replay checks. The new receipt binds the five checker and test sources and
+matches the previous qualified outputs and binary identities. Repository
+integrity, 20 validator tests, seven case-plan tests, the consumer self-test,
+and whitespace checks passed.
+
+Changed paths are `scripts/check_edge_consistency.py`,
+`scripts/check_chain_references.py`, `scripts/check_comparison_consistency.py`,
+`scripts/test_native_observations.py`, `scripts/test_exact_result_schema.py`,
+`docs/consumer-result-v0.1.md`, `docs/validation.md` and this record.
+OpenAI GPT-6.2-Sol produced the change. Independent read-only review by
+`gpt_reviewer` using OpenAI GPT-5.6-Terra passed. Work remains local and hosted
+CI remains unverified.
+
+## Reconcile repeated review IDs within saved chains
+
+A saved chain could assign incompatible endpoint or relationship
+observations to the same native document ID. Each edge could pass replay
+under its own policy and still contradict another occurrence.
+
+Chain replay now groups edges by document ID. All occurrences must agree
+on native endpoints. Evaluated occurrences must agree on relationship
+observations, known term claims and explicit absences, including claims
+carried only by missing-link reasons. Disclosures across the group must fit
+one native facet order, and the union of known observations must fit one
+native review. Edges may apply different policies, hide optional preserved
+claims outside their scopes, or skip observation entirely. This check
+preserves the native and report formats and keeps chain preservation
+unresolved. Binding the ID still requires the original input.
+
+Five focused positive cases and eight counterexamples cover policy
+differences, skipped edges, conflicting citations, impossible combined
+claims, conflicting disclosure order and missing-link claims. Replay
+accepted 34 prior Rust chains and 272 additional Rust chains with repeated
+document IDs from an isolated source copy. Sixteen repeated an ID on
+nonadjacent edges, 32 included a skipped edge, and 87 differed in edge
+verdicts. Five saved-chain CLI probes passed with Cargo absent from PATH.
+
+Pinned qualification passed 45 strict reports and 20 authoring cases.
+The current receipt binds the five changed Python sources and matches
+prior qualified output and binary identities. Repository integrity,
+20 validator tests, seven case-plan tests, the consumer self-test and
+whitespace checks passed.
+
+Changed paths are `scripts/check_chain_documents.py`,
+`scripts/check_chain_references.py`, `scripts/check_edge_consistency.py`,
+`scripts/test_chain_documents.py`, `scripts/test_exact_result_schema.py`,
+`docs/consumer-result-v0.1.md`, `docs/validation.md` and this record.
+OpenAI GPT-6.2-Sol produced the change. Independent read-only review by
+`gpt_reviewer` using OpenAI GPT-5.6-Terra passed. Work remains local and hosted
+CI remains unverified.
+
+## Explain evidence in saved comparisons
+
+The Rust fixtures distinguish a typed loss conflict that cites the same
+exact reference and a pair of agreeing claims that cite different revisions
+of one record. The comparison retained both sets of observations, but a
+caller had to join the report's reason indices, claims, policy expectations,
+and citation arrays to see that distinction.
+
+`--evidence-context` emits the local
+`vusl.comparison-evidence-context.v0.1` view after replay and any selected
+bindings pass. Each localized item contains both observations, selected
+requirements, exact shared and unique citations, qualified record revision
+differences, and caller follow-up tokens. The view carries both review IDs
+and edge verdicts, the original comparison outcome, its raw file SHA-256,
+and flags for the bindings checked. A skipped comparison emits null items.
+The existing CLI output still applies without the option. Native and strict
+result formats, semantic outcomes, and authority boundaries stay intact.
+
+Eight emitted views, four producer-scope combinations, and seven CLI
+regressions passed. The instrumented Rust matrix supplied 4,757 additional
+comparisons covering host terms, producer terms, and relationships, including
+1,098 skipped comparisons. Its views retained 2,593 localized conflicts with
+shared citations and 805 same-record revision difference groups.
+
+Pinned qualification passed 45 strict reports and 20 authoring cases. The
+receipt binds the three changed Python sources and matches prior qualified
+output and binary identities. Repository integrity, 20 validator tests,
+seven case-plan tests, the consumer self-test and whitespace checks passed.
+
+Changed paths are `scripts/comparison_evidence_context.py`,
+`scripts/test_comparison_evidence_context.py`, `scripts/test_exact_result_schema.py`,
+`README.md`, `docs/consumer-result-v0.1.md`, `docs/validation.md` and this
+record. OpenAI GPT-6.2-Sol produced the change. Independent read-only review
+by `gpt_reviewer` using OpenAI GPT-5.6-Terra passed. Work remains local and
+hosted CI remains unverified.
+
+## Decode strict report indices and counts exactly
+
+A saved chain with an integral spelling such as `1.0` passed schema and
+failed when replay used the value as a list index. The same binary-float
+decoder rounded a fractional value near one to that index and rounded a
+tiny positive value to zero. Both altered reports could pass replay.
+
+Saved and route qualification reports now decode numeric tokens as exact
+nonnegative integers before schema validation. Equivalent decimal and
+exponent spellings normalize to the same integer. Fractions and values
+outside the unsigned 64-bit conversion range fail at intake. The schema
+and replay enforce the tighter per-field bounds. The evidence view keeps
+the SHA-256 of the raw saved comparison, including its numeric spellings.
+The shared decoder uses this numeric hook only at the strict report intake.
+
+Twelve CLI cases cover integral decimal and exponent spellings, signed
+zero, precision rounding, underflow and overflow, field bounds, booleans,
+and the evidence view's raw hash. The decoder matched scaled integer
+arithmetic on 30,000 generated numeric spellings. It also decoded 24,607
+Rust reports in both their emitted form and with all 51,661 integer fields
+expressed as equivalent decimals.
+
+Pinned qualification passed 45 strict reports and 20 authoring cases. The
+current receipt binds the four changed scripts and matches the previous
+emitted output and binary identities. Repository integrity, 20 validator
+tests, seven case-plan tests, the consumer self-test, and whitespace
+checks passed.
+
+Changed paths are
+`scripts/test_reference_consumer.py`, `scripts/test_exact_result_schema.py`,
+`scripts/comparison_evidence_context.py`, `scripts/test_report_numbers.py`,
+`docs/validation.md` and this record. OpenAI GPT-6.2-Sol produced the
+change. Independent read-only review by `gpt_reviewer` using OpenAI
+GPT-5.6-Terra passed. Work remains local and hosted CI remains unverified.
+
+## Generate strict reports from caller-supplied files
+
+The existing reference commands used synthetic policy labels or compiled
+examples. The saved-report checker already accepted native reviews and an
+independent policy file. A caller still needed to write Rust integration
+code to generate the strict report from those files.
+
+The standalone Unix `inspect_reviews` example opens absolute review and
+policy paths with nonblocking, no-follow admission, then verifies and reads
+each open regular file. It calls the same strict APIs for edges, paired
+reviews, and chains. The policy uses the saved checker's existing selection shape,
+with closed deserialization and checked constructors. Comparison accepts
+one shared policy. Chain accepts one policy per edge. A written
+`vusl.exact-mapping-result.v0.2` report exits zero, including unresolved
+outcomes. Failures return a versioned diagnostic with fixed codes and
+positions. Input values and paths stay out of diagnostics. Whole-chain
+preservation remains unresolved, and the host retains evidence trust and
+authority.
+
+The pinned example generated 18 reports across library lending and
+irrigation and passed independent replay against both input bindings.
+Cases include loss, wrong terms, foreign citations, stale selection,
+different policies in a continuous chain, explicit producer scope and
+uncertainty requirements, and an infeasible but well-formed policy.
+Thirteen refusal cases checked argument admission, duplicate and unknown
+fields, native and policy byte caps, symlink, FIFO and directory rejection,
+redaction, and exact diagnostic indices. The pinned replay includes the
+maximum 16-edge chain. A separate probe replayed that chain with
+paths containing spaces and Unicode.
+
+Pinned qualification passed 45 prior strict reports, 20 authoring cases,
+and the new caller-input cases. The receipt binds seven inventoried changes
+and matches prior qualified outputs. Rust formatting,
+strict all-target Clippy, 66 tests and one doctest passed. Rustdoc used
+`TMPDIR=/private/tmp` after the default temp directory was denied by the
+sandbox. Repository integrity, 20 validator tests, seven case-plan tests,
+the consumer self-test and whitespace checks passed.
+
+The example uses the existing locked libc 0.2.191 as a Unix dev dependency
+for file flags. The lock's package versions and checksums are retained.
+
+Changed paths are `examples/reference-consumer/Cargo.toml`, `examples/reference-consumer/Cargo.lock`,
+`examples/reference-consumer/examples/inspect_reviews/main.rs`,
+`examples/reference-consumer/examples/inspect_reviews/policy.rs`,
+`scripts/qualify_inspect_reviews.py`, `scripts/test_exact_result_schema.py`,
+`README.md`, `examples/reference-consumer/README.md`,
+`docs/validation.md` and this record. OpenAI GPT-6.2-Sol produced the
+change. Independent read-only review by `gpt_reviewer` using OpenAI
+GPT-5.6-Terra passed after the single-descriptor file admission fix. Work
+remains local and hosted CI remains unverified.
+
+## Read saved replay inputs from their admitted file descriptors
+
+The saved-report verifier checked the path before opening it. The file
+type checked at the path could differ from the opened file, including for
+a native review or selected policy used for binding.
+
+The verifier now opens each saved report, review, and policy on the pinned
+Unix hosts with no-follow, nonblocking flags. It verifies the open
+descriptor is regular and reads it within the existing limit, including
+when its content grows after the size check. It uses the same bytes for
+replay and the evidence view's report hash. The file-admission errors
+retain their existing scope and positions.
+
+Descriptor tests check a replacement directory entry after open, file
+growth after the size check, and missing no-follow support. Thirteen CLI
+cases cover success with both bindings, and symlink, FIFO, directory and
+oversize refusal in each of the report, policy, and native review slots.
+Failures have empty stdout and their fixed diagnostics on stderr. The
+descriptor and CLI cases also passed with Cargo absent from PATH.
+
+Pinned qualification passed 45 prior strict reports, 20 authoring cases,
+and 18 caller-input reports with both bindings. The receipt binds the
+three changed Python sources and matches prior executable identities and
+qualified outputs. Repository integrity, 20 validator tests, seven
+case-plan tests, the consumer self-test and whitespace checks passed.
+
+Changed paths are `scripts/read_saved_input.py`, `scripts/test_saved_input_files.py`,
+`scripts/test_exact_result_schema.py`, `docs/validation.md` and this record.
+OpenAI GPT-6.2-Sol produced the change. Independent read-only review by
+`gpt_reviewer` using OpenAI GPT-5.6-Terra passed. Work remains local and hosted
+CI remains unverified.
+
+## Localize saved-report failures for consumers
+
+Two reports with the same replay failure on different chain edges produced
+the same text diagnostic. A caller could identify the rule but had to
+inspect every edge to locate the failing record.
+
+`--diagnostic-json` emits one `vusl.saved-replay-diagnostic.v0.1` object to
+stderr on a failed saved-report check. It includes scope, stage, fixed code,
+report JSON Pointer when known, and typed details. The checker obtains
+embedded edge locations from known collections and keeps user-provided
+paths, values and schema exception messages out of the output. Detail
+fields include indices, counts, and selected policy pointers or native
+refusal codes where applicable. The original text path and success stdout
+remain available. Argument errors use normal usage diagnostics.
+
+Seventeen CLI cases cover the first and second edge, invalid embedded
+schema and collection shape, input and tooling, chain and comparison
+replay, policy and native bindings, redaction, default failures, and
+success with and without the evidence view. All 17 also passed with Cargo
+absent from PATH. Pinned qualification passed 45 strict reports,
+20 authoring cases, and 18 caller-input reports. Its receipt binds the ten
+changed Python sources and matches prior qualified binaries and outputs.
+Repository integrity, 20 validator tests, seven case-plan tests, the
+consumer self-test and whitespace checks passed.
+
+Changed paths are `scripts/saved_replay_diagnostics.py`,
+`scripts/test_saved_replay_diagnostics.py`, `scripts/test_exact_result_schema.py`,
+`scripts/test_reference_consumer.py`, `scripts/check_native_review_binding.py`,
+`scripts/check_selected_policy.py`, `scripts/check_edge_consistency.py`,
+`scripts/check_chain_documents.py`, `scripts/check_chain_references.py`,
+`scripts/check_comparison_consistency.py`, `docs/validation.md` and this record.
+OpenAI GPT-6.2-Sol produced the change. Independent read-only review by
+`gpt_reviewer` using OpenAI GPT-5.6-Terra passed. Work remains local and hosted
+CI remains unverified.
+
+## Strict reference-consumer source publication
+
+The preceding entries record each implementation checkpoint as it was
+verified. The combined source packet starts at public main
+`dc53c7fd25f0f4d7bf90776c20569920d22d1081` and includes strict inspection,
+authoring, comparison evidence, saved-report replay, and diagnostics. The
+owning pull request records the published commit, hosted checks, and merge
+state. The native v0.1 profile and historical extraction provenance retain
+their existing pins. The package and host-integration gates are separate
+from this source publication.

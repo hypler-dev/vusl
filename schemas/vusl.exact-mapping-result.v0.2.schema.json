@@ -1,0 +1,951 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VUSL exact mapping result v0.2 companion",
+  "description": "Structural companion for the reference consumer's edge, chain, and comparison results. Inputs, native identity, policy binding, evidence trust, and review outcomes require their respective validation.",
+  "oneOf": [{"$ref": "#/$defs/edge"}, {"$ref": "#/$defs/chain"}, {"$ref": "#/$defs/comparison"}],
+  "$defs": {
+    "component": {"type": "string", "minLength": 1, "maxLength": 256},
+    "edgeIndex": {"type": "integer", "minimum": 0, "maximum": 15},
+    "obligationIndex": {"type": "integer", "minimum": 0, "maximum": 31},
+    "outcome": {
+      "enum": ["required_meaning_preserved", "required_meaning_missing_or_changed", "unresolved"]
+    },
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["system", "scope", "contract", "contract_version", "native_id", "revision"],
+      "properties": {
+        "system": {"$ref": "#/$defs/component"},
+        "scope": {"$ref": "#/$defs/component"},
+        "contract": {"$ref": "#/$defs/component"},
+        "contract_version": {"$ref": "#/$defs/component"},
+        "native_id": {"$ref": "#/$defs/component"},
+        "revision": {"$ref": "#/$defs/component"}
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/reference"},
+      "maxItems": 8,
+      "uniqueItems": true
+    },
+    "uncertainty": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1, "maxLength": 1024},
+      "maxItems": 8,
+      "uniqueItems": true
+    },
+    "referenceFields": {
+      "type": "array",
+      "items": {
+        "enum": ["system", "scope", "contract", "contract_version", "native_id", "revision"]
+      },
+      "minItems": 1,
+      "maxItems": 6,
+      "uniqueItems": true
+    },
+    "relationshipBasis": {"enum": ["none", "content_review", "producer_statement"]},
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "revision", "source", "target", "require_producer_scope"],
+      "properties": {
+        "id": {"$ref": "#/$defs/component"},
+        "revision": {"$ref": "#/$defs/component"},
+        "source": {"$ref": "#/$defs/reference"},
+        "target": {"$ref": "#/$defs/reference"},
+        "require_producer_scope": {"type": "boolean"}
+      }
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "source", "target"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 96,
+          "maxLength": 96,
+          "pattern": "^vusl\\.mapping-review\\.v0\\.1:sha256:[0-9a-f]{64}$"
+        },
+        "source": {"$ref": "#/$defs/reference"},
+        "target": {"$ref": "#/$defs/reference"}
+      }
+    },
+    "facetObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "target_term", "fidelity", "loss", "evidence"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "target_term": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/component"}]},
+        "fidelity": {"enum": ["preserved", "transformed", "unknown", "unsupported"]},
+        "loss": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "enum": ["omission", "approximation", "constraint_dropped", "unrepresentable"]
+            }
+          ]
+        },
+        "evidence": {"$ref": "#/$defs/evidence"}
+      }
+    },
+    "outsidePolicyFinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "source_term",
+        "producer_required",
+        "target_term",
+        "fidelity",
+        "loss",
+        "evidence"
+      ],
+      "properties": {
+        "code": {
+          "enum": [
+            "producer_required_term_outside_policy",
+            "optional_loss_outside_policy",
+            "optional_uncertainty_outside_policy"
+          ]
+        },
+        "source_term": {"$ref": "#/$defs/component"},
+        "producer_required": {"type": "boolean"},
+        "target_term": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/component"}]},
+        "fidelity": {"enum": ["preserved", "transformed", "unknown", "unsupported"]},
+        "loss": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "enum": ["omission", "approximation", "constraint_dropped", "unrepresentable"]
+            }
+          ]
+        },
+        "evidence": {"$ref": "#/$defs/evidence"}
+      },
+      "if": {"properties": {"code": {"const": "producer_required_term_outside_policy"}}},
+      "then": {"properties": {"producer_required": {"const": true}}},
+      "else": {"properties": {"producer_required": {"const": false}}}
+    },
+    "citationFinding": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "reference"],
+          "properties": {
+            "code": {"const": "expected_evidence_missing"},
+            "reference": {"$ref": "#/$defs/reference"},
+            "unexpected_same_record_revisions": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/component"},
+              "minItems": 1,
+              "maxItems": 8,
+              "uniqueItems": true
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "reference"],
+          "properties": {
+            "code": {"const": "unexpected_evidence"},
+            "reference": {"$ref": "#/$defs/reference"}
+          }
+        }
+      ]
+    },
+    "obligationFinding": {
+      "oneOf": [
+        {"$ref": "#/$defs/citationFinding"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code"],
+          "properties": {
+            "code": {
+              "enum": [
+                "endpoint_binding_unresolved",
+                "policy_constraints_unsatisfiable",
+                "required_term_missing",
+                "required_term_downgraded",
+                "target_term_mismatch",
+                "required_meaning_loss",
+                "required_meaning_uncertain"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "obligation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "index",
+        "source_term",
+        "expected_target_term",
+        "expected_evidence",
+        "observed",
+        "findings"
+      ],
+      "properties": {
+        "index": {"$ref": "#/$defs/obligationIndex"},
+        "source_term": {"$ref": "#/$defs/component"},
+        "expected_target_term": {"$ref": "#/$defs/component"},
+        "expected_evidence": {"$ref": "#/$defs/evidence", "minItems": 1},
+        "observed": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/facetObservation"}]},
+        "findings": {"type": "array", "items": {"$ref": "#/$defs/obligationFinding"}, "maxItems": 20}
+      }
+    },
+    "relationshipFinding": {
+      "oneOf": [
+        {"$ref": "#/$defs/citationFinding"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code"],
+          "properties": {
+            "code": {
+              "enum": [
+                "endpoint_binding_unresolved",
+                "policy_constraints_unsatisfiable",
+                "relationship_basis_mismatch",
+                "relationship_residual_uncertainty"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "resolution_needed"],
+          "properties": {
+            "code": {"const": "relationship_unresolved"},
+            "resolution_needed": {"const": "review_relationship_evidence_for_exact_revisions"}
+          }
+        }
+      ]
+    },
+    "relationshipObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "basis", "uncertainty", "evidence"],
+      "properties": {
+        "state": {"enum": ["evidenced", "unresolved"]},
+        "basis": {"$ref": "#/$defs/relationshipBasis"},
+        "uncertainty": {"$ref": "#/$defs/uncertainty"},
+        "evidence": {"$ref": "#/$defs/evidence"}
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "expected_basis",
+        "expected_evidence",
+        "require_no_residual_uncertainty",
+        "observed",
+        "findings"
+      ],
+      "properties": {
+        "expected_basis": {"enum": ["content_review", "producer_statement"]},
+        "expected_evidence": {"$ref": "#/$defs/evidence", "minItems": 1},
+        "require_no_residual_uncertainty": {"type": "boolean"},
+        "observed": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/relationshipObservation"}]},
+        "findings": {"type": "array", "items": {"$ref": "#/$defs/relationshipFinding"}, "maxItems": 19}
+      }
+    },
+    "edgeReason": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "differing_fields"],
+          "properties": {
+            "code": {"enum": ["source_mismatch", "target_mismatch"]},
+            "differing_fields": {"$ref": "#/$defs/referenceFields"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "differing_fields"],
+          "properties": {
+            "code": {"enum": ["source_revision_mismatch", "target_revision_mismatch"]},
+            "differing_fields": {"const": ["revision"]}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "first_obligation", "duplicate_obligation", "target_term"],
+          "properties": {
+            "code": {"const": "policy_duplicate_target_term"},
+            "first_obligation": {"$ref": "#/$defs/obligationIndex"},
+            "duplicate_obligation": {"$ref": "#/$defs/obligationIndex"},
+            "target_term": {"$ref": "#/$defs/component"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "minimum_canonical_bytes", "max_canonical_bytes"],
+          "properties": {
+            "code": {"const": "policy_review_size_exceeded"},
+            "minimum_canonical_bytes": {"type": "integer", "minimum": 65537},
+            "max_canonical_bytes": {"const": 65536}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code"],
+          "properties": {
+            "code": {"enum": ["producer_required_scope_unreconciled", "relationship_unresolved"]}
+          }
+        }
+      ]
+    },
+    "edgeHasBindingFailure": {
+      "properties": {
+        "reasons": {
+          "contains": {
+            "properties": {
+              "code": {"enum": ["source_mismatch", "source_revision_mismatch", "target_mismatch", "target_revision_mismatch"]}
+            }
+          }
+        }
+      }
+    },
+    "edgeHasPolicyFailure": {
+      "properties": {
+        "reasons": {
+          "contains": {
+            "properties": {"code": {"enum": ["policy_duplicate_target_term", "policy_review_size_exceeded"]}}
+          }
+        }
+      }
+    },
+    "evaluatedCheck": {
+      "properties": {
+        "findings": {
+          "not": {
+            "contains": {
+              "properties": {"code": {"enum": ["endpoint_binding_unresolved", "policy_constraints_unsatisfiable"]}}
+            }
+          }
+        }
+      }
+    },
+    "edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "format",
+        "scope",
+        "outcome",
+        "policy",
+        "document",
+        "reasons",
+        "obligations",
+        "relationship",
+        "outside_policy"
+      ],
+      "properties": {
+        "format": {"const": "vusl.exact-mapping-result.v0.2"},
+        "scope": {"const": "edge"},
+        "outcome": {"$ref": "#/$defs/outcome"},
+        "policy": {"$ref": "#/$defs/policy"},
+        "document": {"$ref": "#/$defs/document"},
+        "reasons": {"type": "array", "items": {"$ref": "#/$defs/edgeReason"}, "maxItems": 34},
+        "obligations": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/obligation"},
+          "minItems": 1,
+          "maxItems": 32
+        },
+        "relationship": {"$ref": "#/$defs/relationship"},
+        "outside_policy": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "array",
+              "items": {"$ref": "#/$defs/outsidePolicyFinding"},
+              "maxItems": 32
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"outcome": {"const": "required_meaning_preserved"}}},
+          "then": {
+            "properties": {
+              "reasons": {"maxItems": 0},
+              "obligations": {
+                "items": {
+                  "properties": {
+                    "findings": {"maxItems": 0},
+                    "observed": {
+                      "type": "object",
+                      "properties": {
+                        "required": {"const": true},
+                        "target_term": {"$ref": "#/$defs/component"},
+                        "fidelity": {"const": "preserved"},
+                        "loss": {"type": "null"},
+                        "evidence": {"minItems": 1}
+                      }
+                    }
+                  }
+                }
+              },
+              "relationship": {
+                "properties": {
+                  "findings": {"maxItems": 0},
+                  "observed": {
+                    "type": "object",
+                    "properties": {
+                      "state": {"const": "evidenced"},
+                      "basis": {"enum": ["content_review", "producer_statement"]},
+                      "evidence": {"minItems": 1}
+                    }
+                  }
+                },
+                "if": {"properties": {"require_no_residual_uncertainty": {"const": true}}},
+                "then": {"properties": {"observed": {"properties": {"uncertainty": {"maxItems": 0}}}}}
+              }
+            },
+            "if": {"properties": {"policy": {"properties": {"require_producer_scope": {"const": true}}}}},
+            "then": {
+              "properties": {
+                "outside_policy": {
+                  "not": {"contains": {"properties": {"producer_required": {"const": true}}}}
+                }
+              }
+            }
+          }
+        }
+      ],
+      "if": {
+        "anyOf": [
+          {"$ref": "#/$defs/edgeHasBindingFailure"},
+          {"$ref": "#/$defs/edgeHasPolicyFailure"}
+        ]
+      },
+      "then": {
+        "properties": {
+          "outcome": {"const": "unresolved"},
+          "reasons": {
+            "not": {
+              "contains": {
+                "properties": {"code": {"enum": ["relationship_unresolved", "producer_required_scope_unreconciled"]}}
+              }
+            }
+          },
+          "outside_policy": {"type": "null"},
+          "obligations": {"items": {"properties": {"observed": {"type": "null"}}}},
+          "relationship": {"properties": {"observed": {"type": "null"}}}
+        },
+        "if": {"$ref": "#/$defs/edgeHasBindingFailure"},
+        "then": {
+          "properties": {
+            "obligations": {"items": {"properties": {"findings": {"const": [{"code": "endpoint_binding_unresolved"}]}}}},
+            "relationship": {"properties": {"findings": {"const": [{"code": "endpoint_binding_unresolved"}]}}}
+          }
+        },
+        "else": {
+          "properties": {
+            "obligations": {"items": {"properties": {"findings": {"const": [{"code": "policy_constraints_unsatisfiable"}]}}}},
+            "relationship": {"properties": {"findings": {"const": [{"code": "policy_constraints_unsatisfiable"}]}}}
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "outside_policy": {"type": "array"},
+          "relationship": {
+            "$ref": "#/$defs/evaluatedCheck",
+            "properties": {"observed": {"$ref": "#/$defs/relationshipObservation"}}
+          },
+          "obligations": {
+            "items": {
+              "$ref": "#/$defs/evaluatedCheck",
+              "if": {"properties": {"observed": {"type": "null"}}},
+              "then": {"properties": {"findings": {"const": [{"code": "required_term_missing"}]}}},
+              "else": {
+                "properties": {
+                  "findings": {"not": {"contains": {"properties": {"code": {"const": "required_term_missing"}}}}}
+                }
+              }
+            }
+          }
+        },
+        "if": {"properties": {"obligations": {"contains": {"properties": {"observed": {"type": "null"}}}}}},
+        "then": {"properties": {"outcome": {"const": "required_meaning_missing_or_changed"}}}
+      }
+    },
+    "missingLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "upstream_edge",
+        "downstream_edge",
+        "upstream_obligation",
+        "intermediate_term",
+        "downstream_claim",
+        "resolution_needed"
+      ],
+      "properties": {
+        "code": {"const": "chain_required_term_link_missing"},
+        "upstream_edge": {"$ref": "#/$defs/edgeIndex"},
+        "downstream_edge": {"$ref": "#/$defs/edgeIndex"},
+        "upstream_obligation": {"$ref": "#/$defs/obligationIndex"},
+        "intermediate_term": {"$ref": "#/$defs/component"},
+        "downstream_claim": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/facetObservation"}]},
+        "resolution_needed": {"const": "review_downstream_claim_and_select_exact_obligation"}
+      }
+    },
+    "chainBoundaryReason": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "upstream_edge", "downstream_edge", "differing_fields"],
+          "properties": {
+            "code": {"const": "chain_discontinuous"},
+            "upstream_edge": {"$ref": "#/$defs/edgeIndex"},
+            "downstream_edge": {"$ref": "#/$defs/edgeIndex"},
+            "differing_fields": {"$ref": "#/$defs/referenceFields"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "upstream_edge", "downstream_edge"],
+          "properties": {
+            "code": {
+              "enum": ["chain_boundary_binding_unresolved", "chain_boundary_policy_unsatisfiable"]
+            },
+            "upstream_edge": {"$ref": "#/$defs/edgeIndex"},
+            "downstream_edge": {"$ref": "#/$defs/edgeIndex"}
+          }
+        },
+        {"$ref": "#/$defs/missingLink"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "code",
+            "upstream_edge",
+            "downstream_edge",
+            "upstream_obligation",
+            "downstream_obligation",
+            "intermediate_term",
+            "upstream_outcome",
+            "downstream_outcome"
+          ],
+          "properties": {
+            "code": {"const": "chain_required_term_link_unverified"},
+            "upstream_edge": {"$ref": "#/$defs/edgeIndex"},
+            "downstream_edge": {"$ref": "#/$defs/edgeIndex"},
+            "upstream_obligation": {"$ref": "#/$defs/obligationIndex"},
+            "downstream_obligation": {"$ref": "#/$defs/obligationIndex"},
+            "intermediate_term": {"$ref": "#/$defs/component"},
+            "upstream_outcome": {"$ref": "#/$defs/outcome"},
+            "downstream_outcome": {"$ref": "#/$defs/outcome"}
+          }
+        }
+      ]
+    },
+    "pathStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["edge", "obligation", "source_term", "expected_target_term", "outcome"],
+      "properties": {
+        "edge": {"$ref": "#/$defs/edgeIndex"},
+        "obligation": {"$ref": "#/$defs/obligationIndex"},
+        "source_term": {"$ref": "#/$defs/component"},
+        "expected_target_term": {"$ref": "#/$defs/component"},
+        "outcome": {"$ref": "#/$defs/outcome"}
+      }
+    },
+    "pathStop": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "upstream_edge", "downstream_edge"],
+          "properties": {
+            "code": {
+              "enum": [
+                "chain_discontinuous",
+                "chain_boundary_binding_unresolved",
+                "chain_boundary_policy_unsatisfiable"
+              ]
+            },
+            "upstream_edge": {"$ref": "#/$defs/edgeIndex"},
+            "downstream_edge": {"$ref": "#/$defs/edgeIndex"}
+          }
+        },
+        {"$ref": "#/$defs/missingLink"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "edge", "obligation"],
+          "properties": {
+            "code": {
+              "enum": [
+                "endpoint_binding_unresolved",
+                "policy_constraints_unsatisfiable",
+                "term_check_not_preserved"
+              ]
+            },
+            "edge": {"$ref": "#/$defs/edgeIndex"},
+            "obligation": {"$ref": "#/$defs/obligationIndex"}
+          }
+        }
+      ]
+    },
+    "termPath": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_term", "steps", "stop"],
+      "properties": {
+        "source_term": {"$ref": "#/$defs/component"},
+        "steps": {"type": "array", "items": {"$ref": "#/$defs/pathStep"}, "maxItems": 16},
+        "stop": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/pathStop"}]}
+      }
+    },
+    "chain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["format", "scope", "outcome", "reasons", "edges", "term_paths"],
+      "properties": {
+        "format": {"const": "vusl.exact-mapping-result.v0.2"},
+        "scope": {"const": "chain"},
+        "outcome": {"const": "unresolved"},
+        "reasons": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/chainBoundaryReason"},
+          "minItems": 1,
+          "maxItems": 481,
+          "prefixItems": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["code"],
+              "properties": {"code": {"const": "chain_preservation_unknown"}}
+            }
+          ]
+        },
+        "edges": {"type": "array", "items": {"$ref": "#/$defs/edge"}, "minItems": 2, "maxItems": 16},
+        "term_paths": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/termPath"},
+          "minItems": 1,
+          "maxItems": 32
+        }
+      }
+    },
+    "comparisonReason": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code"],
+          "properties": {
+            "code": {
+              "enum": [
+                "comparison_binding_unresolved",
+                "comparison_policy_unsatisfiable",
+                "comparison_edge_outcomes_differ"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "obligation", "source_term", "differing_fields", "resolution_needed"],
+          "properties": {
+            "code": {"const": "conflicting_term_claims"},
+            "obligation": {"$ref": "#/$defs/obligationIndex"},
+            "source_term": {"$ref": "#/$defs/component"},
+            "differing_fields": {
+              "oneOf": [
+                {"const": ["presence"]},
+                {
+                  "type": "array",
+                  "items": {"enum": ["target_term", "required", "fidelity", "loss"]},
+                  "minItems": 1,
+                  "maxItems": 4,
+                  "uniqueItems": true
+                }
+              ]
+            },
+            "resolution_needed": {"const": "compare_cited_sources_for_term_at_exact_revisions"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "resolution_needed"],
+          "properties": {
+            "code": {"const": "conflicting_relationship_claims"},
+            "resolution_needed": {"const": "review_relationship_evidence_for_exact_revisions"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "source_term", "required_in_review", "claims_by_review", "resolution_needed"],
+          "properties": {
+            "code": {"const": "conflicting_producer_required_scope"},
+            "source_term": {"$ref": "#/$defs/component"},
+            "required_in_review": {"type": "integer", "minimum": 0, "maximum": 1},
+            "claims_by_review": {
+              "type": "array",
+              "items": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/facetObservation"}]},
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "resolution_needed": {"const": "reconcile_producer_required_terms_with_host_inventory"}
+          },
+          "oneOf": [
+            {
+              "properties": {
+                "required_in_review": {"const": 0},
+                "claims_by_review": {"prefixItems": [
+                  {"type": "object", "properties": {"required": {"const": true}}},
+                  {"oneOf": [{"type": "null"}, {"type": "object", "properties": {"required": {"const": false}}}]}
+                ]}
+              }
+            },
+            {
+              "properties": {
+                "required_in_review": {"const": 1},
+                "claims_by_review": {"prefixItems": [
+                  {"oneOf": [{"type": "null"}, {"type": "object", "properties": {"required": {"const": false}}}]},
+                  {"type": "object", "properties": {"required": {"const": true}}}
+                ]}
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "source_term", "differing_fields", "resolution_needed"],
+          "properties": {
+            "code": {"const": "conflicting_producer_term_claims"},
+            "source_term": {"$ref": "#/$defs/component"},
+            "differing_fields": {
+              "enum": [
+                ["target_term"], ["fidelity"], ["loss"],
+                ["target_term", "fidelity"], ["target_term", "loss"],
+                ["fidelity", "loss"], ["target_term", "fidelity", "loss"]
+              ]
+            },
+            "resolution_needed": {"const": "compare_cited_sources_for_term_at_exact_revisions"}
+          }
+        }
+      ]
+    },
+    "evidenceDifference": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["scope", "source_term", "only_in_reviews", "resolution_needed"],
+          "properties": {
+            "scope": {"const": "producer_term"},
+            "source_term": {"$ref": "#/$defs/component"},
+            "only_in_reviews": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/evidence"},
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "resolution_needed": {"const": "compare_cited_sources_for_term_at_exact_revisions"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["scope", "obligation", "source_term", "only_in_reviews", "resolution_needed"],
+          "properties": {
+            "scope": {"const": "term"},
+            "obligation": {"$ref": "#/$defs/obligationIndex"},
+            "source_term": {"$ref": "#/$defs/component"},
+            "only_in_reviews": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/evidence"},
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "resolution_needed": {"const": "compare_cited_sources_for_term_at_exact_revisions"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["scope", "basis_by_review", "only_in_reviews", "resolution_needed"],
+          "properties": {
+            "scope": {"const": "relationship"},
+            "basis_by_review": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/relationshipBasis"},
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "only_in_reviews": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/evidence"},
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "resolution_needed": {"const": "review_relationship_evidence_for_exact_revisions"}
+          }
+        }
+      ]
+    },
+    "comparisonHasBindingFailure": {
+      "properties": {"reviews": {"contains": {"$ref": "#/$defs/edgeHasBindingFailure"}}}
+    },
+    "comparisonHasPolicyFailure": {
+      "properties": {"reviews": {"contains": {"$ref": "#/$defs/edgeHasPolicyFailure"}}}
+    },
+    "comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "format",
+        "scope",
+        "outcome",
+        "reasons",
+        "evidence_differences",
+        "relationship_uncertainty_differences",
+        "reviews"
+      ],
+      "properties": {
+        "format": {"const": "vusl.exact-mapping-result.v0.2"},
+        "scope": {"const": "comparison"},
+        "outcome": {"$ref": "#/$defs/outcome"},
+        "reasons": {"type": "array", "items": {"$ref": "#/$defs/comparisonReason"}, "maxItems": 97},
+        "evidence_differences": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "array",
+              "items": {"$ref": "#/$defs/evidenceDifference"},
+              "maxItems": 65
+            }
+          ]
+        },
+        "relationship_uncertainty_differences": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["only_in_reviews"],
+              "properties": {
+                "only_in_reviews": {
+                  "type": "array",
+                  "items": {"$ref": "#/$defs/uncertainty"},
+                  "minItems": 2,
+                  "maxItems": 2
+                }
+              }
+            }
+          ]
+        },
+        "reviews": {"type": "array", "items": {"$ref": "#/$defs/edge"}, "minItems": 2, "maxItems": 2}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"reasons": {"minItems": 1}}},
+          "then": {"properties": {"outcome": {"const": "unresolved"}}},
+          "else": {"anyOf": [
+            {"properties": {
+              "outcome": {"const": "required_meaning_preserved"},
+              "reviews": {"items": {"properties": {"outcome": {"const": "required_meaning_preserved"}}}}
+            }},
+            {"properties": {
+              "outcome": {"const": "required_meaning_missing_or_changed"},
+              "reviews": {"items": {"properties": {"outcome": {"const": "required_meaning_missing_or_changed"}}}}
+            }},
+            {"properties": {
+              "outcome": {"const": "unresolved"},
+              "reviews": {"items": {"properties": {"outcome": {"const": "unresolved"}}}}
+            }}
+          ]}
+        },
+        {
+          "if": {
+            "properties": {
+              "reasons": {"contains": {"properties": {"code": {"const": "comparison_edge_outcomes_differ"}}}}
+            }
+          },
+          "then": {
+            "properties": {
+              "reasons": {"const": [{"code": "comparison_edge_outcomes_differ"}]},
+              "reviews": {"not": {"anyOf": [
+                {"items": {"properties": {"outcome": {"const": "required_meaning_preserved"}}}},
+                {"items": {"properties": {"outcome": {"const": "required_meaning_missing_or_changed"}}}},
+                {"items": {"properties": {"outcome": {"const": "unresolved"}}}}
+              ]}}
+            }
+          }
+        }
+      ],
+      "if": {
+        "anyOf": [
+          {"$ref": "#/$defs/comparisonHasBindingFailure"},
+          {"$ref": "#/$defs/comparisonHasPolicyFailure"}
+        ]
+      },
+      "then": {
+        "properties": {
+          "evidence_differences": {"type": "null"},
+          "relationship_uncertainty_differences": {"type": "null"}
+        },
+        "if": {"$ref": "#/$defs/comparisonHasPolicyFailure"},
+        "then": {
+          "properties": {"reviews": {"items": {"$ref": "#/$defs/edgeHasPolicyFailure"}}},
+          "if": {"$ref": "#/$defs/comparisonHasBindingFailure"},
+          "then": {
+            "properties": {
+              "reasons": {"const": [
+                {"code": "comparison_binding_unresolved"},
+                {"code": "comparison_policy_unsatisfiable"}
+              ]}
+            }
+          },
+          "else": {
+            "properties": {"reasons": {"const": [{"code": "comparison_policy_unsatisfiable"}]}}
+          }
+        },
+        "else": {
+          "properties": {"reasons": {"const": [{"code": "comparison_binding_unresolved"}]}}
+        }
+      },
+      "else": {
+        "properties": {
+          "reasons": {
+            "not": {"contains": {
+              "properties": {"code": {"enum": ["comparison_binding_unresolved", "comparison_policy_unsatisfiable"]}}
+            }}
+          },
+          "evidence_differences": {"type": "array"},
+          "relationship_uncertainty_differences": {"type": "object"}
+        }
+      }
+    }
+  }
+}

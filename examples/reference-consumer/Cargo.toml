@@ -10,10 +10,13 @@ license = "Apache-2.0"
 publish = false
 
 [dependencies]
-serde = { version = "=1.0.229", default-features = false, features = ["derive", "std"] }
-serde_json = { version = "=1.0.151", default-features = false, features = ["std"] }
+serde = { version = "1.0.228", default-features = false, features = ["derive", "std"] }
+serde_json = { version = "1.0.151", default-features = false, features = ["std"] }
 vusl-core = { path = "../../crates/vusl-core" }
 vusl-coverage = { path = "../../crates/vusl-coverage" }
+
+[target.'cfg(unix)'.dev-dependencies]
+libc = "=0.2.191"
 
 [[test]]
 name = "reference"
@@ -22,3 +25,15 @@ path = "tests/reference.rs"
 [[example]]
 name = "route_comparison"
 test = true
+
+[[example]]
+name = "explain_findings"
+test = true
+
+[[example]]
+name = "author_review"
+test = true
+
+[[example]]
+name = "inspect_reviews"
+path = "examples/inspect_reviews/main.rs"

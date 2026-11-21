@@ -228,3 +228,201 @@ The separately unpublished [reference consumer](../examples/reference-consumer/R
 | `output_write_failed` | Writing or flushing the selected report to stdout failed. | Discard any partial stdout, fix the caller's sink and explicitly rerun inspection if appropriate. Do not infer success or retry a consequential action. |
 
 Successful JSON and human output describe the same ordered edges and explicit `edge_only`, `composition_assessment: not_assessed`, `authority: none` scope. Native malformed input exits 2 with unchanged native refusal codes; typed policy or coverage failure exits 3; covered but blocked/unresolved meaning exits 4. A complete multi-edge report uses precedence 2, 3, 4, 0, while operational failure 1 overrides it. Optional loss, uncertainty and native meaning remain visible even if policy/coverage fails. Exit 0 establishes only that the selected edge guards passed; it grants neither whole-composition preservation nor authority.
+
+### Exact mapping policy construction
+
+The Rust reference API exposes constructor failures through
+`exact_mapping::PolicyError` and `exact_mapping::RelationshipPolicyError`.
+Use `as_str()` for the fixed code and `Display` for a human-readable
+correction. For obligation errors, `PolicyError::index()` returns the
+zero-based host obligation position when applicable. The errors implement
+`std::error::Error` and omit supplied policy strings and evidence references.
+
+| Code | What to check |
+| --- | --- |
+| `required_terms_mismatch` | Supply exactly one obligation for each required source term in coverage policy order. |
+| `invalid_obligation_target_term` | Correct the indexed target term. Native term text permits 1–256 UTF-8 bytes and excludes controls and Unicode noncharacters. |
+| `invalid_obligation_evidence` | Supply 1–8 distinct, valid full native evidence references for the indexed obligation. |
+| `invalid_relationship_basis` | Select `content_review` or `producer_statement` as the required relationship evidence basis. |
+| `invalid_relationship_evidence` | Supply 1–8 distinct, valid full native relationship evidence references. |
+
+These failures occur before an edge is evaluated. The exact mapping report
+carries endpoint mismatches, policy feasibility findings, and semantic
+findings after construction succeeds.
+
+### Exact-policy draft construction
+
+`exact_mapping::draft_exact_mapping` returns `DraftError` if strict policy
+feasibility or native inspection prevents construction. Use `as_str()` for
+the stable code, `Display` for fixed correction text, and
+`native_refusal_code()` for an optional native refusal category. Neither
+`Display` nor `Debug` includes caller terms, references or notes. No checked
+draft is returned on error.
+
+| Code | What to check |
+| --- | --- |
+| `draft_policy_unsatisfiable` | Inspect `policy.feasibility_findings(&relationship)`. Resolve duplicate target terms or the native review size constraint through an authorized policy decision. Do not drop required terms or citations to make drafting succeed. |
+| `draft_native_refusal` | Inspect the fixed category from `native_refusal_code()` and the native specification. Correct the constructor or policy as appropriate and reinspect; retrying unchanged inputs does not supply a valid draft. |
+
+A successful draft has unknown required terms, no asserted evidence and an
+unresolved relationship. Its valid native structure and complete selected
+term inventory do not establish preservation, evidence truth or authority.
+These construction codes are separate from strict result finding codes and
+are not entries in the strict result help catalog.
+
+### Strict chain edge count
+
+`try_inspect_exact_chain_with_relationship` returns `InvalidChainEdgeCount`
+when a strict chain contains fewer than 2 or more than 16 edges.
+`as_str()` returns `invalid_edge_count`, and `provided()`, `minimum()`, and
+`maximum()` return the submitted count and inclusive bounds. The error
+implements `std::error::Error`. Its display message uses only those counts.
+This is a Rust strict-chain request error. The example CLI group diagnostic
+above applies to its separate 1–16 edge input.
+
+### Exact mapping result findings
+
+The generated [JSON help catalog](exact-mapping-diagnostics-v0.2.json) exposes
+fixed descriptions for strict v0.2 finding codes and caller follow-up tokens.
+Its messages come from the tables below and contain no substituted caller
+data. Codes and their result payloads retain their existing meanings.
+
+These codes appear in the reference consumer's
+[`vusl.exact-mapping-result.v0.2` reports](consumer-result-v0.1.md#exact-relationship-evidence).
+Edge results compare the supplied declarations with the host policy for the
+bound snapshots. Chain reports leave end-to-end preservation unresolved.
+The caller verifies cited records. Hosts handle readback and authorization
+separately.
+
+#### Edge binding and policy
+
+Look in the edge's `reasons` and compare its expected `policy` references
+with the actual `document` references. The v0.2 mismatch reasons name the
+changed fields in `differing_fields`. A revision mismatch is relative to
+the policy pin and conveys no temporal ordering.
+The two feasibility codes are also available before inspection through
+[`ExactMappingPolicy::feasibility_findings`](consumer-result-v0.1.md#policy-feasibility).
+
+| Code | Meaning and follow-up |
+| --- | --- |
+| `source_mismatch` | The source reference differs beyond revision alone. Check the full source tuple against the selected policy. |
+| `source_revision_mismatch` | Only the source revision differs. Obtain a review for the selected revision or independently select the intended revision. |
+| `target_mismatch` | The target reference differs beyond revision alone. Check the full target tuple against the selected policy. |
+| `target_revision_mismatch` | Only the target revision differs. Obtain a review for the selected revision or independently select the intended revision. |
+| `policy_duplicate_target_term` | More than one obligation selects the same target. Use the reported indices to check whether the native one-to-one profile can represent the intended mapping. |
+| `policy_review_size_exceeded` | The minimum canonical size implied by the exact policy exceeds the native byte limit. Check the reported minimum and maximum against the policy owner's representation requirements. |
+| `producer_required_scope_unreconciled` | The host opted to require coverage of producer-required terms, and at least one lacks a host obligation. Inspect `outside_policy` and independently reconcile the required inventory. |
+| `relationship_unresolved` | The producer declared the relationship unresolved. The scoped relationship finding carries the follow-up token. Inspect the evidence and uncertainty for those exact revisions. |
+
+#### Obligation and relationship findings
+
+Find these in `obligations[].findings` or `relationship.findings`. A
+skipped record has an explicit null observation. For an evaluated obligation,
+the index refers to the host's ordered policy, and the observed facet carries
+its declared target, required flag, fidelity, loss, and citations.
+
+| Code | Meaning and follow-up |
+| --- | --- |
+| `endpoint_binding_unresolved` | Evaluation was skipped because a snapshot fails to bind. Check the edge-level mismatch reasons before comparing terms or evidence. |
+| `policy_constraints_unsatisfiable` | Evaluation was skipped because the exact policy is infeasible. Check the edge-level feasibility reasons. |
+| `required_term_missing` | The checked review omits the exact required source term. Obtain a revision-bound assessment for that term. |
+| `required_term_downgraded` | The producer marked a host-required term optional. Reconcile the producer's declaration with the selected required inventory. |
+| `target_term_mismatch` | The declared target differs from the selected pair. Check the observed fidelity. A differing candidate with unknown fidelity leaves the strict obligation unresolved. |
+| `required_meaning_loss` | The required facet declares loss. Inspect its loss kind and source evidence before deciding whether the mapping can be revised. |
+| `required_meaning_uncertain` | The required facet declares unknown fidelity. Obtain a bound assessment of the selected term pair. |
+| `expected_evidence_missing` | An exact expected citation is absent. Check the full reference. If present, `unexpected_same_record_revisions` lists the revisions of unexpected citations of the same record, in observed order. |
+| `unexpected_evidence` | A cited reference is outside the selected exact set. Verify its record and revision against the policy. |
+| `relationship_basis_mismatch` | The declared relationship basis differs from the required basis. Review the kind of evidence supporting the exact relationship. |
+| `relationship_residual_uncertainty` | An evidenced relationship discloses a caveat and the host requires none. Check the reported uncertainty before accepting a corrected assessment. |
+
+#### Findings outside the host policy
+
+These appear in the edge's `outside_policy` array and retain the producer's
+claim and citations. Optional findings are informational. When evaluation
+is skipped, `outside_policy` is null.
+
+| Code | Meaning and follow-up |
+| --- | --- |
+| `producer_required_term_outside_policy` | The producer says the term is required but the host did not select it. Check whether the authoritative host inventory needs an obligation for it. |
+| `optional_loss_outside_policy` | The producer declares loss on an optional term outside the host policy. Review the impact if the calling workflow uses that term. |
+| `optional_uncertainty_outside_policy` | The producer declares unknown fidelity on an optional term outside the host policy. Seek an assessment if the calling workflow uses that term. |
+
+#### Chain boundary and path findings
+
+Chain `reasons` identify blocked boundaries and unverified links.
+`term_paths[].stop` records where an individual path ended. Its indices
+refer to the embedded edges and host obligations.
+
+| Code | Meaning and follow-up |
+| --- | --- |
+| `chain_preservation_unknown` | The local checks leave whole-chain preservation unresolved. A separate composition rule and its evidence are needed. |
+| `chain_discontinuous` | Adjacent observed snapshot references differ. Check the reported fields before claiming continuity. |
+| `chain_boundary_binding_unresolved` | The intermediate snapshots match, but at least one edge fails its own policy binding. Inspect both embedded edge reports. |
+| `chain_boundary_policy_unsatisfiable` | The boundary binds, but at least one exact policy is infeasible. Inspect both embedded policy findings. |
+| `chain_required_term_link_missing` | The upstream target term lacks an exact downstream host obligation. Inspect `downstream_claim` for any producer declaration and select independently supported obligations. |
+| `chain_required_term_link_unverified` | The obligations link, but at least one local term check fails. Inspect both reported obligation indices and outcomes. |
+| `term_check_not_preserved` | A path stopped at an obligation that did not pass. Inspect the indicated edge and obligation findings. |
+
+An unevaluated first edge can also stop a path with
+`endpoint_binding_unresolved` or `policy_constraints_unsatisfiable`.
+
+#### Paired review findings
+
+Comparison `reasons` report binding failures, infeasible policies, claim
+conflicts, or differing edge verdicts. A shared unresolved verdict can have
+an empty reason list. Refer to the two embedded edge reports in input order
+for document IDs, observations, and evidence.
+
+| Code | Meaning and follow-up |
+| --- | --- |
+| `comparison_binding_unresolved` | At least one review fails the common policy binding. Correct the selection before comparing claims. |
+| `comparison_policy_unsatisfiable` | The exact policy is infeasible. Check the embedded edge reasons. |
+| `conflicting_term_claims` | The reviews disagree on the presence or contents of a required claim. Check `differing_fields` and both cited sources for that term. |
+| `conflicting_relationship_claims` | The reviews declare different relationship states. Check their cited evidence and uncertainty. |
+| `conflicting_producer_required_scope` | Only one review marks an uncovered term required while the host requires producer scope coverage. Inspect `claims_by_review` to distinguish an absent term from an optional claim. Use `required_in_review` to locate the required declaration and reconcile the inventory. |
+| `conflicting_producer_term_claims` | Both reviews mark an uncovered term required and differ in target, fidelity, or loss. Compare the cited claims under the matching `source_term` in each edge's `outside_policy` array, then select an independent obligation. |
+| `comparison_edge_outcomes_differ` | The edge verdicts differ without another comparison reason. Inspect each edge's findings for the different checks. |
+
+In `evidence_differences`, scope `producer_term` identifies citation deltas
+for an uncovered term that either producer marks required. These appear
+when producer scope coverage is selected. The entry names the term and keeps
+citations unique to each review in input order. Compare the cited material
+before selecting the host obligation.
+
+#### Caller follow-up tokens
+
+`resolution_needed` names a review task for the caller. The report includes
+document identities and snapshot references to locate the relevant records.
+
+| Token | Follow-up |
+| --- | --- |
+| `compare_cited_sources_for_term_at_exact_revisions` | Check how each cited source supports the selected term pair. Obtain a revision-bound assessment if a review omits the term. |
+| `review_relationship_evidence_for_exact_revisions` | Check the material, basis, and uncertainty for the claimed translation between the selected revisions. |
+| `reconcile_producer_required_terms_with_host_inventory` | Check the bound source contract and decide whether the independent host inventory needs the disputed obligation. |
+| `review_downstream_claim_and_select_exact_obligation` | Review or obtain the downstream claim for the bound intermediate term, then independently select the required mapping and citations. |
+
+## Authoring example qualification
+
+The authoring checks run through `scripts/test_exact_result_schema.py` using
+`scripts/qualify_authoring_example.py`. Run the command in the
+[validation guide](validation.md#exact-result-schema-companion) after a pinned
+consumer qualification. The helper is test tooling for the named synthetic
+cases. Its fixed failure codes carry no native identifiers or input payloads.
+
+| Code | Meaning and correction |
+| --- | --- |
+| `authoring_rows_invalid` | The expected case inventory or illustrative output shape is missing, duplicated or malformed. Repair the example or checker; partial output is unqualified. |
+| `authoring_guidance_mismatch` | Fixed guidance differs from the approved finite case. Review the message and its expected meaning before updating either example or oracle. |
+| `authoring_policy_mismatch`, `authoring_input_mismatch` | A case no longer matches its independent fixture policy or intended edit. Review the source and case requirement before updating expectations. |
+| `authoring_native_mismatch` | Native identity, assessment, guard or refusal differs from the independent oracle, or a refusal exposes a checked identity. Resolve the disagreement before qualification. |
+| `authoring_semantic_schema_invalid`, `authoring_semantic_mismatch` | A strict report violates its schema or complete case expectation. Inspect bindings, term observations, evidence findings and outcomes. |
+| `authoring_build_failed`, `authoring_tool_mismatch` | The offline build failed or its Rust/Cargo identity, host or cache differs from the qualified run. Restore the pinned audited environment and rerun qualification. |
+| `authoring_process_failed`, `authoring_argument_refusal_invalid` | Execution or unsupported-argument behavior differs from the fixed example contract. Correct the process boundary; do not accept emitted rows from a failed run. |
+| `authoring_binary_invalid`, `authoring_binary_changed` | The executable cannot be fingerprinted or changed during checks. Rebuild from stable reviewed sources and qualify again. |
+| `authoring_counterexample_accepted`, `authoring_counterexample_misclassified` | A deliberate incorrect report escaped its expected refusal. Repair the checker before treating good-case output as qualified. |
+
+Existing source/tooling codes still apply. In particular,
+`exact_schema_consumer_source_mismatch` requires a fresh consumer receipt
+when source or qualification data changes. Successful qualification concerns
+these synthetic cases and recorded binaries. It does not establish evidence
+trust, native artifact truth, loaded-target state, receipt identity or authority.
