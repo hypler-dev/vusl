@@ -3964,3 +3964,10 @@ OpenAI GPT-6.2-Sol prepared the candidate. Independent read-only review by
 `gpt_reviewer` using OpenAI GPT-5.6-Terra found no actionable issues. The
 pull request records the candidate commit and hosted checks. Publisher
 confirmation remains a separate release step.
+
+The hosted compatibility check on the initial candidate rejected the core's
+crates.io allowlist as an identity mismatch. The checker now accepts either
+a disabled publish setting or the exact crates.io allowlist, while still
+verifying core's local source, manifest path, name and version. The self-test
+covers both accepted settings and rejects unrestricted or other-registry
+publication settings. Coverage remains disabled.

@@ -342,7 +342,13 @@ def metadata_for(name: str, manifest: Path, repo_root: Path) -> dict[str, Any]:
         fail(f"core_dependency_missing:{name}")
     core_package, _ = core
     core_manifest = (repo_root / "crates/vusl-core/Cargo.toml").resolve()
-    if core_package.get("name") != "vusl-core" or core_package.get("version") != "0.1.0-dev.1" or core_package.get("source") is not None or core_package.get("manifest_path") != str(core_manifest) or core_package.get("publish") != []:
+    if (
+        core_package.get("name") != "vusl-core"
+        or core_package.get("version") != "0.1.0-dev.1"
+        or core_package.get("source") is not None
+        or core_package.get("manifest_path") != str(core_manifest)
+        or core_package.get("publish") not in ([], ["crates-io"])
+    ):
         fail(f"core_identity_mismatch:{name}")
     observed_features: dict[str, list[str]] = {}
     for package_name, expected in FIXTURES[name]["features"].items():
@@ -599,10 +605,12 @@ def self_test() -> None:
     def metadata_result(value: dict[str, Any]) -> subprocess.CompletedProcess[bytes]:
         return subprocess.CompletedProcess([], 0, stdout=json.dumps(value).encode(), stderr=b"")
 
-    positive = metadata_document()
-    with patch(__name__ + ".run", return_value=metadata_result(positive)):
-        if metadata_for("upstream", Path("/tmp/fake/Cargo.toml"), Path("/tmp"))["source_package_path"] != str(Path("/tmp/crates/vusl-core/Cargo.toml").resolve()):
-            fail("self_test_metadata_positive")
+    for publish in ([], ["crates-io"]):
+        positive = metadata_document()
+        positive["packages"][4]["publish"] = publish
+        with patch(__name__ + ".run", return_value=metadata_result(positive)):
+            if metadata_for("upstream", Path("/tmp/fake/Cargo.toml"), Path("/tmp"))["source_package_path"] != str(Path("/tmp/crates/vusl-core/Cargo.toml").resolve()):
+                fail("self_test_metadata_positive")
     workspace_drift = metadata_document()
     workspace_drift["workspace_root"] = "/tmp/other"
     with patch(__name__ + ".run", return_value=metadata_result(workspace_drift)):
@@ -610,6 +618,10 @@ def self_test() -> None:
     for label, index, field, replacement in (
         ("self_test_core_path", 4, "manifest_path", "/tmp/imposter/Cargo.toml"),
         ("self_test_core_version", 4, "version", "9.9.9"),
+        ("self_test_core_registry_source", 4, "source", "registry"),
+        ("self_test_core_unrestricted", 4, "publish", None),
+        ("self_test_core_other_registry", 4, "publish", ["other"]),
+        ("self_test_core_multiple_registries", 4, "publish", ["crates-io", "other"]),
         ("self_test_direct_tuple", 1, "version", "9.9.9"),
     ):
         changed = metadata_document()
