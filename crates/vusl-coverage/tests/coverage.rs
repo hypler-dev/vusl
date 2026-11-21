@@ -6,9 +6,8 @@ use vusl_coverage::{
     PolicyInput, SnapshotRef,
 };
 
-const BASE: &[u8] = include_bytes!("../../../conformance/native-v0.1/canonical/NV-BASE-0001.json");
-const OPTIONAL: &[u8] =
-    include_bytes!("../../../conformance/native-v0.1/canonical/NV-BASE-0002.json");
+const BASE: &[u8] = include_bytes!("fixtures/NV-BASE-0001.json");
+const OPTIONAL: &[u8] = include_bytes!("fixtures/NV-BASE-0002.json");
 
 fn source() -> SnapshotRef<'static> {
     SnapshotRef {

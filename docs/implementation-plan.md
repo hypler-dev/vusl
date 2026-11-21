@@ -3893,3 +3893,42 @@ owning pull request records the published commit, hosted checks, and merge
 state. The native v0.1 profile and historical extraction provenance retain
 their existing pins. The package and host-integration gates are separate
 from this source publication.
+
+## Experimental Rust crate prerelease
+
+This local packet prepares `vusl-core` and `vusl-coverage` at
+`0.1.0-dev.1` from main `f6b2f58acd10da5e598f703759eea7cbaac82b7d`.
+Each crate has a description, repository URL, package README and a
+byte-identical copy of the root Apache-2.0 license. The coverage manifest
+uses the local core path in the workspace and the exact
+`=0.1.0-dev.1` requirement in the packaged manifest.
+
+The core archive includes its self-contained integration tests. The
+repository-only native driver remains part of source qualification.
+Coverage embeds two byte-identical native corpus fixtures inside its crate
+so the same integration tests run from source and from the archive.
+The [validation guide](validation.md#experimental-crate-archives)
+records the offline packaging and locked archive test commands.
+
+The source and archive checks use the existing experimental version.
+Both manifests retain `publish = false`. The local archive checks use an
+unpacked core archive in place of a registry download. Registry
+publication, stable release and host integration retain separate gates.
+
+Offline validation with Rust 1.99.1 on macOS passed for both unpacked
+archives. Core ran seven integration tests and six doctests. Coverage ran
+nine integration tests and six doctests. A separate consumer using both
+unpacked crates passed a shared checked-review smoke test. The workspace
+passed formatting, Clippy and tests. Three downstream source manifests
+built with their existing locks. Native conformance passed 4,911 cases
+(475 accepts and 4,436 refusals). Repository integrity, 20 validator tests,
+seven case-plan tests and whitespace checks passed.
+
+The public APIs, native wire behavior and checked-in lockfiles are unchanged.
+The offline coverage archive is test evidence with a locally patched
+lockfile. A separately approved registry run must qualify the coverage
+package against the published core at the exact version.
+
+OpenAI GPT-6.2-Sol prepared the packet. Independent read-only review by
+`gpt_reviewer` using OpenAI GPT-5.6-Terra found no actionable issues.
+The pull request records the commit and hosted validation for this packet.

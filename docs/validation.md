@@ -35,6 +35,57 @@ python3 -B scripts/test_native_v01.py \
   --require-python 3.11.17 --output /tmp/vusl-native-v01-results.json
 ```
 
+## Experimental crate archives
+
+With Rust 1.99.1 and the root workspace dependencies cached as above, run
+this from the repository root. The commands build both `.crate` archives,
+then test their actual contents outside the source tree.
+
+```bash
+(
+  set -eu
+  vusl_version=0.1.0-dev.1
+  vusl_checkout="$PWD"
+  vusl_package_dir="$(mktemp -d /tmp/vusl-packages.XXXXXX)"
+  export CARGO_TARGET_DIR="$vusl_package_dir/target"
+  mkdir -p "$vusl_package_dir/source/crates" "$vusl_package_dir/unpacked"
+  cp Cargo.toml Cargo.lock "$vusl_package_dir/source/"
+  cp -R crates/vusl-core crates/vusl-coverage "$vusl_package_dir/source/crates/"
+
+  cd "$vusl_package_dir/source"
+  cargo package -p vusl-core --locked --offline
+  tar -xzf "$CARGO_TARGET_DIR/package/vusl-core-$vusl_version.crate" \
+    -C "$vusl_package_dir/unpacked"
+  vusl_core_archive="$vusl_package_dir/unpacked/vusl-core-$vusl_version"
+  vusl_core_patch="patch.crates-io.vusl-core.path=\"$vusl_core_archive\""
+
+  cargo package -p vusl-coverage --offline --config "$vusl_core_patch"
+  tar -xzf "$CARGO_TARGET_DIR/package/vusl-coverage-$vusl_version.crate" \
+    -C "$vusl_package_dir/unpacked"
+
+  cd "$vusl_package_dir/unpacked"
+  for vusl_crate in vusl-core vusl-coverage; do
+    cmp "$vusl_checkout/LICENSE" "$vusl_crate-$vusl_version/LICENSE"
+    test -s "$vusl_crate-$vusl_version/README.md"
+  done
+  for vusl_fixture in NV-BASE-0001.json NV-BASE-0002.json; do
+    cmp "$vusl_checkout/conformance/native-v0.1/canonical/$vusl_fixture" \
+      "vusl-coverage-$vusl_version/tests/fixtures/$vusl_fixture"
+  done
+
+  cargo test --manifest-path "vusl-core-$vusl_version/Cargo.toml" --locked --offline
+  cargo test --manifest-path "vusl-coverage-$vusl_version/Cargo.toml" --locked --offline \
+    --config "$vusl_core_patch"
+)
+```
+
+The coverage archive declares an exact registry version of `vusl-core`.
+The command-line patch connects that dependency to the unpacked core archive
+for local verification. Cargo may update the scratch source lockfile when
+preparing coverage with this patch. The unpacked test runs use each archive's
+lockfile. The native corpus driver runs from the repository checkout with
+the source validation commands above.
+
 ## Downstream compatibility
 
 The independent consumer workspaces are outside the root Cargo workspace;
