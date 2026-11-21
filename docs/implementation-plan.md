@@ -3932,3 +3932,7 @@ package against the published core at the exact version.
 OpenAI GPT-6.2-Sol prepared the packet. Independent read-only review by
 `gpt_reviewer` using OpenAI GPT-5.6-Terra found no actionable issues.
 The pull request records the commit and hosted validation for this packet.
+
+The [crates.io release checklist](crates-io-release-checklist.md) records the
+core-first publication order and the registry evidence required before coverage
+can ship. The checklist remains a preparation document.
