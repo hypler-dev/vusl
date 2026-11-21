@@ -4005,10 +4005,28 @@ Workspace formatting, Clippy, tests, and the consumer checker self-test
 also passed. Core's manifest, the workspace lockfile and implementation
 sources are unchanged.
 
-Coverage remains unpublished. The [release checklist](crates-io-release-checklist.md)
-requires a fresh locked dry run and digest from the approved clean commit,
-separate upload approval, and a clean consumer using both published crates.
+Coverage was unpublished at candidate preparation. The
+[release checklist](crates-io-release-checklist.md) required a fresh locked dry
+run and digest from the approved clean commit, separate upload approval, and
+a clean consumer using both published crates.
 
 Repository integrity, 20 validator tests and seven case-plan tests passed.
 Independent read-only review passed after clarifying the historical
-coverage status in the core entries. Hosted CI remains pending.
+coverage status in the core entries. Hosted CI was pending at that checkpoint.
+
+## Coverage prerelease registry verification
+
+[`vusl-coverage` `0.1.0-dev.1`](https://crates.io/crates/vusl-coverage/0.1.0-dev.1)
+was published by `hypler-dev` from source commit
+`822b144c7b6f9d8690ab6a244b450ce2098d4726`. Source CI passed on
+[PR #26](https://github.com/hypler-dev/vusl/pull/26). The registry version
+is unyanked and its SHA-256 matches the archive from the final locked dry run:
+`21e3d37579f274852545b7601cf68b4ecb03136cd0b1e20964c22ff961545a9e`.
+The clean-commit archive passed nine integration tests and six doctests
+against the published core.
+
+A standalone Rust 1.99.1 consumer with a fresh Cargo home resolved both exact
+prereleases from crates.io. Its lockfile contained one entry for each crate,
+with checksums matching the two release archives. Nine locked consumer
+tests passed, including passing the checked core review to coverage under
+a matching policy and detecting an omitted required term.
