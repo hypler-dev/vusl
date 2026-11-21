@@ -6,8 +6,8 @@ archive requires `vusl-core = "=0.1.0-dev.1"`. The workspace uses a local path
 for the same dependency. [Cargo dependency locations](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#multiple-locations)
 
 [PR #22](https://github.com/hypler-dev/vusl/pull/22) merged the archive
-preparation at `e7cd51954d2e954e185fc078618817be644e198e`. Both crates still
-set `publish = false`. Their offline archive suites passed with 13 core
+preparation at `e7cd51954d2e954e185fc078618817be644e198e`. At that revision
+both crates set `publish = false`. Their offline archive suites passed with 13 core
 tests and 15 coverage tests, including doctests. Coverage used a temporary
 patch to the unpacked core. Registry-backed build verification starts after
 the core upload. This checklist records the steps for a separately approved
