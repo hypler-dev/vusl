@@ -7,10 +7,12 @@ how meaning carries between native artifacts. A mapping review identifies
 the exact source and target snapshots, records what was preserved or lost,
 and cites evidence for the relationship. The Rust core inspects reviews offline.
 
-**Status:** Experimental native v0.1 source, maintained by Hypler. The Rust
-packages are unpublished. The [crate archive checks](docs/validation.md#experimental-crate-archives)
-cover both packages offline. Stable 1.0 release and consumer qualification are
-tracked in the [implementation roadmap](docs/implementation-plan.md).
+**Status:** Experimental native v0.1, maintained by Hypler.
+[`vusl-core` `0.1.0-dev.1`](https://crates.io/crates/vusl-core/0.1.0-dev.1)
+is available on crates.io as a prerelease. `vusl-coverage` remains available
+from source with registry publication disabled. The
+[implementation roadmap](docs/implementation-plan.md) tracks stable 1.0 work
+and consumer qualification.
 
 ## Current implementation and historical assets
 
@@ -25,6 +27,19 @@ tracked in the [implementation roadmap](docs/implementation-plan.md).
 Historical RUSL/D0a artifacts are retained for [provenance](PROVENANCE.md).
 The native VUSL contract and its conformance suite follow the
 [accepted architectural direction](docs/vusl-native-direction.md).
+
+## Use the published core
+
+Use Rust 1.99.1 or newer and pin the experimental version in `Cargo.toml`.
+
+```toml
+[dependencies]
+vusl-core = "=0.1.0-dev.1"
+```
+
+Call `vusl_core::inspect` with the bytes of a native mapping review. The Rust
+API and native profile are experimental and may change before 1.0. See the
+[crate README](crates/vusl-core/README.md) for an inspection example.
 
 ## Try the reference consumer
 
