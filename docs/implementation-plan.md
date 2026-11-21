@@ -3936,3 +3936,31 @@ The pull request records the commit and hosted validation for this packet.
 The [crates.io release checklist](crates-io-release-checklist.md) records the
 core-first publication order and the registry evidence required before coverage
 can ship. The checklist remains a preparation document.
+
+## Core-only crates.io release candidate
+
+The `vusl-core` candidate targets `0.1.0-dev.1` from merged main
+`6436f9e3a28cf0bd1b46f5df48d8904bf817e7a6`. Its manifest allows only
+`crates-io`. The coverage manifest still sets `publish = false` and pins
+`vusl-core` to `=0.1.0-dev.1`. Source behavior and the workspace lockfile
+are unchanged.
+
+The [crates.io release checklist](crates-io-release-checklist.md) governs
+upload approval and verification. Rerun the locked core dry run and record
+the archive digest from the eventual approved clean Git commit. Coverage
+remains gated on a consumer building against the exact published core and
+separate approval for coverage.
+
+A credential-free Cargo 1.99.1 dry run from a scratch copy built and verified
+the 11-file core archive. Its digest is
+`d773b568a68e14b3a7d133dd672dfc1e558cab7db7e50fa2fd91a945f5215abb`
+and matches the offline package. The unpacked suites passed 13 core tests
+and 15 coverage tests, including doctests. Coverage's archive test used the
+local core patch. Workspace formatting, Clippy and tests passed. Native
+conformance passed 4,911 cases (475 accepts and 4,436 refusals), and repository
+integrity, 20 validator tests and seven case-plan tests passed.
+
+OpenAI GPT-6.2-Sol prepared the candidate. Independent read-only review by
+`gpt_reviewer` using OpenAI GPT-5.6-Terra found no actionable issues. The
+pull request records the candidate commit and hosted checks. Publisher
+confirmation remains a separate release step.

@@ -7,7 +7,7 @@ license.workspace = true
 description = "Offline inspection and canonicalization of experimental VUSL mapping reviews"
 repository = "https://github.com/hypler-dev/vusl"
 readme = "README.md"
-publish = false
+publish = ["crates-io"]
 # The native driver depends on the repository conformance corpus.
 exclude = ["/tests/native_driver.rs"]
 
