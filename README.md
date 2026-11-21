@@ -9,9 +9,9 @@ and cites evidence for the relationship. The Rust core inspects reviews offline.
 
 **Status:** Experimental native v0.1, maintained by Hypler.
 [`vusl-core` `0.1.0-dev.1`](https://crates.io/crates/vusl-core/0.1.0-dev.1)
-is available on crates.io as a prerelease. `vusl-coverage` remains available
-from source with registry publication disabled. The
-[implementation roadmap](docs/implementation-plan.md) tracks stable 1.0 work
+and [`vusl-coverage` `0.1.0-dev.1`](https://crates.io/crates/vusl-coverage/0.1.0-dev.1)
+are available on crates.io as prereleases. Coverage pins the exact core version.
+The [implementation roadmap](docs/implementation-plan.md) tracks stable 1.0 work
 and consumer qualification.
 
 ## Current implementation and historical assets
@@ -40,6 +40,21 @@ vusl-core = "=0.1.0-dev.1"
 Call `vusl_core::inspect` with the bytes of a native mapping review. The Rust
 API and native profile are experimental and may change before 1.0. See the
 [crate README](crates/vusl-core/README.md) for an inspection example.
+
+## Add independent required-term coverage
+
+To apply a caller-selected required-term policy to a checked review, pin both
+crates to the same prerelease.
+
+```toml
+[dependencies]
+vusl-core = "=0.1.0-dev.1"
+vusl-coverage = "=0.1.0-dev.1"
+```
+
+Inspect the mapping review using `vusl_core::inspect`, then pass the checked
+review and your policy to `vusl_coverage::evaluate`. See the
+[coverage crate README](crates/vusl-coverage/README.md) for the policy inputs.
 
 ## Try the reference consumer
 

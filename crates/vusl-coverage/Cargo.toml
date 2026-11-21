@@ -7,7 +7,7 @@ license.workspace = true
 description = "Caller-selected required term coverage for checked VUSL mapping reviews"
 repository = "https://github.com/hypler-dev/vusl"
 readme = "README.md"
-publish = false
+publish = ["crates-io"]
 
 [dependencies]
 vusl-core = { path = "../vusl-core", version = "=0.1.0-dev.1" }
