@@ -154,6 +154,15 @@ def _string(value: Any, maximum: int, *, allow_empty: bool = False) -> str:
     return value
 
 
+def valid_native_text(value: str, maximum: int) -> bool:
+    """Test a required native string using the oracle's scalar and byte rules."""
+    try:
+        _string(value, maximum)
+    except _Refusal:
+        return False
+    return True
+
+
 def _reference(value: Any) -> tuple[str, str, str, str, str, str]:
     record = _closed_object(value, _REFERENCE_FIELDS)
     return tuple(_string(record[field], COMPONENT_LIMIT) for field in _REFERENCE_FIELDS)  # type: ignore[return-value]
@@ -342,4 +351,4 @@ def inspect(raw: bytes) -> dict[str, Any]:
         return {"accepted": False, "code": refusal.code}
 
 
-__all__ = ["inspect", "PROFILE"]
+__all__ = ["inspect", "valid_native_text", "PROFILE"]

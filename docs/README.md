@@ -8,6 +8,7 @@
 | [Reference consumer](../examples/reference-consumer/README.md) | Run offline examples or integrate caller-selected coverage and exact mapping checks. |
 | [Consumer result](consumer-result-v0.1.md) | Interpret versioned verdicts, evidence references, disagreements, and chain reports. |
 | [Diagnostics catalog](diagnostics.md) | Interpret refusal and diagnostic codes and identify what to fix before retrying. |
+| [Machine-readable diagnostic help](exact-mapping-diagnostics-v0.2.json) | Look up fixed descriptions for strict v0.2 result codes and caller follow-up tokens. |
 | [JSON Schema companion](../tests/schema-companion/README.md) | Author review documents and understand where structural validation stops. |
 | [Standards alignment](native-v0.1-standards-alignment.md) | Review how required-term coverage and PROV/SKOS concepts relate to the implemented contract. |
 

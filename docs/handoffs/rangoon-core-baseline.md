@@ -1,24 +1,28 @@
 # Rangoon handoff: native VUSL reference consumer and composition fit
 
-Status: refreshed in VUSL on October 27, 2026; preparation only. This refreshed
+Status: refreshed in VUSL on November 20, 2026; preparation only. This refreshed
 handoff has not been sent or executed by this task. The
-[VUSL roadmap](../implementation-plan.md#reference-consumer-and-composition-fit-preparation--october-25-2026)
-owns acceptance and evidence; the
-[proposed reference-consumer/composition packet](../native-v0.1-reference-consumer-composition-packet.md)
-describes future VUSL work. Rangoon's owner separately accepts any application
+[VUSL roadmap](../implementation-plan.md) owns acceptance and evidence. The
+[reference-consumer/composition packet](../native-v0.1-reference-consumer-composition-packet.md)
+records the earlier design scope. The public source baseline below contains its
+implementation and later exact-mapping checks. Rangoon's owner separately
+accepts any application
 adoption, pin, parser retirement, UI or publication work. This is not a second
 Rangoon roadmap.
 
-## Current immutable upstream candidate
+## November 20 VUSL source baseline
 
-Use VUSL main `7e3f7f31f6ae701f18884f98356e873ab32efb4e` as the proposed
-reviewed consumer baseline, not the old PR #10 preparation revision or the
-historical extraction. It includes merged consumer compatibility, coverage,
-schema/standards alignment and diagnostics through PR #14. Both
+Public main was read at `dc53c7fd25f0f4d7bf90776c20569920d22d1081` on
+November 20. This dated baseline includes the native core, coverage helper, reference consumer,
+`vusl.consumer-result.v0.1`, and opt-in `vusl.exact-mapping-result.v0.1`.
+The receiving owner selects an immutable revision with the needed API and
+qualifies the actual application graph.
+
+The earlier baseline `7e3f7f31f6ae701f18884f98356e873ab32efb4e` had passing
 [native main CI](https://github.com/hypler-dev/vusl/actions/runs/40121175440)
-and [integrity main CI](https://github.com/hypler-dev/vusl/actions/runs/40121175512)
-passed at that exact source revision. The reference executable/composition
-packet is proposed and is not present at this pin.
+and [integrity main CI](https://github.com/hypler-dev/vusl/actions/runs/40121175512).
+Those runs remain evidence for that earlier revision. Current-pin Actions
+results were not established by this read-only refresh.
 
 | Required artifact | SHA-256 |
 | --- | --- |
@@ -27,10 +31,12 @@ packet is proposed and is not present at this pin.
 | `conformance/native-v0.1/manifest.json` | `ced5eaf9797c48363eb67c1db7f11628cccaf6bbdb22f4a0e4274163334fe132` |
 | `conformance/native-v0.1/cases.json` | `b7eff0ed533857cc40a6ceba3bab15ed8fab83d8a6c7918ef9c126b55317279e` |
 | Root `Cargo.lock` | `915c6aa6e605e0f9af35cab75220f1afddd138fda6f12155fc627e15b4695e61` |
+| `examples/reference-consumer/src/exact_mapping.rs` | `54c91ba04bf76bbdb0153f01e2af38b6d7022e23058a885324803b2acdea2ba0` |
+| `docs/consumer-result-v0.1.md` | `c5e89fd96502858fef50b6e29c9393607bb09323592324ed59456f1babd67c34` |
 
 The accepted spec/plan bytes remain those evaluated at
 `d05dca770ff756826255aad7e62fcdfdb6ad952f`. Consumer code should point at the
-[native specification](https://github.com/hypler-dev/vusl/blob/7e3f7f31f6ae701f18884f98356e873ab32efb4e/docs/vusl-v0.1-specification.md),
+[native specification](https://github.com/hypler-dev/vusl/blob/dc53c7fd25f0f4d7bf90776c20569920d22d1081/docs/vusl-v0.1-specification.md),
 not treat `b55e019`'s historical README as an active specification or core pin.
 Keep historical provenance separate; do not rewrite retained bytes/hashes as a
 migration exercise.
@@ -40,9 +46,38 @@ qualification uses Rust/Cargo 1.99.1 and Python 3.11.17. The 4,911 native cases
 have 475 accepts/4,436 refusals. Both independent synthetic downstream graphs
 pass those cases; that does not qualify Rangoon's real graph, heap/timing,
 installed desktop, native ARM, Windows, WASM or target loaders. Older local
-macOS Rust evidence used an x86_64 compiler/binary on an ARM64 host. A temporary
-local Python cache is now incomplete; fresh pinned hosted qualification passed,
-but future local runs need explicitly restored verified tooling.
+macOS Rust evidence used an x86_64 compiler/binary on an ARM64 host. Follow the
+[validation guide](../validation.md) for exact tooling and evidence scope.
+
+## November 20 public-source alignment
+
+Rangoon public main was read at `9167f3af21a25bcc9674e0fac8a3c119365e5aed`.
+Its manifest and toolchain select Rust 1.99.1. The README describes exact
+saved-revision continuation into Compose and Compile, with dirty, busy, and
+late-result guards. Its VUSL page still links the historical extraction README
+as the pinned specification. The owner packet should correct that active
+navigation to the accepted native specification while preserving provenance.
+[Source and feature state](https://github.com/hypler-dev/rangoon/blob/9167f3af21a25bcc9674e0fac8a3c119365e5aed/README.md),
+[compiler selection](https://github.com/hypler-dev/rangoon/blob/9167f3af21a25bcc9674e0fac8a3c119365e5aed/rust-toolchain.toml),
+[current VUSL navigation](https://github.com/hypler-dev/rangoon/blob/9167f3af21a25bcc9674e0fac8a3c119365e5aed/docs/vusl.md).
+
+Compiler alignment clears the older configuration discrepancy. Actual dependency
+resolution, feature unification, stored-review handling, target loading, and
+native application qualification still belong to the Rangoon owner.
+
+The strict v0.2 reference-consumer packet adds relationship, producer-scope,
+comparison, and chain diagnostics. The dated source candidate above contains
+the earlier v0.1 API. For the strict API, pin a reviewed immutable revision
+that contains it and qualify Rangoon's selected workflow against that revision.
+Whole-chain preservation is unresolved in the examples.
+
+The next consumer task should bind one saved source revision to an exact target
+preview, independently select required pairs and evidence, and test changed
+scope, stale selection, lost constraints, missing claims, and unresolved
+relationships. Record semantic evidence, target-loaded readback, and execution
+authority separately. This task can use the public v0.1 source API where its
+selected requirements fit. Record requirements outside that API's scope as
+host qualification gaps alongside the outcome VUSL actually returns.
 
 ## Consumer observations are dated and distinct
 
@@ -112,8 +147,9 @@ existing synthetic source/target contract and compiled policies. They must not
 embed RM-1/LNSAT envelopes or claim their compatibility. Real adapter adoption,
 remote-version lineage and freshness protocols remain Rangoon-owned; a concrete
 unrepresentable semantic requirement would need a separate versioned VUSL
-proposal. The reference consumer and composition-fit packet remains the next
-VUSL implementation candidate, with no wire change.
+proposal. The public source reference consumer now implements the earlier
+composition-fit packet. The next qualification target is an actual host-owned
+workflow with an immutable commit tuple and independently selected requirements.
 
 ## Proposed owner packet and acceptance
 
@@ -157,7 +193,7 @@ A passing reference example is not this application receipt.
 
 ## Ownership and closed actions
 
-VUSL owns native conformance and the future independent reference example.
+VUSL owns native conformance and its independent reference consumer.
 Rangoon owns workbench/UI, host inventory, evidence acceptance, adapters and
 parser retirement. LNSAT owns authority, receipts and reconciliation. The
 current mapping-review profile does not replace Rangoon D1/D2a/D3a, create an

@@ -1,16 +1,63 @@
 # LNSAT handoff: native evidence compatibility and authority boundaries
 
-Status: VUSL-owned handoff refreshed October 25, 2026; not dispatched or
-executed by this task. The [VUSL roadmap](../implementation-plan.md#reference-consumer-and-composition-fit-preparation--october-25-2026)
+Status: VUSL-owned handoff refreshed November 20, 2026; not dispatched or
+executed by this task. The [VUSL roadmap](../implementation-plan.md)
 owns this preparation, and LNSAT's own `docs/PROJECT_STATUS.md` remains authority
 for its implementation and qualification. The
 [reference-consumer/composition packet](../native-v0.1-reference-consumer-composition-packet.md)
-is proposed VUSL example work, not an LNSAT adapter or engine dependency.
+records the earlier VUSL example design. Its public source implementation is
+available at the immutable baseline in the Rangoon handoff. LNSAT owns its
+advisory and Gateway integrations.
 
-## Public source snapshot and completed status correction
+## November 20 public-source alignment
+
+LNSAT public main was read at `8e824b2e2099d499cc3022ecbe5942a95f1142f5`.
+Source milestone 0.3.0 positions System One as a local CPU-first advisory
+decision engine. Its proposed result includes review-route probabilities,
+evidence references, and explicit abstention. Public decision-runner, weights,
+and management integration remain planned. The Gateway retains its separate
+authority path for managed effects.
+[Current source direction](https://github.com/hypler-dev/LNSAT/blob/8e824b2e2099d499cc3022ecbe5942a95f1142f5/README.md),
+[implementation and maturity](https://github.com/hypler-dev/LNSAT/blob/8e824b2e2099d499cc3022ecbe5942a95f1142f5/docs/PROJECT_STATUS.md).
+
+VUSL can supply a deterministic semantic evidence check under an independently
+selected host policy. The caller binds exact source and target snapshots,
+policy ID and revision, required term pairs, and expected citation references.
+LNSAT separately checks its selected target, attempt, receipt, review cutoff,
+and independent readback. The advisory owner defines how a semantic finding
+affects the recommendation and abstention rules. `clarify` is a proposed view
+recommendation; abstention withholds a recommendation. Keep those states
+distinct from VUSL's three semantic outcomes.
+
+The public System One result contract and actual VUSL integration still need
+owning-repository acceptance and qualification. A proposed joint evaluation
+should use the same host evidence in both controls, with VUSL as the added
+semantic evidence. Include one-fact changes to scope, revision, policy,
+required terms, and cited evidence. Report route changes and evidence-binding
+results independently. Real-case accuracy requires independently labeled
+case families and outcomes; source fixtures establish bounded behavior.
+
+Product/source version 0.3.0, Gateway wire `lnsat.contracts.v1_0`, and local
+schema 18 name different contracts. Preserve the actual native identity and
+contract version in any selected VUSL reference. The pinned LNSAT toolchain
+remains Rust 1.97.1; VUSL's Rust 1.99.1 source qualification does not change
+LNSAT's compiler policy or establish a combined build.
+[Version posture](https://github.com/hypler-dev/LNSAT/blob/8e824b2e2099d499cc3022ecbe5942a95f1142f5/docs/PROJECT_STATUS.md),
+[compiler selection](https://github.com/hypler-dev/LNSAT/blob/8e824b2e2099d499cc3022ecbe5942a95f1142f5/rust-toolchain.toml).
+
+The November 20 public-source baseline was
+`dc53c7fd25f0f4d7bf90776c20569920d22d1081`. Its v0.1 API checks exact term
+pairs, facet citations, and the declared relationship state. The strict
+v0.2 reference-consumer packet adds independent relationship evidence and
+opt-in coverage of producer-required terms. Select the API available at the
+chosen immutable revision, record host requirements outside its scope, and
+qualify the actual integration using the existing native profile.
+
+## October 25 source snapshot and completed status correction
 
 The intended public repository is `https://github.com/hypler-dev/LNSAT.git`.
-Public main was rechecked at `35a41963ad698934c7ee00852c71355e329c34fa`.
+The October 25 public main snapshot was
+`35a41963ad698934c7ee00852c71355e329c34fa`.
 Its [request-bound Git-result document](https://github.com/hypler-dev/LNSAT/blob/35a41963ad698934c7ee00852c71355e329c34fa/docs/architecture/request-bound-git-result.md)
 already describes merged experimental private result source with synthetic
 fixture evidence and no runtime/product effect. The older VUSL handoff's
