@@ -3971,3 +3971,17 @@ a disabled publish setting or the exact crates.io allowlist, while still
 verifying core's local source, manifest path, name and version. The self-test
 covers both accepted settings and rejects unrestricted or other-registry
 publication settings. Coverage remains disabled.
+
+## Core prerelease registry verification
+
+[`vusl-core` `0.1.0-dev.1`](https://crates.io/crates/vusl-core/0.1.0-dev.1)
+was published by `hypler-dev` from source commit
+`4c853e03c1000cedcf5f23ca9fbbce4935654002`. The registry reports the
+version as unyanked. Its SHA-256 matches the final dry-run archive:
+`6019a0c98faf19ab1dfbbec9f1dd424d15c3b8e7ab1a5955351bf052e975317d`.
+
+A standalone consumer outside the VUSL workspace used Rust 1.99.1, a fresh
+Cargo home and the exact registry dependency `=0.1.0-dev.1`. The consumer
+lock confirmed the crates.io source and matching checksum, and the locked
+smoke test verified native inspection, canonical bytes and the declared
+preservation guard. Coverage remains unpublished with `publish = false`.
