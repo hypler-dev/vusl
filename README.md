@@ -8,7 +8,8 @@ the exact source and target snapshots, records what was preserved or lost,
 and cites evidence for the relationship. The Rust core inspects reviews offline.
 
 **Status:** Experimental native v0.1 source, maintained by Hypler. The Rust
-packages are unpublished. Stable 1.0 release and consumer qualification are
+packages are unpublished. The [crate archive checks](docs/validation.md#experimental-crate-archives)
+cover both packages offline. Stable 1.0 release and consumer qualification are
 tracked in the [implementation roadmap](docs/implementation-plan.md).
 
 ## Current implementation and historical assets
@@ -16,9 +17,9 @@ tracked in the [implementation roadmap](docs/implementation-plan.md).
 | Component | What it provides |
 | --- | --- |
 | [Native specification](docs/vusl-v0.1-specification.md) | A bounded mapping-review format with scoped native references, term-level fidelity and loss, and evidence-qualified relationships. |
-| [Rust core](crates/vusl-core/Cargo.toml) | Offline inspection with typed results, canonical bytes, a stable document ID, and an assessment of declared required meaning. |
+| [Rust core](crates/vusl-core/README.md) | Offline inspection with typed results, canonical bytes, a stable document ID, and an assessment of declared required meaning. |
 | [Authoring schema](schemas/vusl.mapping-review.v0.1.schema.json) | A JSON Schema 2020-12 structural check for authoring. The native inspector determines conformance. |
-| [Independent coverage](crates/vusl-coverage/Cargo.toml) | Checks whether a review includes every source term required by a caller-selected policy and keeps those terms marked as required. |
+| [Independent coverage](crates/vusl-coverage/README.md) | Checks whether a review includes every source term required by a caller-selected policy and keeps those terms marked as required. |
 | [Reference consumer](examples/reference-consumer/README.md) | Redacted CLI diagnostics, versioned semantic results, and offline examples for saved revisions, exact mapping, and multi-edge review. |
 
 Historical RUSL/D0a artifacts are retained for [provenance](PROVENANCE.md).

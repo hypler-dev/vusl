@@ -4,7 +4,10 @@ version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
 license.workspace = true
+description = "Caller-selected required term coverage for checked VUSL mapping reviews"
+repository = "https://github.com/hypler-dev/vusl"
+readme = "README.md"
 publish = false
 
 [dependencies]
-vusl-core = { path = "../vusl-core" }
+vusl-core = { path = "../vusl-core", version = "=0.1.0-dev.1" }
